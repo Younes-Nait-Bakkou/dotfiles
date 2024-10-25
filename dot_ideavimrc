@@ -1,0 +1,125 @@
+let mapleader=" "
+nmap <leader>d : action GotoDeclaration <cr>
+
+" Set relative number lines for easier navigation
+set relativenumber number
+
+" Enable system clipboard for copy-pasting between Vim and other applications
+set clipboard+=unnamedplus
+
+" Set scrolloff to keep some lines above and below the cursor
+set scrolloff=8
+
+" Highlight the current line for better focus
+set cursorline
+
+" Remap original ZQ commands
+" Save and quit
+nmap <leader>ZZ ZZ
+
+" Quit without saving
+nmap <leader>ZQ ZQ
+
+" Remap macro recording command
+nmap <leader>q q        " Record macro
+
+" Map Backspace to delete character under the cursor
+nnoremap <BS> i<BS><Esc>
+
+" In Visual mode: Map Backspace to delete the selected text
+xnoremap <BS> d
+
+" Remap navigation keys in Insert Mode using ZQSD
+imap <C-z> <Up>
+imap <C-q> <Left>
+imap <C-s> <Down>
+imap <C-d> <Right>
+
+set commentary
+
+" Switch to normal mode from insert mode
+imap jj <Esc>
+
+" Make search case insensitive unless capitalized
+set ignorecase
+set smartcase
+
+" Highlight search results
+set hlsearch
+set incsearch
+
+" Map <leader>/ to clear search highlights
+nnoremap <leader>/ :nohlsearch<CR>
+
+" Quickly save with Ctrl+S
+nnoremap <C-s> :w<CR>
+imap <C-s> <Esc>:w<CR>
+
+" Quickly quit with Ctrl+Q
+nnoremap <C-q> :q<CR>
+imap <C-q> <Esc>:q<CR>
+
+" Shift a block of visually selected text right/left by 4 spaces
+vmap < <gv
+vmap > >gv
+
+" Quickly comment/uncomment lines in normal mode
+nnoremap <leader>c :action CommentByLineComment<CR>
+
+" Comment/uncomment in visual mode
+vnoremap <leader>c :action CommentByLineComment<CR>
+
+" Find usages of symbol
+nnoremap <leader>u :action FindUsages<CR>
+
+" Show quick documentation
+nnoremap <leader>k :action QuickJavaDoc<CR>
+
+" Show refactor menu
+nnoremap <leader>r :action Refactorings.QuickListPopupAction<CR>
+
+" Trigger IntelliJ's completion
+inoremap <C-Space> <C-x><C-o>
+
+" Remap new line below to <leader>o (space + o)
+nnoremap <leader>o o
+
+" Remap setting a mark to <leader>m
+nnoremap <leader>m m
+
+" Remap navigation keys (oklm) in Normal Mode
+nnoremap o k
+nnoremap k h
+nnoremap l j
+nnoremap m l
+
+" Remap navigation keys (oklm) in Visual Mode
+vnoremap o k
+vnoremap k h
+vnoremap l j
+vnoremap m l
+
+" Map naviagations keys (oklm) in Insert Mode
+imap <C-o> <Up>
+imap <C-k> <Left>
+imap <C-l> <Down>
+imap <C-m> <Right>
+
+" Disable arrow keys to encourage using hjkl (or your own mappings
+noremap <Up>    <NOP>
+noremap <Down>  <NOP>
+noremap <Left>  <NOP>
+noremap <Right> <NOP>
+
+" Open a new tab
+nnoremap <leader>t :tabnew<CR>
+
+" Close the current tab
+nnoremap <leader>x :tabclose<CR>
+
+" Move between tabs
+nmap <C-m> :tabnext<CR>
+nmap <C-k> :tabprevious<CR>
+
+" Remap Ctrl+Z to Undo
+nmap <C-z> u

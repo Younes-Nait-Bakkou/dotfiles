@@ -1,0 +1,1 @@
+-- require("dadbod").setup({})

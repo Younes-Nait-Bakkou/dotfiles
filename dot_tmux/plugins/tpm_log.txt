@@ -1,0 +1,260 @@
+[2024-10-15 10:08:10.284]	List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum
+[2024-10-15 10:08:10.302]	Invoking /home/younes/.tmux/plugins/tpm/bin/install_plugins
+[2024-10-15 10:08:10.384]	Installing "tmux-copycat"
+[2024-10-15 10:08:10.436]	Installing "tmux-resurrect"
+[2024-10-15 10:08:10.465]	Installing "tmux-cpu"
+[2024-10-15 10:08:10.518]	Installing "tmux-continuum"
+[2024-10-15 10:08:10.557]	Already installed "tpm"
+[2024-10-15 10:08:10.577]	Installing "tmux-sensible"
+[2024-10-15 10:08:11.336]	  "tmux-sensible" download success
+[2024-10-15 10:08:11.359]	  "tmux-continuum" download success
+[2024-10-15 10:08:11.374]	  "tmux-cpu" download success
+[2024-10-15 10:08:11.389]	  "tmux-copycat" download success
+[2024-10-15 10:08:12.271]	  "tmux-resurrect" download success
+[2024-10-15 10:08:12.287]	Done.
+
+[2024-10-16 09:27:04.087]	List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum
+[2024-10-16 09:27:04.150]	Invoking /home/younes/.tmux/plugins/tpm/bin/install_plugins
+[2024-10-16 09:27:04.563]	Already installed "tmux-resurrect"
+[2024-10-16 09:27:04.625]	Already installed "tmux-cpu"
+[2024-10-16 09:27:04.679]	Already installed "tmux-copycat"
+[2024-10-16 09:27:04.720]	Already installed "tmux-continuum"
+[2024-10-16 09:27:04.759]	Already installed "tpm"
+[2024-10-16 09:27:04.838]	Already installed "tmux-sensible"
+[2024-10-16 09:27:04.948]	Invoking /home/younes/.tmux/plugins/tpm/bin/update_plugins all
+[2024-10-16 09:27:05.160]	Updating all plugins!
+[2024-10-16 09:27:05.208]	
+[2024-10-16 09:27:06.466]	  "tmux-copycat" update success
+[2024-10-16 09:27:06.569]	    | Already up to date.
+[2024-10-16 09:27:06.674]	  "tmux-cpu" update success
+[2024-10-16 09:27:06.721]	    | Already up to date.
+[2024-10-16 09:27:06.849]	  "tmux-continuum" update success
+[2024-10-16 09:27:06.910]	    | Already up to date.
+[2024-10-16 09:27:06.959]	  "tmux-resurrect" update success
+[2024-10-16 09:27:07.030]	    | Already up to date.
+[2024-10-16 09:27:07.114]	  "tmux-sensible" update success
+[2024-10-16 09:27:07.237]	    | Already up to date.
+[2024-10-16 09:27:09.627]	  "tpm" update success
+[2024-10-16 09:27:09.643]	    | Already up to date.
+[2024-10-16 09:27:09.657]	    | Submodule 'lib/tmux-test' (https://github.com/tmux-plugins/tmux-test.git) registered for path 'lib/tmux-test'
+[2024-10-16 09:27:09.672]	    | Cloning into '/home/younes/.tmux/plugins/tpm/lib/tmux-test'...
+[2024-10-16 09:27:09.685]	    | From https://github.com/tmux-plugins/tmux-test
+[2024-10-16 09:27:09.699]	    |  * branch            33fa65fbfb72ba6dd106c21bf5ee6cc353ecdbb6 -> FETCH_HEAD
+[2024-10-16 09:27:09.713]	    | Submodule path 'lib/tmux-test': checked out '33fa65fbfb72ba6dd106c21bf5ee6cc353ecdbb6'
+[2024-10-16 09:27:09.727]	Invoking /home/younes/.tmux/plugins/tpm/bin/clean_plugins all
+[2024-10-16 09:27:09.777]	Done.
+
+[2024-10-17 09:40:12.720]	List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum
+[2024-10-17 09:40:12.767]	Invoking /home/younes/.tmux/plugins/tpm/bin/install_plugins
+[2024-10-17 09:40:13.089]	Already installed "tmux-copycat"
+[2024-10-17 09:40:13.197]	Already installed "tmux-resurrect"
+[2024-10-17 09:40:13.282]	Already installed "tmux-cpu"
+[2024-10-17 09:40:13.436]	Already installed "tpm"
+[2024-10-17 09:40:13.602]	Already installed "tmux-sensible"
+[2024-10-17 09:40:13.717]	Already installed "tmux-continuum"
+[2024-10-17 09:40:13.868]	Invoking /home/younes/.tmux/plugins/tpm/bin/update_plugins all
+[2024-10-17 09:40:14.223]	Updating all plugins!
+[2024-10-17 09:40:14.280]	
+[2024-10-17 09:40:15.820]	  "tmux-cpu" update success
+[2024-10-17 09:40:16.113]	  "tmux-resurrect" update success
+[2024-10-17 09:40:16.193]	    | Already up to date.
+[2024-10-17 09:40:16.247]	    | Already up to date.
+[2024-10-17 09:40:16.310]	  "tmux-copycat" update success
+[2024-10-17 09:40:16.382]	    | Already up to date.
+[2024-10-17 09:40:16.565]	  "tmux-continuum" update success
+[2024-10-17 09:40:16.700]	    | Already up to date.
+[2024-10-17 09:40:16.879]	  "tpm" update success
+[2024-10-17 09:40:17.118]	  "tmux-sensible" update success
+[2024-10-17 09:40:17.229]	    | Already up to date.
+[2024-10-17 09:40:17.351]	    | Already up to date.
+[2024-10-17 09:40:17.602]	Invoking /home/younes/.tmux/plugins/tpm/bin/clean_plugins all
+[2024-10-17 09:40:18.117]	Done.
+
+[2024-10-18 09:19:13.730]	List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum
+[2024-10-18 09:19:13.757]	Invoking /home/younes/.tmux/plugins/tpm/bin/install_plugins
+[2024-10-18 09:19:13.854]	Already installed "tmux-cpu"
+[2024-10-18 09:19:13.858]	List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum
+[2024-10-18 09:19:13.879]	Already installed "tmux-copycat"
+[2024-10-18 09:19:13.883]	Invoking /home/younes/.tmux/plugins/tpm/bin/install_plugins
+[2024-10-18 09:19:13.907]	Already installed "tmux-sensible"
+[2024-10-18 09:19:13.935]	Already installed "tpm"
+[2024-10-18 09:19:13.971]	Already installed "tmux-continuum"
+[2024-10-18 09:19:13.981]	Already installed "tmux-resurrect"
+[2024-10-18 09:19:13.999]	Already installed "tmux-resurrect"
+[2024-10-18 09:19:14.006]	Already installed "tmux-copycat"
+[2024-10-18 09:19:14.023]	Invoking /home/younes/.tmux/plugins/tpm/bin/update_plugins all
+[2024-10-18 09:19:14.029]	Already installed "tmux-sensible"
+[2024-10-18 09:19:14.054]	Already installed "tmux-continuum"
+[2024-10-18 09:19:14.082]	Updating all plugins!
+[2024-10-18 09:19:14.091]	Already installed "tmux-cpu"
+[2024-10-18 09:19:14.115]	
+[2024-10-18 09:19:14.124]	Already installed "tpm"
+[2024-10-18 09:19:14.152]	Invoking /home/younes/.tmux/plugins/tpm/bin/update_plugins all
+[2024-10-18 09:19:14.219]	Updating all plugins!
+[2024-10-18 09:19:14.255]	
+[2024-10-18 09:19:15.021]	  "tmux-cpu" update success
+[2024-10-18 09:19:15.097]	    | Already up to date.
+[2024-10-18 09:19:15.114]	  "tmux-resurrect" update success
+[2024-10-18 09:19:15.132]	  "tmux-copycat" update success
+[2024-10-18 09:19:15.139]	    | Already up to date.
+[2024-10-18 09:19:15.155]	    | Already up to date.
+[2024-10-18 09:19:15.160]	  "tmux-cpu" update success
+[2024-10-18 09:19:15.174]	  "tmux-copycat" update success
+[2024-10-18 09:19:15.177]	  "tpm" update success
+[2024-10-18 09:19:15.190]	    | Already up to date.
+[2024-10-18 09:19:15.197]	    | Already up to date.
+[2024-10-18 09:19:15.205]	    | Already up to date.
+[2024-10-18 09:19:15.217]	  "tmux-continuum" update success
+[2024-10-18 09:19:15.224]	  "tpm" update success
+[2024-10-18 09:19:15.232]	    | Already up to date.
+[2024-10-18 09:19:15.246]	    | Already up to date.
+[2024-10-18 09:19:15.247]	  "tmux-resurrect" update success
+[2024-10-18 09:19:15.269]	  "tmux-continuum" update success
+[2024-10-18 09:19:15.269]	  "tmux-sensible" update success
+[2024-10-18 09:19:15.291]	    | Already up to date.
+[2024-10-18 09:19:15.291]	  "tmux-sensible" update success
+[2024-10-18 09:19:15.313]	    | Already up to date.
+[2024-10-18 09:19:15.313]	    | Already up to date.
+[2024-10-18 09:19:15.336]	Invoking /home/younes/.tmux/plugins/tpm/bin/clean_plugins all
+[2024-10-18 09:19:15.336]	    | Already up to date.
+[2024-10-18 09:19:15.352]	Invoking /home/younes/.tmux/plugins/tpm/bin/clean_plugins all
+[2024-10-18 09:19:15.416]	Done.
+
+[2024-10-18 09:19:15.417]	Done.
+
+[2024-10-18 22:58:12.160]	List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum
+[2024-10-18 22:58:12.409]	Invoking /home/younes/.tmux/plugins/tpm/bin/install_plugins
+[2024-10-18 22:58:13.551]	Already installed "tmux-cpu"
+[2024-10-18 22:58:13.701]	Already installed "tmux-resurrect"
+[2024-10-18 22:58:13.883]	Already installed "tmux-sensible"
+[2024-10-18 22:58:14.018]	Already installed "tpm"
+[2024-10-18 22:58:14.150]	Already installed "tmux-continuum"
+[2024-10-18 22:58:14.819]	Already installed "tmux-copycat"
+[2024-10-18 22:58:15.010]	Invoking /home/younes/.tmux/plugins/tpm/bin/update_plugins all
+[2024-10-18 22:58:15.872]	Updating all plugins!
+[2024-10-18 22:58:16.665]	
+[2024-10-18 22:58:20.524]	  "tmux-copycat" update success
+[2024-10-18 22:58:21.238]	    | Already up to date.
+[2024-10-18 22:58:21.434]	  "tmux-cpu" update success
+[2024-10-18 22:58:22.625]	    | Already up to date.
+[2024-10-18 22:58:23.114]	  "tpm" update success
+[2024-10-18 22:58:23.579]	    | Already up to date.
+[2024-10-18 22:58:25.082]	  "tmux-resurrect" update success
+[2024-10-18 22:58:26.261]	    | Already up to date.
+[2024-10-18 22:58:27.324]	  "tmux-sensible" update success
+[2024-10-18 22:58:28.440]	    | Already up to date.
+[2024-10-18 22:58:28.625]	  "tmux-continuum" update success
+[2024-10-18 22:58:29.465]	    | Already up to date.
+[2024-10-18 22:58:30.879]	Invoking /home/younes/.tmux/plugins/tpm/bin/clean_plugins all
+[2024-10-18 22:58:33.329]	Done.
+
+[2024-10-19 09:25:24.989]	List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum
+[2024-10-19 09:25:25.052]	Invoking /home/younes/.tmux/plugins/tpm/bin/install_plugins
+[2024-10-19 09:25:25.347]	Already installed "tmux-continuum"
+[2024-10-19 09:25:25.433]	Already installed "tpm"
+[2024-10-19 09:25:25.512]	Already installed "tmux-cpu"
+[2024-10-19 09:25:25.551]	Already installed "tmux-copycat"
+[2024-10-19 09:25:25.608]	Already installed "tmux-resurrect"
+[2024-10-19 09:25:25.666]	Already installed "tmux-sensible"
+[2024-10-19 09:25:25.851]	Invoking /home/younes/.tmux/plugins/tpm/bin/update_plugins all
+[2024-10-19 09:25:26.317]	Updating all plugins!
+[2024-10-19 09:25:26.530]	
+[2024-10-19 09:25:27.901]	  "tmux-resurrect" update success
+[2024-10-19 09:25:28.087]	    | Already up to date.
+[2024-10-19 09:25:28.360]	  "tmux-copycat" update success
+[2024-10-19 09:25:28.440]	    | Already up to date.
+[2024-10-19 09:25:28.525]	  "tmux-cpu" update success
+[2024-10-19 09:25:28.674]	    | Already up to date.
+[2024-10-19 09:25:28.963]	  "tmux-continuum" update success
+[2024-10-19 09:25:29.248]	    | Already up to date.
+[2024-10-19 09:25:29.465]	  "tpm" update success
+[2024-10-19 09:25:29.535]	    | Already up to date.
+[2024-10-19 09:25:29.615]	  "tmux-sensible" update success
+[2024-10-19 09:25:29.682]	    | Already up to date.
+[2024-10-19 09:25:29.922]	Invoking /home/younes/.tmux/plugins/tpm/bin/clean_plugins all
+[2024-10-19 09:25:30.506]	Done.
+
+[2024-10-22 09:46:03.542]	List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum
+[2024-10-22 09:46:03.562]	Invoking /home/younes/.tmux/plugins/tpm/bin/install_plugins
+[2024-10-22 09:46:03.643]	Installing "tmux-copycat"
+[2024-10-22 09:46:03.671]	Installing "tmux-cpu"
+[2024-10-22 09:46:03.689]	Installing "tpm"
+[2024-10-22 09:46:03.705]	Installing "tmux-continuum"
+[2024-10-22 09:46:03.721]	Installing "tmux-sensible"
+[2024-10-22 09:46:03.742]	Installing "tmux-resurrect"
+[2024-10-22 09:46:04.744]	  "tmux-cpu" download success
+[2024-10-22 09:46:04.769]	  "tmux-sensible" download success
+[2024-10-22 09:46:04.788]	  "tmux-copycat" download success
+[2024-10-22 09:46:04.806]	  "tmux-continuum" download success
+[2024-10-22 09:46:05.845]	  "tpm" download success
+[2024-10-22 09:46:05.915]	  "tmux-resurrect" download success
+[2024-10-22 09:46:05.943]	Invoking /home/younes/.tmux/plugins/tpm/bin/update_plugins all
+[2024-10-22 09:46:06.004]	Updating all plugins!
+[2024-10-22 09:46:06.053]	
+[2024-10-22 09:46:06.955]	  "tmux-resurrect" update success
+[2024-10-22 09:46:06.972]	  "tmux-cpu" update success
+[2024-10-22 09:46:06.988]	  "tmux-copycat" update success
+[2024-10-22 09:46:07.005]	    | Already up to date.
+[2024-10-22 09:46:07.021]	    | Already up to date.
+[2024-10-22 09:46:07.038]	    | Already up to date.
+[2024-10-22 09:46:07.054]	  "tmux-sensible" update success
+[2024-10-22 09:46:07.070]	    | Already up to date.
+[2024-10-22 09:46:07.086]	  "tpm" update success
+[2024-10-22 09:46:07.103]	  "tmux-continuum" update success
+[2024-10-22 09:46:07.119]	    | Already up to date.
+[2024-10-22 09:46:07.135]	    | Already up to date.
+[2024-10-22 09:46:07.152]	Invoking /home/younes/.tmux/plugins/tpm/bin/clean_plugins all
+[2024-10-22 09:46:07.217]	Done.
+
+[2024-10-24 09:15:27.529]	List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum
+[2024-10-24 09:15:27.642]	Invoking /home/younes/.tmux/plugins/tpm/bin/install_plugins
+[2024-10-24 09:15:28.061]	Already installed "tmux-copycat"
+[2024-10-24 09:15:28.171]	Already installed "tmux-cpu"
+[2024-10-24 09:15:28.351]	Already installed "tmux-continuum"
+[2024-10-24 09:15:28.449]	Already installed "tpm"
+[2024-10-24 09:15:28.548]	Already installed "tmux-resurrect"
+[2024-10-24 09:15:28.585]	Already installed "tmux-sensible"
+[2024-10-24 09:15:28.649]	Invoking /home/younes/.tmux/plugins/tpm/bin/update_plugins all
+[2024-10-24 09:15:28.990]	Updating all plugins!
+[2024-10-24 09:15:29.074]	
+[2024-10-24 09:15:30.640]	  "tmux-cpu" update success
+[2024-10-24 09:15:30.734]	    | Already up to date.
+[2024-10-24 09:15:30.822]	  "tmux-resurrect" update success
+[2024-10-24 09:15:31.002]	    | Already up to date.
+[2024-10-24 09:15:31.262]	  "tmux-continuum" update success
+[2024-10-24 09:15:31.514]	    | Already up to date.
+[2024-10-24 09:15:31.604]	  "tmux-copycat" update success
+[2024-10-24 09:15:31.872]	    | Already up to date.
+[2024-10-24 09:15:32.167]	  "tpm" update success
+[2024-10-24 09:15:32.243]	    | Already up to date.
+[2024-10-24 09:15:32.293]	  "tmux-sensible" update success
+[2024-10-24 09:15:32.574]	    | Already up to date.
+[2024-10-24 09:15:32.779]	Invoking /home/younes/.tmux/plugins/tpm/bin/clean_plugins all
+[2024-10-24 09:15:33.369]	Done.
+
+[2024-10-25 09:12:26.305]	List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum
+[2024-10-25 09:12:26.387]	Invoking /home/younes/.tmux/plugins/tpm/bin/install_plugins
+[2024-10-25 09:12:26.789]	Already installed "tpm"
+[2024-10-25 09:12:26.913]	Already installed "tmux-copycat"
+[2024-10-25 09:12:27.049]	Already installed "tmux-cpu"
+[2024-10-25 09:12:27.091]	Already installed "tmux-resurrect"
+[2024-10-25 09:12:27.139]	Already installed "tmux-sensible"
+[2024-10-25 09:12:27.317]	Already installed "tmux-continuum"
+[2024-10-25 09:12:27.380]	Invoking /home/younes/.tmux/plugins/tpm/bin/update_plugins all
+[2024-10-25 09:12:27.815]	Updating all plugins!
+[2024-10-25 09:12:27.879]	
+[2024-10-25 09:12:29.047]	  "tmux-copycat" update success
+[2024-10-25 09:12:29.087]	    | Already up to date.
+[2024-10-25 09:12:29.657]	  "tmux-sensible" update success
+[2024-10-25 09:12:29.845]	    | Already up to date.
+[2024-10-25 09:12:29.900]	  "tpm" update success
+[2024-10-25 09:12:29.935]	    | Already up to date.
+[2024-10-25 09:12:30.224]	  "tmux-cpu" update success
+[2024-10-25 09:12:30.468]	    | Already up to date.
+[2024-10-25 09:12:30.719]	  "tmux-continuum" update success
+[2024-10-25 09:12:30.805]	    | Already up to date.
+[2024-10-25 09:12:30.989]	  "tmux-resurrect" update success
+[2024-10-25 09:12:31.124]	    | Already up to date.
+[2024-10-25 09:12:31.241]	Invoking /home/younes/.tmux/plugins/tpm/bin/clean_plugins all
+[2024-10-25 09:12:31.662]	Done.
+
