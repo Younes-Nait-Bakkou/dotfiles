@@ -1,0 +1,3 @@
+require("mini.hipatterns").setup({
+    --
+})

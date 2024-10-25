@@ -1,0 +1,2 @@
+0000000000000000000000000000000000000000 a72a26406ad3aa9a47c3f5227291bad23494bed0 YounesNaitBakkou <younes.naitbakkou@automize.ma> 1727695837 +0100	fetch --depth=1 origin: storing head
+a72a26406ad3aa9a47c3f5227291bad23494bed0 9bfa3395f34f63d14945e01c45c72ec43d372dfa YounesNaitBakkou <younes.naitbakkou@automize.ma> 1728894363 +0100	pull --quiet --rebase origin master: fast-forward
