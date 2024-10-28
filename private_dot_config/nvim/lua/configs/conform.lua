@@ -5,6 +5,7 @@ local options = {
         html = { "prettier" },
         python = { "black" },
         htmldjango = { "djlint" },
+        javascript = { "prettier" },
     },
 
     formatters = {
@@ -16,11 +17,16 @@ local options = {
                 "80",
             },
         },
+
+        prettier = {
+            prepend_args = {
+                "--print-width=90",
+                "--tab-width=4",
+            },
+        },
     },
 
-    format_on_save = {
-        -- These options will be passed to conform.format()
-        timeout_ms = 500,
+    format_after_save = {
         lsp_fallback = true,
     },
 }

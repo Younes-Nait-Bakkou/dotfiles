@@ -1,6 +1,18 @@
 -- require("configs.filetype-configs.htmldjango")
 
 return {
+    -- Neovim session management, good for not having to re-open the same files after exit
+    {
+        "gennaro-tedesco/nvim-possession",
+        event = { "VimEnter" },
+        dependencies = {
+            "ibhagwan/fzf-lua",
+        },
+        config = function()
+            require("configs.possession")
+        end,
+    },
+
     {
         "stevearc/conform.nvim",
         event = "BufWritePre", -- uncomment for format on save
@@ -163,6 +175,7 @@ return {
         end,
     },
 
+    -- LSP-used navigation made easy.
     {
         "nvimdev/lspsaga.nvim",
         event = "LspAttach",
@@ -175,6 +188,7 @@ return {
         },
     },
 
+    -- Mini icons
     {
         "echasnovski/mini.hipatterns",
         event = "BufReadPre",
@@ -226,40 +240,42 @@ return {
     },
 
     {
+        "onsails/lspkind.nvim",
+        event = { "InsertEnter" },
+        config = function()
+            require("configs.lspkind")
+        end,
+    },
+
+    -- Code completion handler
+    {
         "hrsh7th/nvim-cmp",
         config = function()
             require("configs.cmp")
         end,
     },
 
+    -- Bootstrap code completion.
     {
         "rambhosale/cmp-bootstrap.nvim",
         event = "InsertEnter",
     },
 
+    -- Navigating between marked lines.
     {
         "chentoast/marks.nvim",
         event = "VeryLazy",
         opts = {},
     },
 
+    -- Select multiple occurances of the same selection.
     {
         "mg979/vim-visual-multi",
         event = { "BufEnter" },
         branch = "master",
     },
 
-    {
-        "gennaro-tedesco/nvim-possession",
-        event = { "VimEnter" },
-        dependencies = {
-            "ibhagwan/fzf-lua",
-        },
-        config = function()
-            require("configs.possession")
-        end,
-    },
-
+    -- Comment formats for different file types, example: Django => {# #}
     {
         "numToStr/Comment.nvim",
         event = { "FileType" },
@@ -269,5 +285,24 @@ return {
         config = function()
             require("configs.Comment")
         end,
+    },
+
+    -- Tabnine AI code completion
+    -- {
+    --     "codota/tabnine-nvim",
+    --     event = { "InsertEnter" },
+    --     build = "./dl_binaries.sh",
+    --     config = function()
+    --         require("configs.tabnine")
+    --     end,
+    -- },
+
+    {
+        "tzachar/cmp-tabnine",
+        event = { "BufEnter" },
+        build = "./install.sh",
+        dependencies = {
+            "hrsh7th/nvim-cmp",
+        },
     },
 }
