@@ -11,16 +11,27 @@ local options = {
     formatters = {
         -- Python
         black = {
+
             prepend_args = {
                 "--fast",
                 "--line-length",
-                "80",
+                "90",
+            },
+        },
+
+        djlint = {
+            cmd = "djlint",
+
+            append_args = {
+                -- "--line-break-after-multiline-tag",
+                "--max-attribute-length=70",
+                "--max-line-length=120",
             },
         },
 
         prettier = {
             prepend_args = {
-                "--print-width=90",
+                "--print-width=120",
                 "--tab-width=4",
             },
         },
