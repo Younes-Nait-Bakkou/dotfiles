@@ -292,22 +292,13 @@ return {
         end,
     },
 
-    -- Tabnine AI code completion
-    -- {
-    --     "codota/tabnine-nvim",
-    --     event = { "InsertEnter" },
-    --     build = "./dl_binaries.sh",
-    --     config = function()
-    --         require("configs.tabnine")
-    --     end,
-    -- },
-
+    -- Better replacement for ts_ls LSP
     {
-        "tzachar/cmp-tabnine",
-        event = { "BufEnter" },
-        build = "./install.sh",
-        dependencies = {
-            "hrsh7th/nvim-cmp",
-        },
+        "pmizio/typescript-tools.nvim",
+        ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+        dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+        config = function()
+            require("configs.typescript-tools")
+        end,
     },
 }
