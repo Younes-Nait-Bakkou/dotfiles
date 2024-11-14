@@ -51,7 +51,7 @@ wk.add({
     { "m}", marks_cmd .. "next_bookmark()<cr>", desc = "Move to next bookmark of the same type" },
     { "m{", marks_cmd .. "prev_bookmark()<cr>", desc = "Move to previous bookmark of the same type" },
     { "dm=", marks_cmd .. "delete_bookmark()<cr>", desc = "Delete bookmark under cursor" },
-    { "a", marks_cmd .. "annotate()<cr>", desc = "Annotate a bookmark" },
+    -- { "a", marks_cmd .. "annotate()<cr>", desc = "Annotate a bookmark" },
 })
 --
 -- vim.api.nvim_create_autocmd({ "FileType", "BufReadPost", "BufEnter" }, {

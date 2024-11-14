@@ -32,7 +32,10 @@ local options = {
         prettier = {
             prepend_args = {
                 "--print-width=120",
-                "--tab-width=4",
+                "--tab-width=2",
+                "--use-tabs",
+                "--bracket-same-line",
+                "--single-attribute-per-line",
             },
         },
     },
