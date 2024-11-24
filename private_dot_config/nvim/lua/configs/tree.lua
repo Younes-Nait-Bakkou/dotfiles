@@ -17,6 +17,7 @@ require("nvim-tree").setup({
     },
     view = {
         side = "left",
+        adaptive_size = true,
     },
     update_focused_file = {
         enable = true,
