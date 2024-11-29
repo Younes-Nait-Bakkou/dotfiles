@@ -17,6 +17,7 @@ wk.add({
     { "<leader>lr", "<cmd>Lspsaga rename<cr>", desc = "Rename" },
     { "<leader>ls", "<cmd>Lspsaga signature_help<cr>", desc = "Signature Help" },
     { "<leader>lw", "<cmd>Lspsaga show_workspace_diagnostics<cr>", desc = "Show Workspace Diagnostics" },
+    { "<leader>lh", "<cmd>Lspsaga hover_doc<cr>", desc = "Show Hovering Documentation" },
 })
 
 -- Define the marks plugin require statement as a variable for easy replacement
@@ -62,3 +63,23 @@ wk.add({
 --         end
 --     end,
 -- })
+
+wk.add({
+    { "<leader>g", group = "Git" },
+    { "<leader>]g", "<cmd>Gitsigns next_hunk<CR>", desc = "Jump to next hunk" },
+    { "<leader>[g", "<cmd>Gitsigns prev_hunk<CR>", desc = "Jump to previous hunk" },
+    { "<leader>gp", "<cmd>Gitsigns preview_hunk<CR>", desc = "Preview hunk under cursor" },
+    -- { "<leader>gs", "<cmd>Gitsigns stage_hunk<CR>", desc = "Stage hunk under cursor" },
+    -- { "<leader>gr", "<cmd>Gitsigns reset_hunk<CR>", desc = "Reset hunk under cursor" },
+    -- { "<leader>gu", "<cmd>Gitsigns undo_stage_hunk<CR>", desc = "Undo stage hunk under cursor" },
+    -- { "<leader>gS", "<cmd>Gitsigns stage_buffer<CR>", desc = "Stage all hunks in buffer" },
+    -- { "<leader>gU", "<cmd>Gitsigns reset_buffer_index<CR>", desc = "Reset buffer index" },
+    -- { "<leader>gR", "<cmd>Gitsigns reset_buffer<CR>", desc = "Reset all hunks in buffer" },
+
+    { "<leader>gg", "<cmd>Git<CR>", desc = "Open git status in interactive window" },
+    { "<leader>gc", "<cmd>Git commit | startinsert<CR>", desc = "Open commit window" },
+    { "<leader>gd", "<cmd>Git difftool<CR>", desc = "Open git difftool" },
+    { "<leader>gm", "<cmd>Git mergetool<CR>", desc = "Open git mergetool" },
+    { "<leader>g|", "<cmd>Gvdiffsplit<CR>", desc = "Open vertical diff split" },
+    { "<leader>g_", "<cmd>Gdiffsplit<CR>", desc = "Open diff split" },
+})
