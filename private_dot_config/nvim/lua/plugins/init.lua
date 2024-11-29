@@ -301,4 +301,21 @@ return {
             require("configs.typescript-tools")
         end,
     },
+
+    -- To stay centered even at the last line of the file
+    {
+        "arnamak/stay-centered.nvim",
+        opts = function()
+            require("stay-centered").setup({
+                -- Add any configurations here, like skip_filetypes if needed
+                -- skip_filetypes = {"lua", "typescript"},
+            })
+        end,
+    },
+
+    -- Git Integration
+    {
+        "tpope/vim-fugitive",
+        event = { "BufEnter" },
+    },
 }

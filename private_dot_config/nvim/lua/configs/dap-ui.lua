@@ -71,7 +71,7 @@ dapui.setup({
 local map = vim.keymap.set
 
 map("n", "<leader>du", "<cmd>lua require('dapui').toggle()<CR>", { desc = "Toggle DAP UI" })
-map("n", "<leader>gb", dap.run_to_cursor)
+-- map("n", "<leader>gb", dap.run_to_cursor)
 
 -- Eval var under cursor
 map("n", "<space>?", function()
