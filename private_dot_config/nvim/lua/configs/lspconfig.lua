@@ -16,6 +16,7 @@ lspconfig.servers = {
     "ruff",
     "eslint",
     "tailwindcss",
+    "phpactor",
     -- "jinja_lsp", -- Needs "carbon"
     -- "typescript-tools",
 }
@@ -186,5 +187,23 @@ lspconfig.eslint.setup({
         workingDirectory = {
             mode = "auto",
         },
+    },
+})
+
+local phpactor_capabilities = vim.lsp.protocol.make_client_capabilities()
+phpactor_capabilities["textDocument"]["codeAction"] = {}
+
+lspconfig.phpactor.setup({
+    root_dir = function(_)
+        return vim.loop.cwd()
+    end,
+    capabilities = phpactor_capabilities,
+    on_attach = on_attach,
+    init_options = {
+        ["language_server.diagnostics_on_update"] = false,
+        ["language_server.diagnostics_on_open"] = false,
+        ["language_server.diagnostics_on_save"] = false,
+        ["language_server_phpstan.enabled"] = false,
+        ["language_server_psalm.enabled"] = false,
     },
 })
