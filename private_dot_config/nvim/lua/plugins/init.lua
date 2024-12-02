@@ -158,7 +158,6 @@ return {
             require("configs.dap-virtual-text")
         end,
     },
-
     {
         "mfussenegger/nvim-dap",
         dependencies = {

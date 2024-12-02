@@ -9,6 +9,8 @@ local options = {
         typescript = { "prettier" },
         javascriptreact = { "prettier" },
         typescriptreact = { "prettier" },
+        json = { "prettier" },
+        blade = { "prettier" },
     },
 
     formatters = {
