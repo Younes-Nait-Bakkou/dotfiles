@@ -394,4 +394,8 @@ return {
             require("configs.harpoon")
         end,
     },
+    {
+        "echasnovski/mini.ai",
+        event = { "BufEnter" },
+    },
 }
