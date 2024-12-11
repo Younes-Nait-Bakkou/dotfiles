@@ -2,6 +2,7 @@ require("nvchad.mappings")
 -- add yours here
 local wk = require("which-key")
 local map = vim.keymap.set
+local nomap = vim.keymap.del
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
@@ -82,4 +83,12 @@ wk.add({
     { "<leader>gm", "<cmd>Git mergetool<CR>", desc = "Open git mergetool" },
     { "<leader>g|", "<cmd>Gvdiffsplit<CR>", desc = "Open vertical diff split" },
     { "<leader>g_", "<cmd>Gdiffsplit<CR>", desc = "Open diff split" },
+})
+
+wk.add({
+    { "<leader>D", group = "󰆼 Db Tools" },
+    { "<leader>Du", "<cmd>DBUIToggle<CR>", desc = "DB UI Toggle" },
+    { "<leader>Df", "<cmd>DBUIFindBuffer<CR>", desc = "DB UI Find buffer" },
+    { "<leader>Dr", "<cmd>DBUIRenameBuffer<CR>", desc = "DB UI Rename buffer" },
+    { "<leader>Dl", "<cmd>DBUILastQueryInfo<CR>", desc = "DB UI Last query infos" },
 })

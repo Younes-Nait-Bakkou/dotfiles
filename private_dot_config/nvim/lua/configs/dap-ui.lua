@@ -49,7 +49,7 @@ dapui.setup({
                 },
             },
             position = "left",
-            size = 40, -- Width of the left panel
+            size = 25, -- Width of the left panel
         },
         {
             elements = {
