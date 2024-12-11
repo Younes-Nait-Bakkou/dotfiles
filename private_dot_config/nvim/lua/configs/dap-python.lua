@@ -3,6 +3,7 @@ local dap = require("dap")
 local pythonPath = require("utils").venv_python_path()
 
 -- Python config
+-- DO NOT FORGET TO INSTALL debugpy package
 local set_python_dap = function()
     dapPython.setup() -- earlier, so I can setup the various defaults ready to be replaced
     dapPython.resolve_python = function()
@@ -20,10 +21,21 @@ local set_python_dap = function()
         {
             type = "python",
             request = "launch",
-            name = "DAP Django",
+            name = "Django",
             program = vim.loop.cwd() .. "/manage.py",
             args = { "runserver", "8001", "--noreload" },
             justMyCode = false,
+            django = true,
+            console = "integratedTerminal",
+        },
+        {
+            type = "python",
+            request = "launch",
+            name = "Django Command",
+            program = vim.loop.cwd() .. "/manage.py",
+            args = function()
+                return { vim.fn.input("Command to run: ") }
+            end,
             django = true,
             console = "integratedTerminal",
         },

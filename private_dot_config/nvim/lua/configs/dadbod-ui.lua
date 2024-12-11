@@ -1,5 +1,3 @@
--- require("dbui").setup({})
-
 local function get_env_var(var_name)
     local value = vim.fn.getenv(var_name)
     return value ~= "" and value or nil -- Return nil if the environment variable is not set

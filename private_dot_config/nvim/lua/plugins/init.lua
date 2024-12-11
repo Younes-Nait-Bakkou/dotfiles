@@ -1,380 +1,397 @@
 -- require("configs.filetype-configs.htmldjango")
 
 return {
-	-- Neovim session management, good for not having to re-open the same files after exit
-	{
-		"gennaro-tedesco/nvim-possession",
-		event = { "VimEnter" },
-		dependencies = {
-			"ibhagwan/fzf-lua",
-		},
-		config = function()
-			require("configs.possession")
-		end,
-	},
+    -- Neovim session management, good for not having to re-open the same files after exit
+    {
+        "gennaro-tedesco/nvim-possession",
+        event = { "VimEnter" },
+        dependencies = {
+            "ibhagwan/fzf-lua",
+        },
+        config = function()
+            require("configs.possession")
+        end,
+    },
 
-	{
-		"stevearc/conform.nvim",
-		event = "BufWritePre", -- uncomment for format on save
-		opts = require("configs.conform"),
-	},
+    {
+        "stevearc/conform.nvim",
+        event = "BufWritePre", -- uncomment for format on save
+        opts = require("configs.conform"),
+    },
 
-	{
-		"zapling/mason-conform.nvim",
-		event = "VeryLazy",
-		dependencies = { "conform.nvim" },
-		config = function()
-			require("configs.mason-conform")
-		end,
-	},
+    {
+        "zapling/mason-conform.nvim",
+        event = "VeryLazy",
+        dependencies = { "conform.nvim" },
+        config = function()
+            require("configs.mason-conform")
+        end,
+    },
 
-	{
-		"mfussenegger/nvim-lint",
-		event = { "BufReadPre", "BufNewFile" },
-		config = function()
-			require("configs.lint")
-		end,
-	},
+    {
+        "mfussenegger/nvim-lint",
+        event = { "BufReadPre", "BufNewFile" },
+        config = function()
+            require("configs.lint")
+        end,
+    },
 
-	{
-		"rshkarin/mason-nvim-lint",
-		event = "VeryLazy",
-		dependencies = { "nvim-lint" },
-		config = function()
-			require("configs.mason-lint")
-		end,
-	},
+    {
+        "rshkarin/mason-nvim-lint",
+        event = "VeryLazy",
+        dependencies = { "nvim-lint" },
+        config = function()
+            require("configs.mason-lint")
+        end,
+    },
 
-	-- These are some examples, uncomment them if you want to see them work!
-	{
-		"neovim/nvim-lspconfig",
-		event = { "BufReadPre", "BufNewFile" },
-		config = function()
-			require("configs.lspconfig")
-		end,
-	},
+    -- These are some examples, uncomment them if you want to see them work!
+    {
+        "neovim/nvim-lspconfig",
+        event = { "BufReadPre", "BufNewFile" },
+        config = function()
+            require("configs.lspconfig")
+        end,
+    },
 
-	{
-		"williamboman/mason-lspconfig.nvim",
-		event = "VeryLazy",
-		dependencies = { "nvim-lspconfig" },
-		config = function()
-			require("configs.mason-lspconfig")
-		end,
-	},
+    {
+        "williamboman/mason-lspconfig.nvim",
+        event = "VeryLazy",
+        dependencies = { "nvim-lspconfig" },
+        config = function()
+            require("configs.mason-lspconfig")
+        end,
+    },
 
-	{
-		"nvim-treesitter/nvim-treesitter",
-		event = { "BufReadPre", "BufNewFile" },
-		dependencies = {
-			"windwp/nvim-ts-autotag",
-			"nvim-treesitter/nvim-treesitter-textobjects",
-		},
-		config = function()
-			require("configs.treesitter")
-			require("configs.ts-autotag")
-		end,
-	},
+    {
+        "nvim-treesitter/nvim-treesitter",
+        event = { "BufReadPre", "BufNewFile" },
+        dependencies = {
+            "windwp/nvim-ts-autotag",
+            "nvim-treesitter/nvim-treesitter-textobjects",
+        },
+        config = function()
+            require("configs.treesitter")
+            require("configs.ts-autotag")
+        end,
+    },
 
-	{
-		"nvim-treesitter/playground",
-		dependencies = {
-			"nvim-treesitter",
-		},
-	},
+    {
+        "nvim-treesitter/playground",
+        dependencies = {
+            "nvim-treesitter",
+        },
+    },
 
-	{
-		"nvim-tree/nvim-tree.lua",
-		version = "*",
-		lazy = false,
-		dependencies = {
-			"nvim-tree/nvim-web-devicons",
-		},
-		config = function()
-			require("configs.tree")
-		end,
-	},
+    {
+        "nvim-tree/nvim-tree.lua",
+        version = "*",
+        lazy = false,
+        dependencies = {
+            "nvim-tree/nvim-web-devicons",
+        },
+        config = function()
+            require("configs.tree")
+        end,
+    },
 
-	{
-		"phaazon/hop.nvim",
-		branch = "v2", -- optional but strongly recommended
-		opts = {
-			multi_windows = true,
-			keys = "etovxqpdygfblzhckisuran",
-			uppercase_levels = true,
-		},
-		keys = {
-			{
-				"<leader>fj",
-				function()
-					require("hop").hint_words()
-				end,
-				mode = { "n", "x", "o" },
-			},
-			{
-				"tpope/vim-dotenv",
-				config = function()
-					require("dotenv")
-						.setup({
-							enable_on_load = true,
-							verbose = true,
-						})
-						.load()
-				end,
-			},
-		},
-	},
+    {
+        "phaazon/hop.nvim",
+        branch = "v2", -- optional but strongly recommended
+        opts = {
+            multi_windows = true,
+            keys = "etovxqpdygfblzhckisuran",
+            uppercase_levels = true,
+        },
+        keys = {
+            {
+                "<leader>fj",
+                function()
+                    require("hop").hint_words()
+                end,
+                mode = { "n", "x", "o" },
+            },
+            {
+                "tpope/vim-dotenv",
+                config = function()
+                    require("dotenv")
+                        .setup({
+                            enable_on_load = true,
+                            verbose = true,
+                        })
+                        .load()
+                end,
+            },
+        },
+    },
 
-	{
-		"nvim-neotest/nvim-nio",
-	},
+    {
+        "nvim-neotest/nvim-nio",
+    },
 
-	{
-		"mfussenegger/nvim-dap-python",
-		ft = "python",
-		dependencies = {
-			"mfussenegger/nvim-dap",
-			"rcarriga/nvim-dap-ui",
-		},
-		config = function()
-			require("configs.dap-python")
-		end,
-	},
+    {
+        "mfussenegger/nvim-dap-python",
+        ft = "python",
+        dependencies = {
+            "mfussenegger/nvim-dap",
+            "rcarriga/nvim-dap-ui",
+        },
+        config = function()
+            require("configs.dap-python")
+        end,
+    },
 
-	{
-		"rcarriga/nvim-dap-ui",
-		dependencies = {
-			"mfussenegger/nvim-dap",
-			"nvim-neotest/nvim-nio",
-		},
-		config = function()
-			require("configs.dap-ui")
-		end,
-	},
+    {
+        "rcarriga/nvim-dap-ui",
+        dependencies = {
+            "mfussenegger/nvim-dap",
+            "nvim-neotest/nvim-nio",
+        },
+        config = function()
+            require("configs.dap-ui")
+        end,
+    },
 
-	{
-		"theHamsta/nvim-dap-virtual-text",
-		config = function()
-			require("configs.dap-virtual-text")
-		end,
-	},
-	{
-		"mfussenegger/nvim-dap",
-		dependencies = {
-			"rcarriga/nvim-dap-ui",
-			"theHamsta/nvim-dap-virtual-text",
-			"nvim-neotest/nvim-nio",
-			"williamboman/mason.nvim",
-		},
-		config = function()
-			require("configs.dap")
-		end,
-	},
+    {
+        "theHamsta/nvim-dap-virtual-text",
+        config = function()
+            require("configs.dap-virtual-text")
+        end,
+    },
+    {
+        "mfussenegger/nvim-dap",
+        dependencies = {
+            "rcarriga/nvim-dap-ui",
+            "theHamsta/nvim-dap-virtual-text",
+            "nvim-neotest/nvim-nio",
+            "williamboman/mason.nvim",
+        },
+        config = function()
+            require("configs.dap")
+        end,
+    },
 
-	{
-		"jay-babu/mason-nvim-dap.nvim",
-		event = "VeryLazy",
-		config = function()
-			require("configs.mason-dap")
-		end,
-	},
+    {
+        "jay-babu/mason-nvim-dap.nvim",
+        event = "VeryLazy",
+        config = function()
+            require("configs.mason-dap")
+        end,
+    },
 
-	-- LSP-used navigation made easy.
-	{
-		"nvimdev/lspsaga.nvim",
-		event = "LspAttach",
-		config = function()
-			require("configs.lspsaga")
-		end,
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter", -- optional
-			"nvim-tree/nvim-web-devicons", -- optional
-		},
-	},
+    -- LSP-used navigation made easy.
+    {
+        "nvimdev/lspsaga.nvim",
+        event = "LspAttach",
+        config = function()
+            require("configs.lspsaga")
+        end,
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter", -- optional
+            "nvim-tree/nvim-web-devicons", -- optional
+        },
+    },
 
-	-- Mini icons
-	{
-		"echasnovski/mini.hipatterns",
-		event = "BufReadPre",
-		config = function()
-			require("configs.mini-hipatterns")
-		end,
-	},
+    -- Mini icons
+    {
+        "echasnovski/mini.hipatterns",
+        event = "BufReadPre",
+        config = function()
+            require("configs.mini-hipatterns")
+        end,
+    },
 
-	-- {
-	--     "rcarriga/nvim-notify",
-	--     config = function()
-	--         require("configs.notify")
-	--     end,
-	-- },
+    -- {
+    --     "rcarriga/nvim-notify",
+    --     config = function()
+    --         require("configs.notify")
+    --     end,
+    -- },
 
-	{
-		"folke/noice.nvim",
-		event = "VeryLazy",
-		config = function()
-			require("configs.noice")
-		end,
-		dependencies = {
-			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-			"MunifTanjim/nui.nvim",
-			-- OPTIONAL:
-			--   `nvim-notify` is only needed, if you want to use the notification view.
-			--   If not available, we use `mini` as the fallback
-			-- "rcarriga/nvim-notify",
-		},
-	},
+    {
+        "folke/noice.nvim",
+        event = "VeryLazy",
+        config = function()
+            require("configs.noice")
+        end,
+        dependencies = {
+            -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+            "MunifTanjim/nui.nvim",
+            -- OPTIONAL:
+            --   `nvim-notify` is only needed, if you want to use the notification view.
+            --   If not available, we use `mini` as the fallback
+            -- "rcarriga/nvim-notify",
+        },
+    },
 
-	-- Integrated database access plugins
-	{
-		"kristijanhusak/vim-dadbod-ui",
-		dependencies = {
-			{ "tpope/vim-dadbod", lazy = true },
-			{ "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" }, lazy = true }, -- Optional
-		},
-		cmd = {
-			"DBUI",
-			"DBUIToggle",
-			"DBUIAddConnection",
-			"DBUIFindBuffer",
-		},
-		init = function()
-			require("utils.load_env")
-			require("configs.dadbod-ui")
-		end,
-	},
+    -- Integrated database access plugins
+    {
+        "kristijanhusak/vim-dadbod-ui",
+        dependencies = {
+            { "tpope/vim-dadbod", lazy = true },
+        },
+        cmd = {
+            "DBUI",
+            "DBUIToggle",
+            "DBUIAddConnection",
+            "DBUIFindBuffer",
+        },
+        init = function()
+            vim.g.db_ui_use_nerd_fonts = 1
+            require("utils.load_env")
+            require("configs.dadbod-ui")
+        end,
+    },
 
-	{
-		"onsails/lspkind.nvim",
-		event = { "InsertEnter" },
-		config = function()
-			require("configs.lspkind")
-		end,
-	},
+    {
+        "onsails/lspkind.nvim",
+        event = { "InsertEnter" },
+        config = function()
+            require("configs.lspkind")
+        end,
+    },
 
-	-- Code completion handler
-	{
-		"hrsh7th/nvim-cmp",
-		config = function()
-			require("configs.cmp")
-		end,
-	},
+    -- Code completion handler
+    {
+        "hrsh7th/nvim-cmp",
+        dependencies = {
+            "kristijanhusak/vim-dadbod-completion",
+        },
+        config = function()
+            require("configs.cmp")
+        end,
+    },
 
-	-- Bootstrap code completion.
-	{
-		"rambhosale/cmp-bootstrap.nvim",
-		event = "InsertEnter",
-	},
+    -- Bootstrap code completion.
+    {
+        "rambhosale/cmp-bootstrap.nvim",
+        event = "InsertEnter",
+    },
 
-	-- Navigating between marked lines.
-	{
-		"chentoast/marks.nvim",
-		event = "VeryLazy",
-		opts = {},
-	},
+    -- Navigating between marked lines.
+    {
+        "chentoast/marks.nvim",
+        event = "VeryLazy",
+        opts = {},
+    },
 
-	-- Select multiple occurances of the same selection.
-	{
-		"mg979/vim-visual-multi",
-		event = { "BufEnter" },
-		branch = "master",
-	},
+    -- Select multiple occurances of the same selection.
+    {
+        "mg979/vim-visual-multi",
+        event = { "BufEnter" },
+        branch = "master",
+    },
 
-	-- Comment formats for different file types, example: Django => {# #}
-	{
-		"numToStr/Comment.nvim",
-		event = { "FileType" },
-		dependencies = {
-			"JoosepAlviste/nvim-ts-context-commentstring",
-		},
-		config = function()
-			require("configs.Comment")
-		end,
-	},
+    -- Comment formats for different file types, example: Django => {# #}
+    {
+        "numToStr/Comment.nvim",
+        event = { "FileType" },
+        dependencies = {
+            "JoosepAlviste/nvim-ts-context-commentstring",
+        },
+        config = function()
+            require("configs.Comment")
+        end,
+    },
 
-	-- Better replacement for ts_ls LSP
-	{
-		"pmizio/typescript-tools.nvim",
-		ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
-		dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-		config = function()
-			require("configs.typescript-tools")
-		end,
-	},
+    -- Better replacement for ts_ls LSP
+    {
+        "pmizio/typescript-tools.nvim",
+        ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+        dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+        config = function()
+            require("configs.typescript-tools")
+        end,
+    },
 
-	-- To stay centered even at the last line of the file
-	{
-		"arnamak/stay-centered.nvim",
-		opts = function()
-			require("stay-centered").setup({
-				-- Add any configurations here, like skip_filetypes if needed
-				-- skip_filetypes = {"lua", "typescript"},
-			})
-		end,
-	},
+    -- To stay centered even at the last line of the file
+    {
+        "arnamak/stay-centered.nvim",
+        opts = function()
+            require("stay-centered").setup({
+                -- Add any configurations here, like skip_filetypes if needed
+                -- skip_filetypes = {"lua", "typescript"},
+            })
+        end,
+    },
 
-	-- Git Integration
-	{
-		"tpope/vim-fugitive",
-		event = { "BufEnter" },
-	},
+    -- Git Integration
+    {
+        "tpope/vim-fugitive",
+        event = { "BufEnter" },
+    },
 
-	-- Subtle, yet eye-easing animations
-	{
-		"echasnovski/mini.animate",
-		version = false,
-		event = { "BufEnter" },
-	},
+    -- Subtle, yet eye-easing animations
+    {
+        "echasnovski/mini.animate",
+        version = false,
+        event = { "BufEnter" },
+    },
 
-	-- Ways to display and navigate diagnostics
-	{
-		"folke/trouble.nvim",
-		opts = {}, -- for default options, refer to the configuration section for custom setup.
-		cmd = "Trouble",
-		keys = {
-			{
-				"<leader>xx",
-				"<cmd>Trouble diagnostics toggle<cr>",
-				desc = "Diagnostics (Trouble)",
-			},
-			{
-				"<leader>xX",
-				"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-				desc = "Buffer Diagnostics (Trouble)",
-			},
-			{
-				"<leader>cs",
-				"<cmd>Trouble symbols toggle focus=false<cr>",
-				desc = "Symbols (Trouble)",
-			},
-			{
-				"<leader>cl",
-				"<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
-				desc = "LSP Definitions / references / ... (Trouble)",
-			},
-			{
-				"<leader>xL",
-				"<cmd>Trouble loclist toggle<cr>",
-				desc = "Location List (Trouble)",
-			},
-			{
-				"<leader>xQ",
-				"<cmd>Trouble qflist toggle<cr>",
-				desc = "Quickfix List (Trouble)",
-			},
-		},
-	},
+    -- Ways to display and navigate diagnostics
+    {
+        "folke/trouble.nvim",
+        opts = {}, -- for default options, refer to the configuration section for custom setup.
+        cmd = "Trouble",
+        keys = {
+            {
+                "<leader>xx",
+                "<cmd>Trouble diagnostics toggle<cr>",
+                desc = "Diagnostics (Trouble)",
+            },
+            {
+                "<leader>xX",
+                "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+                desc = "Buffer Diagnostics (Trouble)",
+            },
+            {
+                "<leader>cs",
+                "<cmd>Trouble symbols toggle focus=false<cr>",
+                desc = "Symbols (Trouble)",
+            },
+            {
+                "<leader>cl",
+                "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+                desc = "LSP Definitions / references / ... (Trouble)",
+            },
+            {
+                "<leader>xL",
+                "<cmd>Trouble loclist toggle<cr>",
+                desc = "Location List (Trouble)",
+            },
+            {
+                "<leader>xQ",
+                "<cmd>Trouble qflist toggle<cr>",
+                desc = "Quickfix List (Trouble)",
+            },
+        },
+    },
 
-	-- lua with lazy.nvim
-	{
-		"max397574/better-escape.nvim",
-		config = function()
-			require("configs.better-escape")
-		end,
-	},
-	-- Dead simple plugin to center the currently focused buffer to the middle of the screen.
-	{
-		"shortcuts/no-neck-pain.nvim",
-		version = "*",
-		event = { "BufEnter" },
-	},
+    -- lua with lazy.nvim
+    {
+        "max397574/better-escape.nvim",
+        config = function()
+            require("configs.better-escape")
+        end,
+    },
+    -- Dead simple plugin to center the currently focused buffer to the middle of the screen.
+    {
+        "shortcuts/no-neck-pain.nvim",
+        version = "*",
+        event = { "BufEnter" },
+    },
+
+    -- Harpoon, for making frequent-accessed buffers in one window
+    {
+        "ThePrimeagen/harpoon",
+        branch = "harpoon2",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-telescope/telescope.nvim",
+        },
+        event = { "BufEnter" },
+        config = function()
+            require("configs.harpoon")
+        end,
+    },
 }

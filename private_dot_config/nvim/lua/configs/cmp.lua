@@ -29,7 +29,7 @@ cmp.setup({
         { name = "luasnip" },
         { name = "buffer" },
         { name = "path" },
-        { name = "cmp_tabnine", priority = 1000 },
+        { name = "vim-dadbod-completion", priority = 700 },
     },
 
     formatting = {
@@ -60,11 +60,15 @@ cmp.setup({
     -- },
 })
 
-cmp.setup.filetype({ "sql" }, {
-    sources = {
-        { name = "vim-dadbod-completion" },
-        { name = "buffer" },
-    },
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "sql", "mysql", "plsql" },
+    callback = function()
+        cmp.setup.buffer({
+            sources = {
+                { name = "vim-dadbod-completion" },
+            },
+        })
+    end,
 })
 
 cmp.setup.filetype({ "html", "htmldjango" }, {
