@@ -35,8 +35,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 # Change keyboard layout with ALT + SHIFT
-exec "setxkbmap -layout us,fr"
-exec "setxkbmap -option 'grp:alt_shift_toggle'"
+exec --no-startup-id "setxkbmap -layout us,fr -option 'grp:alt_shift_toggle'"
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -50,9 +49,6 @@ bindsym XF86MonBrightnessUp exec light -A 5
 bindsym XF86MonBrightnessDown exec light -U 5
 bindsym shift+XF86MonBrightnessUp exec light -A 25
 bindsym shift+XF86MonBrightnessDown exec light -U 25
-
-# Touchpad controls
-bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh 
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
