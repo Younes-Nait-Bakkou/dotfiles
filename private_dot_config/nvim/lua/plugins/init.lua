@@ -412,4 +412,32 @@ return {
             require("configs.mini-ai")
         end,
     },
+
+    -- Creating a scratch buffer plugin
+    -- {
+    --     dir = "~/codes/Neovim/plugins/scratch-buffer",
+    --     name = "scratch-buffer",
+    --     event = { "VimEnter" },
+    --     config = function()
+    --         require("scratch-buffer").setup()
+    --     end,
+    -- },
+
+    -- Adds more useful mappings for [ and ]
+    {
+        "tpope/vim-unimpaired",
+        event = { "BufEnter" },
+    },
+
+    -- Adds integration for other plugins to work with the repeat '.'
+    {
+        "tpope/vim-repeat",
+        event = { "BufEnter" },
+    },
+
+    -- Useful for manipulating surroundings like braces, quotes, brackets, XML tags, ...
+    {
+        "tpope/vim-surround",
+        event = { "BufEnter" },
+    },
 }
