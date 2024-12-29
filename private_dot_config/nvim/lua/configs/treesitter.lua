@@ -19,6 +19,7 @@ local options = {
         "javascript",
         "php",
         "blade",
+        "java",
     },
 
     textobjects = {

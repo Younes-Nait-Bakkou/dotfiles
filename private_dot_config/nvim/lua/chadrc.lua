@@ -6,7 +6,8 @@
 local M = {}
 
 M.base46 = {
-    theme = "gruvbox",
+    theme = "vscode_dark",
+    transparency = true,
 
     -- hl_override = {
     -- 	Comment = { italic = true },

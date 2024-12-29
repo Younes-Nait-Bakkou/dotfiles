@@ -19,6 +19,7 @@ lspconfig.servers = {
     "phpactor",
     -- "jinja_lsp", -- Needs "carbon"
     -- "typescript-tools",
+    "jdtls",
 }
 -- list of servers configured with default config.
 local default_servers = {
