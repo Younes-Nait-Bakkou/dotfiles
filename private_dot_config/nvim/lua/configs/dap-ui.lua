@@ -67,6 +67,28 @@ dapui.setup({
         },
     },
 })
+dap.configurations.java = {
+    {
+        name = "Java: Debug Launch (2GB)",
+        type = "java",
+        request = "launch",
+        vmArgs = "" .. "-Xmx2g",
+    },
+    {
+        name = "Java: Debug Attach (8000)",
+        type = "java",
+        request = "attach",
+        hostname = "127.0.0.1",
+        port = 8000,
+    },
+    {
+        name = "Java: Debug Attach (5005)",
+        type = "java",
+        request = "attach",
+        hostname = "127.0.0.1",
+        port = 5005,
+    },
+}
 
 local map = vim.keymap.set
 

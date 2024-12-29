@@ -7,6 +7,10 @@ local nomap = vim.keymap.del
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
+-- Move lines around
+map("v", "J", ":m '>+1<CR>gv=gv")
+map("v", "K", ":m '<-2<CR>gv=gv")
+
 -- Lspsaga key mappings
 wk.add({
     { "<leader>l", group = "Lspsaga" },
@@ -99,3 +103,4 @@ wk.add({
 --     { "<leader>Tv", "<cmd>DBUIToggle<CR>", desc = "Vertical Term" },
 --     { "<leader>Tf", "<cmd>DBUIToggle<CR>", desc = "Floating Term" },
 -- })
+--

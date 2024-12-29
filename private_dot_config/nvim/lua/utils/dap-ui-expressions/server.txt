@@ -29,3 +29,6 @@ sale_serializer
 model_class
 data
 price
+queryset
+request.data
+serializer_class
