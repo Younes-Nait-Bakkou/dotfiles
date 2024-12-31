@@ -70,7 +70,7 @@ wk.add({
 -- })
 
 wk.add({
-    { "<leader>g", group = "Git" },
+    { "<leader>g", group = " Git" },
     { "<leader>]g", "<cmd>Gitsigns next_hunk<CR>", desc = "Jump to next hunk" },
     { "<leader>[g", "<cmd>Gitsigns prev_hunk<CR>", desc = "Jump to previous hunk" },
     { "<leader>gp", "<cmd>Gitsigns preview_hunk<CR>", desc = "Preview hunk under cursor" },
@@ -95,6 +95,10 @@ wk.add({
     { "<leader>Df", "<cmd>DBUIFindBuffer<CR>", desc = "DB UI Find buffer" },
     { "<leader>Dr", "<cmd>DBUIRenameBuffer<CR>", desc = "DB UI Rename buffer" },
     { "<leader>Dl", "<cmd>DBUILastQueryInfo<CR>", desc = "DB UI Last query infos" },
+})
+
+wk.add({
+    { "<leader>rcj", "<cmd>RunCompiledJava<CR>", desc = "Run current class compiled java" },
 })
 
 -- wk.add({
