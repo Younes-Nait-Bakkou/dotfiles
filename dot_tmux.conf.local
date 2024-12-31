@@ -440,6 +440,11 @@ set -g @plugin 'tmux-plugins/tmux-cpu'
 set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'tmux-plugins/tmux-continuum'
 set -g @continuum-restore 'on'
+set -g @plugin 'sainnhe/tmux-fzf'
+
+# Doesn't work atm, fix cannot open vim when calling tome or prefix + e
+# set -g @plugin 'laktak/tome'
+# set -g @tome_key "T"
 
 
 # -- custom variables ----------------------------------------------------------
