@@ -1,5 +1,6 @@
 -- JDTLS (Java LSP) configuration
 local home = vim.env.HOME -- Get the home directory
+local JAVA_HOME = vim.env.JAVA_HOME
 
 local jdtls = require("jdtls")
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
@@ -57,7 +58,7 @@ local config = {
 
     -- This is the default if not provided, you can remove it. Or adjust as needed.
     -- One dedicated LSP server & client will be started per unique root_dir
-    root_dir = require("jdtls.setup").find_root({ ".git", "mvnw", "pom.xml", "build.gradle" }),
+    root_dir = vim.fs.dirname(vim.fs.find({ "gradlew", ".git", "mvnw" }, { upward = true })[1]),
 
     -- Here you can configure eclipse.jdt.ls specific settings
     -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
@@ -66,7 +67,7 @@ local config = {
         java = {
 
             -- TODO Replace this with the absolute path to your main java version (JDK 17 or higher)
-            home = "/opt/jdk/jdk-23.0.1",
+            home = JAVA_HOME,
             eclipse = {
                 downloadSources = true,
             },
@@ -77,7 +78,7 @@ local config = {
                 runtimes = {
                     {
                         name = "JavaSE-23",
-                        path = "/opt/jdk/jdk-23.0.1",
+                        path = JAVA_HOME,
                     },
                 },
             },
@@ -153,10 +154,14 @@ local config = {
     },
 }
 
+local run_compiled_class = require("commands.java.run_compiled_class")
+-- vim.print(run_compiled_class)
+
 -- Needed for debugging
 config["on_attach"] = function(client, bufnr)
     jdtls.setup_dap({ hotcodereplace = "auto" })
     require("jdtls.dap").setup_dap_main_class_configs()
+    run_compiled_class.setup(bufnr)
 end
 
 -- This starts a new client & server, or attaches to an existing client & server based on the `root_dir`.

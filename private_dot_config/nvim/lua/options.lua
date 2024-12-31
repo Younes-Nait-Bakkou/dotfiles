@@ -10,3 +10,4 @@ o.shiftwidth = 4
 o.tabstop = 4
 o.softtabstop = 4
 o.scrolloff = 10
+vim.g.material_style = "darker"
