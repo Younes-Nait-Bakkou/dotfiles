@@ -1,12 +1,6 @@
 local M = {}
 
 function M.setup(bufnr)
-    local get_curr_buf_info = require("commands.java.get_curr_buf_info")
-    get_curr_buf_info.setup(bufnr)
-
-    local buf_package_name = get_curr_buf_info.package_name
-    local buf_class_name = get_curr_buf_info.class_name
-
     -- vim.print("buf_package_name", buf_package_name)
     -- vim.print("buf_class_name", buf_class_name)
 
@@ -18,6 +12,12 @@ function M.setup(bufnr)
     end
 
     vim.api.nvim_create_user_command("RunCompiledJava", function(opts)
+        local get_curr_java_file_info = require("commands.java.get_curr_java_file_info")
+        get_curr_java_file_info.setup(0)
+
+        local buf_package_name = get_curr_java_file_info.package_name
+        local buf_class_name = get_curr_java_file_info.class_name
+
         local args = vim.split(opts.args, " ")
         -- vim.print(opts.nargs)
         -- vim.print(opts.args)
