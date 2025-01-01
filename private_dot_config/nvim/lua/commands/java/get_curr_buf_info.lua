@@ -26,10 +26,10 @@ function M.setup(bufnr)
         for _, symbol in ipairs(response.result or {}) do
             if symbol.kind == 4 then -- Symbol kind of package is 4
                 M.package_name = symbol.name
-                print("package", symbol.name)
+                -- print("package", symbol.name)
             elseif symbol.kind == 5 then -- Symbol kind of class is 5
                 M.class_name = symbol.name
-                print("class_name", symbol.name)
+                -- print("class_name", symbol.name)
             end
         end
     end
