@@ -1,6 +1,5 @@
 local M = {}
 
--- Runs asynchronously:
 function M.setup(bufnr)
     local get_curr_buf_info = require("commands.java.get_curr_buf_info")
     get_curr_buf_info.setup(bufnr)
@@ -8,8 +7,8 @@ function M.setup(bufnr)
     local buf_package_name = get_curr_buf_info.package_name
     local buf_class_name = get_curr_buf_info.class_name
 
-    vim.print("buf_package_name", buf_package_name)
-    vim.print("buf_class_name", buf_class_name)
+    -- vim.print("buf_package_name", buf_package_name)
+    -- vim.print("buf_class_name", buf_class_name)
 
     local on_exit = function(obj)
         print(obj.code)
@@ -20,13 +19,13 @@ function M.setup(bufnr)
 
     vim.api.nvim_create_user_command("RunCompiledJava", function(opts)
         local args = vim.split(opts.args, " ")
-        vim.print(opts.nargs)
-        vim.print(opts.args)
+        -- vim.print(opts.nargs)
+        -- vim.print(opts.args)
 
         local num_args = #args
 
-        vim.print("Number of arguments passed: " .. num_args)
-        vim.print("First arg: " .. args[1])
+        -- vim.print("Number of arguments passed: " .. num_args)
+        -- vim.print("First arg: " .. args[1])
 
         if num_args == 1 then
             vim.system({ "java", "-cp", "bin", buf_package_name .. "." .. buf_class_name }, { text = true }, on_exit)
