@@ -1,16 +1,6 @@
 local M = {}
 
 function M.setup(bufnr)
-    -- vim.print("buf_package_name", buf_package_name)
-    -- vim.print("buf_class_name", buf_class_name)
-
-    local on_exit = function(obj)
-        print(obj.code)
-        print(obj.signal)
-        print(obj.stdout)
-        print(obj.stderr)
-    end
-
     vim.api.nvim_create_user_command("RunCompiledJava", function(opts)
         local get_curr_java_file_info = require("commands.java.get_curr_java_file_info")
         get_curr_java_file_info.setup(0)
@@ -19,22 +9,23 @@ function M.setup(bufnr)
         local buf_class_name = get_curr_java_file_info.class_name
 
         local args = vim.split(opts.args, " ")
-        -- vim.print(opts.nargs)
-        -- vim.print(opts.args)
-
         local num_args = #args
 
-        -- vim.print("Number of arguments passed: " .. num_args)
-        -- vim.print("First arg: " .. args[1])
-
-        if num_args == 1 then
-            vim.system({ "java", "-cp", "bin", buf_package_name .. "." .. buf_class_name }, { text = true }, on_exit)
-            return
+        local with_terminal = false
+        for _, arg in ipairs(args) do
+            if arg == "with_terminal" then
+                with_terminal = true
+            end
         end
 
-        local bin_path = args[1] or "bin" -- Default to "bin" if not provided
-        local class = args[2] or buf_class_name -- Use buffer class name if not provided
-        local package = args[3] or buf_package_name -- Use buffer package name if not provided
+        -- Handle arguments for bin_path, class, and package
+        local bin_path = "bin"
+        local class = args[2] and args[2] ~= "with_terminal" and args[2] or buf_class_name
+        local package = args[3] and args[3] ~= "with_terminal" and args[3] or buf_package_name
+
+        vim.print("bin_path", bin_path)
+        vim.print("class", class)
+        vim.print("package", package)
 
         local class_path = class
 
@@ -42,7 +33,32 @@ function M.setup(bufnr)
             class_path = package .. "." .. class
         end
 
-        vim.system({ "java", "-cp", bin_path, class_path }, { text = true }, on_exit)
+        -- Define the Java command
+        local java_command = "java -cp " .. bin_path .. " " .. class_path
+
+        if with_terminal then
+            -- Open the floating terminal if "with_terminal" is specified
+            vim.print("with_terminal")
+            require("myplugins.floating-terminal").open_floating_terminal({
+                height = 20,
+                width = 80,
+                border = "double",
+                persistent = true,
+                cmds = { java_command },
+            })
+        else
+            vim.print("with_not_terminal")
+            -- Run the command normally
+            vim.system({ "java", "-cp", bin_path, class_path }, { text = true }, function(res)
+                if res.code == 0 then
+                    print("Java program executed successfully!")
+                    print(res.stdout)
+                else
+                    print("Error running Java program:")
+                    print(res.stderr)
+                end
+            end)
+        end
     end, { desc = "Run this class compiled java", nargs = "*", force = true })
 
     -- vim.cmd({ cmd = "RunCompiledJava", args = { "bin", buf_class_name, buf_package_name } })
