@@ -1,4 +1,5 @@
 -- require("configs.filetype-configs.htmldjango")
+require("myplugins.floating-terminal")
 
 return {
     -- Neovim session management, good for not having to re-open the same files after exit
