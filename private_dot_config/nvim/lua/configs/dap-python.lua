@@ -1,9 +1,10 @@
 local dapPython = require("dap-python")
 local dap = require("dap")
 local pythonPath = require("utils").venv_python_path()
+local globlaDebugpyPath = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
 
 -- Python config
--- DO NOT FORGET TO INSTALL debugpy package
+-- DO NOT FORGET TO INSTALL debugpy package if working on a python project with a venv
 local set_python_dap = function()
     dapPython.setup() -- earlier, so I can setup the various defaults ready to be replaced
     dapPython.resolve_python = function()
@@ -79,8 +80,10 @@ local set_python_dap = function()
         },
     }
 
+    -- Python debugpy config
     dap.adapters.python = {
         type = "executable",
+        -- command = vim.fn.expand(globlaDebugpyPath),
         command = pythonPath,
         args = { "-m", "debugpy.adapter" },
     }
@@ -95,6 +98,14 @@ vim.api.nvim_create_autocmd({ "DirChanged", "BufEnter" }, {
 
 local map = vim.keymap.set
 
-map("n", "<leader>dpr", function()
+map("n", "<leader>dpm", function()
     require("dap-python").test_method()
-end, { desc = "Run DAP Python test method" })
+end, { desc = "Test current python method" })
+
+map("n", "<leader>dpc", function()
+    require("dap-python").test_class()
+end, { desc = "Test current python class" })
+
+map("v", "<leader>dps", function()
+    require("dap-python").debug_selection()
+end, { desc = "Debug selected" })
