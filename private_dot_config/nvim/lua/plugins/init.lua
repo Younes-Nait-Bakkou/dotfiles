@@ -486,4 +486,13 @@ return {
     --         require("configs.material")
     --     end,
     -- },
+    --
+
+    {
+        "supermaven-inc/supermaven-nvim",
+        event = { "VeryLazy" },
+        config = function()
+            require("configs.supermaven")
+        end,
+    },
 }
