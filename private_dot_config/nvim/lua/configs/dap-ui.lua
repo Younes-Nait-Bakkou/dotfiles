@@ -67,6 +67,7 @@ dapui.setup({
         },
     },
 })
+
 dap.configurations.java = {
     {
         name = "Java: Debug Launch (2GB)",
@@ -106,9 +107,11 @@ end
 dap.listeners.after.launch.dapui_config = function()
     dapui.open()
 end
-dap.listeners.before.event_terminated.dapui_config = function()
-    dapui.close()
-end
-dap.listeners.before.event_exited.dapui_config = function()
-    dapui.close()
-end
+-- dap.listeners.before.event_terminated.dapui_config = function()
+--     vim.defer_fn(function()
+--         dapui.close()
+--     end, 10000)
+-- end
+-- dap.listeners.before.event_exited.dapui_config = function()
+--     dapui.close()
+-- end
