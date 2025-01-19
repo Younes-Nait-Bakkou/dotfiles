@@ -16,7 +16,6 @@ local options = {
     formatters = {
         -- Python
         black = {
-
             prepend_args = {
                 "--fast",
                 "--line-length",
@@ -26,7 +25,6 @@ local options = {
 
         djlint = {
             cmd = "djlint",
-
             append_args = {
                 -- "--line-break-after-multiline-tag",
                 "--max-attribute-length=70",

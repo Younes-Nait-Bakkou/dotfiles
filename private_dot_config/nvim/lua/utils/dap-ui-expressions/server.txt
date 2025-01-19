@@ -32,3 +32,4 @@ price
 queryset
 request.data
 serializer_class
+list(sale_received_products)

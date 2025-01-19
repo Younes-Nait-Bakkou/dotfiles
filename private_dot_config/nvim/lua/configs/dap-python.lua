@@ -27,6 +27,7 @@ local set_python_dap = function()
             justMyCode = false,
             django = true,
             console = "integratedTerminal",
+            pythonPath = pythonPath,
         },
         {
             type = "python",
@@ -38,6 +39,20 @@ local set_python_dap = function()
             end,
             django = true,
             console = "integratedTerminal",
+        },
+        {
+            type = "python",
+            request = "launch",
+            name = "Pytest: current file",
+            module = "pytest",
+            args = {
+                "${file}",
+                "-sv",
+                "--log-cli-level=INFO",
+                "--log-file=test_out.log",
+            },
+            console = "integratedTerminal",
+            pythonPath = pythonPath,
         },
         {
             type = "python",
