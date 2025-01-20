@@ -18,8 +18,9 @@ lspconfig.servers = {
     "tailwindcss",
     "phpactor",
     -- "jinja_lsp", -- Needs "carbon"
-    -- "typescript-tools",
+    -- "typescript-tools", -- Has its own plugin
     "jdtls",
+    "harper_ls",
 }
 -- list of servers configured with default config.
 local default_servers = {
@@ -32,6 +33,7 @@ local default_servers = {
     "tailwindcss",
     -- "jinja_lsp",
 }
+local deafut = 1
 
 -- lsps with default config
 for _, lsp in ipairs(default_servers) do
@@ -91,6 +93,7 @@ lspconfig.pyright.setup({
         },
     },
 })
+local ssourcess = 1
 
 -- lspconfig.ts_ls.setup({
 --     on_attach = on_attach,
@@ -208,3 +211,51 @@ lspconfig.phpactor.setup({
         ["language_server_psalm.enabled"] = false,
     },
 })
+
+-- lspconfig.harper_ls.setup({
+--     on_attach = function(client, bufnr)
+--         -- Disable virtual text for Harper LS diagnostics
+--         vim.diagnostic.config({
+--             virtual_text = false, -- Disable virtual text
+--             underline = true, -- Enable squiggly underlines
+--             signs = false, -- Disable signs in the gutter
+--         }, bufnr)
+--
+--         -- Call the global on_attach if you need common functionality
+--         if on_attach then
+--             on_attach(client, bufnr)
+--         end
+--     end,
+--     on_init = on_init,
+--     capabilities = capabilities,
+--     settings = {
+--         ["harper-ls"] = {
+--             userDictPath = "~/dict.txt",
+--             fileDictPath = "~/.harper/",
+--             diagnosticSeverity = "hint", -- Can also be "information", "warning", or "error"
+--             linters = {
+--                 spell_check = true,
+--                 spelled_numbers = false,
+--                 an_a = false,
+--                 sentence_capitalization = false,
+--                 unclosed_quotes = true,
+--                 wrong_quotes = false,
+--                 long_sentences = false,
+--                 repeated_words = false,
+--                 spaces = true,
+--                 matcher = false,
+--                 correct_number_suffix = false,
+--                 number_suffix_capitalization = false,
+--                 multiple_sequential_pronouns = false,
+--                 linking_verbs = false,
+--                 avoid_curses = false,
+--                 terminating_conjunctions = false,
+--             },
+--         },
+--     },
+-- })
+
+-- vim.cmd([[highlight DiagnosticUnderlineError gui=undercurl guisp=red]])
+-- vim.cmd([[highlight DiagnosticUnderlineWarning gui=undercurl guisp=yellow]])
+-- vim.cmd([[highlight DiagnosticUnderlineInformation gui=undercurl guisp=blue]])
+-- vim.cmd([[highlight DiagnosticUnderlineHint gui=undercurl guisp=green]])
