@@ -24,7 +24,9 @@ local set_python_dap = function()
             request = "launch",
             name = "Django",
             program = vim.loop.cwd() .. "/manage.py",
-            args = { "runserver", "8001", "--noreload" },
+            args = function()
+                return { "runserver", vim.fn.input("Listening port: "), "--noreload" }
+            end,
             justMyCode = false,
             django = true,
             console = "integratedTerminal",
@@ -60,10 +62,10 @@ local set_python_dap = function()
             request = "attach",
             name = "Attach remote",
             connect = function()
-                return {
-                    host = "127.0.0.1",
-                    port = 5678,
-                }
+                local host = vim.fn.input("Host [127.0.0.1]: ")
+                host = host ~= "" and host or "127.0.0.1"
+                local port = tonumber(vim.fn.input("Port [5678]: ")) or 5678
+                return { host = host, port = port }
             end,
         },
         {
@@ -98,9 +100,9 @@ vim.api.nvim_create_autocmd({ "DirChanged", "BufEnter" }, {
 
 local map = vim.keymap.set
 
-map("n", "<leader>dpm", function()
+map("n", "<leader>dpf", function()
     require("dap-python").test_method()
-end, { desc = "Test current python method" })
+end, { desc = "Test current python function" })
 
 map("n", "<leader>dpc", function()
     require("dap-python").test_class()
