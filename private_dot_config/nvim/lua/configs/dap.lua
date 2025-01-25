@@ -1,22 +1,29 @@
 local map = vim.keymap.set
+local wk = require("which-key")
 local dap = require("dap")
 local save_expressions = require("utils.save_dap_expressions").save_expressions
 local load_expressions = require("utils.load_dap_expressions").load_expressions
 
-map("n", "<leader>db", "<cmd> DapToggleBreakpoint <CR>", { desc = "Toggle DAP Breakpoint" })
-
-map("n", "<leader>dr", "<cmd> DapContinue <CR>", { desc = "Start or continue DAP" })
-
-map("n", "<F9>", dap.continue)
-map("n", "<F8>", dap.step_over)
-map("n", "<F10>", dap.step_into)
-map("n", "<F12>", dap.step_out)
-map("n", "<leader>db", dap.toggle_breakpoint)
-map("n", "<leader>dB", function()
-    dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
-end)
-
-map("n", "<leader>db", dap.toggle_breakpoint)
+wk.add({
+    { "<leader>d", group = "  Debug" },
+    { "<leader>db", dap.toggle_breakpoint, desc = "Toggle DAP Breakpoint", mode = "n" },
+    { "<leader>dr", dap.continue, desc = "Start or continue DAP", mode = "n" },
+    { "<leader>ds", dap.step_over, desc = "Step over DAP", mode = "n" },
+    { "<leader>dsi", dap.step_into, desc = "Step into DAP", mode = "n" },
+    { "<leader>dso", dap.step_out, desc = "Step out DAP", mode = "n" },
+    {
+        "<leader>dB",
+        function()
+            dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
+        end,
+        desc = "Set DAP Breakpoint",
+        mode = "n",
+    },
+    { "<leader>dS", dap.close, desc = "Close DAP", mode = "n" },
+    { "<leader>dR", dap.repl.toggle, desc = "Toggle DAP REPL", mode = "n" },
+    { "<leader>dC", dap.run_to_cursor, desc = "Run to cursor DAP", mode = "n" },
+    { "<leader>dD", dap.run_to_cursor, desc = "Run to cursor DAP", mode = "v" },
+})
 
 vim.fn.sign_define("DapBreakpoint", {
     text = "⬤",
@@ -45,13 +52,13 @@ end
 -- Optional keymaps for manual save/load
 vim.api.nvim_set_keymap(
     "n",
-    "<leader>ds",
+    "<leader>dse",
     ":lua require('utils.save_dap_expressions').save_expressions()<CR>",
     { noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap(
     "n",
-    "<leader>dl",
+    "<leader>dle",
     ":lua require('utils.load_dap_expressions').load_expressions()<CR>",
     { noremap = true, silent = true }
 )

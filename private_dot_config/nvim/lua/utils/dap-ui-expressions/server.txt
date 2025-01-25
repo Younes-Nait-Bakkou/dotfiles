@@ -33,3 +33,6 @@ queryset
 request.data
 serializer_class
 list(sale_received_products)
+markers
+chart_response
+total_amount_to_pau
