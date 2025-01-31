@@ -515,4 +515,12 @@ return {
             require("configs.telescope")
         end,
     },
+
+    {
+        "Vigemus/iron.nvim",
+        cmd = { "IronRepl", "IronReplAttach" },
+        config = function()
+            require("configs.iron")
+        end,
+    },
 }
