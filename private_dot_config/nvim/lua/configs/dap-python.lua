@@ -25,7 +25,14 @@ local set_python_dap = function()
             name = "Django",
             program = vim.loop.cwd() .. "/manage.py",
             args = function()
-                return { "runserver", vim.fn.input("Listening port: "), "--noreload" }
+                local port = "8000"
+                local input_port = vim.fn.input("Port [8000]: ")
+
+                if port ~= "" then
+                    port = input_port
+                end
+
+                return { "runserver", port, "--noreload" }
             end,
             justMyCode = false,
             django = true,
