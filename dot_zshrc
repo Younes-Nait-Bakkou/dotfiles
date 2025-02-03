@@ -175,3 +175,8 @@ fi
 # ssh-add ~/.ssh/id_ed25519
 
 alias django="python manage.py"
+export PATH=$PATH:/opt/android-studio/bin
+
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
