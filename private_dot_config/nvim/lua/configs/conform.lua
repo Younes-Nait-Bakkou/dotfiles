@@ -16,11 +16,7 @@ local options = {
     formatters = {
         -- Python
         black = {
-            prepend_args = {
-                "--fast",
-                "--line-length",
-                "90",
-            },
+            prepend_args = {},
         },
 
         djlint = {
