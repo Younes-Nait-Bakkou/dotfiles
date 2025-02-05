@@ -45,19 +45,23 @@ function M.setup(bufnr)
                 border = "double",
                 persistent = true,
                 cmds = { java_command },
+                buf = bufnr,
             })
         else
             vim.print("with_not_terminal")
             -- Run the command normally
-            vim.system({ "java", "-cp", bin_path, class_path }, { text = true }, function(res)
-                if res.code == 0 then
-                    print("Java program executed successfully!")
-                    print(res.stdout)
-                else
-                    print("Error running Java program:")
-                    print(res.stderr)
-                end
-            end)
+            --
+            vim.cmd("botright vsplit | terminal " .. java_command)
+
+            -- vim.system({ "java", "-cp", bin_path, class_path }, { text = true }, function(res)
+            --     if res.code == 0 then
+            --         print("Java program executed successfully!")
+            --         print(res.stdout)
+            --     else
+            --         print("Error running Java program:")
+            --         print(res.stderr)
+            --     end
+            -- end)
         end
     end, { desc = "Run this class compiled java", nargs = "*", force = true })
 
