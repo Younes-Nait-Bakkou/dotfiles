@@ -130,6 +130,8 @@ export NVM_DIR="$HOME/.nvm"
 
 # export PATH="$HOME/miniconda3/bin:$PATH"  # commented out by conda initialize
 
+export CONDA_AUTO_ACTIVATE_BASE=false
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/younes/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
@@ -144,6 +146,7 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+conda deactivate
 #
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$PATH:/opt/nvim-linux64/bin"
