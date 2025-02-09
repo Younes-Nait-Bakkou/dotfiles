@@ -7,6 +7,7 @@ local globlaDebugpyPath = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/p
 -- DO NOT FORGET TO INSTALL debugpy package if working on a python project with a venv
 local set_python_dap = function()
     dapPython.setup() -- earlier, so I can setup the various defaults ready to be replaced
+    dapPython.test_runner = "pytest"
     dapPython.resolve_python = function()
         return pythonPath
     end
