@@ -516,6 +516,7 @@ return {
         end,
     },
 
+    -- REPL for Neovim
     {
         "Vigemus/iron.nvim",
         cmd = { "IronRepl", "IronReplAttach" },
@@ -524,6 +525,7 @@ return {
         end,
     },
 
+    -- SpringBoot helper for Neovim
     {
         "elmcgill/springboot-nvim",
         dependencies = {
@@ -532,6 +534,16 @@ return {
         },
         config = function()
             require("configs.springboot-nvim")
+        end,
+    },
+
+    -- Neorg, a modern notebook interface for Neovim
+    {
+        "nvim-neorg/neorg",
+        version = "*", -- Pin Neorg to the latest stable release
+        cmd = "Neorg",
+        config = function()
+            require("configs.neorg")
         end,
     },
 }
