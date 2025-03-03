@@ -11,6 +11,7 @@ local options = {
         typescriptreact = { "prettier" },
         json = { "prettier" },
         blade = { "prettier" },
+        sh = { "shfmt" },
     },
 
     formatters = {

@@ -1,4 +1,5 @@
 local utils = require("utils")
+local lspconfig_util = require("lspconfig.util")
 
 local on_attach = require("nvchad.configs.lspconfig").on_attach
 local on_init = require("nvchad.configs.lspconfig").on_init
@@ -20,20 +21,21 @@ lspconfig.servers = {
     -- "jinja_lsp", -- Needs "carbon"
     -- "typescript-tools", -- Has its own plugin
     "jdtls",
-    "harper_ls",
+    -- "harper_ls",
+    "bashls",
 }
+
 -- list of servers configured with default config.
 local default_servers = {
     -- "ts_ls",
     -- "lua_ls",
     -- "pyright",
-    "html",
     "cssls",
     "ruff",
-    "tailwindcss",
+    "bashls",
+    -- "tailwindcss",
     -- "jinja_lsp",
 }
-local deafut = 1
 
 -- lsps with default config
 for _, lsp in ipairs(default_servers) do
@@ -239,7 +241,7 @@ lspconfig.phpactor.setup({
 --                 an_a = false,
 --                 sentence_capitalization = false,
 --                 unclosed_quotes = true,
---                 wrong_quotes = false,
+--                 wrong_quotes = true,
 --                 long_sentences = false,
 --                 repeated_words = false,
 --                 spaces = true,
@@ -259,3 +261,53 @@ lspconfig.phpactor.setup({
 -- vim.cmd([[highlight DiagnosticUnderlineWarning gui=undercurl guisp=yellow]])
 -- vim.cmd([[highlight DiagnosticUnderlineInformation gui=undercurl guisp=blue]])
 -- vim.cmd([[highlight DiagnosticUnderlineHint gui=undercurl guisp=green]])
+--
+
+lspconfig.tailwindcss.setup({
+    on_attach = on_attach,
+    on_init = on_init,
+    capabilities = capabilities,
+
+    cmd = { "tailwindcss-language-server", "--stdio" },
+    filetypes = { "html", "css", "javascript", "htmldjango" },
+    root_dir = lspconfig.util.root_pattern("tailwind.config.js", "tailwind.config.cjs", "tailwind.config.ts"),
+})
+
+local html_capabilities = vim.lsp.protocol.make_client_capabilities()
+html_capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+lspconfig.html.setup({
+    capabilities = html_capabilities,
+    on_attach = on_attach,
+    on_init = on_init,
+
+    cmd = { "vscode-html-language-server", "--stdio" },
+    filetypes = { "html", "htmldjango" },
+    root_dir = lspconfig.util.root_pattern(".git", "package.json"),
+})
+
+-- lspconfig.tailwindcss.setup({
+--     on_attach = on_attach,
+--     on_init = on_init,
+--     capabilities = capabilities,
+--     filetypes = { "html", "htmldjango", "javascript", "css" },
+--
+--     root_dir = function(fname)
+--         return lspconfig_util.root_pattern(
+--             "tailwind.config.js",
+--             "tailwind.config.ts",
+--             "./theme/static_src/tailwind.config.js"
+--         )(fname) or lspconfig_util.root_pattern("postcss.config.js", "postcss.config.ts")(fname) or lspconfig_util.find_package_json_ancestor(
+--             fname
+--         ) or lspconfig_util.find_node_modules_ancestor(fname) or lspconfig_util.find_git_ancestor(fname)
+--     end,
+--
+--     settings = {
+--         tailwindCSS = {
+--             validate = true,
+--             includeLanguages = {
+--                 { htmldjango = "html" },
+--             },
+--         },
+--     },
+-- })

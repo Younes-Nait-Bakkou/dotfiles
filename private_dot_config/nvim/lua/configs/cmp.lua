@@ -70,9 +70,9 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
-cmp.setup.filetype({ "html", "htmldjango" }, {
-    sources = cmp.config.sources({
-        { name = "cmp_bootstrap" },
-        -- other sources
-    }),
-})
+-- cmp.setup.filetype({ "html", "htmldjango" }, {
+--     sources = cmp.config.sources({
+--         { name = "cmp_bootstrap" },
+--         -- other sources
+--     }),
+-- })
