@@ -20,3 +20,19 @@ vim.cmd([[let &t_Ce = "\e[4:0m"]])
 -- Enable neovim built-in spell check
 vim.opt.spell = true
 vim.opt.spelllang = { "en_us" }
+vim.cmd([[
+    augroup PythonSpellCheck
+        autocmd!
+        autocmd FileType python syntax match SpellCheck /\w\+/ containedin=ALL
+    augroup END
+]])
+
+-- vim.api.nvim_create_autocmd("FileType", {
+--     pattern = "python",
+--     callback = function()
+--         vim.cmd("setlocal spell") -- Ensure spell check is enabled
+--         vim.api.nvim_set_hl(0, "@variable", { spell = true })
+--         vim.api.nvim_set_hl(0, "@function", { spell = true })
+--         vim.api.nvim_set_hl(0, "@type", { spell = true }) -- For class names
+--     end
+-- })

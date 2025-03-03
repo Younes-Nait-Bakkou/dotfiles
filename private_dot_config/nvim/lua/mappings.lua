@@ -82,11 +82,13 @@ wk.add({
     -- { "<leader>gR", "<cmd>Gitsigns reset_buffer<CR>", desc = "Reset all hunks in buffer" },
 
     { "<leader>gg", "<cmd>Git<CR>", desc = "Open git status in interactive window" },
-    { "<leader>gc", "<cmd>Git commit | startinsert<CR>", desc = "Open commit window" },
+    { "<leader>gc", "<cmd>Git commit -v | startinsert<CR>", desc = "Git commit with preview" },
+    { "<leader>gca", "<cmd>Git commit --amend -v | startinsert<CR>", desc = "Git commit amend with preview" },
     { "<leader>gd", "<cmd>Git difftool<CR>", desc = "Open git difftool" },
     { "<leader>gm", "<cmd>Git mergetool<CR>", desc = "Open git mergetool" },
     { "<leader>g|", "<cmd>Gvdiffsplit<CR>", desc = "Open vertical diff split" },
     { "<leader>g_", "<cmd>Gdiffsplit<CR>", desc = "Open diff split" },
+    { "<leader>gaa", "<cmd>Git add %<CR>", desc = "Git add current file" },
 })
 
 wk.add({

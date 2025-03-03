@@ -489,13 +489,13 @@ return {
     --
 
     -- AI code completion assistant
-    {
-        "supermaven-inc/supermaven-nvim",
-        event = { "VeryLazy" },
-        config = function()
-            require("configs.supermaven")
-        end,
-    },
+    -- {
+    --     "supermaven-inc/supermaven-nvim",
+    --     event = { "VeryLazy" },
+    --     config = function()
+    --         require("configs.supermaven")
+    --     end,
+    -- },
 
     {
         "nvim-telescope/telescope.nvim",
@@ -546,4 +546,17 @@ return {
             require("configs.neorg")
         end,
     },
+
+    -- Better refactoring experience (crashes neovim)
+    -- {
+    --     "ThePrimeagen/refactoring.nvim",
+    --     dependencies = {
+    --         "nvim-lua/plenary.nvim",
+    --         "nvim-treesitter/nvim-treesitter",
+    --     },
+    --     lazy = false,
+    --     config = function()
+    --         require("configs.refactoring")
+    --     end,
+    -- },
 }
