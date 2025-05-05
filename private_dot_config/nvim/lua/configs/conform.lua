@@ -28,6 +28,13 @@ local options = {
                 "--max-line-length=120",
             },
         },
+        prettier = {
+            cmd = "prettier",
+            append_args = {
+                "--print-width=120",
+                "--tab-width=4",
+            },
+        },
 
         -- prettier = {
         --     prepend_args = {

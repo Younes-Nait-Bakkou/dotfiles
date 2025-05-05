@@ -489,13 +489,13 @@ return {
     --
 
     -- AI code completion assistant
-    -- {
-    --     "supermaven-inc/supermaven-nvim",
-    --     event = { "VeryLazy" },
-    --     config = function()
-    --         require("configs.supermaven")
-    --     end,
-    -- },
+    {
+        "supermaven-inc/supermaven-nvim",
+        event = { "VeryLazy" },
+        config = function()
+            require("configs.supermaven")
+        end,
+    },
 
     {
         "nvim-telescope/telescope.nvim",
