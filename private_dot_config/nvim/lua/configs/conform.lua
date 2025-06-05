@@ -31,8 +31,8 @@ local options = {
         prettier = {
             cmd = "prettier",
             append_args = {
-                "--print-width=120",
-                "--tab-width=4",
+                -- "--print-width=120",
+                -- "--tab-width=4",
             },
         },
 
