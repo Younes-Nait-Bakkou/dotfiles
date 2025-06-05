@@ -186,3 +186,5 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 alias venvshell="source .venv/bin/activate"
 export COREPACK_ENABLE_AUTO_PIN=0
+export PATH="/home/younes/.config/herd-lite/bin:$PATH"
+export PHP_INI_SCAN_DIR="/home/younes/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"

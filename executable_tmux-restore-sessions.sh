@@ -6,26 +6,36 @@ declare -a windows
 declare -A window_project_to_path
 declare -A window_to_commands
 
-sessions=("Delivino" "Email-testing" "Coreedge" "Automize" "VeriFlow" "GasFlow")
+sessions=("Arnabix" "Email-testing" "Coreedge" "Automize" "VeriFlow" "GasFlow" "AGR" "Expo-Tuto" "weather-app" "oui-gaz" "Delivino")
 
-session_project_to_path["Delivino"]="$HOME/Desktop/codes/Projects/Delivino"
+session_project_to_path["Arnabix"]="$HOME/Desktop/codes/Projects/Arnabix"
+session_project_to_path["oui-gaz"]="$HOME/Desktop/codes/Projects/oui-gaz"
 session_project_to_path["Email-testing"]="$HOME/Desktop/codes/Python/E2E-email-testing"
 session_project_to_path["Coreedge"]="$HOME/Desktop/codes/Projects/Coreedge"
 session_project_to_path["Automize"]="$HOME/Desktop/codes/Projects/Automize"
 session_project_to_path["VeriFlow"]="$HOME/Desktop/codes/Projects/VeriFlow"
 session_project_to_path["GasFlow"]="$HOME/Desktop/codes/Projects/GasFlow"
+session_project_to_path["AGR"]="$HOME/Desktop/codes/Projects/AGR"
+session_project_to_path["Expo-Tuto"]="$HOME/Desktop/codes/React-Native/Expo-Tutorial"
+session_project_to_path["weather-app"]="$HOME/Desktop/codes/React-Native/Weather-App"
+session_project_to_path["Delivino"]="$HOME/Desktop/codes/Projects/Delivino"
 
-windows=("Delivino:server" "Delivino:web" "Delivino:mobile" "Delivino:business" "Delivino:django-server" "Delivino:web-server" "Delivino:mobile-server" "Delivino:business-server" "Email-testing:scripts" "Email-testing:execution" "Coreedge:server" "Coreedge:django-server" "Automize:server" "Automize:django-server" "VeriFlow:server" "VeriFlow:django-server" "GasFlow:server" "GasFlow:django-server")
+windows=("Arnabix:server" "Arnabix:web" "Arnabix:mobile" "Arnabix:business" "Arnabix:django-server" "Arnabix:web-server" "Arnabix:mobile-server" "Arnabix:business-server" "Email-testing:scripts" "Email-testing:execution" "Coreedge:server" "Coreedge:django-server" "Automize:server" "Automize:django-server" "VeriFlow:server" "VeriFlow:django-server" "GasFlow:server" "GasFlow:django-server" "AGR:server" "AGR:laravel-server" "Expo-Tuto:code" "Expo-Tuto:mobile-server" "weather-app:code" "weather-app:mobile-server" "oui-gaz:server" "oui-gaz:client" "oui-gaz:django-server" "oui-gaz:web-server" "Delivino:server" "Delivino:django-server")
 
-window_project_to_path["Delivino:server"]="${session_project_to_path["Delivino"]}/server"
-window_project_to_path["Delivino:web"]="${session_project_to_path["Delivino"]}/packages/web"
-window_project_to_path["Delivino:mobile"]="${session_project_to_path["Delivino"]}/packages/mobile"
-window_project_to_path["Delivino:business"]="${session_project_to_path["Delivino"]}/packages/business"
-window_project_to_path["Delivino:django-server"]="${session_project_to_path["Delivino"]}/server"
-window_project_to_path["Delivino:web-server"]="${session_project_to_path["Delivino"]}/packages/web"
-window_project_to_path["Delivino:mobile-server"]="${session_project_to_path["Delivino"]}/packages/mobile"
-window_project_to_path["Delivino:business-server"]="${session_project_to_path["Delivino"]}/packages/business"
-window_project_to_path["Delivino:docker"]="${session_project_to_path["Delivino"]}"
+window_project_to_path["Arnabix:server"]="${session_project_to_path["Arnabix"]}/server"
+window_project_to_path["Arnabix:web"]="${session_project_to_path["Arnabix"]}/packages/web"
+window_project_to_path["Arnabix:mobile"]="${session_project_to_path["Arnabix"]}/packages/mobile"
+window_project_to_path["Arnabix:business"]="${session_project_to_path["Arnabix"]}/packages/business"
+window_project_to_path["Arnabix:django-server"]="${session_project_to_path["Arnabix"]}/server"
+window_project_to_path["Arnabix:web-server"]="${session_project_to_path["Arnabix"]}/packages/web"
+window_project_to_path["Arnabix:mobile-server"]="${session_project_to_path["Arnabix"]}/packages/mobile"
+window_project_to_path["Arnabix:business-server"]="${session_project_to_path["Arnabix"]}/packages/business"
+window_project_to_path["Arnabix:docker"]="${session_project_to_path["Arnabix"]}"
+
+window_project_to_path["oui-gaz:server"]="${session_project_to_path["oui-gaz"]}/server"
+window_project_to_path["oui-gaz:client"]="${session_project_to_path["oui-gaz"]}/client"
+window_project_to_path["oui-gaz:django-server"]="${session_project_to_path["oui-gaz"]}/server"
+window_project_to_path["oui-gaz:web-server"]="${session_project_to_path["oui-gaz"]}/client"
 
 window_project_to_path["Email-testing:scripts"]="${session_project_to_path["Email-testing"]}"
 window_project_to_path["Email-testing:execution"]="${session_project_to_path["Email-testing"]}"
@@ -42,16 +52,35 @@ window_project_to_path["VeriFlow:django-server"]="${session_project_to_path["Ver
 window_project_to_path["GasFlow:server"]="${session_project_to_path["GasFlow"]}"
 window_project_to_path["GasFlow:django-server"]="${session_project_to_path["GasFlow"]}"
 
-window_to_commands["Delivino:server"]=""
-window_to_commands["Delivino:web"]=""
-window_to_commands["Delivino:mobile"]=""
-window_to_commands["Delivino:business"]=""
+window_project_to_path["AGR:server"]="${session_project_to_path["AGR"]}"
+window_project_to_path["AGR:laravel-server"]="${session_project_to_path["AGR"]}"
+
+window_project_to_path["Expo-Tuto:code"]="${session_project_to_path["Expo-Tuto"]}"
+window_project_to_path["Expo-Tuto:mobile-server"]="${session_project_to_path["Expo-Tuto"]}"
+
+window_project_to_path["weather-app:code"]="${session_project_to_path["weather-app"]}"
+window_project_to_path["weather-app:mobile-server"]="${session_project_to_path["weather-app"]}"
+
+window_project_to_path["Delivino:server"]="${session_project_to_path["Delivino"]}"
+window_project_to_path["Delivino:django-server"]="${session_project_to_path["Delivino"]}"
+
+window_to_commands["Arnabix:server"]=""
+window_to_commands["Arnabix:web"]=""
+window_to_commands["Arnabix:mobile"]=""
+window_to_commands["Arnabix:business"]=""
+window_to_commands["Arnabix:django-server"]="tmux split-window -t SESSION_NAME:WINDOW_NAME; tmux send-keys -t SESSION_NAME:WINDOW_NAME.1 'venvshell' C-m 'django runserver' C-m;
+tmux send-keys -t SESSION_NAME:WINDOW_NAME.2 'cd WINDOW_PROJECT_PATH' C-m 'venvshell' C-m;"
+window_to_commands["Arnabix:web-server"]="tmux split-window -t SESSION_NAME:WINDOW_NAME; tmux send-keys -t SESSION_NAME:WINDOW_NAME.1 'yarn dev' C-m; tmux send-keys -t SESSION_NAME:WINDOW_NAME.2 'cd WINDOW_PROJECT_PATH' C-m;"
+window_to_commands["Arnabix:mobile-server"]=""
+window_to_commands["Arnabix:business-server"]=""
+window_to_commands["Arnabix:docker"]=""
+
+window_to_commands["oui-gaz:django-server"]="tmux split-window -t SESSION_NAME:WINDOW_NAME; tmux send-keys -t SESSION_NAME:WINDOW_NAME.1 'venvshell' C-m 'django runserver' C-m;
+tmux send-keys -t SESSION_NAME:WINDOW_NAME.2 'cd WINDOW_PROJECT_PATH' C-m 'venvshell' C-m;"
+window_to_commands["oui-gaz:web-server"]="tmux split-window -t SESSION_NAME:WINDOW_NAME; tmux send-keys -t SESSION_NAME:WINDOW_NAME.1 'npm run dev' C-m; tmux send-keys -t SESSION_NAME:WINDOW_NAME.2 'cd WINDOW_PROJECT_PATH' C-m;"
+
 window_to_commands["Delivino:django-server"]="tmux split-window -t SESSION_NAME:WINDOW_NAME; tmux send-keys -t SESSION_NAME:WINDOW_NAME.1 'venvshell' C-m 'django runserver' C-m;
 tmux send-keys -t SESSION_NAME:WINDOW_NAME.2 'cd WINDOW_PROJECT_PATH' C-m 'venvshell' C-m;"
-window_to_commands["Delivino:web-server"]="tmux split-window -t SESSION_NAME:WINDOW_NAME; tmux send-keys -t SESSION_NAME:WINDOW_NAME.1 'yarn dev' C-m; tmux send-keys -t SESSION_NAME:WINDOW_NAME.2 'cd WINDOW_PROJECT_PATH' C-m;"
-window_to_commands["Delivino:mobile-server"]=""
-window_to_commands["Delivino:business-server"]=""
-window_to_commands["Delivino:docker"]=""
 
 check_session_exists() {
     if tmux has-session -t "$1" &>/dev/null; then
@@ -67,8 +96,8 @@ for i in "${!sessions[@]}"; do
     echo "Would you like to create this session '$session' (y/N): "
     read -r should_create_session
 
-    # Check if answer is "N" or "n" (default to N)
-    if [[ "$should_create_session" == "N" || "$should_create_session" == "n" ]]; then
+    # Check if answer is "Y" or "y" (default to N)
+    if [[ "$should_create_session" != "Y" && "$should_create_session" != "y" ]]; then
         echo "Skipping session '$session'"
         continue
     fi
