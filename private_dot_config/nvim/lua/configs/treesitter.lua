@@ -20,6 +20,7 @@ local options = {
         "php",
         "blade",
         "java",
+        "regex",
     },
 
     textobjects = {

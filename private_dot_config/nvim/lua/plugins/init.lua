@@ -559,4 +559,11 @@ return {
     --         require("configs.refactoring")
     --     end,
     -- },
+    {
+        "echasnovski/mini.nvim",
+        version = false,
+        config = function()
+            require("mini.icons").setup() -- optional: customize here
+        end,
+    },
 }
