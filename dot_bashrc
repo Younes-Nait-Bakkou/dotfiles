@@ -139,3 +139,4 @@ export PATH="$PATH:/opt/nvim-linux64/bin"
 export LD_LIBRARY_PATH="/usr/lib/x86_64-linux-gnu/libmysqlclient.so.21.2.39:/usr/lib/x86_64-linux-gnu/libmysqlclient.so:/usr/lib/x86_64-linux-gnu/libmysqlclient.so.21:$LD_LIBRARY_PATH"
 
 . "$HOME/.cargo/env"
+source ~/.luaver/luaver
