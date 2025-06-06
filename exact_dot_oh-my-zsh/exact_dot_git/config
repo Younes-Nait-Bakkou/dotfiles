@@ -14,10 +14,12 @@
 [oh-my-zsh]
 	remote = origin
 	branch = master
-	lastVersion = c34c1da736f4f162206e1153e66850788f3e2e16
+	lastVersion = a84a0332a822a78ddf3f66d0e1ed3990d4badd12
 [remote "origin"]
 	url = https://github.com/ohmyzsh/ohmyzsh.git
 	fetch = +refs/heads/*:refs/remotes/origin/*
 [branch "master"]
 	remote = origin
 	merge = refs/heads/master
+[rebase]
+	autoStash = true
