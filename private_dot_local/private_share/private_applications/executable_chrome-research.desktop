@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Name=Chrome Research
+Exec=google-chrome --user-data-dir="/home/younes/chrome-configs/research"  --class="research"
+Icon=google-chrome
