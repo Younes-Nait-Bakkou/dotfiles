@@ -150,8 +150,8 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="$HOME/.local/bin:$PATH"
 export LD_LIBRARY_PATH="/usr/lib/x86_64-linux-gnu/libmysqlclient.so.21.2.39:/usr/lib/x86_64-linux-gnu/libmysqlclient.so:/usr/lib/x86_64-linux-gnu/libmysqlclient.so.21:$LD_LIBRARY_PATH"
 
-export CFLAGS="-I/usr/include/mysql"
-export LDFLAGS="-L/usr/lib/x86_64-linux-gnu"
+export MYSQLCLIENT_CFLAGS="-I/usr/include/mysql"
+export MYSQLCLIENT_LDFLAGS="-L/usr/lib/x86_64-linux-gnu"
 
 # Check if `java --version` is successful
 if java --version > /dev/null 2>&1; then
@@ -168,8 +168,8 @@ if java --version > /dev/null 2>&1; then
     export PATH=$JAVA_HOME/bin:$PATH
 
     # echo "JAVA_HOME is set to: $JAVA_HOME"
-else
-    echo "Java is not installed or not found in PATH."
+# else
+#     echo "Java is not installed or not found in PATH."
 fi
 
 # eval $(ssh-agent -s)

@@ -69,6 +69,11 @@ exec --no-startup-id dex --autostart --environment i3
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
+# Start Polybar on i3 startup without blocking the window manager
+# --no-startup-id prevents i3 from tracking the process (runs in background)
+# Adjust the script path and arguments if needed
+exec --no-startup-id ~/.config/polybar/launch.sh --hack
+
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
@@ -199,25 +204,25 @@ client.background       $wm_color_background
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        position         $bar_setting_position
-        mode             $bar_setting_mode
-        font             $bar_setting_font
-        separator_symbol $bar_setting_separator
-        status_command   $bar_setting_statusCommand
-        tray_output      $bar_setting_trayoutput
-        colors {
-            background   $bar_color_background
-            statusline   $bar_color_statusline
-            separator    $bar_color_separator
-
-            focused_workspace  $bar_color_workspace_focused_bg  $bar_color_workspace_focused_bg  $bar_color_workspace_focused_fg
-            active_workspace   $bar_color_workspace_active_bg   $bar_color_workspace_active_bg   $bar_color_workspace_active_fg
-            inactive_workspace $bar_color_workspace_inactive_bg $bar_color_workspace_inactive_bg $bar_color_workspace_inactive_fg
-            urgent_workspace   $bar_color_workspace_urgent_bg   $bar_color_workspace_urgent_bg   $bar_color_workspace_urgent_fg
-        }
-}
-
+# bar {
+#         position         $bar_setting_position
+#         mode             $bar_setting_mode
+#         font             $bar_setting_font
+#         separator_symbol $bar_setting_separator
+#         status_command   $bar_setting_statusCommand
+#         tray_output      $bar_setting_trayoutput
+#         colors {
+#             background   $bar_color_background
+#             statusline   $bar_color_statusline
+#             separator    $bar_color_separator
+#
+#             focused_workspace  $bar_color_workspace_focused_bg  $bar_color_workspace_focused_bg  $bar_color_workspace_focused_fg
+#             active_workspace   $bar_color_workspace_active_bg   $bar_color_workspace_active_bg   $bar_color_workspace_active_fg
+#             inactive_workspace $bar_color_workspace_inactive_bg $bar_color_workspace_inactive_bg $bar_color_workspace_inactive_fg
+#             urgent_workspace   $bar_color_workspace_urgent_bg   $bar_color_workspace_urgent_bg   $bar_color_workspace_urgent_fg
+#         }
+# }
+#
 
 ### Miscellaneous settings ###
 # Set the font used for titlebars (which are hidden here)
