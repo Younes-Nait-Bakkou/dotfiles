@@ -115,6 +115,7 @@ set $ws10 "   10:    "
 
 assign [class="development"] $ws1
 assign [class="postman"] $ws1
+assign [class="kitty"] $ws2
 assign [class="research"] $ws3
 assign [class="project-management"] $ws4
 assign [class="entertainment"] $ws5
