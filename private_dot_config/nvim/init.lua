@@ -35,3 +35,5 @@ require("nvchad.autocmds")
 vim.schedule(function()
     require("mappings")
 end)
+
+require("commands.global.remove_quick_fix_entry").setup()
