@@ -1,6 +1,6 @@
 #!/bin/bash
 
-WALLPAPER_DIR="$HOME/Pictures/wallpapers"
+WALLPAPER_DIR="$HOME/.config/wallpapers"
 
 if [ -z "$1" ]; then
     echo "Usage: $0 <wallpaper-file>"
