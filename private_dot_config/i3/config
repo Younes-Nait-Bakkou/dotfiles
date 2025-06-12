@@ -72,7 +72,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # Start Polybar on i3 startup without blocking the window manager
 # --no-startup-id prevents i3 from tracking the process (runs in background)
 # Adjust the script path and arguments if needed
-exec --no-startup-id ~/.config/polybar/launch.sh --blocks
+exec --no-startup-id ~/.config/polybar/themes/cuts/launch.sh
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -248,7 +248,14 @@ bindsym $mod+$smod+r restart
 bindsym $mod+$smod+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 ## Screenshots
-bindsym Print exec NOW=$(date +%d-%b-%Y_%H-%M-%S) && maim --format png --select > ~/Pictures/Screenshots/screenshot_$NOW.png && xclip -selection clip -t image/png ~/Pictures/Screenshots/screenshot_$NOW.png
+bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/$(date)"
+bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/$(date)"
+bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/$(date)"
+
+## Clipboard Screenshots
+bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
+bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
 
 # Background wallpaper
 exec --no-startup-id ~/change-wallpaper.sh $(basename $background_wallpaper_image)
