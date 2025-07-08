@@ -89,6 +89,7 @@ wk.add({
     { "<leader>g|", "<cmd>Gvdiffsplit<CR>", desc = "Open vertical diff split" },
     { "<leader>g_", "<cmd>Gdiffsplit<CR>", desc = "Open diff split" },
     { "<leader>gaa", "<cmd>Git add %<CR>", desc = "Git add current file" },
+    { "<leader>gfh", "<cmd>Telescope git_file_history<CR>", desc = "Open telescope git file history" },
 })
 
 wk.add({

@@ -3,8 +3,8 @@ local lint = require("lint")
 lint.linters_by_ft = {
     lua = { "luacheck" },
     python = {
-        -- "mypy",
         -- "ruff",
+        "mypy",
     },
     htmldjango = { "djlint" },
 }

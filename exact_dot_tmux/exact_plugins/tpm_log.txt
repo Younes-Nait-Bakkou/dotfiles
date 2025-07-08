@@ -7576,3 +7576,762 @@
 [2025-06-12 09:37:27.104]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/clean_plugins all
 [2025-06-12 09:37:27.135]	Done.
 
+[2025-06-13 09:19:27.711]	List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum sainnhe/tmux-fzf
+[2025-06-13 09:19:27.721]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/install_plugins
+[2025-06-13 09:19:27.769]	Already installed "tmux-copycat"
+[2025-06-13 09:19:27.777]	Already installed "tmux-resurrect"
+[2025-06-13 09:19:27.786]	Already installed "tmux-cpu"
+[2025-06-13 09:19:27.796]	Already installed "tmux-continuum"
+[2025-06-13 09:19:27.807]	Already installed "tmux-fzf"
+[2025-06-13 09:19:27.816]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/update_plugins all
+[2025-06-13 09:19:27.834]	Updating all plugins!
+[2025-06-13 09:19:27.843]	
+[2025-06-13 09:19:28.432]	  "tmux-cpu" update success
+[2025-06-13 09:19:28.441]	  "tmux-fzf" update success
+[2025-06-13 09:19:28.451]	    | Already up to date.
+[2025-06-13 09:19:28.460]	    | Already up to date.
+[2025-06-13 09:19:28.470]	  "tmux-resurrect" update success
+[2025-06-13 09:19:28.480]	    | Already up to date.
+[2025-06-13 09:19:28.489]	  "tmux-copycat" update success
+[2025-06-13 09:19:28.502]	    | Already up to date.
+[2025-06-13 09:19:28.517]	  "tmux-continuum" update success
+[2025-06-13 09:19:28.528]	    | Already up to date.
+[2025-06-13 09:19:28.537]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/clean_plugins all
+[2025-06-13 09:19:28.567]	Done.
+
+[2025-06-14 09:12:00.536]	List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum sainnhe/tmux-fzf
+[2025-06-14 09:12:00.546]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/install_plugins
+[2025-06-14 09:12:00.580]	Already installed "tmux-copycat"
+[2025-06-14 09:12:00.589]	Already installed "tmux-resurrect"
+[2025-06-14 09:12:00.597]	Already installed "tmux-cpu"
+[2025-06-14 09:12:00.605]	Already installed "tmux-continuum"
+[2025-06-14 09:12:00.614]	Already installed "tmux-fzf"
+[2025-06-14 09:12:00.624]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/update_plugins all
+[2025-06-14 09:12:00.642]	Updating all plugins!
+[2025-06-14 09:12:00.650]	
+[2025-06-14 09:12:01.214]	  "tmux-continuum" update success
+[2025-06-14 09:12:01.223]	  "tmux-fzf" update success
+[2025-06-14 09:12:01.232]	  "tmux-cpu" update success
+[2025-06-14 09:12:01.240]	    | Already up to date.
+[2025-06-14 09:12:01.249]	    | Already up to date.
+[2025-06-14 09:12:01.257]	    | Already up to date.
+[2025-06-14 09:12:01.266]	  "tmux-resurrect" update success
+[2025-06-14 09:12:01.275]	    | Already up to date.
+[2025-06-14 09:12:01.286]	  "tmux-copycat" update success
+[2025-06-14 09:12:01.295]	    | Already up to date.
+[2025-06-14 09:12:01.304]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/clean_plugins all
+[2025-06-14 09:12:01.338]	Done.
+
+[2025-06-16 09:11:21.038]	List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum sainnhe/tmux-fzf
+[2025-06-16 09:11:21.048]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/install_plugins
+[2025-06-16 09:11:21.085]	Already installed "tmux-copycat"
+[2025-06-16 09:11:21.093]	Already installed "tmux-continuum"
+[2025-06-16 09:11:21.103]	Already installed "tmux-resurrect"
+[2025-06-16 09:11:21.112]	Already installed "tmux-cpu"
+[2025-06-16 09:11:21.120]	Already installed "tmux-fzf"
+[2025-06-16 09:11:21.129]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/update_plugins all
+[2025-06-16 09:11:21.146]	Updating all plugins!
+[2025-06-16 09:11:21.155]	
+[2025-06-16 09:11:21.735]	  "tmux-fzf" update success
+[2025-06-16 09:11:21.746]	    | Already up to date.
+[2025-06-16 09:11:21.755]	  "tmux-continuum" update success
+[2025-06-16 09:11:21.764]	    | Already up to date.
+[2025-06-16 09:11:21.772]	  "tmux-resurrect" update success
+[2025-06-16 09:11:21.781]	    | Already up to date.
+[2025-06-16 09:11:21.789]	  "tmux-copycat" update success
+[2025-06-16 09:11:21.797]	    | Already up to date.
+[2025-06-16 09:11:21.806]	  "tmux-cpu" update success
+[2025-06-16 09:11:21.814]	    | Already up to date.
+[2025-06-16 09:11:21.823]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/clean_plugins all
+[2025-06-16 09:11:21.864]	Done.
+
+[2025-06-17 09:11:38.817]	List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum sainnhe/tmux-fzf
+[2025-06-17 09:11:38.828]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/install_plugins
+[2025-06-17 09:11:38.870]	Already installed "tmux-cpu"
+[2025-06-17 09:11:38.879]	Already installed "tmux-copycat"
+[2025-06-17 09:11:38.888]	Already installed "tmux-resurrect"
+[2025-06-17 09:11:38.896]	Already installed "tmux-continuum"
+[2025-06-17 09:11:38.904]	Already installed "tmux-fzf"
+[2025-06-17 09:11:38.912]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/update_plugins all
+[2025-06-17 09:11:38.931]	Updating all plugins!
+[2025-06-17 09:11:38.940]	
+[2025-06-17 09:11:39.516]	  "tmux-copycat" update success
+[2025-06-17 09:11:39.525]	  "tmux-fzf" update success
+[2025-06-17 09:11:39.534]	  "tmux-continuum" update success
+[2025-06-17 09:11:39.542]	    | Already up to date.
+[2025-06-17 09:11:39.551]	    | Already up to date.
+[2025-06-17 09:11:39.559]	    | Already up to date.
+[2025-06-17 09:11:39.569]	  "tmux-resurrect" update success
+[2025-06-17 09:11:39.578]	    | Already up to date.
+[2025-06-17 09:11:39.586]	  "tmux-cpu" update success
+[2025-06-17 09:11:39.595]	    | Already up to date.
+[2025-06-17 09:11:39.603]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/clean_plugins all
+[2025-06-17 09:11:39.632]	Done.
+
+[2025-06-18 09:11:21.352]	List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum sainnhe/tmux-fzf
+[2025-06-18 09:11:21.362]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/install_plugins
+[2025-06-18 09:11:21.398]	Already installed "tmux-copycat"
+[2025-06-18 09:11:21.407]	Already installed "tmux-cpu"
+[2025-06-18 09:11:21.415]	Already installed "tmux-continuum"
+[2025-06-18 09:11:21.423]	Already installed "tmux-resurrect"
+[2025-06-18 09:11:21.432]	Already installed "tmux-fzf"
+[2025-06-18 09:11:21.441]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/update_plugins all
+[2025-06-18 09:11:21.460]	Updating all plugins!
+[2025-06-18 09:11:21.469]	
+[2025-06-18 09:11:22.050]	  "tmux-continuum" update success
+[2025-06-18 09:11:22.059]	    | Already up to date.
+[2025-06-18 09:11:22.068]	  "tmux-fzf" update success
+[2025-06-18 09:11:22.076]	    | Already up to date.
+[2025-06-18 09:11:22.085]	  "tmux-copycat" update success
+[2025-06-18 09:11:22.094]	  "tmux-resurrect" update success
+[2025-06-18 09:11:22.102]	    | Already up to date.
+[2025-06-18 09:11:22.111]	    | Already up to date.
+[2025-06-18 09:11:22.119]	  "tmux-cpu" update success
+[2025-06-18 09:11:22.128]	    | Already up to date.
+[2025-06-18 09:11:22.136]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/clean_plugins all
+[2025-06-18 09:11:22.182]	Done.
+
+[2025-06-18 18:20:55.495]	List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum sainnhe/tmux-fzf
+[2025-06-18 18:20:55.507]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/install_plugins
+[2025-06-18 18:20:55.540]	Already installed "tmux-cpu"
+[2025-06-18 18:20:55.549]	Already installed "tmux-copycat"
+[2025-06-18 18:20:55.558]	Already installed "tmux-resurrect"
+[2025-06-18 18:20:55.567]	Already installed "tmux-continuum"
+[2025-06-18 18:20:55.576]	Already installed "tmux-fzf"
+[2025-06-18 18:20:55.585]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/update_plugins all
+[2025-06-18 18:20:55.613]	Updating all plugins!
+[2025-06-18 18:20:55.622]	
+[2025-06-18 18:20:56.218]	  "tmux-cpu" update success
+[2025-06-18 18:20:56.227]	  "tmux-copycat" update success
+[2025-06-18 18:20:56.236]	    | Already up to date.
+[2025-06-18 18:20:56.244]	    | Already up to date.
+[2025-06-18 18:20:56.253]	  "tmux-continuum" update success
+[2025-06-18 18:20:56.261]	    | Already up to date.
+[2025-06-18 18:20:56.269]	  "tmux-fzf" update success
+[2025-06-18 18:20:56.278]	    | Already up to date.
+[2025-06-18 18:20:56.286]	  "tmux-resurrect" update success
+[2025-06-18 18:20:56.294]	    | Already up to date.
+[2025-06-18 18:20:56.303]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/clean_plugins all
+[2025-06-18 18:20:56.347]	Done.
+
+[2025-06-19 09:21:23.074]	List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum sainnhe/tmux-fzf
+[2025-06-19 09:21:23.084]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/install_plugins
+[2025-06-19 09:21:23.115]	Already installed "tmux-copycat"
+[2025-06-19 09:21:23.125]	Already installed "tmux-resurrect"
+[2025-06-19 09:21:23.134]	Already installed "tmux-cpu"
+[2025-06-19 09:21:23.144]	Already installed "tmux-continuum"
+[2025-06-19 09:21:23.153]	Already installed "tmux-fzf"
+[2025-06-19 09:21:23.163]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/update_plugins all
+[2025-06-19 09:21:23.182]	Updating all plugins!
+[2025-06-19 09:21:23.192]	
+[2025-06-19 09:21:23.764]	  "tmux-continuum" update success
+[2025-06-19 09:21:23.779]	    | Already up to date.
+[2025-06-19 09:21:23.789]	  "tmux-fzf" update success
+[2025-06-19 09:21:23.798]	    | Already up to date.
+[2025-06-19 09:21:23.808]	  "tmux-resurrect" update success
+[2025-06-19 09:21:23.818]	    | Already up to date.
+[2025-06-19 09:21:23.828]	  "tmux-copycat" update success
+[2025-06-19 09:21:23.838]	    | Already up to date.
+[2025-06-19 09:21:23.848]	  "tmux-cpu" update success
+[2025-06-19 09:21:23.858]	    | Already up to date.
+[2025-06-19 09:21:23.867]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/clean_plugins all
+[2025-06-19 09:21:23.899]	Done.
+
+[2025-06-19 12:03:01.121]	List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum sainnhe/tmux-fzf
+[2025-06-19 12:03:01.130]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/install_plugins
+[2025-06-19 12:03:01.162]	Already installed "tmux-copycat"
+[2025-06-19 12:03:01.173]	Already installed "tmux-resurrect"
+[2025-06-19 12:03:01.183]	Already installed "tmux-cpu"
+[2025-06-19 12:03:01.193]	Already installed "tmux-fzf"
+[2025-06-19 12:03:01.203]	Already installed "tmux-continuum"
+[2025-06-19 12:03:01.213]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/update_plugins all
+[2025-06-19 12:03:01.234]	Updating all plugins!
+[2025-06-19 12:03:01.245]	
+[2025-06-19 12:03:01.801]	  "tmux-cpu" update success
+[2025-06-19 12:03:01.811]	    | Already up to date.
+[2025-06-19 12:03:01.822]	  "tmux-fzf" update success
+[2025-06-19 12:03:01.834]	    | Already up to date.
+[2025-06-19 12:03:01.845]	  "tmux-resurrect" update success
+[2025-06-19 12:03:01.856]	    | Already up to date.
+[2025-06-19 12:03:01.866]	  "tmux-continuum" update success
+[2025-06-19 12:03:01.876]	    | Already up to date.
+[2025-06-19 12:03:01.886]	  "tmux-copycat" update success
+[2025-06-19 12:03:01.896]	    | Already up to date.
+[2025-06-19 12:03:01.906]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/clean_plugins all
+[2025-06-19 12:03:01.941]	Done.
+
+[2025-06-19 20:02:07.396]	List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum sainnhe/tmux-fzf
+[2025-06-19 20:02:07.414]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/install_plugins
+[2025-06-19 20:02:07.476]	Already installed "tmux-continuum"
+[2025-06-19 20:02:07.494]	Already installed "tmux-cpu"
+[2025-06-19 20:02:07.510]	Already installed "tmux-copycat"
+[2025-06-19 20:02:07.525]	Already installed "tmux-fzf"
+[2025-06-19 20:02:07.549]	Already installed "tmux-resurrect"
+[2025-06-19 20:02:07.567]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/update_plugins all
+[2025-06-19 20:02:07.607]	Updating all plugins!
+[2025-06-19 20:02:07.628]	
+[2025-06-19 20:02:08.426]	  "tmux-cpu" update success
+[2025-06-19 20:02:08.440]	    | Already up to date.
+[2025-06-19 20:02:08.474]	  "tmux-continuum" update success
+[2025-06-19 20:02:08.489]	    | Already up to date.
+[2025-06-19 20:02:08.520]	  "tmux-resurrect" update success
+[2025-06-19 20:02:08.532]	    | Already up to date.
+[2025-06-19 20:02:09.361]	  "tmux-copycat" update success
+[2025-06-19 20:02:09.378]	    | Already up to date.
+[2025-06-19 20:02:10.131]	  "tmux-fzf" update success
+[2025-06-19 20:02:10.149]	    | Already up to date.
+[2025-06-19 20:02:10.170]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/clean_plugins all
+[2025-06-19 20:02:10.240]	Done.
+
+[2025-06-19 21:33:20.428]	List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum sainnhe/tmux-fzf
+[2025-06-19 21:33:20.440]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/install_plugins
+[2025-06-19 21:33:20.476]	Already installed "tmux-cpu"
+[2025-06-19 21:33:20.492]	Already installed "tmux-resurrect"
+[2025-06-19 21:33:20.505]	Already installed "tmux-copycat"
+[2025-06-19 21:33:20.518]	Already installed "tmux-fzf"
+[2025-06-19 21:33:20.531]	Already installed "tmux-continuum"
+[2025-06-19 21:33:20.543]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/update_plugins all
+[2025-06-19 21:33:20.564]	Updating all plugins!
+[2025-06-19 21:33:20.577]	
+[2025-06-19 21:33:21.252]	  "tmux-copycat" update success
+[2025-06-19 21:33:21.261]	    | Already up to date.
+[2025-06-19 21:33:21.271]	  "tmux-cpu" update success
+[2025-06-19 21:33:21.281]	  "tmux-fzf" update success
+[2025-06-19 21:33:21.292]	    | Already up to date.
+[2025-06-19 21:33:21.302]	    | Already up to date.
+[2025-06-19 21:33:21.313]	  "tmux-resurrect" update success
+[2025-06-19 21:33:21.323]	    | Already up to date.
+[2025-06-19 21:33:21.332]	  "tmux-continuum" update success
+[2025-06-19 21:33:21.341]	    | Already up to date.
+[2025-06-19 21:33:21.351]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/clean_plugins all
+[2025-06-19 21:33:21.382]	Done.
+
+[2025-06-20 09:33:46.298]	List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum sainnhe/tmux-fzf
+[2025-06-20 09:33:46.308]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/install_plugins
+[2025-06-20 09:33:46.348]	Already installed "tmux-resurrect"
+[2025-06-20 09:33:46.357]	Already installed "tmux-cpu"
+[2025-06-20 09:33:46.366]	Already installed "tmux-copycat"
+[2025-06-20 09:33:46.375]	Already installed "tmux-continuum"
+[2025-06-20 09:33:46.384]	Already installed "tmux-fzf"
+[2025-06-20 09:33:46.392]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/update_plugins all
+[2025-06-20 09:33:46.410]	Updating all plugins!
+[2025-06-20 09:33:46.419]	
+[2025-06-20 09:33:46.987]	  "tmux-fzf" update success
+[2025-06-20 09:33:46.996]	  "tmux-continuum" update success
+[2025-06-20 09:33:47.004]	    | Already up to date.
+[2025-06-20 09:33:47.013]	    | Already up to date.
+[2025-06-20 09:33:47.021]	  "tmux-cpu" update success
+[2025-06-20 09:33:47.029]	  "tmux-copycat" update success
+[2025-06-20 09:33:47.038]	    | Already up to date.
+[2025-06-20 09:33:47.046]	    | Already up to date.
+[2025-06-20 09:33:47.054]	  "tmux-resurrect" update success
+[2025-06-20 09:33:47.062]	    | Already up to date.
+[2025-06-20 09:33:47.070]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/clean_plugins all
+[2025-06-20 09:33:47.109]	Done.
+
+[2025-06-21 09:29:09.218]	List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum sainnhe/tmux-fzf
+[2025-06-21 09:29:09.229]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/install_plugins
+[2025-06-21 09:29:09.265]	Already installed "tmux-copycat"
+[2025-06-21 09:29:09.273]	Already installed "tmux-resurrect"
+[2025-06-21 09:29:09.283]	Already installed "tmux-cpu"
+[2025-06-21 09:29:09.293]	Already installed "tmux-fzf"
+[2025-06-21 09:29:09.302]	Already installed "tmux-continuum"
+[2025-06-21 09:29:09.311]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/update_plugins all
+[2025-06-21 09:29:09.328]	Updating all plugins!
+[2025-06-21 09:29:09.337]	
+[2025-06-21 09:29:09.911]	  "tmux-cpu" update success
+[2025-06-21 09:29:09.921]	  "tmux-copycat" update success
+[2025-06-21 09:29:09.929]	    | Already up to date.
+[2025-06-21 09:29:09.937]	    | Already up to date.
+[2025-06-21 09:29:09.946]	  "tmux-fzf" update success
+[2025-06-21 09:29:09.954]	  "tmux-continuum" update success
+[2025-06-21 09:29:09.963]	    | Already up to date.
+[2025-06-21 09:29:09.972]	    | Already up to date.
+[2025-06-21 09:29:09.980]	  "tmux-resurrect" update success
+[2025-06-21 09:29:09.988]	    | Already up to date.
+[2025-06-21 09:29:09.999]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/clean_plugins all
+[2025-06-21 09:29:10.030]	Done.
+
+[2025-06-21 09:29:30.283]	List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum sainnhe/tmux-fzf
+[2025-06-21 09:29:30.292]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/install_plugins
+[2025-06-21 09:29:30.321]	Already installed "tmux-copycat"
+[2025-06-21 09:29:30.329]	Already installed "tmux-cpu"
+[2025-06-21 09:29:30.338]	Already installed "tmux-continuum"
+[2025-06-21 09:29:30.346]	Already installed "tmux-fzf"
+[2025-06-21 09:29:30.354]	Already installed "tmux-resurrect"
+[2025-06-21 09:29:30.362]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/update_plugins all
+[2025-06-21 09:29:30.379]	Updating all plugins!
+[2025-06-21 09:29:30.388]	
+[2025-06-21 09:29:30.950]	  "tmux-fzf" update success
+[2025-06-21 09:29:30.959]	    | Already up to date.
+[2025-06-21 09:29:30.968]	  "tmux-continuum" update success
+[2025-06-21 09:29:30.978]	    | Already up to date.
+[2025-06-21 09:29:30.986]	  "tmux-cpu" update success
+[2025-06-21 09:29:30.995]	    | Already up to date.
+[2025-06-21 09:29:31.003]	  "tmux-resurrect" update success
+[2025-06-21 09:29:31.012]	    | Already up to date.
+[2025-06-21 09:29:31.020]	  "tmux-copycat" update success
+[2025-06-21 09:29:31.028]	    | Already up to date.
+[2025-06-21 09:29:31.037]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/clean_plugins all
+[2025-06-21 09:29:31.069]	Done.
+
+[2025-06-21 09:29:51.313]	List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum sainnhe/tmux-fzf
+[2025-06-21 09:29:51.323]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/install_plugins
+[2025-06-21 09:29:51.354]	Already installed "tmux-copycat"
+[2025-06-21 09:29:51.363]	Already installed "tmux-cpu"
+[2025-06-21 09:29:51.373]	Already installed "tmux-resurrect"
+[2025-06-21 09:29:51.382]	Already installed "tmux-fzf"
+[2025-06-21 09:29:51.392]	Already installed "tmux-continuum"
+[2025-06-21 09:29:51.402]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/update_plugins all
+[2025-06-21 09:29:51.422]	Updating all plugins!
+[2025-06-21 09:29:51.438]	
+[2025-06-21 09:29:51.970]	  "tmux-cpu" update success
+[2025-06-21 09:29:51.986]	    | Already up to date.
+[2025-06-21 09:29:52.035]	  "tmux-fzf" update success
+[2025-06-21 09:29:52.054]	    | Already up to date.
+[2025-06-21 09:29:52.073]	  "tmux-copycat" update success
+[2025-06-21 09:29:52.090]	    | Already up to date.
+[2025-06-21 09:29:52.108]	  "tmux-resurrect" update success
+[2025-06-21 09:29:52.120]	    | Already up to date.
+[2025-06-21 09:29:52.136]	  "tmux-continuum" update success
+[2025-06-21 09:29:52.150]	    | Already up to date.
+[2025-06-21 09:29:52.167]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/clean_plugins all
+[2025-06-21 09:29:52.208]	Done.
+
+[2025-06-21 16:05:24.797]	List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum sainnhe/tmux-fzf
+[2025-06-21 16:05:24.807]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/install_plugins
+[2025-06-21 16:05:24.853]	Already installed "tmux-copycat"
+[2025-06-21 16:05:24.862]	Already installed "tmux-resurrect"
+[2025-06-21 16:05:24.871]	Already installed "tmux-cpu"
+[2025-06-21 16:05:24.879]	Already installed "tmux-continuum"
+[2025-06-21 16:05:24.887]	Already installed "tmux-fzf"
+[2025-06-21 16:05:24.895]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/update_plugins all
+[2025-06-21 16:05:24.914]	Updating all plugins!
+[2025-06-21 16:05:24.923]	
+[2025-06-21 16:05:25.486]	  "tmux-copycat" update success
+[2025-06-21 16:05:25.495]	  "tmux-fzf" update success
+[2025-06-21 16:05:25.503]	  "tmux-cpu" update success
+[2025-06-21 16:05:25.511]	    | Already up to date.
+[2025-06-21 16:05:25.520]	    | Already up to date.
+[2025-06-21 16:05:25.528]	    | Already up to date.
+[2025-06-21 16:05:25.536]	  "tmux-continuum" update success
+[2025-06-21 16:05:25.545]	    | Already up to date.
+[2025-06-21 16:05:25.554]	  "tmux-resurrect" update success
+[2025-06-21 16:05:25.562]	    | Already up to date.
+[2025-06-21 16:05:25.570]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/clean_plugins all
+[2025-06-21 16:05:25.604]	Done.
+
+[2025-06-21 16:38:59.218]	List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum sainnhe/tmux-fzf
+[2025-06-21 16:38:59.236]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/install_plugins
+[2025-06-21 16:38:59.297]	Already installed "tmux-resurrect"
+[2025-06-21 16:38:59.311]	Already installed "tmux-cpu"
+[2025-06-21 16:38:59.320]	Already installed "tmux-copycat"
+[2025-06-21 16:38:59.330]	Already installed "tmux-fzf"
+[2025-06-21 16:38:59.339]	Already installed "tmux-continuum"
+[2025-06-21 16:38:59.350]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/update_plugins all
+[2025-06-21 16:38:59.373]	Updating all plugins!
+[2025-06-21 16:38:59.388]	
+[2025-06-21 16:38:59.916]	  "tmux-copycat" update success
+[2025-06-21 16:38:59.930]	    | Already up to date.
+[2025-06-21 16:38:59.944]	  "tmux-continuum" update success
+[2025-06-21 16:38:59.955]	    | Already up to date.
+[2025-06-21 16:38:59.965]	  "tmux-fzf" update success
+[2025-06-21 16:38:59.976]	    | Already up to date.
+[2025-06-21 16:38:59.986]	  "tmux-cpu" update success
+[2025-06-21 16:38:59.996]	    | Already up to date.
+[2025-06-21 16:39:00.005]	  "tmux-resurrect" update success
+[2025-06-21 16:39:00.015]	    | Already up to date.
+[2025-06-21 16:39:00.023]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/clean_plugins all
+[2025-06-21 16:39:00.054]	Done.
+
+[2025-06-21 22:26:27.426]	List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum sainnhe/tmux-fzf
+[2025-06-21 22:26:27.435]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/install_plugins
+[2025-06-21 22:26:27.465]	Already installed "tmux-copycat"
+[2025-06-21 22:26:27.473]	Already installed "tmux-resurrect"
+[2025-06-21 22:26:27.482]	Already installed "tmux-continuum"
+[2025-06-21 22:26:27.490]	Already installed "tmux-cpu"
+[2025-06-21 22:26:27.499]	Already installed "tmux-fzf"
+[2025-06-21 22:26:27.508]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/update_plugins all
+[2025-06-21 22:26:27.525]	Updating all plugins!
+[2025-06-21 22:26:27.535]	
+[2025-06-21 22:26:28.020]	  "tmux-copycat" update success
+[2025-06-21 22:26:28.029]	    | Already up to date.
+[2025-06-21 22:26:28.038]	  "tmux-fzf" update success
+[2025-06-21 22:26:28.047]	    | Already up to date.
+[2025-06-21 22:26:28.055]	  "tmux-continuum" update success
+[2025-06-21 22:26:28.064]	    | Already up to date.
+[2025-06-21 22:26:28.073]	  "tmux-cpu" update success
+[2025-06-21 22:26:28.082]	    | Already up to date.
+[2025-06-21 22:26:28.310]	  "tmux-resurrect" update success
+[2025-06-21 22:26:28.318]	    | Already up to date.
+[2025-06-21 22:26:28.327]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/clean_plugins all
+[2025-06-21 22:26:28.357]	Done.
+
+[2025-06-21 22:37:28.293]	List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum sainnhe/tmux-fzf
+[2025-06-21 22:37:28.303]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/install_plugins
+[2025-06-21 22:37:28.341]	Already installed "tmux-copycat"
+[2025-06-21 22:37:28.351]	Already installed "tmux-resurrect"
+[2025-06-21 22:37:28.365]	Already installed "tmux-continuum"
+[2025-06-21 22:37:28.378]	Already installed "tmux-cpu"
+[2025-06-21 22:37:28.391]	Already installed "tmux-fzf"
+[2025-06-21 22:37:28.408]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/update_plugins all
+[2025-06-21 22:37:28.428]	Updating all plugins!
+[2025-06-21 22:37:28.437]	
+[2025-06-21 22:37:28.925]	  "tmux-cpu" update success
+[2025-06-21 22:37:28.940]	    | Already up to date.
+[2025-06-21 22:37:28.961]	  "tmux-fzf" update success
+[2025-06-21 22:37:28.974]	    | Already up to date.
+[2025-06-21 22:37:28.986]	  "tmux-resurrect" update success
+[2025-06-21 22:37:29.004]	    | Already up to date.
+[2025-06-21 22:37:29.023]	  "tmux-continuum" update success
+[2025-06-21 22:37:29.040]	    | Already up to date.
+[2025-06-21 22:37:29.053]	  "tmux-copycat" update success
+[2025-06-21 22:37:29.068]	    | Already up to date.
+[2025-06-21 22:37:29.079]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/clean_plugins all
+[2025-06-21 22:37:29.125]	Done.
+
+[2025-06-22 11:47:51.895]	List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum sainnhe/tmux-fzf
+[2025-06-22 11:47:51.904]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/install_plugins
+[2025-06-22 11:47:51.937]	Already installed "tmux-copycat"
+[2025-06-22 11:47:51.946]	Already installed "tmux-cpu"
+[2025-06-22 11:47:51.954]	Already installed "tmux-resurrect"
+[2025-06-22 11:47:51.962]	Already installed "tmux-continuum"
+[2025-06-22 11:47:51.970]	Already installed "tmux-fzf"
+[2025-06-22 11:47:51.979]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/update_plugins all
+[2025-06-22 11:47:51.998]	Updating all plugins!
+[2025-06-22 11:47:52.007]	
+[2025-06-22 11:47:52.561]	  "tmux-continuum" update success
+[2025-06-22 11:47:52.570]	    | Already up to date.
+[2025-06-22 11:47:52.579]	  "tmux-cpu" update success
+[2025-06-22 11:47:52.589]	    | Already up to date.
+[2025-06-22 11:47:52.597]	  "tmux-resurrect" update success
+[2025-06-22 11:47:52.606]	    | Already up to date.
+[2025-06-22 11:47:52.615]	  "tmux-fzf" update success
+[2025-06-22 11:47:52.626]	  "tmux-copycat" update success
+[2025-06-22 11:47:52.635]	    | Already up to date.
+[2025-06-22 11:47:52.643]	    | Already up to date.
+[2025-06-22 11:47:52.652]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/clean_plugins all
+[2025-06-22 11:47:52.682]	Done.
+
+[2025-06-22 12:14:28.818]	List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum sainnhe/tmux-fzf
+[2025-06-22 12:14:28.828]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/install_plugins
+[2025-06-22 12:14:28.870]	Already installed "tmux-copycat"
+[2025-06-22 12:14:28.878]	Already installed "tmux-cpu"
+[2025-06-22 12:14:28.887]	Already installed "tmux-resurrect"
+[2025-06-22 12:14:28.896]	Already installed "tmux-continuum"
+[2025-06-22 12:14:28.904]	Already installed "tmux-fzf"
+[2025-06-22 12:14:28.912]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/update_plugins all
+[2025-06-22 12:14:28.929]	Updating all plugins!
+[2025-06-22 12:14:28.938]	
+[2025-06-22 12:14:29.472]	  "tmux-cpu" update success
+[2025-06-22 12:14:29.485]	  "tmux-fzf" update success
+[2025-06-22 12:14:29.494]	    | Already up to date.
+[2025-06-22 12:14:29.507]	    | Already up to date.
+[2025-06-22 12:14:29.515]	  "tmux-copycat" update success
+[2025-06-22 12:14:29.524]	  "tmux-resurrect" update success
+[2025-06-22 12:14:29.532]	    | Already up to date.
+[2025-06-22 12:14:29.540]	    | Already up to date.
+[2025-06-22 12:14:29.549]	  "tmux-continuum" update success
+[2025-06-22 12:14:29.557]	    | Already up to date.
+[2025-06-22 12:14:29.565]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/clean_plugins all
+[2025-06-22 12:14:29.595]	Done.
+
+[2025-06-22 12:19:06.912]	List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum sainnhe/tmux-fzf
+[2025-06-22 12:19:06.927]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/install_plugins
+[2025-06-22 12:19:06.974]	Already installed "tmux-copycat"
+[2025-06-22 12:19:06.986]	Already installed "tmux-cpu"
+[2025-06-22 12:19:06.997]	Already installed "tmux-resurrect"
+[2025-06-22 12:19:07.008]	Already installed "tmux-continuum"
+[2025-06-22 12:19:07.018]	Already installed "tmux-fzf"
+[2025-06-22 12:19:07.029]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/update_plugins all
+[2025-06-22 12:19:07.052]	Updating all plugins!
+[2025-06-22 12:19:07.065]	
+[2025-06-22 12:19:07.692]	  "tmux-continuum" update success
+[2025-06-22 12:19:07.708]	    | Already up to date.
+[2025-06-22 12:19:07.719]	  "tmux-cpu" update success
+[2025-06-22 12:19:07.731]	    | Already up to date.
+[2025-06-22 12:19:07.741]	  "tmux-copycat" update success
+[2025-06-22 12:19:07.751]	  "tmux-fzf" update success
+[2025-06-22 12:19:07.762]	    | Already up to date.
+[2025-06-22 12:19:07.773]	    | Already up to date.
+[2025-06-22 12:19:07.784]	  "tmux-resurrect" update success
+[2025-06-22 12:19:07.797]	    | Already up to date.
+[2025-06-22 12:19:07.809]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/clean_plugins all
+[2025-06-22 12:19:07.844]	Done.
+
+[2025-06-23 08:32:30.176]	List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum sainnhe/tmux-fzf
+[2025-06-23 08:32:30.186]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/install_plugins
+[2025-06-23 08:32:30.215]	Already installed "tmux-copycat"
+[2025-06-23 08:32:30.224]	Already installed "tmux-cpu"
+[2025-06-23 08:32:30.233]	Already installed "tmux-continuum"
+[2025-06-23 08:32:30.242]	Already installed "tmux-resurrect"
+[2025-06-23 08:32:30.251]	Already installed "tmux-fzf"
+[2025-06-23 08:32:30.261]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/update_plugins all
+[2025-06-23 08:32:30.280]	Updating all plugins!
+[2025-06-23 08:32:30.289]	
+[2025-06-23 08:32:30.824]	  "tmux-continuum" update success
+[2025-06-23 08:32:30.833]	  "tmux-cpu" update success
+[2025-06-23 08:32:30.842]	  "tmux-fzf" update success
+[2025-06-23 08:32:30.851]	    | Already up to date.
+[2025-06-23 08:32:30.860]	    | Already up to date.
+[2025-06-23 08:32:30.869]	    | Already up to date.
+[2025-06-23 08:32:30.878]	  "tmux-resurrect" update success
+[2025-06-23 08:32:30.888]	    | Already up to date.
+[2025-06-23 08:32:30.896]	  "tmux-copycat" update success
+[2025-06-23 08:32:30.905]	    | Already up to date.
+[2025-06-23 08:32:30.914]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/clean_plugins all
+[2025-06-23 08:32:30.946]	Done.
+
+[2025-06-23 09:28:49.166]	List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum sainnhe/tmux-fzf
+[2025-06-23 09:28:49.174]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/install_plugins
+[2025-06-23 09:28:49.203]	Already installed "tmux-resurrect"
+[2025-06-23 09:28:49.212]	Already installed "tmux-cpu"
+[2025-06-23 09:28:49.220]	Already installed "tmux-copycat"
+[2025-06-23 09:28:49.229]	Already installed "tmux-continuum"
+[2025-06-23 09:28:49.237]	Already installed "tmux-fzf"
+[2025-06-23 09:28:49.245]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/update_plugins all
+[2025-06-23 09:28:49.265]	Updating all plugins!
+[2025-06-23 09:28:49.274]	
+[2025-06-23 09:28:49.842]	  "tmux-continuum" update success
+[2025-06-23 09:28:49.850]	  "tmux-cpu" update success
+[2025-06-23 09:28:49.859]	    | Already up to date.
+[2025-06-23 09:28:49.867]	    | Already up to date.
+[2025-06-23 09:28:49.876]	  "tmux-fzf" update success
+[2025-06-23 09:28:49.884]	    | Already up to date.
+[2025-06-23 09:28:49.892]	  "tmux-resurrect" update success
+[2025-06-23 09:28:49.901]	    | Already up to date.
+[2025-06-23 09:28:49.909]	  "tmux-copycat" update success
+[2025-06-23 09:28:49.917]	    | Already up to date.
+[2025-06-23 09:28:49.926]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/clean_plugins all
+[2025-06-23 09:28:49.957]	Done.
+
+[2025-06-24 09:17:05.073]	List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum sainnhe/tmux-fzf
+[2025-06-24 09:17:05.083]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/install_plugins
+[2025-06-24 09:17:05.113]	Already installed "tmux-cpu"
+[2025-06-24 09:17:05.122]	Already installed "tmux-copycat"
+[2025-06-24 09:17:05.131]	Already installed "tmux-resurrect"
+[2025-06-24 09:17:05.141]	Already installed "tmux-fzf"
+[2025-06-24 09:17:05.150]	Already installed "tmux-continuum"
+[2025-06-24 09:17:05.159]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/update_plugins all
+[2025-06-24 09:17:05.177]	Updating all plugins!
+[2025-06-24 09:17:05.188]	
+[2025-06-24 09:17:05.766]	  "tmux-cpu" update success
+[2025-06-24 09:17:05.774]	  "tmux-fzf" update success
+[2025-06-24 09:17:05.783]	    | Already up to date.
+[2025-06-24 09:17:05.792]	    | Already up to date.
+[2025-06-24 09:17:05.801]	  "tmux-continuum" update success
+[2025-06-24 09:17:05.810]	    | Already up to date.
+[2025-06-24 09:17:05.819]	  "tmux-resurrect" update success
+[2025-06-24 09:17:05.828]	    | Already up to date.
+[2025-06-24 09:17:05.837]	  "tmux-copycat" update success
+[2025-06-24 09:17:05.846]	    | Already up to date.
+[2025-06-24 09:17:05.855]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/clean_plugins all
+[2025-06-24 09:17:05.886]	Done.
+
+[2025-06-24 15:51:59.002]	List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum sainnhe/tmux-fzf
+[2025-06-24 15:51:59.015]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/install_plugins
+[2025-06-24 15:51:59.057]	Already installed "tmux-copycat"
+[2025-06-24 15:51:59.065]	Already installed "tmux-cpu"
+[2025-06-24 15:51:59.074]	Already installed "tmux-resurrect"
+[2025-06-24 15:51:59.084]	Already installed "tmux-fzf"
+[2025-06-24 15:51:59.094]	Already installed "tmux-continuum"
+[2025-06-24 15:51:59.103]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/update_plugins all
+[2025-06-24 15:51:59.126]	Updating all plugins!
+[2025-06-24 15:51:59.135]	
+[2025-06-24 15:51:59.718]	  "tmux-copycat" update success
+[2025-06-24 15:51:59.727]	    | Already up to date.
+[2025-06-24 15:51:59.735]	  "tmux-continuum" update success
+[2025-06-24 15:51:59.743]	    | Already up to date.
+[2025-06-24 15:51:59.752]	  "tmux-fzf" update success
+[2025-06-24 15:51:59.760]	    | Already up to date.
+[2025-06-24 15:51:59.768]	  "tmux-cpu" update success
+[2025-06-24 15:51:59.777]	    | Already up to date.
+[2025-06-24 15:51:59.785]	  "tmux-resurrect" update success
+[2025-06-24 15:51:59.793]	    | Already up to date.
+[2025-06-24 15:51:59.802]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/clean_plugins all
+[2025-06-24 15:51:59.833]	Done.
+
+[2025-06-25 09:38:52.696]	List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum sainnhe/tmux-fzf
+[2025-06-25 09:38:52.708]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/install_plugins
+[2025-06-25 09:38:52.752]	Already installed "tmux-copycat"
+[2025-06-25 09:38:52.761]	Already installed "tmux-cpu"
+[2025-06-25 09:38:52.771]	Already installed "tmux-resurrect"
+[2025-06-25 09:38:52.780]	Already installed "tmux-continuum"
+[2025-06-25 09:38:52.792]	Already installed "tmux-fzf"
+[2025-06-25 09:38:52.804]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/update_plugins all
+[2025-06-25 09:38:52.829]	Updating all plugins!
+[2025-06-25 09:38:52.841]	
+[2025-06-25 09:38:53.455]	  "tmux-cpu" update success
+[2025-06-25 09:38:53.467]	    | Already up to date.
+[2025-06-25 09:38:53.479]	  "tmux-fzf" update success
+[2025-06-25 09:38:53.491]	    | Already up to date.
+[2025-06-25 09:38:53.501]	  "tmux-continuum" update success
+[2025-06-25 09:38:53.511]	    | Already up to date.
+[2025-06-25 09:38:53.522]	  "tmux-resurrect" update success
+[2025-06-25 09:38:53.531]	    | Already up to date.
+[2025-06-25 09:38:53.540]	  "tmux-copycat" update success
+[2025-06-25 09:38:53.550]	    | Already up to date.
+[2025-06-25 09:38:53.560]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/clean_plugins all
+[2025-06-25 09:38:53.604]	Done.
+
+[2025-06-30 09:25:41.441]	List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum sainnhe/tmux-fzf
+[2025-06-30 09:25:41.452]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/install_plugins
+[2025-06-30 09:25:41.493]	Already installed "tmux-cpu"
+[2025-06-30 09:25:41.501]	Already installed "tmux-copycat"
+[2025-06-30 09:25:41.510]	Already installed "tmux-resurrect"
+[2025-06-30 09:25:41.518]	Already installed "tmux-continuum"
+[2025-06-30 09:25:41.527]	Already installed "tmux-fzf"
+[2025-06-30 09:25:41.535]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/update_plugins all
+[2025-06-30 09:25:41.556]	Updating all plugins!
+[2025-06-30 09:25:41.565]	
+[2025-06-30 09:25:42.077]	  "tmux-continuum" update success
+[2025-06-30 09:25:42.086]	    | Already up to date.
+[2025-06-30 09:25:42.094]	  "tmux-cpu" update success
+[2025-06-30 09:25:42.103]	    | Already up to date.
+[2025-06-30 09:25:42.111]	  "tmux-resurrect" update success
+[2025-06-30 09:25:42.120]	    | Already up to date.
+[2025-06-30 09:25:42.128]	  "tmux-fzf" update success
+[2025-06-30 09:25:42.137]	    | Already up to date.
+[2025-06-30 09:25:42.153]	  "tmux-copycat" update success
+[2025-06-30 09:25:42.161]	    | Already up to date.
+[2025-06-30 09:25:42.169]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/clean_plugins all
+[2025-06-30 09:25:42.200]	Done.
+
+[2025-07-01 09:32:48.055]	List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum sainnhe/tmux-fzf
+[2025-07-01 09:32:48.066]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/install_plugins
+[2025-07-01 09:32:48.111]	Already installed "tmux-copycat"
+[2025-07-01 09:32:48.120]	Already installed "tmux-cpu"
+[2025-07-01 09:32:48.128]	Already installed "tmux-resurrect"
+[2025-07-01 09:32:48.136]	Already installed "tmux-continuum"
+[2025-07-01 09:32:48.144]	Already installed "tmux-fzf"
+[2025-07-01 09:32:48.153]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/update_plugins all
+[2025-07-01 09:32:48.175]	Updating all plugins!
+[2025-07-01 09:32:48.184]	
+[2025-07-01 09:32:48.785]	  "tmux-cpu" update success
+[2025-07-01 09:32:48.793]	  "tmux-fzf" update success
+[2025-07-01 09:32:48.802]	    | Already up to date.
+[2025-07-01 09:32:48.810]	    | Already up to date.
+[2025-07-01 09:32:48.819]	  "tmux-resurrect" update success
+[2025-07-01 09:32:48.827]	    | Already up to date.
+[2025-07-01 09:32:48.835]	  "tmux-continuum" update success
+[2025-07-01 09:32:48.843]	    | Already up to date.
+[2025-07-01 09:32:48.852]	  "tmux-copycat" update success
+[2025-07-01 09:32:48.860]	    | Already up to date.
+[2025-07-01 09:32:48.868]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/clean_plugins all
+[2025-07-01 09:32:48.898]	Done.
+
+[2025-07-02 09:25:13.941]	List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum sainnhe/tmux-fzf
+[2025-07-02 09:25:13.952]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/install_plugins
+[2025-07-02 09:25:13.996]	Already installed "tmux-copycat"
+[2025-07-02 09:25:14.005]	Already installed "tmux-cpu"
+[2025-07-02 09:25:14.014]	Already installed "tmux-resurrect"
+[2025-07-02 09:25:14.023]	Already installed "tmux-continuum"
+[2025-07-02 09:25:14.031]	Already installed "tmux-fzf"
+[2025-07-02 09:25:14.040]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/update_plugins all
+[2025-07-02 09:25:14.068]	Updating all plugins!
+[2025-07-02 09:25:14.077]	
+[2025-07-02 09:25:14.660]	  "tmux-cpu" update success
+[2025-07-02 09:25:14.669]	    | Already up to date.
+[2025-07-02 09:25:14.677]	  "tmux-continuum" update success
+[2025-07-02 09:25:14.686]	  "tmux-fzf" update success
+[2025-07-02 09:25:14.694]	    | Already up to date.
+[2025-07-02 09:25:14.702]	    | Already up to date.
+[2025-07-02 09:25:14.711]	  "tmux-resurrect" update success
+[2025-07-02 09:25:14.719]	    | Already up to date.
+[2025-07-02 09:25:14.727]	  "tmux-copycat" update success
+[2025-07-02 09:25:14.735]	    | Already up to date.
+[2025-07-02 09:25:14.743]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/clean_plugins all
+[2025-07-02 09:25:14.777]	Done.
+
+[2025-07-03 09:51:53.487]	List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum sainnhe/tmux-fzf
+[2025-07-03 09:51:53.499]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/install_plugins
+[2025-07-03 09:51:53.532]	Already installed "tmux-copycat"
+[2025-07-03 09:51:53.541]	Already installed "tmux-cpu"
+[2025-07-03 09:51:53.550]	Already installed "tmux-resurrect"
+[2025-07-03 09:51:53.559]	Already installed "tmux-fzf"
+[2025-07-03 09:51:53.567]	Already installed "tmux-continuum"
+[2025-07-03 09:51:53.576]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/update_plugins all
+[2025-07-03 09:51:53.593]	Updating all plugins!
+[2025-07-03 09:51:53.602]	
+[2025-07-03 09:51:54.140]	  "tmux-copycat" update success
+[2025-07-03 09:51:54.150]	  "tmux-fzf" update success
+[2025-07-03 09:51:54.158]	    | Already up to date.
+[2025-07-03 09:51:54.167]	    | Already up to date.
+[2025-07-03 09:51:54.175]	  "tmux-continuum" update success
+[2025-07-03 09:51:54.184]	    | Already up to date.
+[2025-07-03 09:51:54.192]	  "tmux-cpu" update success
+[2025-07-03 09:51:54.200]	    | Already up to date.
+[2025-07-03 09:51:54.210]	  "tmux-resurrect" update success
+[2025-07-03 09:51:54.221]	    | Already up to date.
+[2025-07-03 09:51:54.231]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/clean_plugins all
+[2025-07-03 09:51:54.278]	Done.
+
+[2025-07-04 09:13:06.469]	List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum sainnhe/tmux-fzf
+[2025-07-04 09:13:06.481]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/install_plugins
+[2025-07-04 09:13:06.528]	Already installed "tmux-copycat"
+[2025-07-04 09:13:06.538]	Already installed "tmux-cpu"
+[2025-07-04 09:13:06.548]	Already installed "tmux-resurrect"
+[2025-07-04 09:13:06.558]	Already installed "tmux-continuum"
+[2025-07-04 09:13:06.568]	Already installed "tmux-fzf"
+[2025-07-04 09:13:06.578]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/update_plugins all
+[2025-07-04 09:13:06.601]	Updating all plugins!
+[2025-07-04 09:13:06.613]	
+[2025-07-04 09:13:07.163]	  "tmux-fzf" update success
+[2025-07-04 09:13:07.176]	  "tmux-cpu" update success
+[2025-07-04 09:13:07.187]	    | Already up to date.
+[2025-07-04 09:13:07.196]	    | Already up to date.
+[2025-07-04 09:13:07.206]	  "tmux-resurrect" update success
+[2025-07-04 09:13:07.215]	  "tmux-continuum" update success
+[2025-07-04 09:13:07.225]	    | Already up to date.
+[2025-07-04 09:13:07.235]	    | Already up to date.
+[2025-07-04 09:13:07.245]	  "tmux-copycat" update success
+[2025-07-04 09:13:07.254]	    | Already up to date.
+[2025-07-04 09:13:07.265]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/clean_plugins all
+[2025-07-04 09:13:07.307]	Done.
+
+[2025-07-05 09:05:58.301]	List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum sainnhe/tmux-fzf
+[2025-07-05 09:05:58.311]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/install_plugins
+[2025-07-05 09:05:58.358]	Already installed "tmux-cpu"
+[2025-07-05 09:05:58.367]	Already installed "tmux-copycat"
+[2025-07-05 09:05:58.375]	Already installed "tmux-resurrect"
+[2025-07-05 09:05:58.383]	Already installed "tmux-fzf"
+[2025-07-05 09:05:58.391]	Already installed "tmux-continuum"
+[2025-07-05 09:05:58.400]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/update_plugins all
+[2025-07-05 09:05:58.420]	Updating all plugins!
+[2025-07-05 09:05:58.428]	
+[2025-07-05 09:05:59.010]	  "tmux-fzf" update success
+[2025-07-05 09:05:59.019]	    | Already up to date.
+[2025-07-05 09:05:59.027]	  "tmux-continuum" update success
+[2025-07-05 09:05:59.035]	  "tmux-copycat" update success
+[2025-07-05 09:05:59.044]	    | Already up to date.
+[2025-07-05 09:05:59.052]	    | Already up to date.
+[2025-07-05 09:05:59.061]	  "tmux-cpu" update success
+[2025-07-05 09:05:59.069]	    | Already up to date.
+[2025-07-05 09:05:59.077]	  "tmux-resurrect" update success
+[2025-07-05 09:05:59.086]	    | Already up to date.
+[2025-07-05 09:05:59.094]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/clean_plugins all
+[2025-07-05 09:05:59.131]	Done.
+
+[2025-07-07 09:48:49.598]	List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum sainnhe/tmux-fzf
+[2025-07-07 09:48:49.607]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/install_plugins
+[2025-07-07 09:48:49.637]	Already installed "tmux-cpu"
+[2025-07-07 09:48:49.646]	Already installed "tmux-copycat"
+[2025-07-07 09:48:49.654]	Already installed "tmux-resurrect"
+[2025-07-07 09:48:49.662]	Already installed "tmux-continuum"
+[2025-07-07 09:48:49.670]	Already installed "tmux-fzf"
+[2025-07-07 09:48:49.678]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/update_plugins all
+[2025-07-07 09:48:49.701]	Updating all plugins!
+[2025-07-07 09:48:49.709]	
+[2025-07-07 09:48:50.249]	  "tmux-continuum" update success
+[2025-07-07 09:48:50.258]	    | Already up to date.
+[2025-07-07 09:48:50.267]	  "tmux-copycat" update success
+[2025-07-07 09:48:50.276]	    | Already up to date.
+[2025-07-07 09:48:50.284]	  "tmux-resurrect" update success
+[2025-07-07 09:48:50.293]	    | Already up to date.
+[2025-07-07 09:48:50.302]	  "tmux-fzf" update success
+[2025-07-07 09:48:50.310]	    | Already up to date.
+[2025-07-07 09:48:50.318]	  "tmux-cpu" update success
+[2025-07-07 09:48:50.327]	    | Already up to date.
+[2025-07-07 09:48:50.335]	Invoking /home/younes-automizepc/.tmux/plugins/tpm/bin/clean_plugins all
+[2025-07-07 09:48:50.367]	Done.
+
