@@ -36,3 +36,8 @@ vim.cmd([[
 --         vim.api.nvim_set_hl(0, "@type", { spell = true }) -- For class names
 --     end
 -- })
+
+vim.o.updatetime = 250
+vim.cmd([[
+  autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
+]])
