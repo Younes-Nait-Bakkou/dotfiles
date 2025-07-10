@@ -8,7 +8,7 @@ require("typescript-tools").setup({
         -- "remove_unused_imports"|"organize_imports") -- or string "all"
         -- to include all supported code actions
         -- specify commands exposed as code_actions
-        expose_as_code_action = {},
+        expose_as_code_action = "all",
         -- string|nil - specify a custom path to `tsserver.js` file, if this is nil or file under path
         -- not exists then standard path resolution strategy is applied
         tsserver_path = nil,
@@ -25,7 +25,7 @@ require("typescript-tools").setup({
         -- https://github.com/microsoft/TypeScript/blob/3c221fc086be52b19801f6e8d82596d04607ede6/src/compiler/utilitiesPublic.ts#L620
         tsserver_locale = "en",
         -- mirror of VSCode's `typescript.suggest.completeFunctionCalls`
-        complete_function_calls = false,
+        complete_function_calls = true,
         include_completions_with_insert_text = true,
         -- CodeLens
         -- WARNING: Experimental feature also in VSCode, because it might hit performance of server.
