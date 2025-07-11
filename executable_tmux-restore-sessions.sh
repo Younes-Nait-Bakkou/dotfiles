@@ -21,7 +21,15 @@ session_project_to_path["weather-app"]="$HOME/Desktop/codes/React-Native/Weather
 session_project_to_path["Delivino"]="$HOME/Desktop/codes/Projects/Delivino"
 session_project_to_path["Knowplus"]="$HOME/Desktop/codes/Projects/Knowplus"
 
-windows=("Arnabix:server" "Arnabix:web" "Arnabix:mobile" "Arnabix:business" "Arnabix:django-server" "Arnabix:web-server" "Arnabix:mobile-server" "Arnabix:business-server" "Email-testing:scripts" "Email-testing:execution" "Coreedge:server" "Coreedge:django-server" "Automize:server" "Automize:django-server" "VeriFlow:server" "VeriFlow:django-server" "GasFlow:server" "GasFlow:django-server" "AGR:server" "AGR:laravel-server" "Expo-Tuto:code" "Expo-Tuto:mobile-server" "weather-app:code" "weather-app:mobile-server" "oui-gaz:server" "oui-gaz:client" "oui-gaz:django-server" "oui-gaz:web-server" "Delivino:server" "Delivino:django-server" "Knowplus:server" "Knowplus:django-server")
+windows=("Arnabix:server" "Arnabix:web" "Arnabix:mobile" "Arnabix:business" "Arnabix:django-server"
+    "Arnabix:web-server" "Arnabix:mobile-server" "Arnabix:business-server" "Arnabix:docker" "Email-testing:scripts"
+    "Email-testing:execution" "Coreedge:server" "Coreedge:django-server" "Automize:server"
+    "Automize:django-server" "VeriFlow:server" "VeriFlow:django-server" "GasFlow:server"
+    "GasFlow:django-server" "AGR:server" "AGR:laravel-server" "Expo-Tuto:code"
+    "Expo-Tuto:mobile-server" "weather-app:code" "weather-app:mobile-server" "oui-gaz:server"
+    "oui-gaz:web" "oui-gaz:mobile" "oui-gaz:business" "oui-gaz:django-server" "oui-gaz:web-server"
+    "oui-gaz:mobile-server" "oui-gaz:business-server" "oui-gaz:docker" "Delivino:server" "Delivino:django-server"
+    "Knowplus:server" "Knowplus:django-server")
 
 window_project_to_path["Arnabix:server"]="${session_project_to_path["Arnabix"]}/server"
 window_project_to_path["Arnabix:web"]="${session_project_to_path["Arnabix"]}/packages/web"
@@ -34,9 +42,14 @@ window_project_to_path["Arnabix:business-server"]="${session_project_to_path["Ar
 window_project_to_path["Arnabix:docker"]="${session_project_to_path["Arnabix"]}"
 
 window_project_to_path["oui-gaz:server"]="${session_project_to_path["oui-gaz"]}/server"
-window_project_to_path["oui-gaz:client"]="${session_project_to_path["oui-gaz"]}/client"
+window_project_to_path["oui-gaz:web"]="${session_project_to_path["oui-gaz"]}/packages/web"
+window_project_to_path["oui-gaz:mobile"]="${session_project_to_path["oui-gaz"]}/packages/mobile"
+window_project_to_path["oui-gaz:business"]="${session_project_to_path["oui-gaz"]}/packages/business"
 window_project_to_path["oui-gaz:django-server"]="${session_project_to_path["oui-gaz"]}/server"
-window_project_to_path["oui-gaz:web-server"]="${session_project_to_path["oui-gaz"]}/client"
+window_project_to_path["oui-gaz:web-server"]="${session_project_to_path["oui-gaz"]}/packages/web"
+window_project_to_path["oui-gaz:mobile-server"]="${session_project_to_path["oui-gaz"]}/packages/mobile"
+window_project_to_path["oui-gaz:business-server"]="${session_project_to_path["oui-gaz"]}/packages/business"
+window_project_to_path["oui-gaz:docker"]="${session_project_to_path["oui-gaz"]}"
 
 window_project_to_path["Email-testing:scripts"]="${session_project_to_path["Email-testing"]}"
 window_project_to_path["Email-testing:execution"]="${session_project_to_path["Email-testing"]}"
@@ -79,9 +92,16 @@ window_to_commands["Arnabix:mobile-server"]=""
 window_to_commands["Arnabix:business-server"]=""
 window_to_commands["Arnabix:docker"]=""
 
+window_to_commands["oui-gaz:server"]=""
+window_to_commands["oui-gaz:web"]=""
+window_to_commands["oui-gaz:mobile"]=""
+window_to_commands["oui-gaz:business"]=""
 window_to_commands["oui-gaz:django-server"]="tmux split-window -t SESSION_NAME:WINDOW_NAME; tmux send-keys -t SESSION_NAME:WINDOW_NAME.1 'venvshell' C-m 'django runserver' C-m;
 tmux send-keys -t SESSION_NAME:WINDOW_NAME.2 'cd WINDOW_PROJECT_PATH' C-m 'venvshell' C-m;"
-window_to_commands["oui-gaz:web-server"]="tmux split-window -t SESSION_NAME:WINDOW_NAME; tmux send-keys -t SESSION_NAME:WINDOW_NAME.1 'npm run dev' C-m; tmux send-keys -t SESSION_NAME:WINDOW_NAME.2 'cd WINDOW_PROJECT_PATH' C-m;"
+window_to_commands["oui-gaz:web-server"]="tmux split-window -t SESSION_NAME:WINDOW_NAME; tmux send-keys -t SESSION_NAME:WINDOW_NAME.1 'yarn dev' C-m; tmux send-keys -t SESSION_NAME:WINDOW_NAME.2 'cd WINDOW_PROJECT_PATH' C-m;"
+window_to_commands["oui-gaz:mobile-server"]=""
+window_to_commands["oui-gaz:business-server"]=""
+window_to_commands["oui-gaz:docker"]=""
 
 window_to_commands["Delivino:django-server"]="tmux split-window -t SESSION_NAME:WINDOW_NAME; tmux send-keys -t SESSION_NAME:WINDOW_NAME.1 'venvshell' C-m 'django runserver' C-m;
 tmux send-keys -t SESSION_NAME:WINDOW_NAME.2 'cd WINDOW_PROJECT_PATH' C-m 'venvshell' C-m;"
