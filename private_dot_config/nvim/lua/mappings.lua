@@ -104,6 +104,13 @@ wk.add({
     { "<leader>rcj", "<cmd>RunCompiledJava<CR>", desc = "Run current class compiled java" },
 })
 
+wk.add({
+    { "<C-S-h>", "<cmd>colder<CR>", desc = "Quickfix Older" },
+    { "<C-S-j>", "<cmd>cnext<CR>", desc = "Quickfix Next" },
+    { "<C-S-k>", "<cmd>cprev<CR>", desc = "Quickfix Prev" },
+    { "<C-S-l>", "<cmd>cnewer<CR>", desc = "Quickfix Newer" },
+})
+
 -- wk.add({
 --     { "<leader>T", group = "  Terminal" },
 --     { "<leader>Th", require("`"), desc = "Horizontal Term" },
