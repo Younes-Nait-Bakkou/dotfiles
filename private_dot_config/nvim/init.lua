@@ -36,7 +36,10 @@ vim.schedule(function()
     require("mappings")
 end)
 
-require("commands.global.remove_quick_fix_entry").setup()
+local ok, mod = pcall(require, "commands.global.remove_quick_fix_entry")
+if ok and mod.setup then
+    mod.setup()
+end
 
 -- vim.diagnostic.config({
 --     virtual_text = {
