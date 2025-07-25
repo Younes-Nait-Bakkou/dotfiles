@@ -6,7 +6,7 @@ declare -a windows
 declare -A window_project_to_path
 declare -A window_to_commands
 
-sessions=("Arnabix" "Email-testing" "Coreedge" "Automize" "VeriFlow" "GasFlow" "AGR" "Expo-Tuto" "weather-app" "oui-gaz" "Delivino" "Knowplus")
+sessions=("Arnabix" "Email-testing" "Coreedge" "Automize" "VeriFlow" "GasFlow" "AGR" "Expo-Tuto" "weather-app" "oui-gaz" "Delivino" "Knowplus" "CTF")
 
 session_project_to_path["Arnabix"]="$HOME/Desktop/codes/Projects/Arnabix"
 session_project_to_path["oui-gaz"]="$HOME/Desktop/codes/Projects/oui-gaz"
@@ -20,7 +20,7 @@ session_project_to_path["Expo-Tuto"]="$HOME/Desktop/codes/React-Native/Expo-Tuto
 session_project_to_path["weather-app"]="$HOME/Desktop/codes/React-Native/Weather-App"
 session_project_to_path["Delivino"]="$HOME/Desktop/codes/Projects/Delivino"
 session_project_to_path["Knowplus"]="$HOME/Desktop/codes/Projects/Knowplus"
-session_project_to_path["CTF"]="$HOME/Desktop/codes/Projects/CTF"
+session_project_to_path["CTF"]="$HOME/Desktop/codes/CTF"
 
 windows=("Arnabix:server" "Arnabix:web" "Arnabix:mobile" "Arnabix:business" "Arnabix:deploy" "Arnabix:django-server"
     "Arnabix:web-server" "Arnabix:mobile-server" "Arnabix:business-server" "Arnabix:deploy-server" "Arnabix:docker" "Email-testing:scripts"
