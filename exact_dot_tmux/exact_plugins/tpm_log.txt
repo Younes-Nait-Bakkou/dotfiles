@@ -8752,3 +8752,26 @@
 [2025-07-25 21:20:22.394]	Invoking /home/flamer/.tmux/plugins/tpm/bin/clean_plugins all
 [2025-07-25 21:20:22.433]	Done.
 
+[2025-07-25 21:26:10.061]	List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum sainnhe/tmux-fzf
+[2025-07-25 21:26:10.077]	Invoking /home/flamer/.tmux/plugins/tpm/bin/install_plugins
+[2025-07-25 21:26:10.134]	Already installed "tmux-resurrect"
+[2025-07-25 21:26:10.146]	Already installed "tmux-copycat"
+[2025-07-25 21:26:10.160]	Already installed "tmux-cpu"
+[2025-07-25 21:26:10.174]	Already installed "tmux-fzf"
+[2025-07-25 21:26:10.187]	Already installed "tmux-continuum"
+[2025-07-25 21:26:10.200]	Invoking /home/flamer/.tmux/plugins/tpm/bin/update_plugins all
+[2025-07-25 21:26:10.229]	Updating all plugins!
+[2025-07-25 21:26:10.243]	
+[2025-07-25 21:26:10.746]	  "tmux-copycat" update success
+[2025-07-25 21:26:10.761]	    | Already up to date.
+[2025-07-25 21:26:10.775]	  "tmux-cpu" update success
+[2025-07-25 21:26:10.789]	    | Already up to date.
+[2025-07-25 21:26:10.802]	  "tmux-continuum" update success
+[2025-07-25 21:26:10.815]	    | Already up to date.
+[2025-07-25 21:26:10.827]	  "tmux-resurrect" update success
+[2025-07-25 21:26:10.840]	    | Already up to date.
+[2025-07-25 21:26:10.853]	  "tmux-fzf" update success
+[2025-07-25 21:26:10.868]	    | Already up to date.
+[2025-07-25 21:26:10.883]	Invoking /home/flamer/.tmux/plugins/tpm/bin/clean_plugins all
+[2025-07-25 21:26:10.969]	Done.
+
