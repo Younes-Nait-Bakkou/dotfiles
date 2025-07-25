@@ -20,6 +20,7 @@ session_project_to_path["Expo-Tuto"]="$HOME/Desktop/codes/React-Native/Expo-Tuto
 session_project_to_path["weather-app"]="$HOME/Desktop/codes/React-Native/Weather-App"
 session_project_to_path["Delivino"]="$HOME/Desktop/codes/Projects/Delivino"
 session_project_to_path["Knowplus"]="$HOME/Desktop/codes/Projects/Knowplus"
+session_project_to_path["CTF"]="$HOME/Desktop/codes/Projects/CTF"
 
 windows=("Arnabix:server" "Arnabix:web" "Arnabix:mobile" "Arnabix:business" "Arnabix:deploy" "Arnabix:django-server"
     "Arnabix:web-server" "Arnabix:mobile-server" "Arnabix:business-server" "Arnabix:deploy-server" "Arnabix:docker" "Email-testing:scripts"
@@ -29,7 +30,7 @@ windows=("Arnabix:server" "Arnabix:web" "Arnabix:mobile" "Arnabix:business" "Arn
     "Expo-Tuto:mobile-server" "weather-app:code" "weather-app:mobile-server" "oui-gaz:server"
     "oui-gaz:web" "oui-gaz:mobile" "oui-gaz:business" "oui-gaz:deploy" "oui-gaz:django-server" "oui-gaz:web-server"
     "oui-gaz:mobile-server" "oui-gaz:business-server" "oui-gaz:deploy-server" "oui-gaz:docker" "Delivino:server" "Delivino:django-server"
-    "Knowplus:server" "Knowplus:django-server")
+    "Knowplus:server" "Knowplus:django-server" "CTF:server" "CTF:docker")
 
 window_project_to_path["Arnabix:server"]="${session_project_to_path["Arnabix"]}/server"
 window_project_to_path["Arnabix:web"]="${session_project_to_path["Arnabix"]}/packages/web"
@@ -84,6 +85,9 @@ window_project_to_path["Delivino:django-server"]="${session_project_to_path["Del
 
 window_project_to_path["Knowplus:server"]="${session_project_to_path["Knowplus"]}"
 window_project_to_path["Knowplus:django-server"]="${session_project_to_path["Knowplus"]}"
+
+window_project_to_path["CTF:server"]="${session_project_to_path["CTF"]}"
+window_project_to_path["CTF:docker"]="${session_project_to_path["CTF"]}"
 
 window_to_commands["Arnabix:server"]=""
 window_to_commands["Arnabix:web"]=""
