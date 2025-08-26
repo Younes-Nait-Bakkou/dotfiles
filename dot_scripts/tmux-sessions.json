@@ -305,6 +305,75 @@
           ]
         }
       ]
+    },
+    {
+      "name": "Billence",
+      "path": "~/Desktop/codes/Projects/Billence",
+      "windows": [
+        {
+          "name": "server",
+          "path": "~/Desktop/codes/Projects/Billence/server",
+          "commands": []
+        },
+        {
+          "name": "web",
+          "path": "~/Desktop/codes/Projects/Billence/packages/web",
+          "commands": []
+        },
+        {
+          "name": "mobile",
+          "path": "~/Desktop/codes/Projects/Billence/packages/mobile",
+          "commands": []
+        },
+        {
+          "name": "business",
+          "path": "~/Desktop/codes/Projects/Billence/packages/business",
+          "commands": []
+        },
+        {
+          "name": "deploy",
+          "path": "~/Desktop/codes/Projects/Billence/deploy",
+          "commands": []
+        },
+        {
+          "name": "django-server",
+          "path": "~/Desktop/codes/Projects/Billence/server",
+          "commands": [
+            "tmux split-window -t SESSION_NAME:WINDOW_NAME",
+            "tmux send-keys -t SESSION_NAME:WINDOW_NAME.1 'venvshell' C-m 'django runserver' C-m",
+            "tmux send-keys -t SESSION_NAME:WINDOW_NAME.2 'cd WINDOW_PROJECT_PATH' C-m 'venvshell' C-m"
+          ]
+        },
+        {
+          "name": "web-server",
+          "path": "~/Desktop/codes/Projects/Billence/packages/web",
+          "commands": [
+            "tmux split-window -t SESSION_NAME:WINDOW_NAME",
+            "tmux send-keys -t SESSION_NAME:WINDOW_NAME.1 'yarn dev' C-m",
+            "tmux send-keys -t SESSION_NAME:WINDOW_NAME.2 'cd WINDOW_PROJECT_PATH' C-m"
+          ]
+        },
+        {
+          "name": "mobile-server",
+          "path": "~/Desktop/codes/Projects/Billence/packages/mobile",
+          "commands": []
+        },
+        {
+          "name": "business-server",
+          "path": "~/Desktop/codes/Projects/Billence/packages/business",
+          "commands": []
+        },
+        {
+          "name": "deploy-server",
+          "path": "~/Desktop/codes/Projects/Billence/deploy",
+          "commands": []
+        },
+        {
+          "name": "docker",
+          "path": "~/Desktop/codes/Projects/Billence",
+          "commands": []
+        }
+      ]
     }
   ]
 }
