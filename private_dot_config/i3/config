@@ -62,6 +62,10 @@ exec_always --no-startup-id $wm_setting_app_compositor
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
+
+# Start and open diodon clipboard manager
+bindsym $mod+m exec --no-startup-id /usr/bin/diodon
+
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
