@@ -1,0 +1,310 @@
+{
+  "sessions": [
+    {
+      "name": "Arnabix",
+      "path": "~/Desktop/codes/Projects/Arnabix",
+      "windows": [
+        {
+          "name": "server",
+          "path": "~/Desktop/codes/Projects/Arnabix/server",
+          "commands": []
+        },
+        {
+          "name": "web",
+          "path": "~/Desktop/codes/Projects/Arnabix/packages/web",
+          "commands": []
+        },
+        {
+          "name": "mobile",
+          "path": "~/Desktop/codes/Projects/Arnabix/packages/mobile",
+          "commands": []
+        },
+        {
+          "name": "business",
+          "path": "~/Desktop/codes/Projects/Arnabix/packages/business",
+          "commands": []
+        },
+        {
+          "name": "deploy",
+          "path": "~/Desktop/codes/Projects/Arnabix/deploy",
+          "commands": []
+        },
+        {
+          "name": "django-server",
+          "path": "~/Desktop/codes/Projects/Arnabix/server",
+          "commands": [
+            "tmux split-window -t SESSION_NAME:WINDOW_NAME",
+            "tmux send-keys -t SESSION_NAME:WINDOW_NAME.1 'venvshell' C-m 'django runserver' C-m",
+            "tmux send-keys -t SESSION_NAME:WINDOW_NAME.2 'cd WINDOW_PROJECT_PATH' C-m 'venvshell' C-m"
+          ]
+        },
+        {
+          "name": "web-server",
+          "path": "~/Desktop/codes/Projects/Arnabix/packages/web",
+          "commands": [
+            "tmux split-window -t SESSION_NAME:WINDOW_NAME",
+            "tmux send-keys -t SESSION_NAME:WINDOW_NAME.1 'yarn dev' C-m",
+            "tmux send-keys -t SESSION_NAME:WINDOW_NAME.2 'cd WINDOW_PROJECT_PATH' C-m"
+          ]
+        },
+        {
+          "name": "mobile-server",
+          "path": "~/Desktop/codes/Projects/Arnabix/packages/mobile",
+          "commands": []
+        },
+        {
+          "name": "business-server",
+          "path": "~/Desktop/codes/Projects/Arnabix/packages/business",
+          "commands": []
+        },
+        {
+          "name": "deploy-server",
+          "path": "~/Desktop/codes/Projects/Arnabix/deploy",
+          "commands": []
+        },
+        {
+          "name": "docker",
+          "path": "~/Desktop/codes/Projects/Arnabix",
+          "commands": []
+        }
+      ]
+    },
+    {
+      "name": "Email-testing",
+      "path": "~/Desktop/codes/Python/E2E-email-testing",
+      "windows": [
+        {
+          "name": "scripts",
+          "path": "~/Desktop/codes/Python/E2E-email-testing",
+          "commands": []
+        },
+        {
+          "name": "execution",
+          "path": "~/Desktop/codes/Python/E2E-email-testing",
+          "commands": []
+        }
+      ]
+    },
+    {
+      "name": "Coreedge",
+      "path": "~/Desktop/codes/Projects/Coreedge",
+      "windows": [
+        {
+          "name": "server",
+          "path": "~/Desktop/codes/Projects/Coreedge",
+          "commands": []
+        },
+        {
+          "name": "django-server",
+          "path": "~/Desktop/codes/Projects/Coreedge",
+          "commands": []
+        }
+      ]
+    },
+    {
+      "name": "Automize",
+      "path": "~/Desktop/codes/Projects/Automize",
+      "windows": [
+        {
+          "name": "server",
+          "path": "~/Desktop/codes/Projects/Automize",
+          "commands": []
+        },
+        {
+          "name": "django-server",
+          "path": "~/Desktop/codes/Projects/Automize",
+          "commands": []
+        }
+      ]
+    },
+    {
+      "name": "VeriFlow",
+      "path": "~/Desktop/codes/Projects/VeriFlow",
+      "windows": [
+        {
+          "name": "server",
+          "path": "~/Desktop/codes/Projects/VeriFlow",
+          "commands": []
+        },
+        {
+          "name": "django-server",
+          "path": "~/Desktop/codes/Projects/VeriFlow",
+          "commands": []
+        }
+      ]
+    },
+    {
+      "name": "GasFlow",
+      "path": "~/Desktop/codes/Projects/GasFlow",
+      "windows": [
+        {
+          "name": "server",
+          "path": "~/Desktop/codes/Projects/GasFlow",
+          "commands": []
+        },
+        {
+          "name": "django-server",
+          "path": "~/Desktop/codes/Projects/GasFlow",
+          "commands": []
+        }
+      ]
+    },
+    {
+      "name": "AGR",
+      "path": "~/Desktop/codes/Projects/AGR",
+      "windows": [
+        {
+          "name": "server",
+          "path": "~/Desktop/codes/Projects/AGR",
+          "commands": []
+        },
+        {
+          "name": "laravel-server",
+          "path": "~/Desktop/codes/Projects/AGR",
+          "commands": []
+        }
+      ]
+    },
+    {
+      "name": "Expo-Tuto",
+      "path": "~/Desktop/codes/React-Native/Expo-Tutorial",
+      "windows": [
+        {
+          "name": "code",
+          "path": "~/Desktop/codes/React-Native/Expo-Tutorial",
+          "commands": []
+        },
+        {
+          "name": "mobile-server",
+          "path": "~/Desktop/codes/React-Native/Expo-Tutorial",
+          "commands": []
+        }
+      ]
+    },
+    {
+      "name": "weather-app",
+      "path": "~/Desktop/codes/React-Native/Weather-App",
+      "windows": [
+        {
+          "name": "code",
+          "path": "~/Desktop/codes/React-Native/Weather-App",
+          "commands": []
+        },
+        {
+          "name": "mobile-server",
+          "path": "~/Desktop/codes/React-Native/Weather-App",
+          "commands": []
+        }
+      ]
+    },
+    {
+      "name": "oui-gaz",
+      "path": "~/Desktop/codes/Projects/oui-gaz",
+      "windows": [
+        {
+          "name": "server",
+          "path": "~/Desktop/codes/Projects/oui-gaz/server",
+          "commands": []
+        },
+        {
+          "name": "web",
+          "path": "~/Desktop/codes/Projects/oui-gaz/packages/web",
+          "commands": []
+        },
+        {
+          "name": "mobile",
+          "path": "~/Desktop/codes/Projects/oui-gaz/packages/mobile",
+          "commands": []
+        },
+        {
+          "name": "business",
+          "path": "~/Desktop/codes/Projects/oui-gaz/packages/business",
+          "commands": []
+        },
+        {
+          "name": "deploy",
+          "path": "~/Desktop/codes/Projects/oui-gaz/deploy",
+          "commands": []
+        },
+        {
+          "name": "django-server",
+          "path": "~/Desktop/codes/Projects/oui-gaz/server",
+          "commands": [
+            "tmux split-window -t SESSION_NAME:WINDOW_NAME",
+            "tmux send-keys -t SESSION_NAME:WINDOW_NAME.1 'venvshell' C-m 'django runserver' C-m",
+            "tmux send-keys -t SESSION_NAME:WINDOW_NAME.2 'cd WINDOW_PROJECT_PATH' C-m 'venvshell' C-m"
+          ]
+        },
+        {
+          "name": "web-server",
+          "path": "~/Desktop/codes/Projects/oui-gaz/packages/web",
+          "commands": [
+            "tmux split-window -t SESSION_NAME:WINDOW_NAME",
+            "tmux send-keys -t SESSION_NAME:WINDOW_NAME.1 'yarn dev' C-m",
+            "tmux send-keys -t SESSION_NAME:WINDOW_NAME.2 'cd WINDOW_PROJECT_PATH' C-m"
+          ]
+        },
+        {
+          "name": "mobile-server",
+          "path": "~/Desktop/codes/Projects/oui-gaz/packages/mobile",
+          "commands": []
+        },
+        {
+          "name": "business-server",
+          "path": "~/Desktop/codes/Projects/oui-gaz/packages/business",
+          "commands": []
+        },
+        {
+          "name": "deploy-server",
+          "path": "~/Desktop/codes/Projects/oui-gaz/deploy",
+          "commands": []
+        },
+        {
+          "name": "docker",
+          "path": "~/Desktop/codes/Projects/oui-gaz",
+          "commands": []
+        }
+      ]
+    },
+    {
+      "name": "Delivino",
+      "path": "~/Desktop/codes/Projects/Delivino",
+      "windows": [
+        {
+          "name": "server",
+          "path": "~/Desktop/codes/Projects/Delivino",
+          "commands": []
+        },
+        {
+          "name": "django-server",
+          "path": "~/Desktop/codes/Projects/Delivino",
+          "commands": [
+            "tmux split-window -t SESSION_NAME:WINDOW_NAME",
+            "tmux send-keys -t SESSION_NAME:WINDOW_NAME.1 'venvshell' C-m 'django runserver' C-m",
+            "tmux send-keys -t SESSION_NAME:WINDOW_NAME.2 'cd WINDOW_PROJECT_PATH' C-m 'venvshell' C-m"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Knowplus",
+      "path": "~/Desktop/codes/Projects/Knowplus",
+      "windows": [
+        {
+          "name": "server",
+          "path": "~/Desktop/codes/Projects/Knowplus",
+          "commands": []
+        },
+        {
+          "name": "django-server",
+          "path": "~/Desktop/codes/Projects/Knowplus",
+          "commands": [
+            "tmux split-window -t SESSION_NAME:WINDOW_NAME",
+            "tmux send-keys -t SESSION_NAME:WINDOW_NAME.1 'venvshell' C-m 'django runserver' C-m",
+            "tmux send-keys -t SESSION_NAME:WINDOW_NAME.2 'cd WINDOW_PROJECT_PATH' C-m 'venvshell' C-m"
+          ]
+        }
+      ]
+    }
+  ]
+}

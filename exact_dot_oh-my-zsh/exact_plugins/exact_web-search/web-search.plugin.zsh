@@ -37,6 +37,8 @@ function web_search() {
     claudeai        "https://claude.ai/new?q="
     reddit          "https://www.reddit.com/search/?q="
     ppai            "https://www.perplexity.ai/search/new?q="
+    rscrate         "https://crates.io/search?q="
+    rsdoc           "https://docs.rs/releases/search?query="
   )
 
   # check whether the search engine is supported
@@ -93,8 +95,11 @@ alias gopkg='web_search gopkg'
 alias chatgpt='web_search chatgpt'
 alias grok='web_search grok'
 alias claude='web_search claude'
+alias claudeai='web_search claudeai'
 alias reddit='web_search reddit'
 alias ppai='web_search ppai'
+alias rscrate='web_search rscrate'
+alias rsdoc='web_search rsdoc'
 
 #add your own !bang searches here
 alias wiki='web_search duckduckgo \!w'
