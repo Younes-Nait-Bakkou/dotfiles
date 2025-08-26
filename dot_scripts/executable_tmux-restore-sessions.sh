@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-CONFIG_FILE="tmux-sessions.json"
+CONFIG_FILE="$HOME/.scripts/tmux-sessions.json"
 
 if ! command -v jq &>/dev/null; then
     echo "Error: jq is required but not installed. Please install jq."
