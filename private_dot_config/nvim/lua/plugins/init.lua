@@ -573,4 +573,10 @@ return {
             require("mini.icons").setup() -- optional: customize here
         end,
     },
+    {
+        "akinsho/git-conflict.nvim",
+        version = "*",
+        event = { "VeryLazy" },
+        config = true,
+    },
 }
