@@ -202,3 +202,4 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 set -o vi
 
 # Add scripts to path
+export PATH="$HOME/.local/bin:$PATH"
