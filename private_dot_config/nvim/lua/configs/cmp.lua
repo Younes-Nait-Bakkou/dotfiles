@@ -11,6 +11,10 @@ local source_mapping = {
 }
 
 cmp.setup({
+    enabled = function()
+        return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt" or require("cmp_dap").is_dap_buffer()
+    end,
+
     snippet = {
         expand = function(args)
             require("luasnip").lsp_expand(args.body)
@@ -29,6 +33,7 @@ cmp.setup({
         { name = "luasnip" },
         { name = "buffer" },
         { name = "path" },
+        { name = "treesitter" },
     },
 
     formatting = {
@@ -68,6 +73,12 @@ vim.api.nvim_create_autocmd("FileType", {
             },
         })
     end,
+})
+
+cmp.setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover", "iron" }, {
+    sources = {
+        { name = "dap" },
+    },
 })
 
 -- cmp.setup.filetype({ "html", "htmldjango" }, {

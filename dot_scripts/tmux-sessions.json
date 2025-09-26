@@ -2,36 +2,36 @@
   "sessions": [
     {
       "name": "Arnabix",
-      "path": "~/Desktop/codes/Projects/Arnabix",
+      "path": "~/Desktop/codes/Projects/arnabix",
       "windows": [
         {
           "name": "server",
-          "path": "~/Desktop/codes/Projects/Arnabix/server",
+          "path": "~/Desktop/codes/Projects/arnabix/server",
           "commands": []
         },
         {
           "name": "web",
-          "path": "~/Desktop/codes/Projects/Arnabix/packages/web",
+          "path": "~/Desktop/codes/Projects/arnabix/packages/web",
           "commands": []
         },
         {
           "name": "mobile",
-          "path": "~/Desktop/codes/Projects/Arnabix/packages/mobile",
+          "path": "~/Desktop/codes/Projects/arnabix/packages/mobile",
           "commands": []
         },
         {
           "name": "business",
-          "path": "~/Desktop/codes/Projects/Arnabix/packages/business",
+          "path": "~/Desktop/codes/Projects/arnabix/packages/business",
           "commands": []
         },
         {
           "name": "deploy",
-          "path": "~/Desktop/codes/Projects/Arnabix/deploy",
+          "path": "~/Desktop/codes/Projects/arnabix/deploy",
           "commands": []
         },
         {
           "name": "django-server",
-          "path": "~/Desktop/codes/Projects/Arnabix/server",
+          "path": "~/Desktop/codes/Projects/arnabix/server",
           "commands": [
             "tmux split-window -t SESSION_NAME:WINDOW_NAME",
             "tmux send-keys -t SESSION_NAME:WINDOW_NAME.1 'venvshell' C-m 'django runserver' C-m",
@@ -40,7 +40,7 @@
         },
         {
           "name": "web-server",
-          "path": "~/Desktop/codes/Projects/Arnabix/packages/web",
+          "path": "~/Desktop/codes/Projects/arnabix/packages/web",
           "commands": [
             "tmux split-window -t SESSION_NAME:WINDOW_NAME",
             "tmux send-keys -t SESSION_NAME:WINDOW_NAME.1 'yarn dev' C-m",
@@ -49,22 +49,22 @@
         },
         {
           "name": "mobile-server",
-          "path": "~/Desktop/codes/Projects/Arnabix/packages/mobile",
+          "path": "~/Desktop/codes/Projects/arnabix/packages/mobile",
           "commands": []
         },
         {
           "name": "business-server",
-          "path": "~/Desktop/codes/Projects/Arnabix/packages/business",
+          "path": "~/Desktop/codes/Projects/arnabix/packages/business",
           "commands": []
         },
         {
           "name": "deploy-server",
-          "path": "~/Desktop/codes/Projects/Arnabix/deploy",
+          "path": "~/Desktop/codes/Projects/arnabix/deploy",
           "commands": []
         },
         {
           "name": "docker",
-          "path": "~/Desktop/codes/Projects/Arnabix",
+          "path": "~/Desktop/codes/Projects/arnabix",
           "commands": []
         }
       ]
@@ -134,17 +134,17 @@
       ]
     },
     {
-      "name": "GasFlow",
-      "path": "~/Desktop/codes/Projects/GasFlow",
+      "name": "GasFlow-site",
+      "path": "~/Desktop/codes/Projects/GasFlow-site",
       "windows": [
         {
           "name": "server",
-          "path": "~/Desktop/codes/Projects/GasFlow",
+          "path": "~/Desktop/codes/Projects/GasFlow-site",
           "commands": []
         },
         {
           "name": "django-server",
-          "path": "~/Desktop/codes/Projects/GasFlow",
+          "path": "~/Desktop/codes/Projects/GasFlow-site",
           "commands": []
         }
       ]
@@ -198,37 +198,37 @@
       ]
     },
     {
-      "name": "oui-gaz",
-      "path": "~/Desktop/codes/Projects/oui-gaz",
+      "name": "Gasflow",
+      "path": "~/Desktop/codes/Projects/gasflow",
       "windows": [
         {
           "name": "server",
-          "path": "~/Desktop/codes/Projects/oui-gaz/server",
+          "path": "~/Desktop/codes/Projects/gasflow/server",
           "commands": []
         },
         {
           "name": "web",
-          "path": "~/Desktop/codes/Projects/oui-gaz/packages/web",
+          "path": "~/Desktop/codes/Projects/gasflow/packages/web",
           "commands": []
         },
         {
           "name": "mobile",
-          "path": "~/Desktop/codes/Projects/oui-gaz/packages/mobile",
+          "path": "~/Desktop/codes/Projects/gasflow/packages/mobile",
           "commands": []
         },
         {
           "name": "business",
-          "path": "~/Desktop/codes/Projects/oui-gaz/packages/business",
+          "path": "~/Desktop/codes/Projects/gasflow/packages/business",
           "commands": []
         },
         {
           "name": "deploy",
-          "path": "~/Desktop/codes/Projects/oui-gaz/deploy",
+          "path": "~/Desktop/codes/Projects/gasflow/deploy",
           "commands": []
         },
         {
           "name": "django-server",
-          "path": "~/Desktop/codes/Projects/oui-gaz/server",
+          "path": "~/Desktop/codes/Projects/gasflow/server",
           "commands": [
             "tmux split-window -t SESSION_NAME:WINDOW_NAME",
             "tmux send-keys -t SESSION_NAME:WINDOW_NAME.1 'venvshell' C-m 'django runserver' C-m",
@@ -237,7 +237,7 @@
         },
         {
           "name": "web-server",
-          "path": "~/Desktop/codes/Projects/oui-gaz/packages/web",
+          "path": "~/Desktop/codes/Projects/gasflow/packages/web",
           "commands": [
             "tmux split-window -t SESSION_NAME:WINDOW_NAME",
             "tmux send-keys -t SESSION_NAME:WINDOW_NAME.1 'yarn dev' C-m",
@@ -246,22 +246,22 @@
         },
         {
           "name": "mobile-server",
-          "path": "~/Desktop/codes/Projects/oui-gaz/packages/mobile",
+          "path": "~/Desktop/codes/Projects/gasflow/packages/mobile",
           "commands": []
         },
         {
           "name": "business-server",
-          "path": "~/Desktop/codes/Projects/oui-gaz/packages/business",
+          "path": "~/Desktop/codes/Projects/gasflow/packages/business",
           "commands": []
         },
         {
           "name": "deploy-server",
-          "path": "~/Desktop/codes/Projects/oui-gaz/deploy",
+          "path": "~/Desktop/codes/Projects/gasflow/deploy",
           "commands": []
         },
         {
           "name": "docker",
-          "path": "~/Desktop/codes/Projects/oui-gaz",
+          "path": "~/Desktop/codes/Projects/gasflow",
           "commands": []
         }
       ]

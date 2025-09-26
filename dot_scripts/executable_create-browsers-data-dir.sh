@@ -10,7 +10,7 @@ mkdir -p "$BASE_DIR/brave" "$BASE_DIR/chrome" "$APPS_DIR"
 # Define:
 # browser;command;icon;default_profile_dir;profiles
 BROWSERS=(
-    "brave;brave-browser;brave-browser;$HOME/.config/BraveSoftware/Brave-Browser/Default;development research entertainment"
+    "brave;brave-browser;brave-browser;$HOME/.config/BraveSoftware/Brave-Browser/Default;development research entertainment project-management"
     "chrome;google-chrome;google-chrome;$HOME/.config/google-chrome/Default;dev personal media"
 )
 

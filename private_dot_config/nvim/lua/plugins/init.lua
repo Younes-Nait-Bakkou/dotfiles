@@ -260,6 +260,8 @@ return {
         "hrsh7th/nvim-cmp",
         dependencies = {
             "kristijanhusak/vim-dadbod-completion",
+            "rcarriga/cmp-dap",
+            "ray-x/cmp-treesitter",
         },
         config = function()
             require("configs.cmp")
@@ -573,10 +575,21 @@ return {
             require("mini.icons").setup() -- optional: customize here
         end,
     },
+    -- {
+    --     "akinsho/git-conflict.nvim",
+    --     version = "*",
+    --     event = { "VeryLazy" },
+    --     config = true,
+    -- },
+
     {
-        "akinsho/git-conflict.nvim",
-        version = "*",
-        event = { "VeryLazy" },
-        config = true,
+        "Kurama622/llm.nvim",
+        cmd = { "LLMSessionToggle", "LLMSelectedTextHandler", "LLMAppHandler" },
+        config = function()
+            require("configs.llm-nvim").setup()
+        end,
+        keys = {
+            { "<leader>ac", mode = "n", "<cmd>LLMSessionToggle<cr>" },
+        },
     },
 }
