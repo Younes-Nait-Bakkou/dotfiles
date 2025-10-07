@@ -37,16 +37,7 @@ local default_servers = {
     -- "jinja_lsp",
 }
 
--- lsps with default config
-for _, lsp in ipairs(default_servers) do
-    lspconfig[lsp].setup({
-        on_attach = on_attach,
-        on_init = on_init,
-        capabilities = capabilities,
-    })
-end
-
-lspconfig.lua_ls.setup({
+vim.lsp.config("lua_ls", {
     on_attach = on_attach,
     on_init = on_init,
     capabilities = capabilities,
@@ -72,7 +63,7 @@ lspconfig.lua_ls.setup({
     },
 })
 
-lspconfig.pyright.setup({
+vim.lsp.config("pyright", {
     on_attach = on_attach,
     on_init = on_init,
     capabilities = (function()
@@ -95,9 +86,8 @@ lspconfig.pyright.setup({
         },
     },
 })
-local ssourcess = 1
 
--- lspconfig.ts_ls.setup({
+-- vim.lsp.config("ts_ls", {
 --     on_attach = on_attach,
 --     on_init = on_init,
 --     capabilities = capabilities,
@@ -111,7 +101,7 @@ local ssourcess = 1
 --     },
 -- })
 
--- lspconfig.typescript_tools.setup({
+-- vim.lsp.config("typescript_tools", {
 --     on_attach = on_attach,
 --     on_init = on_init,
 --     capabilities = capabilities,
@@ -161,7 +151,7 @@ local ssourcess = 1
 --     },
 -- })
 
-lspconfig.eslint.setup({
+vim.lsp.config("eslint", {
     on_attach = on_attach,
     on_init = on_init,
     capabilities = capabilities,
@@ -199,7 +189,7 @@ lspconfig.eslint.setup({
 local phpactor_capabilities = vim.lsp.protocol.make_client_capabilities()
 phpactor_capabilities["textDocument"]["codeAction"] = {}
 
-lspconfig.phpactor.setup({
+vim.lsp.config("phpactor", {
     root_dir = function(_)
         return vim.loop.cwd()
     end,
@@ -214,7 +204,7 @@ lspconfig.phpactor.setup({
     },
 })
 
--- lspconfig.harper_ls.setup({
+-- vim.lsp.config("harper_ls", {
 --     on_attach = function(client, bufnr)
 --         -- Disable virtual text for Harper LS diagnostics
 --         vim.diagnostic.config({
@@ -263,7 +253,7 @@ lspconfig.phpactor.setup({
 -- vim.cmd([[highlight DiagnosticUnderlineHint gui=undercurl guisp=green]])
 --
 
-lspconfig.tailwindcss.setup({
+vim.lsp.config("tailwindcss", {
     on_attach = on_attach,
     on_init = on_init,
     capabilities = capabilities,
@@ -276,7 +266,7 @@ lspconfig.tailwindcss.setup({
 local html_capabilities = vim.lsp.protocol.make_client_capabilities()
 html_capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-lspconfig.html.setup({
+vim.lsp.config("html", {
     capabilities = html_capabilities,
     on_attach = on_attach,
     on_init = on_init,
@@ -286,7 +276,7 @@ lspconfig.html.setup({
     root_dir = lspconfig.util.root_pattern(".git", "package.json"),
 })
 
--- lspconfig.tailwindcss.setup({
+-- vim.lsp.config("tailwindcss", {
 --     on_attach = on_attach,
 --     on_init = on_init,
 --     capabilities = capabilities,
@@ -311,3 +301,21 @@ lspconfig.html.setup({
 --         },
 --     },
 -- })
+--
+--
+-- ╭──────────────────────────────────────────────────────────╮
+-- │ Enable lsp servers with default config.                  │
+-- ╰──────────────────────────────────────────────────────────╯
+
+for _, lsp in ipairs(default_servers) do
+    vim.lsp.config(lsp, {
+        on_attach = on_attach,
+        on_init = on_init,
+        capabilities = capabilities,
+    })
+    vim.lsp.enable(lsp)
+end
+
+for _, lsp in ipairs(lspconfig.servers) do
+    vim.lsp.enable(lsp)
+end
