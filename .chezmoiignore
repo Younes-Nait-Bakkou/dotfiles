@@ -1,0 +1,70 @@
+# === Zsh / Oh My Zsh ===
+.oh-my-zsh/*
+!.oh-my-zsh/custom/
+.zsh_history
+.bash_history
+.zcompdump*
+.zsh_sessions/
+
+# === Neovim ===
+.config/nvim/cache/
+.config/nvim/undo/
+.config/nvim/backups/
+.config/nvim/swap/
+.config/nvim/*.swp
+.config/nvim/*.swo
+.config/nvim/*.bak
+.config/nvim/*.tmp
+.config/nvim/session/
+
+# === Tmux ===
+#.tmux.conf.local
+#.tmux-resurrect/
+#.tmuxp/
+#.tmuxinator/
+
+# === i3 / i3status / i3blocks / Polybar ===
+.config/i3/logs/
+.config/i3/tmp/
+.config/i3status/logs/
+.config/i3blocks/logs/
+.config/polybar/logs/
+.config/polybar/cache/
+
+# === Caches / temporary system files ===
+.cache/
+.local/share/Trash/
+.local/state/
+.local/share/recently-used.xbel
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# === Git / chezmoi internals ===
+.private_*
+.encrypted_*
+*.secret
+*.tmpl~
+
+# === Node / package manager artifacts ===
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# === Python junk ===
+__pycache__/
+*.pyc
+
+# === Machine-specific data / misc ===
+.config/pulse/
+.config/dconf/
+.config/discord/
+.config/BraveSoftware/
+.config/google-chrome/
+Downloads/
+Desktop/
+Pictures/
+Videos/
+Music/
+Templates/
