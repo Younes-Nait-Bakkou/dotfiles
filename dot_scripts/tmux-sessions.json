@@ -232,7 +232,7 @@
           "commands": [
             "tmux split-window -t SESSION_NAME:WINDOW_NAME",
             "tmux send-keys -t SESSION_NAME:WINDOW_NAME.1 'venvshell' C-m 'django runserver' C-m",
-            "tmux send-keys -t SESSION_NAME:WINDOW_NAME.2 'cd WINDOW_PROJECT_PATH' C-m 'venvshell' C-m"
+            "tmux send-keys -t SESSION_NAME:WINDOW_NAME.2 'cd WINDOW_PROJECT_PATH' C-m 'venvshell' C-m 'clear' C-m"
           ]
         },
         {
@@ -241,7 +241,7 @@
           "commands": [
             "tmux split-window -t SESSION_NAME:WINDOW_NAME",
             "tmux send-keys -t SESSION_NAME:WINDOW_NAME.1 'yarn dev' C-m",
-            "tmux send-keys -t SESSION_NAME:WINDOW_NAME.2 'cd WINDOW_PROJECT_PATH' C-m"
+            "tmux send-keys -t SESSION_NAME:WINDOW_NAME.2 'cd WINDOW_PROJECT_PATH' C-m 'clear' C-m"
           ]
         },
         {
@@ -281,7 +281,7 @@
           "commands": [
             "tmux split-window -t SESSION_NAME:WINDOW_NAME",
             "tmux send-keys -t SESSION_NAME:WINDOW_NAME.1 'venvshell' C-m 'django runserver' C-m",
-            "tmux send-keys -t SESSION_NAME:WINDOW_NAME.2 'cd WINDOW_PROJECT_PATH' C-m 'venvshell' C-m"
+            "tmux send-keys -t SESSION_NAME:WINDOW_NAME.2 'cd WINDOW_PROJECT_PATH' C-m 'venvshell' C-m 'clear' C-m"
           ]
         }
       ]
@@ -301,7 +301,7 @@
           "commands": [
             "tmux split-window -t SESSION_NAME:WINDOW_NAME",
             "tmux send-keys -t SESSION_NAME:WINDOW_NAME.1 'venvshell' C-m 'django runserver' C-m",
-            "tmux send-keys -t SESSION_NAME:WINDOW_NAME.2 'cd WINDOW_PROJECT_PATH' C-m 'venvshell' C-m"
+            "tmux send-keys -t SESSION_NAME:WINDOW_NAME.2 'cd WINDOW_PROJECT_PATH' C-m 'venvshell' C-m 'clear' C-m"
           ]
         }
       ]
@@ -341,7 +341,7 @@
           "commands": [
             "tmux split-window -t SESSION_NAME:WINDOW_NAME",
             "tmux send-keys -t SESSION_NAME:WINDOW_NAME.1 'venvshell' C-m 'django runserver' C-m",
-            "tmux send-keys -t SESSION_NAME:WINDOW_NAME.2 'cd WINDOW_PROJECT_PATH' C-m 'venvshell' C-m"
+            "tmux send-keys -t SESSION_NAME:WINDOW_NAME.2 'cd WINDOW_PROJECT_PATH' C-m 'venvshell' C-m 'clear' C-m"
           ]
         },
         {
@@ -350,7 +350,7 @@
           "commands": [
             "tmux split-window -t SESSION_NAME:WINDOW_NAME",
             "tmux send-keys -t SESSION_NAME:WINDOW_NAME.1 'yarn dev' C-m",
-            "tmux send-keys -t SESSION_NAME:WINDOW_NAME.2 'cd WINDOW_PROJECT_PATH' C-m"
+            "tmux send-keys -t SESSION_NAME:WINDOW_NAME.2 'cd WINDOW_PROJECT_PATH' C-m 'clear' C-m"
           ]
         },
         {
