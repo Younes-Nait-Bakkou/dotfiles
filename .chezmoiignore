@@ -18,10 +18,10 @@
 .config/nvim/session/
 
 # === Tmux ===
-#.tmux.conf.local
-#.tmux-resurrect/
-#.tmuxp/
-#.tmuxinator/
+.tmux/
+.tmux-resurrect/
+.tmuxp/
+.tmuxinator/
 
 # === i3 / i3status / i3blocks / Polybar ===
 .config/i3/logs/
