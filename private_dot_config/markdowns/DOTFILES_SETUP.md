@@ -1,6 +1,15 @@
 # 🚀 Dotfiles Setup Guide
 
 My personal development environment configuration for Ubuntu with i3wm, Neovim, tmux, and modern development tools.
+This is using Chezmoi, the dotfile manager to setup the install.
+
+
+## How to run
+
+```bash
+export GITHUB_USERNAME=Younes-Nait-Bakkou
+sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply $GITHUB_USERNAME
+```
 
 ## 📋 Table of Contents
 
