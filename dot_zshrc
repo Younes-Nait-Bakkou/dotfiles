@@ -198,7 +198,7 @@ if [ -z "$TMUX" ]; then
 fi
 
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # Enable VI mode in terminal
 set -o vi
