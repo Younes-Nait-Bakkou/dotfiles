@@ -41,3 +41,30 @@ vim.o.updatetime = 250
 vim.cmd([[
   autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
 ]])
+
+-- Detect WSL by checking /proc/version
+local function is_wsl()
+    local f = io.open("/proc/version", "r")
+    if f then
+        local s = f:read("*a")
+        f:close()
+        return s:lower():match("microsoft") ~= nil
+    end
+    return false
+end
+
+if is_wsl() then
+    vim.g.clipboard = {
+        name = "xsel",
+        copy = {
+            ["+"] = "xsel --nodetach -i -b",
+            ["*"] = "xsel --nodetach -i -p",
+        },
+        paste = {
+            ["+"] = "xsel -o -b",
+            ["*"] = "xsel -o -p",
+        },
+        cache_enabled = 1,
+    }
+    vim.opt.clipboard = "unnamedplus"
+end
