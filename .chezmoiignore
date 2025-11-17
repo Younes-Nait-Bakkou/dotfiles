@@ -68,3 +68,6 @@ Pictures/
 Videos/
 Music/
 Templates/
+
+# === Scripts ===
+ansible/
