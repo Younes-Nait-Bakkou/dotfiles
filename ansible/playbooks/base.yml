@@ -1,0 +1,7 @@
+---
+- name: Base system setup
+  hosts: localhost
+  become: yes
+
+  roles:
+    - base
