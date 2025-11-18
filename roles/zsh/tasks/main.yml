@@ -1,0 +1,5 @@
+---
+
+- name: Load OS-specific tasks for Zsh
+  include_tasks: ubuntu.yml
+  when: ansible_distribution == "Ubuntu"
