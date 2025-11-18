@@ -1,0 +1,30 @@
+---
+
+- name: Install Zsh on Ubuntu
+  apt:
+    name: zsh
+    state: present
+    update_cache: true
+
+- name: Install Oh My Zsh (if not installed)
+  become: false
+  shell: |
+    export RUNZSH=no
+    export CHSH=no
+    if [ ! -d "$HOME/.oh-my-zsh" ]; then
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    fi
+  args:
+    creates: "{{ ansible_env.HOME }}/.oh-my-zsh"
+
+- name: Copy .zshrc config
+  copy:
+    src: zshrc
+    dest: "{{ ansible_env.HOME }}/.zshrc"
+    owner: "{{ ansible_env.USER }}"
+    mode: "0644"
+
+- name: Set Zsh as default shell
+  user:
+    name: "{{ ansible_env.USER }}"
+    shell: /usr/bin/zsh
