@@ -26,10 +26,19 @@ detect_os() {
     fi
 }
 
+install_git() {
+    if [ -x "$(command -v git)" ]; then
+        _log "Git is already installed"
+    else
+        _log "Installing Git..."
+        _cmd sudo apt-get install -y git
+    fi
+}
+
 sync_dotfiles() {
     if [ ! -d "$DOTFILES_DIR" ]; then
         _log "Cloning dotfiles repo..."
-        _cmd git clone https://github.com/$GITHUB_USERNAME/dotfiles.git "$DOTFILES_DIR"
+        _cmd git clone -b https://github.com/$GITHUB_USERNAME/dotfiles.git "$DOTFILES_DIR"
     else
         _log "Updating dotfiles..."
         cd "$DOTFILES_DIR"
@@ -74,6 +83,7 @@ main() {
     OS="$(detect_os)"
     _log "Detected OS: $OS"
 
+    install_git
     sync_dotfiles
     run_os_setup "$OS"
     run_ansible
