@@ -1,7 +1,0 @@
----
-- name: Install Neovim
-  hosts: localhost
-  become: yes
-
-  roles:
-    - neovim

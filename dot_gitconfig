@@ -1,9 +1,0 @@
-[user]
-	name = YounesNaitBakkou
-	email = younes.naitbakkou@automize.ma
-[credential]
-	helper = store
-[core]
-	editor = nvim
-[init]
-	defaultBranch = main

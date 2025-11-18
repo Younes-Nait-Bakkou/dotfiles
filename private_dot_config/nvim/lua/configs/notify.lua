@@ -1,7 +1,0 @@
--- require("notify").setup({
---     lsp = {
---         signature = {
---             enabled = false, -- Disable Noice's signature help
---         }
---     }
--- })
