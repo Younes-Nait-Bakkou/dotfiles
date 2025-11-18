@@ -40,7 +40,7 @@ sync_dotfiles() {
         BRANCH="ansible-only"
         _log "Cloning dotfiles repo..."
         _cmd mkdir -p "$DOTFILES_DIR"
-        _cmd git clone -single-branch -b "$BRANCH" https://github.com/$GITHUB_USERNAME/dotfiles.git "$DOTFILES_DIR"
+        _cmd git clone --single-branch -b "$BRANCH" https://github.com/$GITHUB_USERNAME/dotfiles.git "$DOTFILES_DIR"
     else
         _log "Updating dotfiles..."
         cd "$DOTFILES_DIR"
