@@ -1,0 +1,84 @@
+#!/usr/bin/env bash
+set -e
+export GITHUB_USERNAME="Younes-Nait-Bakkou"
+DOTFILES_DIR="$HOME/.dotfiles"
+LOG_FILE="$HOME/.dotfiles-install.log"
+
+_log() {
+    echo "[INFO] $1"
+}
+
+_error() {
+    echo "[ERROR] $1" >&2
+    exit 1
+}
+
+_cmd() {
+    "$@" >>"$LOG_FILE" 2>&1 || _error "Command failed: $*"
+}
+
+detect_os() {
+    if [ -f /etc/os-release ]; then
+        . /etc/os-release
+        echo "$ID"
+    else
+        uname -s | tr '[:upper:]' '[:lower:]'
+    fi
+}
+
+sync_dotfiles() {
+    if [ ! -d "$DOTFILES_DIR" ]; then
+        _log "Cloning dotfiles repo..."
+        _cmd git clone https://github.com/$GITHUB_USERNAME/dotfiles.git "$DOTFILES_DIR"
+    else
+        _log "Updating dotfiles..."
+        cd "$DOTFILES_DIR"
+        _cmd git pull
+    fi
+}
+
+ubuntu_setup() {
+    _log "Checking Ansible installation..."
+
+    if ! dpkg -s ansible >/dev/null 2>&1; then
+        _log "Installing Ansible (May take a few minutes)"
+
+        _cmd sudo apt-get update
+        _cmd sudo apt-get install -y software-properties-common
+        _cmd sudo apt-add-repository -y ppa:ansible/ansible
+        _cmd sudo apt-get update
+        _cmd sudo apt-get install -y ansible python3-argcomplete
+    fi
+}
+
+run_os_setup() {
+    case "$1" in
+    ubuntu)
+        ubuntu_setup
+        ;;
+    *)
+        _error "Unsupported OS: $1"
+        ;;
+    esac
+}
+
+run_ansible() {
+    _log "Running Ansible..."
+    cd "$DOTFILES_DIR"
+    _cmd ansible-playbook playbooks/setup.yml --ask-become-pass
+}
+
+main() {
+    _log "Starting dotfiles installer..."
+
+    OS="$(detect_os)"
+    _log "Detected OS: $OS"
+
+    sync_dotfiles
+    run_os_setup "$OS"
+    run_ansible
+
+    _log "Installation finished successfully!"
+}
+
+main "$@"
