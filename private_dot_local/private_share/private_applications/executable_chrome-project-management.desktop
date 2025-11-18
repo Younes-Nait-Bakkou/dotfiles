@@ -1,5 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Chrome Project Management
-Exec=google-chrome --user-data-dir="/home/younes/chrome-configs/project-management"  --class="project-management"
-Icon=google-chrome

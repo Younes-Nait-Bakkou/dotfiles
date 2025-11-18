@@ -1,4 +1,0 @@
-study_mode
-course_type
-e
-language_study

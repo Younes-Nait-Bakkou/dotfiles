@@ -1,5 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Chrome Development
-Exec=google-chrome --user-data-dir="/home/younes/chrome-configs/development"  --class="development"
-Icon=google-chrome

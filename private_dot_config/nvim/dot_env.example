@@ -1,4 +1,0 @@
-GITHUB_LLM_KEY=""
-LLM_NVIM_URL="https://models.inference.ai.azure.com/chat/completions" # example endpoint (check docs)
-LLM_MODEL="gpt-4o-mini"
-LLM_API_TYPE="openai" # github models API compatible with OpenAI interface

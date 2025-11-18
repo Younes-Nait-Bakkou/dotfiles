@@ -1,1 +1,0 @@
--- require("vim_dadbod_completion").setup({})
