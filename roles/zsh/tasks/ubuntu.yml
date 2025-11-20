@@ -17,12 +17,19 @@
   args:
     creates: "{{ ansible_env.HOME }}/.oh-my-zsh"
 
-- name: Copy .zshrc config
-  copy:
-    src: zshrc
+- name: Symlink .zshrc config
+  file:
+    src: "{{ role_path }}/files/zshrc"
     dest: "{{ ansible_env.HOME }}/.zshrc"
     owner: "{{ ansible_env.USER }}"
     mode: "0644"
+
+- name: Symlink oh-my-zsh custom plugins
+  file:
+    src: "{{ role_path }}/files/oh-my-zsh/custom"
+    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom"
+    owner: "{{ ansible_env.USER }}"
+    mode: "0755"
 
 - name: Set Zsh as default shell
   user:
