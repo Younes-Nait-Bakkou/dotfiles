@@ -17,6 +17,25 @@
   args:
     creates: "{{ ansible_env.HOME }}/.oh-my-zsh"
 
+- name: Install Powerlevel10k
+  git:
+    repo: https://github.com/romkatv/powerlevel10k.git
+    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/themes/powerlevel10k"
+    depth: 1
+    update: yes
+
+- name: Install zsh-you-should-use
+  git:
+    repo: https://github.com/MichaelAquilina/zsh-you-should-use.git
+    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/you-should-use"
+    update: yes
+
+- name: Install zsh-autosuggestions
+  git:
+    repo: https://github.com/zsh-users/zsh-autosuggestions.git
+    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+    update: yes
+
 - name: Symlink .zshrc config
   file:
     src: "{{ role_path }}/files/zshrc"
@@ -24,12 +43,13 @@
     owner: "{{ ansible_env.USER }}"
     mode: "0644"
 
-- name: Symlink oh-my-zsh custom plugins
+- name: Symlink .p10k config
   file:
-    src: "{{ role_path }}/files/oh-my-zsh/custom"
-    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom"
+    src: "{{ role_path }}/files/p10k.zsh"
+    dest: "{{ ansible_env.HOME }}/.p10k.zsh"
     owner: "{{ ansible_env.USER }}"
-    mode: "0755"
+    mode: "0644"
+
 
 - name: Set Zsh as default shell
   user:
