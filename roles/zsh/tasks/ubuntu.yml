@@ -1,21 +1,18 @@
 ---
 
+
 - name: Install Zsh on Ubuntu
   apt:
     name: zsh
     state: present
     update_cache: true
 
-- name: Install Oh My Zsh (if not installed)
-  become: false
-  shell: |
-    export RUNZSH=no
-    export CHSH=no
-    if [ ! -d "$HOME/.oh-my-zsh" ]; then
-        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    fi
-  args:
-    creates: "{{ ansible_env.HOME }}/.oh-my-zsh"
+- name: Install Oh My Zsh
+  git:
+    repo: https://github.com/ohmyzsh/ohmyzsh.git
+    dest: "{{ ansible_env.HOME }}/.oh-my-zsh"
+    depth: 1
+    update: no
 
 - name: Install Powerlevel10k
   git:
@@ -40,18 +37,17 @@
   file:
     src: "{{ role_path }}/files/zshrc"
     dest: "{{ ansible_env.HOME }}/.zshrc"
-    owner: "{{ ansible_env.USER }}"
-    mode: "0644"
+    state: link
 
 - name: Symlink .p10k config
   file:
     src: "{{ role_path }}/files/p10k.zsh"
     dest: "{{ ansible_env.HOME }}/.p10k.zsh"
-    owner: "{{ ansible_env.USER }}"
-    mode: "0644"
-
+    state: link
 
 - name: Set Zsh as default shell
+  become: true
   user:
     name: "{{ ansible_env.USER }}"
     shell: /usr/bin/zsh
+
