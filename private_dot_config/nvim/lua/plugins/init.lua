@@ -14,6 +14,9 @@ return {
     --     end,
     -- },
 
+    -- ansible filetype detection
+    { "pearofducks/ansible-vim", event = "VeryLazy" },
+
     {
         "stevearc/conform.nvim",
         event = "BufWritePre", -- uncomment for format on save

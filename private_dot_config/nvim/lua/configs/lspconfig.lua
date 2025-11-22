@@ -23,6 +23,9 @@ lspconfig.servers = {
     "jdtls",
     -- "harper_ls",
     "bashls",
+    "ansiblels",
+    "yamlls",
+    "tombi",
 }
 
 -- list of servers configured with default config.
@@ -35,6 +38,9 @@ local default_servers = {
     "bashls",
     -- "tailwindcss",
     -- "jinja_lsp",
+    "ansiblels",
+    "yamlls",
+    "tombi",
 }
 
 vim.lsp.config("lua_ls", {

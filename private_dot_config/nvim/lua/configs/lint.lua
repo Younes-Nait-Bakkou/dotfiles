@@ -1,6 +1,7 @@
 local lint = require("lint")
 
 lint.linters_by_ft = {
+    ["ansible.yaml"] = { "ansible_lint" },
     lua = { "luacheck" },
     python = {
         -- "ruff",
@@ -18,6 +19,9 @@ lint.linters.luacheck.args = {
     "--codes",
     "--ranges",
     "-",
+}
+lint.linters.ansible_lint.args = {
+    "--fix",
 }
 
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
