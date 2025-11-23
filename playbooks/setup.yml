@@ -4,7 +4,7 @@
   pre_tasks:
 
     - name: Detect Host User
-      ansible.builtin.import_tasks: '{{ pre_tasks_dir }}/whoami.yml'
+      ansible.builtin.include_tasks: '{{ pre_tasks_dir }}/whoami.yml'
       tags:
         - always
 
