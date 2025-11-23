@@ -1,8 +1,18 @@
 ---
 
-- name: Debug
+- name: Debug Guest User
   ansible.builtin.debug:
     msg: |
+      Host User: {{ host_user }}
+      User: {{ ansible_env.USER }}
+      Shell: {{ ansible_env.SHELL }}
+      Home: {{ ansible_env.HOME }}
+
+- name: Debug Sudo User
+  become: true
+  ansible.builtin.debug:
+    msg: |
+      Host User: {{ host_user }}
       User: {{ ansible_env.USER }}
       Shell: {{ ansible_env.SHELL }}
       Home: {{ ansible_env.HOME }}
