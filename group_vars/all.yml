@@ -1,1 +1,3 @@
-dotfiles_dir: "{{ ansible_env.HOME }}/.dotfiles"
+---
+dotfiles_dir: '{{ ansible_env.HOME }}/.dotfiles'
+pre_tasks_dir: '{{ dotfiles_dir }}/pre_tasks'
