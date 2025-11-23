@@ -1,6 +1,14 @@
 ---
 
+- name: Debug
+  ansible.builtin.debug:
+    msg: |
+      User: {{ ansible_env.USER }}
+      Shell: {{ ansible_env.SHELL }}
+      Home: {{ ansible_env.HOME }}
+
 - name: Install Zsh
+  become: true
   ansible.builtin.package:
     name: zsh
     state: present
