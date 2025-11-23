@@ -88,7 +88,7 @@ run_os_setup() {
 run_ansible() {
     _log "Running Ansible..."
     cd "$DOTFILES_DIR"
-    _cmd ansible-playbook playbooks/setup.yml
+    _cmd ansible-playbook playbooks/setup.yml --ask-become-pass
 }
 
 main() {
