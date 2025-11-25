@@ -3,4 +3,6 @@
 - name: Load OS-specific tasks
   include_tasks: ubuntu.yml
   loop: '{{ nerd_fonts }}'
+  loop_control:
+    loop_var: nerd_font
   when: ansible_distribution == "Ubuntu"
