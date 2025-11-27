@@ -11,3 +11,4 @@
   roles:
     - zsh
     - fonts
+    - lua
