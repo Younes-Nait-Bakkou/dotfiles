@@ -1,0 +1,15 @@
+---
+
+- name: Lua | Update APT cache
+  ansible.builtin.package:
+    update_cache: true
+  become: true
+
+- name: Lua | Install Lua
+  ansible.builtin.package:
+    name: '{{ item }}'
+  become: true
+  loop:
+    - lua5.1
+    - luarocks
+    - luajit
