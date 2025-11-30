@@ -1,7 +1,7 @@
 require("no-neck-pain").setup({
     width = 130,
     autocmds = {
-        enableOnVimEnter = false,
+        enableOnVimEnter = "safe",
         enableOnTabEnter = true,
         reloadOnColorSchemeChange = false,
         skipEnteringNoNeckPainBuffer = true,
