@@ -26,6 +26,7 @@ lspconfig.servers = {
     "ansiblels",
     "yamlls",
     "tombi",
+    "dockerls",
 }
 
 -- list of servers configured with default config.
@@ -41,6 +42,7 @@ local default_servers = {
     "ansiblels",
     "yamlls",
     "tombi",
+    "dockerls",
 }
 
 vim.lsp.config("lua_ls", {

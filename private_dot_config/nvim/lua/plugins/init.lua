@@ -390,8 +390,10 @@ return {
     {
         "shortcuts/no-neck-pain.nvim",
         version = "*",
-        cmd = "NoNeckPain",
-        lazy = true,
+        event = { "VeryLazy" },
+        config = function()
+            require("configs.no-neck-pain")
+        end,
     },
 
     -- Harpoon, for making frequent-accessed buffers in one window

@@ -21,6 +21,7 @@ local options = {
         "blade",
         "java",
         "regex",
+        "dockerfile",
     },
 
     textobjects = {
