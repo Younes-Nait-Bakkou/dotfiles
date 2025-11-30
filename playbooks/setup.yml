@@ -8,6 +8,11 @@
       tags:
         - always
 
+    - name: Gather installed packages
+      ansible.builtin.include_tasks: '{{ pre_tasks_dir }}/gather_installed_packages.yml'
+      tags:
+        - always
+
   roles:
     - zsh
     - fonts
