@@ -23,16 +23,9 @@
   args:
     creates: '{{ user_dir }}/.config/nvim.backup-{{timestamp}}'
 
-- name: Config folder
-  ansible.builtin.file:
-    mode: '0755'
-    path: '{{ user_dir }}/.config/nvim'
-    state: directory
-  when: not nvim_config_stat.stat.exists or not nvim_config_stat.stat.islnk
-
 - name: Create symlink to role files directory
   ansible.builtin.file:
-    src: '{{ role_path }}/files'
+    src: '{{ role_path }}/files/nvim'
     dest: '{{ user_dir }}/.config/nvim'
     state: link
     force: true
