@@ -49,3 +49,16 @@
     mode: '0644'
   when: old_checksum is not defined or new_checksum != old_checksum
   become: true
+
+- name: Ensure local bin exists
+  file:
+    path: '{{ user_dir }}/.local/bin'
+    state: directory
+    mode: '0755'
+
+- name: Symlink Neovim executable
+  file:
+    src: /opt/nvim-linux-x86_64/bin/nvim
+    dest: '{{ user_dir }}/.local/bin/nvim'
+    state: link
+    force: true
