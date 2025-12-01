@@ -1,15 +1,14 @@
 ---
-- hosts: localhost
-  connection: local
+- hosts: local
   pre_tasks:
-
-    - name: Detect Host User
-      ansible.builtin.include_tasks: '{{ pre_tasks_dir }}/whoami.yml'
-      tags:
-        - always
 
     - name: Gather installed packages
       ansible.builtin.include_tasks: '{{ pre_tasks_dir }}/gather_installed_packages.yml'
+      tags:
+        - always
+
+    - name: Alias ansible facts
+      ansible.builtin.include_tasks: '{{ pre_tasks_dir }}/alias_ansible_facts.yml'
       tags:
         - always
 
@@ -17,3 +16,4 @@
     - zsh
     - fonts
     - lua
+    - neovim
