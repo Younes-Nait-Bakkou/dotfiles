@@ -1,0 +1,7 @@
+---
+- name: Alias ansible_facts
+  ansible.builtin.set_fact:
+    user_dir: "{{ ansible_facts['user_dir'] }}"
+    host_user: "{{ ansible_facts['user_id'] }}"
+    timestamp: "{{ ansible_facts['date_time']['iso8601'] }}"
+    distribution: "{{ ansible_facts['distribution'] }}"
