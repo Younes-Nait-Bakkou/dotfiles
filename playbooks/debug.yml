@@ -1,0 +1,9 @@
+---
+- hosts: all
+  tasks:
+    - name: Debug ansible facts
+      debug:
+        msg:
+          user_dir: "{{ user_dir | default('NOT DEFINED') }}"
+      tags:
+        - always
