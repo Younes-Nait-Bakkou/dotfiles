@@ -8,3 +8,6 @@
 - name: 'Run Tasks: {{ distribution }}'
   ansible.builtin.include_tasks: '{{ distribution }}.yml'
   when: distribution_config.stat.exists
+  loop: '{{ nerd_fonts }}'
+  loop_control:
+    loop_var: nerd_font
