@@ -1,0 +1,7 @@
+study_mode
+course_type
+e
+language_study
+card_details_form
+card_details_data
+course_pricings
