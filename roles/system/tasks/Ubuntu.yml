@@ -1,0 +1,22 @@
+---
+
+- name: System | Update APT Repos and Upgrade Packages
+  ansible.builtin.apt:
+    update_cache: true
+    upgrade: full
+    autoremove: true
+    autoclean: true
+  become: true
+
+- name: System | Install APT Packages
+  ansible.builtin.apt:
+    name:
+      - wget
+      - python3-pip
+      - python3-venv
+      - python3-dev
+      - build-essential
+      - cmake
+      - jq
+    state: present
+    update_cache: true
