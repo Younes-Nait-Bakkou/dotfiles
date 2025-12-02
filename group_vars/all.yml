@@ -5,7 +5,8 @@ templates_dir: '{{ dotfiles_dir }}/templates'
 
 # Default roles to run if no roles are specified
 default_roles:
-  - zsh
   - fonts
   - lua
+  - zsh
+  - fzf
   - neovim
