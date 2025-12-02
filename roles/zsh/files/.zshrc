@@ -38,8 +38,11 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light MichaelAquilina/zsh-you-should-use
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 export EDITOR="nvim"
+
+
+# Source fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
