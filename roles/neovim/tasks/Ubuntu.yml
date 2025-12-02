@@ -1,6 +1,7 @@
 ---
 
 - name: Install Neovim dependencies
+  become: true
   ansible.builtin.package:
     name:
       - cmake
