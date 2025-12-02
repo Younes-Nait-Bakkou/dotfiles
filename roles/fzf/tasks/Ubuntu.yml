@@ -10,7 +10,7 @@
   ansible.builtin.git:
     repo: https://github.com/junegunn/fzf.git
     dest: '{{ user_dir }}/.fzf'
-    version: 0.53.0
+    version: 0.67.0
     depth: 1
-    update: false
+    update: true
   notify: install fzf
