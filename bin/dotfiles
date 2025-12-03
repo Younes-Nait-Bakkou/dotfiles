@@ -1,14 +1,93 @@
 #!/usr/bin/env bash
 set -e
+
 export GITHUB_USERNAME="Younes-Nait-Bakkou"
 DOTFILES_DIR="$HOME/.dotfiles"
-LOG_FILE="$HOME/.dotfiles-install.log"
-ERROR_LOG_FILE="$HOME/.dotfiles-install.err"
+LOG_FILE="$HOME/.dotfiles.log"
+ERROR_LOG_FILE="$HOME/.dotfiles.err"
 
 # --- COLORS (for prettier terminal output) ---
 RED="\033[31m"
 GREEN="\033[32m"
 RESET="\033[0m"
+
+# --- COLORS (OneDark) ---
+
+RESET="\033[0m"
+BOLD="\033[1m"
+
+# OneDark palette mapped to ANSI escape sequences
+OD_BLACK="\033[38;2;40;44;52m"
+OD_RED="\033[38;2;224;108;117m"
+OD_GREEN="\033[38;2;152;195;121m"
+OD_YELLOW="\033[38;2;229;192;123m"
+OD_BLUE="\033[38;2;97;175;239m"
+OD_PURPLE="\033[38;2;198;120;221m"
+OD_CYAN="\033[38;2;86;182;194m"
+OD_WHITE="\033[38;2;171;178;191m"
+
+# Styles for UI elements
+OD_TEXT="${OD_WHITE}"
+OD_DIM="\033[38;2;92;99;112m" # dim text
+OD_SPINNER="${OD_BLUE}"       # spinner color
+OD_OK="${OD_GREEN}"
+OD_ERR="${OD_RED}"
+
+# --- Spinner Animation --------------------------------------------------------
+
+_spinner() {
+    local task_text="$1"
+    local chars=('⠋' '⠙' '⠹' '⠸' '⠼' '⠴' '⠦' '⠧' '⠇' '⠏')
+    local delay=0.08
+
+    tput civis # hide cursor
+    tput sc    # save cursor pos
+
+    while true; do
+        for char in "${chars[@]}"; do
+            tput rc
+            tput el
+            printf "${OD_DIM}[${OD_SPINNER}%s${OD_DIM}]  ${OD_TEXT}%s${RESET}" "$char" "$task_text" >&2
+            sleep $delay
+        done
+    done
+}
+
+__task() {
+    if [[ -n "$TASK" ]] && [[ -n "$SPINNER_PID" ]]; then
+        _task_done
+    fi
+
+    TASK="$1"
+    _spinner "$TASK" &
+
+    SPINNER_PID=$!
+    disown $SPINNER_PID 2>/dev/null
+}
+
+_task_done() {
+    if [[ -n "$SPINNER_PID" ]]; then
+        kill "$SPINNER_PID" 2>/dev/null
+        wait "$SPINNER_PID" 2>/dev/null
+        SPINNER_PID=""
+    fi
+
+    tput cnorm
+    printf "\r\033[K${OD_OK}[✓]${OD_TEXT} %s${RESET}\n" "$TASK"
+    TASK=""
+}
+
+_task_fail() {
+    if [[ -n "$SPINNER_PID" ]]; then
+        kill "$SPINNER_PID" 2>/dev/null
+        wait "$SPINNER_PID" 2>/dev/null
+        SPINNER_PID=""
+    fi
+
+    tput cnorm
+    printf "\r\033[K${OD_ERR}[✗]${OD_TEXT} %s${RESET}\n" "$TASK"
+    TASK=""
+}
 
 _log() {
     local msg="$1"
@@ -26,9 +105,16 @@ _error() {
 _cmd() {
     echo "$(date '+%Y-%m-%d %H:%M:%S') [CMD] $*" >>"$LOG_FILE"
 
-    "$@" >>"$LOG_FILE" 2>&1 ||
-        _error "Command failed: $*"
+    eval "$@" >>"$LOG_FILE" 2>&1 && {
+        _task_done
+    } || {
+        _task_fail
+        printf "\n${OD_ERR}Error log:${RESET}\n" >&2
+        sed 's/^/    /' "$LOG_FILE" >&2
+        exit 1
+    }
 }
+
 detect_os() {
     if [ -f /etc/os-release ]; then
         . /etc/os-release
