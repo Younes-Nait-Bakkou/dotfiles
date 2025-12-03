@@ -44,6 +44,13 @@ export EDITOR="nvim"
 # Source fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# Export dotfiles
+export DOTFILES_DIR="$HOME/.dotfiles"
+
+# Add dotfiles bin to path
+export PATH="$DOTFILES_DIR/bin:$PATH"
+
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 # export PATH=$PATH:/opt/nvim-linux-x86_64/bin
