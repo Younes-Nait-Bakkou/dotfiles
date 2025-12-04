@@ -1,3 +1,25 @@
 ---
-...
 
+- name: Download NVM installer script
+  ansible.builtin.get_url:
+    url: https://raw.githubusercontent.com/nvm-sh/nvm/{{ nvm_version }}/install.sh
+    dest: /tmp/nvm-install.sh
+    mode: '0755'
+
+- name: Install NVM (idempotent)
+  ansible.builtin.shell: /tmp/nvm-install.sh
+  args:
+    creates: '{{ nvm_dir }}'
+  environment:
+    PROFILE: '{{ nvm_profile_file }}'
+    HOME: '{{ nvm_install_home }}'
+  become: true
+  become_user: '{{ nvm_install_user }}'
+  tags:
+    - skip_ansible_lint
+
+- name: Verify NVM installation
+  ansible.builtin.shell: . {{ nvm_dir }}/nvm.sh && nvm --version
+  become: true
+  become_user: '{{ nvm_install_user }}'
+  changed_when: false

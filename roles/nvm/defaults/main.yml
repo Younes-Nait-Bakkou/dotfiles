@@ -1,2 +1,6 @@
 ---
-...
+nvm_version: v0.40.3
+nvm_install_user: '{{ user_id }}'
+nvm_install_home: /home/{{ nvm_install_user }}
+nvm_dir: '{{ nvm_install_home }}/.nvm'
+nvm_profile_file: '{{ nvm_install_home }}/.profile'
