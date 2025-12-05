@@ -1,0 +1,9 @@
+---
+node_version: '24'
+
+# user to install node for
+node_user: '{{ host_user }}'
+node_home: /home/{{ node_user }}
+
+# NVM directory
+nvm_dir: '{{ node_home }}/.nvm'
