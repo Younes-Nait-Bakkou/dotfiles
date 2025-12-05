@@ -1,0 +1,45 @@
+---
+
+- name: Node | Create install script
+  ansible.builtin.template:
+    src: install_node.sh.j2
+    dest: /tmp/install_node.sh
+    mode: '0755'
+  become: true
+  become_user: '{{ node_user }}'
+
+- name: Node | Install Node.js {{ node_version }}
+  ansible.builtin.command: /tmp/install_node.sh
+  args:
+    creates: '{{ nvm_dir }}/versions/node/v{{ node_version }}*'
+  become: true
+  become_user: '{{ node_user }}'
+
+- name: Node | Create default alias script
+  ansible.builtin.template:
+    src: set_default_node.sh.j2
+    dest: /tmp/set_default_node.sh
+    mode: '0755'
+  become: true
+  become_user: '{{ node_user }}'
+
+- name: Node | Set default Node.js version
+  ansible.builtin.command: /tmp/set_default_node.sh
+  become: true
+  become_user: '{{ node_user }}'
+  changed_when: false
+
+- name: Node | Verify node version
+  ansible.builtin.command: bash -lc "source {{ nvm_dir }}/nvm.sh && node -v"
+  become: true
+  become_user: '{{ node_user }}'
+  register: node_ver
+  changed_when: false
+
+- name: Node | Verify npm version
+  ansible.builtin.command: bash -lc "source {{ nvm_dir }}/nvm.sh && npm -v"
+  become: true
+  become_user: '{{ node_user }}'
+  register: npm_ver
+  changed_when: false
+
