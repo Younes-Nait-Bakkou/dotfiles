@@ -11,6 +11,7 @@ default_roles:
   - lua
   - fzf
   - nvm
+  - node
 
   # Dependant roles
   - zsh
