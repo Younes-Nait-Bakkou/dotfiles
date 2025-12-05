@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -e
+
+. "{{ nvm_dir }}/nvm.sh"
+nvm install {{ node_version }}
