@@ -1,0 +1,6 @@
+{% for key in ssh_keys %}
+Host {{ key.config.host }}
+    HostName {{ key.config.hostname }}
+    User {{ key.config.user }}
+    IdentityFile {{ key.config.identity_file }}
+{% endfor %}
