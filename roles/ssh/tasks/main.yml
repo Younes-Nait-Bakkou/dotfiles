@@ -16,28 +16,7 @@
     mode: '0700'
 
 - name: SSH | Copy SSH keys
+  include_tasks: deploy_keys.yml
   loop: '{{ ssh_keys }}'
-  block:
-    - name: SSH | Deploy [{{ item.name }}] private key
-      ansible.builtin.copy:
-        dest: '{{ user_dir }}/.ssh/{{ item.name }}'
-        content: "{{ item.private_key }}\n"
-        mode: '0600'
-      no_log: true
-      when: item.private_key is defined
-
-    - name: SSH | Deploy [{{ item.name }}] public key
-      ansible.builtin.copy:
-        dest: '{{ user_dir }}/.ssh/{{ item.name }}.pub'
-        content: "{{ item.public_key | default('') }}"
-        mode: '0644'
-      no_log: true
-      when: item.public_key is defined
-
-    - name: SSH | Deploy [{{ item.name }}] config
-      ansible.builtin.template:
-        src: ssh_config.j2
-        dest: '{{ user_dir }}/.ssh/config'
-        owner: '{{ host_user }}'
-        group: '{{ host_user }}'
-        mode: '0600'
+  loop_control:
+    label: '{{ item.name }}'
