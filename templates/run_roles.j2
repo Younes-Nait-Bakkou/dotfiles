@@ -1,5 +1,5 @@
 {% if ansible_run_tags | list == ['all'] %}
-    {{ default_roles | difference(exclude_roles | default([])) | sort }}
+    {{ default_roles | difference(exclude_roles | default([]))  }}
 {% else %}
     {{ ansible_run_tags | list | difference(['all']) }}
 {% endif %}
