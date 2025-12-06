@@ -5,6 +5,8 @@ export GITHUB_USERNAME="Younes-Nait-Bakkou"
 DOTFILES_DIR="$HOME/.dotfiles"
 LOG_FILE="$HOME/.dotfiles.log"
 ERROR_LOG_FILE="$HOME/.dotfiles.err"
+VAULT_PASS_FILE="$HOME/./vault-password.txt"
+VAULT_PASS_ARG=""
 
 # --- COLORS (for prettier terminal output) ---
 RED="\033[31m"
@@ -172,9 +174,46 @@ run_os_setup() {
 }
 
 run_ansible() {
+
+    if [[ -f "$VAULT_PASS_FILE" ]]; then
+        VAULT_PASS_ARG="--vault-password-file $VAULT_PASS_FILE"
+    else
+        echo -e "${OD_YELLOW}Warning:${RESET} Vault password file not found."
+        echo "Options:"
+        echo "  1) Continue without vault (encrypted values won't decrypt)"
+        echo "  2) Enter vault password for one-time use"
+
+        read -rp "Select an option [1/2]: " VAULT_PASS_OPTION
+
+        case "$VAULT_PASS_OPTION" in
+        1)
+            echo "Continuing without vault..."
+            VAULT_PASS_ARG=""
+            ;;
+        2)
+            read -rsp "Enter vault password: " VAULT_PASS
+            echo
+            TMP_VAULT_FILE=$(mktemp)
+            echo "$VAULT_PASS" >"$TMP_VAULT_FILE"
+            chmod 600 "$TMP_VAULT_FILE"
+            VAULT_PASS_ARG="--vault-password-file $TMP_VAULT_FILE"
+            ;;
+        *)
+            echo "Invalid option. Exiting."
+            exit 1
+            ;;
+        esac
+    fi
+
     _log "Running Ansible..."
     cd "$DOTFILES_DIR"
-    _cmd ansible-playbook playbooks/setup.yml --ask-become-pass
+    _cmd ansible-playbook playbooks/setup.yml $VAULT_PASS_ARG --ask-become-pass
+}
+
+clean_up_vault_pass() {
+    if [[ -f "$TMP_VAULT_FILE" ]]; then
+        rm "$TMP_VAULT_FILE"
+    fi
 }
 
 main() {
@@ -187,6 +226,7 @@ main() {
     sync_dotfiles
     run_os_setup "$OS"
     run_ansible
+    clean_up_vault_pass
 
     _log "Installation finished successfully!"
 }
