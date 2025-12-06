@@ -4,8 +4,7 @@
 
 # First, check if already installed
 
-- name: "{{ role_name }} | {{ ansible_facts['distribution'] }} | Check if already\
-    \ installed"
+- name: '{{ role_name }} | {{ distribution }} | Check if already installed'
   ansible.builtin.command: which {{ role_name }}
   register: example_check
   changed_when: false
@@ -14,8 +13,7 @@
 
 # System-wide installation with sudo
 
-- name: "{{ role_name }} | {{ ansible_facts['distribution'] }} | Install via APT\
-    \ (with sudo)"
+- name: '{{ role_name }} | {{ distribution }} | Install via APT (with sudo)'
   ansible.builtin.package:
     name:
       - '{{ role_name }}'
@@ -31,7 +29,7 @@
 
 # Alternative: User-local installation without sudo
 
-- name: "{{ role_name }} | {{ ansible_facts['distribution'] }} | User-local installation"
+- name: '{{ role_name }} | {{ distribution }} | User-local installation'
   when:
     - not (can_install_packages | default(false))
     - example_check.rc != 0
@@ -72,8 +70,7 @@
 
 # Report installation status
 
-- name: "{{ role_name }} | {{ ansible_facts['distribution'] }} | Report installation\
-    \ status"
+- name: '{{ role_name }} | {{ distribution }} | Report installation status'
   ansible.builtin.debug:
     msg: |-
       {{ role_name }} installation status:
