@@ -1,0 +1,43 @@
+---
+
+- name: '{{ role_name }} | Checking for Distribution Config: {{ distribution }}'
+  ansible.builtin.stat:
+    path: '{{ role_path }}/tasks/{{ distribution }}.yml'
+  register: distribution_config
+
+- name: '{{ role_name }} | Run Tasks: {{ distribution }}'
+  ansible.builtin.include_tasks: '{{ distribution }}.yml'
+  when: distribution_config.stat.exists
+
+- name: SSH | Ensure .ssh directory exists
+  ansible.builtin.file:
+    path: '{{ host_user }}/.ssh'
+    state: directory
+    mode: '0700'
+
+- name: SSH | Copy SSH keys
+  loop: '{{ ssh_keys }}'
+  block:
+    - name: SSH | Deploy [{{ item.name }}] private key
+      ansible.builtin.copy:
+        dest: '{{ user_dir }}/.ssh/{{ item.name }}'
+        content: "{{ item.private_key }}\n"
+        mode: '0600'
+      no_log: true
+      when: item.private_key is defined
+
+    - name: SSH | Deploy [{{ item.name }}] public key
+      ansible.builtin.copy:
+        dest: '{{ user_dir }}/.ssh/{{ item.name }}.pub'
+        content: "{{ item.public_key | default('') }}"
+        mode: '0644'
+      no_log: true
+      when: item.public_key is defined
+
+    - name: SSH | Deploy [{{ item.name }}] config
+      ansible.builtin.template:
+        src: ssh_config.j2
+        dest: '{{ user_dir }}/.ssh/config'
+        owner: '{{ host_user }}'
+        group: '{{ host_user }}'
+        mode: '0600'
