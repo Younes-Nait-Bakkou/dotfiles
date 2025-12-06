@@ -2,8 +2,13 @@
 - hosts: all
   tasks:
     - name: Debug ansible facts
+      loop: '{{ ssh_keys }}'
+      loop_control:
+        loop_var: key
       debug:
         msg:
-          user_dir: "{{ user_dir | default('NOT DEFINED') }}"
+          name: "{{ key['name'] | default('NOT DEFINED') }}"
+          public_key: "{{ key['public_key'] | default('NOT DEFINED') }}"
+          private_key: "{{ key['private_key'] | default('NOT DEFINED') }}"
       tags:
         - always
