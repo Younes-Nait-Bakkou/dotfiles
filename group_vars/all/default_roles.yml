@@ -1,8 +1,4 @@
 ---
-dotfiles_dir: '{{ ansible_env.HOME }}/.dotfiles'
-pre_tasks_dir: '{{ dotfiles_dir }}/pre_tasks'
-templates_dir: '{{ dotfiles_dir }}/templates'
-
 # Default roles to run if no roles are specified
 default_roles:
   # Standalone roles
