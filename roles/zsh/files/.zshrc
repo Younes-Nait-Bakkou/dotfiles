@@ -55,13 +55,15 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# Add local bin to path
+export PATH="$HOME/.local/bin:$PATH"
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 # export PATH=$PATH:/opt/nvim-linux-x86_64/bin
 # export PATH=$PATH:/opt/nvim/bin
 # export PATH=$PATH:$HOME/.cargo/bin
 
-# export PATH="$HOME/.local/bin:$PATH"
 # export LD_LIBRARY_PATH="/usr/lib/x86_64-linux-gnu/libmysqlclient.so.21.2.39:/usr/lib/x86_64-linux-gnu/libmysqlclient.so:/usr/lib/x86_64-linux-gnu/libmysqlclient.so.21:$LD_LIBRARY_PATH"
 #
 # export MYSQLCLIENT_CFLAGS="-I/usr/include/mysql"
