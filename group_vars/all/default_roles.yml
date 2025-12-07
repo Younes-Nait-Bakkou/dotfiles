@@ -9,6 +9,7 @@ default_roles:
   - nvm
   - node
   - ssh
+  - tmux
 
   # Dependant roles
   - zsh
