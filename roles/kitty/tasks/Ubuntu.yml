@@ -75,6 +75,15 @@
       loop_control:
         label: '{{ item }}'
 
+    - name: Force capitalized Name to avoid GNOME hiding the entry
+      lineinfile:
+        path: '{{ item }}'
+        regexp: ^Name=
+        line: Name=Kitty
+      loop: "{{ lookup('fileglob', kitty_desktop_dir + '/kitty*.desktop', wantlist=True) }}"
+      loop_control:
+        label: '{{ item }}'
+
 - name: Set kitty as default xdg terminal
   copy:
     content: "kitty.desktop\n"
