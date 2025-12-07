@@ -37,6 +37,7 @@
     - kitten
 
 - name: Symlink kitty and kitten to usr system bin
+  become: true
   file:
     src: '{{ kitty_install_dir }}/bin/{{ item }}'
     dest: /usr/local/bin/{{ item }}
