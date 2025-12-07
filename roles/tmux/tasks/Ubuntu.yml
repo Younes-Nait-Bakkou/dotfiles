@@ -1,0 +1,7 @@
+---
+
+- name: Tmux | {{ distribution }} | Install tmux
+  ansible.builtin.package:
+    name: tmux
+    state: present
+  become: true
