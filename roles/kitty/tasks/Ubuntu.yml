@@ -13,7 +13,7 @@
     mode: '0755'
 
 - name: Run kitty installer
-  ansible.builtin.shell: bash -o pipefail -c "{{ kitty_installer }} /dev/stdin"
+  ansible.builtin.shell: bash -o pipefail -c "{{ kitty_installer }}"
   args:
     chdir: '{{ user_dir }}'
     creates: '{{ kitty_install_dir }}/bin/kitty'
