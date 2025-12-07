@@ -1,5 +1,5 @@
 require("nvchad.options")
-local is_wsl = require("utils.is_wsl").is_wsl
+local is_wsl = require("utils").is_wsl
 
 -- add yours here!
 
