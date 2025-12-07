@@ -6,6 +6,7 @@
     name:
       - cmake
       - ripgrep
+      - xclip
     state: present
 
 - name: Download latest Neovim release
