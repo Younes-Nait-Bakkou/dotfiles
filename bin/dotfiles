@@ -196,7 +196,10 @@ run_ansible() {
     cd "$DOTFILES_DIR"
 
     VAULT_PASS_ARG=$(get_vault_password_arg)
-    _cmd ansible-playbook playbooks/setup.yml $VAULT_PASS_ARG --ask-become-pass
+
+    local extra_args=("$@") # capture all arguments
+
+    _cmd ansible-playbook playbooks/setup.yml $VAULT_PASS_ARG --ask-become-pass "${extra_args[@]}"
 }
 
 clean_up_vault_pass() {
