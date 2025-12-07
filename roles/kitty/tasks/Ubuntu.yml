@@ -36,6 +36,16 @@
     - kitty
     - kitten
 
+- name: Symlink kitty and kitten to usr system bin
+  file:
+    src: '{{ kitty_install_dir }}/bin/{{ item }}'
+    dest: /usr/local/bin/{{ item }}
+    state: link
+    force: true
+  loop:
+    - kitty
+    - kitten
+
 - name: Ensure desktop applications directory exists
   file:
     path: '{{ kitty_desktop_dir }}'
