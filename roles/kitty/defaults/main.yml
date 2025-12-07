@@ -1,0 +1,6 @@
+---
+kitty_install_dir: '{{ user_dir }}/.local/kitty.app'
+kitty_bin_dir: '{{ user_dir }}/.local/bin'
+kitty_desktop_dir: '{{ user_dir }}/.local/share/applications'
+kitty_config_dir: '{{ user_dir }}/.config/kitty'
+kitty_installer: '{{ user_dir }}/kitty_installer.sh'
