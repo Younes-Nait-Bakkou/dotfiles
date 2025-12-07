@@ -65,7 +65,7 @@
   register: docker_group_add
 
 - name: Docker | Copy daemon.json
-  ansible.builtin.file:
+  ansible.builtin.template:
     src: daemon.json.j2
     dest: /etc/docker/daemon.json
     mode: '0644'
