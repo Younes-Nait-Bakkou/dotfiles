@@ -80,15 +80,3 @@
     content: "kitty.desktop\n"
     dest: '{{ user_dir }}/.config/xdg-terminals.list'
     mode: '0644'
-
-- name: Ensure kitty config directory exists
-  file:
-    path: '{{ kitty_config_dir }}'
-    state: directory
-    mode: '0755'
-
-- name: Copy custom kitty.conf
-  copy:
-    src: files/kitty/kitty.conf
-    dest: '{{ kitty_config_dir }}/kitty.conf'
-    mode: '0644'
