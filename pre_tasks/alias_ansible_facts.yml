@@ -6,6 +6,7 @@
     timestamp: "{{ ansible_facts['date_time']['iso8601'] }}"
     distribution: "{{ ansible_facts['distribution'] }}"
     virtualization_type: "{{ ansible_facts['virtualization_type'] }}"
+    distribution_release: "{{ ansible_facts['distribution_release'] }}"
 
 - name: Check if running on WSL
   ansible.builtin.set_fact:
