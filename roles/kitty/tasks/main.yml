@@ -15,8 +15,8 @@
     state: directory
     mode: '0755'
 
-- name: Copy custom kitty.conf
-  copy:
-    src: '{{ role_path }}/kitty/kitty.conf'
+- name: Link custom kitty.conf
+  file:
+    src: '{{ role_path }}/files/kitty/kitty.conf'
     dest: '{{ kitty_config_dir }}/kitty.conf'
-    mode: '0644'
+    state: link
