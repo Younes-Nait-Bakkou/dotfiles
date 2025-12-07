@@ -27,4 +27,17 @@ function M.file_exists(name) -- Add 'M.' to make it part of the module
     end
 end
 
+function M.is_wsl()
+    local f = io.open("/proc/version", "r")
+    if f then
+        local content = f:read("*all")
+        f:close()
+        -- Check for 'Microsoft' string in /proc/version
+        if content:match("Microsoft") or content:match("microsoft") then
+            return true
+        end
+    end
+    return false
+end
+
 return M
