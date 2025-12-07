@@ -217,7 +217,7 @@ main() {
     install_git
     sync_dotfiles
     run_os_setup "$OS"
-    run_ansible
+    run_ansible "$@"
     clean_up_vault_pass
 
     _log "Installation finished successfully!"
