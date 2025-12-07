@@ -1,4 +1,5 @@
 require("nvchad.options")
+local is_wsl = require("utils.is_wsl").is_wsl
 
 -- add yours here!
 
@@ -43,15 +44,6 @@ vim.cmd([[
 ]])
 
 -- Detect WSL by checking /proc/version
-local function is_wsl()
-    local f = io.open("/proc/version", "r")
-    if f then
-        local s = f:read("*a")
-        f:close()
-        return s:lower():match("microsoft") ~= nil
-    end
-    return false
-end
 
 if is_wsl() then
     vim.g.clipboard = {
@@ -65,6 +57,20 @@ if is_wsl() then
             ["*"] = "xsel -o -p",
         },
         cache_enabled = 1,
+    }
+    vim.opt.clipboard = "unnamedplus"
+else
+    vim.g.clipboard = {
+        name = "unnamedplus",
+        copy = {
+            ["+"] = "xclip -selection clipboard -i",
+            ["*"] = "xclip -selection clipboard -i",
+        },
+        paste = {
+            ["+"] = "xclip -selection clipboard -o",
+            ["*"] = "xclip -selection clipboard -o",
+        },
+        cache_enabled = 0,
     }
     vim.opt.clipboard = "unnamedplus"
 end
