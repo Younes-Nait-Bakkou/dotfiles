@@ -12,6 +12,7 @@ default_roles:
   - tmux
   - docker
   - kitty
+  - glab
 
   # Dependant roles
   - zsh
