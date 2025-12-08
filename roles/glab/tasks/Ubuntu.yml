@@ -1,0 +1,44 @@
+---
+
+- name: '{{ role_name }} | Check if glab is installed'
+  ansible.builtin.command: glab --version
+  register: glab_check
+  changed_when: false
+  failed_when: false
+
+- name: '{{ role_name }} | Extract installed glab version'
+  ansible.builtin.set_fact:
+    glab_installed_version: "{{★glab_check.stdout★|★regex_search('([0-9]+\\.[0-9]+\\\
+      .[0-9]+)')★}}"
+  when: glab_check.rc == 0
+
+- name: '{{ role_name }} | Decide if update is required'
+  ansible.builtin.set_fact:
+    glab_needs_install: '{{ glab_installed_version is not defined or glab_installed_version != glab_version }}'
+
+- name: '{{ role_name }} | Download glab .deb'
+  ansible.builtin.get_url:
+    url: https://gitlab.com/gitlab-org/cli/-/releases/v{{ glab_version }}/downloads/glab_{{
+      glab_version }}_linux_{{ glab_architecture }}.deb
+    dest: /tmp/glab_{{ glab_version }}_linux_{{ glab_architecture }}.deb
+    mode: '0644'
+  when: glab_needs_install
+
+- name: '{{ role_name }} | Install glab from .deb'
+  ansible.builtin.apt:
+    deb: /tmp/glab_{{ glab_version }}_linux_{{ glab_architecture }}.deb
+  become: true
+  when: glab_needs_install
+
+- name: '{{ role_name }} | Check actual glab binary path'
+  ansible.builtin.stat:
+    path: /usr/bin/glab
+  register: glab_binary
+
+- name: '{{ role_name }} | Create /usr/local/bin/glab symlink'
+  ansible.builtin.file:
+    src: /usr/bin/glab
+    dest: /usr/local/bin/glab
+    state: link
+  become: true
+  when: glab_binary.stat.exists
