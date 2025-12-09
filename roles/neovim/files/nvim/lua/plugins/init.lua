@@ -199,9 +199,9 @@ return {
         },
     },
 
-    -- Mini icons
+    -- Mini hipatterns (highlight patterns)
     {
-        "echasnovski/mini.hipatterns",
+        { "echasnovski/mini.hipatterns", version = "*" },
         event = "BufReadPre",
         config = function()
             require("configs.mini-hipatterns")
@@ -604,6 +604,8 @@ return {
             { "<leader>ac", mode = "n", "<cmd>LLMSessionToggle<cr>" },
         },
     },
+
+    -- Internal markdown server previewer
     {
         "iamcco/markdown-preview.nvim",
         cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
@@ -612,5 +614,14 @@ return {
             vim.g.mkdp_filetypes = { "markdown" }
         end,
         ft = { "markdown" },
+    },
+
+    -- Markdown rendering in Buffers
+    {
+        "MeanderingProgrammer/render-markdown.nvim",
+        dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-mini/mini.nvim" }, -- if you use the mini.nvim suite
+        ---@module 'render-markdown'
+        ---@type render.md.UserConfig
+        opts = {},
     },
 }
