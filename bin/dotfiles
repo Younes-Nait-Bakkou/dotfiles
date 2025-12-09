@@ -199,7 +199,7 @@ run_ansible() {
 
     local extra_args=("$@") # capture all arguments
 
-    _cmd ansible-playbook $DOTFILES_DIR/playbooks/setup.yml $VAULT_PASS_ARG --ask-become-pass "${extra_args[@]}"
+    _cmd ansible-playbook "$DOTFILES_DIR/playbooks/setup.yml" $VAULT_PASS_ARG --ask-become-pass "${extra_args[@]}"
 }
 
 clean_up_vault_pass() {
