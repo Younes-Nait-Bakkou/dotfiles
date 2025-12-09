@@ -22,6 +22,7 @@ local options = {
         "java",
         "regex",
         "dockerfile",
+        "latex",
     },
 
     textobjects = {
