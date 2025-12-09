@@ -7,6 +7,7 @@
       - cmake
       - ripgrep
       - xclip
+      - imagemagick
     state: present
 
 - name: Download latest Neovim release
