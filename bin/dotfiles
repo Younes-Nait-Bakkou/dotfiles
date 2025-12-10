@@ -174,21 +174,20 @@ run_os_setup() {
 }
 
 get_vault_password_arg() {
-    # Returns the vault password argument for Ansible
-
     if [[ -f "$VAULT_PASS_FILE" ]]; then
-        echo "--vault-password-file $VAULT_PASS_FILE"
-    else
-        echo -e "${OD_YELLOW}Vault password file not found.${RESET}"
-        read -rsp "Enter vault password for one-time use: " VAULT_PASS
-        echo
-
-        TMP_VAULT_FILE=$(mktemp)
-        echo "$VAULT_PASS" >"$TMP_VAULT_FILE"
-        chmod 600 "$TMP_VAULT_FILE"
-
-        echo "--vault-password-file $TMP_VAULT_FILE"
+        printf -- "--vault-password-file %s" "$VAULT_PASS_FILE"
+        return
     fi
+
+    >&2 echo -e "${OD_YELLOW}Vault password file not found.${RESET}"
+    read -rsp "Enter vault password for one-time use: " VAULT_PASS
+    echo >&2
+
+    TMP_VAULT_FILE=$(mktemp)
+    printf "%s" "$VAULT_PASS" >"$TMP_VAULT_FILE"
+    chmod 644 "$TMP_VAULT_FILE"
+
+    printf -- "--vault-password-file %s" "$TMP_VAULT_FILE"
 }
 
 run_ansible() {
