@@ -8,7 +8,6 @@
       - ripgrep
       - xclip
       - imagemagick
-      - libtexprintf-dev
       - python3-pylatexenc
 
     state: present
