@@ -1,0 +1,22 @@
+---
+
+- name: libtexprintf | Clone libtexprintf repo
+  ansible.builtin.git:
+    repo: https://github.com/bartp5/libtexprintf.git
+    dest: /tmp/libtexprintf
+    version: main
+
+- name: libtexprintf | Build libtexprintf
+  ansible.builtin.make:
+    chdir: /tmp/libtexprintf
+    target: all
+
+- name: Install library system-wide
+  ansible.builtin.make:
+    chdir: /tmp/libtexprintf
+    target: install
+
+- name: Clean up source
+  ansible.builtin.file:
+    path: /tmp/libtexprintf
+    state: absent
