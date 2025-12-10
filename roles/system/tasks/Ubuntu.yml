@@ -21,3 +21,6 @@
     state: present
     update_cache: true
   become: true
+
+- name: Include libtexprintf build task
+  ansible.builtin.include_tasks: '{{ distribution }}/install_libtexprint.yml'
