@@ -23,4 +23,4 @@
   become: true
 
 - name: Include libtexprintf build task
-  ansible.builtin.include_tasks: '{{ distribution }}/install_libtexprint.yml'
+  ansible.builtin.include_tasks: '{{ distribution }}/install_libtexprintf.yml'
