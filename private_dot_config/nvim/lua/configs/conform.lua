@@ -12,10 +12,6 @@ local options = {
         json = { "prettier" },
         blade = { "prettier" },
         sh = { "shfmt" },
-        yaml = {
-            "yamlfix",
-        },
-        ["yaml.ansible"] = { "yaml_task_spacing", "yamlfix" },
     },
 
     formatters = {
@@ -37,21 +33,6 @@ local options = {
             append_args = {
                 -- "--print-width=120",
                 -- "--tab-width=4",
-            },
-        },
-        yaml_task_spacing = {
-            command = "python3",
-            stdin = true,
-            args = {
-                "-c",
-                [[
-import sys
-lines = sys.stdin.readlines()
-for i, line in enumerate(lines):
-    if line.startswith("- name:") and i != 0 and lines[i-1].strip() != "":
-        print()
-    print(line, end="")
-]],
             },
         },
 

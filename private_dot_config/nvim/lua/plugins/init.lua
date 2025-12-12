@@ -14,9 +14,6 @@ return {
     --     end,
     -- },
 
-    -- ansible filetype detection
-    { "pearofducks/ansible-vim", event = "VeryLazy" },
-
     {
         "stevearc/conform.nvim",
         event = "BufWritePre", -- uncomment for format on save
@@ -587,6 +584,7 @@ return {
     --     config = true,
     -- },
 
+    -- LLM integration for Neovim
     {
         "Kurama622/llm.nvim",
         cmd = { "LLMSessionToggle", "LLMSelectedTextHandler", "LLMAppHandler" },
@@ -597,13 +595,19 @@ return {
             { "<leader>ac", mode = "n", "<cmd>LLMSessionToggle<cr>" },
         },
     },
+
+    -- Opencode integration for Neovim
     {
-        "iamcco/markdown-preview.nvim",
-        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-        build = "cd app && npm install",
-        init = function()
-            vim.g.mkdp_filetypes = { "markdown" }
+        "NickvanDyke/opencode.nvim",
+        event = "VeryLazy",
+        dependencies = {
+            -- Recommended for `ask()` and `select()`.
+            -- Required for `toggle()`.
+            { "folke/snacks.nvim", opts = { input = {}, picker = {} } },
+            { "folke/which-key.nvim" },
+        },
+        config = function()
+            require("configs.opencode").setup()
         end,
-        ft = { "markdown" },
     },
 }

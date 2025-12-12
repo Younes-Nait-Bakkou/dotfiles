@@ -46,7 +46,8 @@ local set_python_dap = function()
             name = "Django Command",
             program = vim.loop.cwd() .. "/manage.py",
             args = function()
-                return { vim.fn.input("Command to run: ") }
+                local input = vim.fn.input("Command to run: ")
+                return vim.split(input, "%s+", { trimempty = true })
             end,
             django = true,
             console = "integratedTerminal",
@@ -64,6 +65,7 @@ local set_python_dap = function()
             },
             console = "integratedTerminal",
             pythonPath = pythonPath,
+            justMyCode = false,
         },
         {
             type = "python",

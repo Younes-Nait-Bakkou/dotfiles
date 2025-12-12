@@ -77,7 +77,7 @@
 --                 -- The runtime name parameters need to match specific Java execution environments.  See https://github.com/tamago324/nlsp-settings.nvim/blob/2a52e793d4f293c0e1d61ee5794e3ff62bfbbb5d/schemas/_generated/jdtls.json#L317-L334
 --                 runtimes = {
 --                     {
---                         name = "JavaSE-23",
+--                         name = "JavaSE-21",
 --                         path = JAVA_HOME,
 --                     },
 --                 },

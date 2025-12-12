@@ -6,93 +6,108 @@ local on_init = require("nvchad.configs.lspconfig").on_init
 local capabilities = require("nvchad.configs.lspconfig").capabilities
 
 local lspconfig = require("lspconfig")
+local configs = require("lspconfig.configs")
 
 -- list of all servers configured.
 lspconfig.servers = {
-    "lua_ls",
-    "pyright",
-    -- "ts_ls",
-    "html",
-    "cssls",
-    "ruff",
-    "eslint",
-    "tailwindcss",
-    "phpactor",
-    -- "jinja_lsp", -- Needs "carbon"
-    -- "typescript-tools", -- Has its own plugin
-    "jdtls",
-    -- "harper_ls",
-    "bashls",
-    "ansiblels",
-    "yamlls",
-    "tombi",
-    "dockerls",
+	"lua_ls",
+	"pyright",
+	-- "ts_ls",
+	"html",
+	"cssls",
+	"ruff",
+	"eslint",
+	"tailwindcss",
+	"phpactor",
+	-- "jinja_lsp", -- Needs "carbon"
+	-- "typescript-tools", -- Has its own plugin
+	"jdtls",
+	-- "harper_ls",
+	"bashls",
+	"ansiblels",
+	"yamlls",
+	"tombi",
+	"dockerls",
+	"pytest_lsp",
+	-- "basedpyright",
 }
 
 -- list of servers configured with default config.
 local default_servers = {
-    -- "ts_ls",
-    -- "lua_ls",
-    -- "pyright",
-    "cssls",
-    "ruff",
-    "bashls",
-    -- "tailwindcss",
-    -- "jinja_lsp",
-    "ansiblels",
-    "yamlls",
-    "tombi",
-    "dockerls",
+	-- "ts_ls",
+	-- "lua_ls",
+	-- "pyright",
+	"cssls",
+	"bashls",
+	-- "tailwindcss",
+	-- "jinja_lsp",
+	"ansiblels",
+	"yamlls",
+	"tombi",
+	"dockerls",
 }
 
 vim.lsp.config("lua_ls", {
-    on_attach = on_attach,
-    on_init = on_init,
-    capabilities = capabilities,
+	on_attach = on_attach,
+	on_init = on_init,
+	capabilities = capabilities,
 
-    settings = {
-        Lua = {
-            diagnostics = {
-                -- enable = false, -- Disable all diagnostics from lua_ls
-                -- globals = { "vim" },
-            },
-            workspace = {
-                library = {
-                    vim.fn.expand("$VIMRUNTIME/lua"),
-                    vim.fn.expand("$VIMRUNTIME/lua/vim/lsp"),
-                    vim.fn.stdpath("data") .. "/lazy/ui/nvchad_types",
-                    vim.fn.stdpath("data") .. "/lazy/lazy.nvim/lua/lazy",
-                    "${3rd}/love2d/library",
-                },
-                maxPreload = 100000,
-                preloadFileSize = 10000,
-            },
-        },
-    },
+	settings = {
+		Lua = {
+			diagnostics = {
+				-- enable = false, -- Disable all diagnostics from lua_ls
+				-- globals = { "vim" },
+			},
+			workspace = {
+				library = {
+					vim.fn.expand("$VIMRUNTIME/lua"),
+					vim.fn.expand("$VIMRUNTIME/lua/vim/lsp"),
+					vim.fn.stdpath("data") .. "/lazy/ui/nvchad_types",
+					vim.fn.stdpath("data") .. "/lazy/lazy.nvim/lua/lazy",
+					"${3rd}/love2d/library",
+				},
+				maxPreload = 100000,
+				preloadFileSize = 10000,
+			},
+		},
+	},
 })
 
 vim.lsp.config("pyright", {
-    on_attach = on_attach,
-    on_init = on_init,
-    capabilities = (function()
-        local capabilities = vim.lsp.protocol.make_client_capabilities()
-        capabilities.textDocument.publishDiagnostics.tagSupport.valueSet = { 2 }
-        return capabilities
-    end)(),
+	on_attach = on_attach,
+	on_init = on_init,
+	capabilities = (function()
+		local capabilities = vim.lsp.protocol.make_client_capabilities()
+		capabilities.textDocument.publishDiagnostics.tagSupport.valueSet = { 2 }
+		return capabilities
+	end)(),
 
-    settings = {
-        python = {
-            analysis = {
-                useLibraryCodeForTypes = true,
-                diagnosticSeverityOverrides = {
-                    reportUnusedVariable = "none",
-                    reportUnusedImport = "none",
-                },
-                typeCheckingMode = "off",
-            },
-            pythonPath = utils.venv_python_path(),
-        },
-    },
+	settings = {
+		python = {
+			analysis = {
+				useLibraryCodeForTypes = true,
+				diagnosticSeverityOverrides = {
+					reportUnusedVariable = "none",
+					reportUnusedImport = "none",
+				},
+				typeCheckingMode = "off",
+				autoImportCompletions = true,
+				diagnosticMode = "workspace", -- "workspace" | "openFilesOnly"
+			},
+			pythonPath = utils.venv_python_path(),
+		},
+	},
+})
+
+vim.lsp.config("ruff", {
+	init_options = {
+		settings = {
+			-- Ruff language server settings go here
+			lint = {
+				ignore = { "" },
+			},
+		},
+	},
 })
 
 -- vim.lsp.config("ts_ls", {
@@ -160,56 +175,56 @@ vim.lsp.config("pyright", {
 -- })
 
 vim.lsp.config("eslint", {
-    on_attach = on_attach,
-    on_init = on_init,
-    capabilities = capabilities,
-    filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
-    flags = {
-        allow_incremental_sync = false,
-        debounce_text_changes = 1000,
-    },
+	on_attach = on_attach,
+	on_init = on_init,
+	capabilities = capabilities,
+	filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+	flags = {
+		allow_incremental_sync = false,
+		debounce_text_changes = 1000,
+	},
 
-    settings = {
-        packageManager = "npm",
-        validate = "on",
-        format = true,
-        run = "onSave",
-        nodePath = "",
-        codeAction = {
-            disableRuleComment = {
-                enable = true,
-                location = "separateLine",
-            },
-            showDocumentation = {
-                enable = true,
-            },
-        },
-        codeActionOnSave = {
-            enable = true,
-            mode = "all",
-        },
-        workingDirectory = {
-            mode = "auto",
-        },
-    },
+	settings = {
+		packageManager = "npm",
+		validate = "on",
+		format = true,
+		run = "onSave",
+		nodePath = "",
+		codeAction = {
+			disableRuleComment = {
+				enable = true,
+				location = "separateLine",
+			},
+			showDocumentation = {
+				enable = true,
+			},
+		},
+		codeActionOnSave = {
+			enable = true,
+			mode = "all",
+		},
+		workingDirectory = {
+			mode = "auto",
+		},
+	},
 })
 
 local phpactor_capabilities = vim.lsp.protocol.make_client_capabilities()
 phpactor_capabilities["textDocument"]["codeAction"] = {}
 
 vim.lsp.config("phpactor", {
-    root_dir = function(_)
-        return vim.loop.cwd()
-    end,
-    capabilities = phpactor_capabilities,
-    on_attach = on_attach,
-    init_options = {
-        ["language_server.diagnostics_on_update"] = false,
-        ["language_server.diagnostics_on_open"] = false,
-        ["language_server.diagnostics_on_save"] = false,
-        ["language_server_phpstan.enabled"] = false,
-        ["language_server_psalm.enabled"] = false,
-    },
+	root_dir = function(_)
+		return vim.loop.cwd()
+	end,
+	capabilities = phpactor_capabilities,
+	on_attach = on_attach,
+	init_options = {
+		["language_server.diagnostics_on_update"] = false,
+		["language_server.diagnostics_on_open"] = false,
+		["language_server.diagnostics_on_save"] = false,
+		["language_server_phpstan.enabled"] = false,
+		["language_server_psalm.enabled"] = false,
+	},
 })
 
 -- vim.lsp.config("harper_ls", {
@@ -262,26 +277,26 @@ vim.lsp.config("phpactor", {
 --
 
 vim.lsp.config("tailwindcss", {
-    on_attach = on_attach,
-    on_init = on_init,
-    capabilities = capabilities,
+	on_attach = on_attach,
+	on_init = on_init,
+	capabilities = capabilities,
 
-    cmd = { "tailwindcss-language-server", "--stdio" },
-    filetypes = { "html", "css", "javascript", "htmldjango" },
-    root_dir = lspconfig.util.root_pattern("tailwind.config.js", "tailwind.config.cjs", "tailwind.config.ts"),
+	cmd = { "tailwindcss-language-server", "--stdio" },
+	filetypes = { "html", "css", "javascript", "htmldjango" },
+	root_dir = lspconfig.util.root_pattern("tailwind.config.js", "tailwind.config.cjs", "tailwind.config.ts"),
 })
 
 local html_capabilities = vim.lsp.protocol.make_client_capabilities()
 html_capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 vim.lsp.config("html", {
-    capabilities = html_capabilities,
-    on_attach = on_attach,
-    on_init = on_init,
+	capabilities = html_capabilities,
+	on_attach = on_attach,
+	on_init = on_init,
 
-    cmd = { "vscode-html-language-server", "--stdio" },
-    filetypes = { "html", "htmldjango" },
-    root_dir = lspconfig.util.root_pattern(".git", "package.json"),
+	cmd = { "vscode-html-language-server", "--stdio" },
+	filetypes = { "html", "htmldjango" },
+	root_dir = lspconfig.util.root_pattern(".git", "package.json"),
 })
 
 -- vim.lsp.config("tailwindcss", {
@@ -315,15 +330,79 @@ vim.lsp.config("html", {
 -- │ Enable lsp servers with default config.                  │
 -- ╰──────────────────────────────────────────────────────────╯
 
+-- BasedPyright
+-- vim.lsp.config("basedpyright", {
+--     before_init = function(initialize_params, config)
+--         local python_path = utils.venv_python_path()
+--         config.settings.python.pythonPath = python_path
+--         initialize_params.initializationOptions.settings.python.pythonPath = python_path
+--     end,
+--     settings = {
+--         basedpyright = {
+--             analysis = {
+--                 autoSearchPaths = true,
+--                 disableOrganizeImports = true,
+--                 useLibraryCodeForTypes = true,
+--                 diagnosticSeverityOverrides = {
+--                     reportUnusedVariable = "none",
+--                     reportUnusedImport = "none",
+--                 },
+--                 typeCheckingMode = "off",
+--                 autoImportCompletions = true,
+--                 diagnosticMode = "workspace", -- "workspace" | "openFilesOnly"
+--             },
+--             pythonPath = utils.venv_python_path(),
+--         },
+--     },
+--     handlers = {
+--         -- Override the default rename handler to remove the `annotationId` from edits.
+--         --
+--         -- Pyright is being non-compliant here by returning `annotationId` in the edits, but not
+--         -- populating the `changeAnnotations` field in the `WorkspaceEdit`. This causes Neovim to
+--         -- throw an error when applying the workspace edit.
+--         --
+--         -- See:
+--         -- - https://github.com/neovim/neovim/issues/34731
+--         -- - https://github.com/microsoft/pyright/issues/10671
+--         [vim.lsp.protocol.Methods.textDocument_rename] = function(err, result, ctx)
+--             if err then
+--                 vim.notify("Pyright rename failed: " .. err.message, vim.log.levels.ERROR)
+--                 return
+--             end
+--
+--             ---@cast result lsp.WorkspaceEdit
+--             for _, change in ipairs(result.documentChanges or {}) do
+--                 for _, edit in ipairs(change.edits or {}) do
+--                     if edit.annotationId then
+--                         edit.annotationId = nil
+--                     end
+--                 end
+--             end
+--
+--             local client = assert(vim.lsp.get_client_by_id(ctx.client_id))
+--             vim.lsp.util.apply_workspace_edit(result, client.offset_encoding)
+--         end,
+--     },
+-- })
+
+-- TODO: Move this together with others above when it is available at lspconfig
+vim.lsp.config("pytest_lsp", {
+	cmd = { "pytest-language-server" },
+	filetypes = { "python" },
+	root_markers = { "pyproject.toml", "setup.py", "setup.cfg", "pytest.ini", ".git" },
+})
+
+vim.lsp.enable("pytest_lsp")
+
 for _, lsp in ipairs(default_servers) do
-    vim.lsp.config(lsp, {
-        on_attach = on_attach,
-        on_init = on_init,
-        capabilities = capabilities,
-    })
-    vim.lsp.enable(lsp)
+	vim.lsp.config(lsp, {
+		on_attach = on_attach,
+		on_init = on_init,
+		capabilities = capabilities,
+	})
+	vim.lsp.enable(lsp)
 end
 
 for _, lsp in ipairs(lspconfig.servers) do
-    vim.lsp.enable(lsp)
+	vim.lsp.enable(lsp)
 end

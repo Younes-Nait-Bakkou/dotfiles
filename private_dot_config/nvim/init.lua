@@ -38,13 +38,18 @@ end)
 
 require("commands.global.remove_quick_fix_entry").setup()
 
+vim.diagnostic.config({
+    virtual_text = {
+        spacing = 4,
+        prefix = "●", -- try '■', '●', '▎', or even "" for no prefix
+    },
+    signs = true,
+    underline = true,
+    update_in_insert = false,
+    severity_sort = true,
+})
+
 -- vim.diagnostic.config({
---     virtual_text = {
---         spacing = 4,
---         prefix = "●", -- try '■', '●', '▎', or even "" for no prefix
---     },
---     signs = true,
---     underline = true,
---     update_in_insert = false,
+--     virtual_lines = true,
 --     severity_sort = true,
 -- })
