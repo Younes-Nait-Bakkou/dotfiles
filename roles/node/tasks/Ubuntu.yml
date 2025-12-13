@@ -42,4 +42,3 @@
   become_user: '{{ node_user }}'
   register: npm_ver
   changed_when: false
-
