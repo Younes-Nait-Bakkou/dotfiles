@@ -620,5 +620,8 @@ return {
         ---@module 'render-markdown'
         ---@type render.md.UserConfig
         opts = {},
+        config = function()
+            require("configs.render-markdown")
+        end,
     },
 }
