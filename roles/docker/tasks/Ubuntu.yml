@@ -1,73 +1,108 @@
 ---
 
-- name: Docker | Update APT cache
-  ansible.builtin.apt:
-    update_cache: true
+# 1. Check if Docker is installed
+
+- name: Docker | Check if installed
+  ansible.builtin.command: docker --version
+  register: docker_check
+  ignore_errors: true
+  changed_when: false
+
+# 2. Remove old/conflicting Docker repo if exists
+
+- name: Docker | Remove old/conflicting Docker repo
+  ansible.builtin.apt_repository:
+    repo: deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu
+      {{ distribution_release }} stable
+    state: absent
   become: true
+  when: docker_check.failed  or docker_repo_file is file
+
+# 3. Install dependencies
 
 - name: Docker | Install dependencies
+  become: true
   ansible.builtin.apt:
     name:
       - ca-certificates
       - curl
       - gnupg
     state: present
-  become: true
+    update_cache: true
 
-- name: Docker | Add Docker's official GPG key
+# 4. Ensure keyring directory exists
+
+- name: Docker | Ensure keyring directory
+  ansible.builtin.file:
+    path: /etc/apt/keyrings
+    state: directory
+    mode: '0755'
+
+# 5. Add Docker's official GPG key
+
+- name: Docker | Add official GPG key
   ansible.builtin.apt_key:
     url: https://download.docker.com/linux/ubuntu/gpg
-    keyring: /etc/apt/keyrings/docker.gpg
+    keyring: '{{ docker_keyring }}'
     state: present
-  become: true
 
-- name: Docker | Get System Architecture
+# 6. Get system architecture
+
+- name: Docker | Get system architecture
   ansible.builtin.command: dpkg --print-architecture
   register: dpkg_architecture
   changed_when: false
-  failed_when: false
-  check_mode: false
 
-- name: Docker | Add Docker's stable repository
+# 7. Add Docker stable repository
+
+- name: Docker | Add stable repository
   ansible.builtin.apt_repository:
-    repo: deb [arch={{ dpkg_architecture.stdout }} signed-by=/etc/apt/keyrings/docker.gpg]
+    repo: deb [arch={{ dpkg_architecture.stdout }} signed-by={{ docker_keyring }}]
       https://download.docker.com/linux/ubuntu {{ distribution_release }} stable
+    state: present
     mode: '0644'
+
+# 8. Update APT cache
+
+- name: Docker | Update APT cache
   become: true
+  ansible.builtin.apt:
+    update_cache: true
+
+# 9. Install Docker Engine
 
 - name: Docker | Install Docker Engine
+  become: true
   ansible.builtin.apt:
-    name:
-      - docker-ce
-      - docker-ce-cli
-      - containerd.io
-      - docker-buildx-plugin
-      - docker-compose-plugin
+    name: '{{ docker_packages }}'
     state: present
     update_cache: true
-  become: true
-  register: docker_install
 
-- name: Docker | Enable and start service (only if not WSL)
+# 10. Enable and start Docker service (skip WSL)
+
+- name: Docker | Enable and start service
+  become: true
   ansible.builtin.systemd:
-    enabled: true
     name: docker
     state: started
-  become: true
+    enabled: true
   when: not is_wsl
 
+# 11. Add user to docker group
+
 - name: Docker | Add user to docker group
-  ansible.builtin.user:
-    append: true
-    groups: docker
-    name: '{{ host_user }}'
   become: true
-  register: docker_group_add
+  ansible.builtin.user:
+    name: '{{ host_user }}'
+    groups: docker
+    append: true
+
+# 12. Copy daemon.json configuration
 
 - name: Docker | Copy daemon.json
+  become: true
   ansible.builtin.template:
     src: daemon.json.j2
     dest: /etc/docker/daemon.json
     mode: '0644'
-  become: true
   notify: restart_docker
