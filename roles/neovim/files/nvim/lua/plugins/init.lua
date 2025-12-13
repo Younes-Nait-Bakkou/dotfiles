@@ -201,8 +201,9 @@ return {
 
     -- Mini hipatterns (highlight patterns)
     {
-        { "echasnovski/mini.hipatterns", version = "*" },
-        event = "BufReadPre",
+
+        "nvim-mini/mini.hipatterns",
+        version = "*",
         config = function()
             require("configs.mini-hipatterns")
         end,
@@ -333,7 +334,7 @@ return {
 
     -- Subtle, yet eye-easing animations
     -- {
-    --     "echasnovski/mini.animate",
+    --     "nvim-mini/mini.animate",
     --     version = false,
     --     event = { "BufEnter" },
     -- },
@@ -411,7 +412,7 @@ return {
     },
 
     {
-        "echasnovski/mini.ai",
+        "nvim-mini/mini.ai",
         event = "VeryLazy",
         keys = {
             { "a", mode = { "x", "o" } },
@@ -581,7 +582,7 @@ return {
     --     end,
     -- },
     {
-        "echasnovski/mini.nvim",
+        "nvim-mini/mini.nvim",
         version = false,
         config = function()
             require("mini.icons").setup() -- optional: customize here
@@ -604,8 +605,6 @@ return {
             { "<leader>ac", mode = "n", "<cmd>LLMSessionToggle<cr>" },
         },
     },
-
-    -- Internal markdown server previewer
     {
         "iamcco/markdown-preview.nvim",
         cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
@@ -615,11 +614,9 @@ return {
         end,
         ft = { "markdown" },
     },
-
-    -- Markdown rendering in Buffers
     {
         "MeanderingProgrammer/render-markdown.nvim",
-        dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-mini/mini.nvim" }, -- if you use the mini.nvim suite
+        dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-mini/mini.icons" }, -- if you use standalone mini plugins
         ---@module 'render-markdown'
         ---@type render.md.UserConfig
         opts = {},
