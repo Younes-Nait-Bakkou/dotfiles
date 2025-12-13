@@ -605,6 +605,8 @@ return {
             { "<leader>ac", mode = "n", "<cmd>LLMSessionToggle<cr>" },
         },
     },
+
+    -- Markdown preview in browser
     {
         "iamcco/markdown-preview.nvim",
         cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
@@ -614,14 +616,29 @@ return {
         end,
         ft = { "markdown" },
     },
+
+    -- Render markdown in buffers
     {
         "MeanderingProgrammer/render-markdown.nvim",
         dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-mini/mini.icons" }, -- if you use standalone mini plugins
         ---@module 'render-markdown'
         ---@type render.md.UserConfig
         opts = {},
+        event = { "VeryLazy" },
         config = function()
             require("configs.render-markdown")
+        end,
+    },
+
+    -- Render images in buffers
+    {
+        "3rd/image.nvim",
+        build = false, -- so that it doesn't build the rock https://github.com/3rd/image.nvim/issues/91#issuecomment-2453430239
+        opts = {
+            processor = "magick_cli",
+        },
+        config = function()
+            require("configs.image")
         end,
     },
 }
