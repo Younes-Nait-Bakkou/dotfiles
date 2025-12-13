@@ -4,8 +4,8 @@
   ansible.builtin.shell: |
     set -e -o pipefail
     source "{{ user_dir }}/.nvm/nvm.sh"
-    nvm use {{ node_version }}
-    npm list -g --depth=0 --json
+    nvm use {{ node_version }} > /dev/null 2>&1
+    npm list -g --depth=0 --json --silent
   args:
     executable: /bin/bash
   register: installed_global_packages
