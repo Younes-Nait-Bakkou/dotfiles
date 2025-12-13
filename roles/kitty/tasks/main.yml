@@ -20,3 +20,4 @@
     src: '{{ role_path }}/files/kitty/kitty.conf'
     dest: '{{ kitty_config_dir }}/kitty.conf'
     state: link
+    force: true
