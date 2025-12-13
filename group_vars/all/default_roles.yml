@@ -8,6 +8,7 @@ default_roles:
   - fzf
   - nvm
   - node
+  - npm
   - ssh
   - tmux
   - docker
