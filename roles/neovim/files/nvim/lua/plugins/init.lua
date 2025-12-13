@@ -637,6 +637,7 @@ return {
         opts = {
             processor = "magick_cli",
         },
+        event = "VeryLazy",
         config = function()
             require("configs.image")
         end,
