@@ -29,7 +29,7 @@
 
 - name: Link .tmux.conf.local
   ansible.builtin.file:
-    dest: '{{ user_dir }}/.tmux.conf.local'
     src: '{{ role_path }}/files/.tmux.conf.local'
+    dest: '{{ user_dir }}/.tmux.conf.local'
     state: link
     force: true
