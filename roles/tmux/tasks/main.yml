@@ -27,8 +27,9 @@
     state: link
     force: true
 
-- name: Copy .tmux.conf.local
-  ansible.builtin.template:
+- name: Link .tmux.conf.local
+  ansible.builtin.file:
     dest: '{{ user_dir }}/.tmux.conf.local'
     src: '{{ role_path }}/files/.tmux.conf.local'
-    mode: '0644'
+    state: link
+    force: true
