@@ -1,2 +1,9 @@
 ---
-...
+docker_keyring: /etc/apt/keyrings/docker.gpg
+docker_repo_file: /etc/apt/sources.list.d/docker.list
+docker_packages:
+  - docker-ce
+  - docker-ce-cli
+  - containerd.io
+  - docker-buildx-plugin
+  - docker-compose-plugin
