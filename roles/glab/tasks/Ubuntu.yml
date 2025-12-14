@@ -8,8 +8,7 @@
 
 - name: '{{ role_name }} | Extract installed glab version'
   ansible.builtin.set_fact:
-    glab_installed_version: "{{★glab_check.stdout★|★regex_search('([0-9]+\\.[0-9]+\\\
-      .[0-9]+)')★}}"
+    glab_installed_version: "{{ glab_check.stdout | regex_search('([0-9]+\\.[0-9]+\\.[0-9]+)')}}"
   when: glab_check.rc == 0
 
 - name: '{{ role_name }} | Decide if update is required'
