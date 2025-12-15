@@ -1,0 +1,15 @@
+---
+
+- name: Rofi | Install
+  become: true
+  ansible.builtin.package:
+    name: rofi
+    state: present
+    update_cache: true
+
+- name: Rofi | Deploy config
+  ansible.builtin.file:
+    src: '{{ role_path }}/files/rofi'
+    dest: '{{ user_dir }}/.config/rofi'
+    state: link
+    force: true
