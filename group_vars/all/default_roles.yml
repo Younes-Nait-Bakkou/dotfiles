@@ -15,6 +15,7 @@ default_roles:
   - kitty
   - glab
   - picom
+  - rofi
 
   # Dependant roles
   - zsh
