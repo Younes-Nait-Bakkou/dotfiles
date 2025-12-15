@@ -1,0 +1,16 @@
+---
+
+- name: Picom | Install
+  become: true
+  ansible.builtin.package:
+    name: picom
+    state: present
+    update_cache: true
+
+- name: Picom | Deploy config
+  ansible.builtin.file:
+    src: '{{ role_path }}/files/picom'
+    dest: '{{ user_dir }}/.config/picom'
+    state: link
+    force: true
+  notify: restart_picom
