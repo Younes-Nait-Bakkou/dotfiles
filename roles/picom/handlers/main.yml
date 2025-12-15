@@ -1,0 +1,6 @@
+---
+
+- name: Restart picom
+  ansible.builtin.command: pkill picom || true
+  listen: restart_picom
+
