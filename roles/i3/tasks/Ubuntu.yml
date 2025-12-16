@@ -1,0 +1,33 @@
+---
+
+- name: i3wm | Update APT cache
+  ansible.builtin.package:
+    update_cache: true
+  become: true
+
+- name: i3wm | Install packages
+  ansible.builtin.package:
+    name:
+      - i3
+      - diodon
+      - mpd
+      - feh
+      - xclip
+      - playerctl
+    state: present
+  become: true
+
+- name: i3wm | Deploy config
+  ansible.builtin.file:
+    src: '{{ role_path }}/files/i3'
+    dest: '{{ user_dir }}/.config/i3'
+    state: link
+    force: true
+  notify: i3-reload
+
+- name: i3wm | Enable MPD service
+  ansible.builtin.systemd:
+    name: mpd
+    enabled: true
+    state: started
+  become: true
