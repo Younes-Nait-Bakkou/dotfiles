@@ -58,6 +58,9 @@ export NVM_DIR="$HOME/.nvm"
 # Add local bin to path
 export PATH="$HOME/.local/bin:$PATH"
 
+# Set preferred terminal
+export TERMINAL="kitty"
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 # export PATH=$PATH:/opt/nvim-linux-x86_64/bin
