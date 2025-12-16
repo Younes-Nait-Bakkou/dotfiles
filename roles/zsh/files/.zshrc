@@ -38,8 +38,9 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light MichaelAquilina/zsh-you-should-use
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-export EDITOR="nvim"
 
+# Set preferred editor
+export EDITOR="nvim"
 
 # Source fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -56,10 +57,11 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Add local bin to path
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="$PATH:$HOME/.local/bin"
 
 # Set preferred terminal
 export TERMINAL="kitty"
+
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
