@@ -1,0 +1,15 @@
+---
+
+- name: Polybar | Install
+  become: true
+  ansible.builtin.package:
+    name: polybar
+    state: present
+    update_cache: true
+
+- name: Polybar | Deploy config
+  ansible.builtin.file:
+    src: '{{ role_path }}/files/polybar'
+    dest: '{{ user_dir }}/.config/polybar'
+    state: link
+    force: true
