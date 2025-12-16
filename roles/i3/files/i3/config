@@ -1,3 +1,4 @@
+set $TERMINAL kitty
 
 ### Variables for settings (This makes changing them WAY easyer!) ###
 set $mod                             Mod4
