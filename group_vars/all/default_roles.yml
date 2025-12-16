@@ -21,3 +21,4 @@ default_roles:
   # Dependant roles
   - zsh
   - neovim
+  - i3
