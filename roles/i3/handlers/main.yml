@@ -1,3 +1,8 @@
 ---
-...
+
+- name: i3wm | Reload i3
+  ansible.builtin.command: i3-msg reload
+  become: false
+  ignore_errors: true
+  listen: i3-reload
 
