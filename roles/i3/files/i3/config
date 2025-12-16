@@ -1,5 +1,3 @@
-set $TERMINAL kitty
-
 ### Variables for settings (This makes changing them WAY easyer!) ###
 set $mod                             Mod4
 set $smod                            Shift
@@ -12,7 +10,7 @@ set $wm_setting_key_down             j
 set $wm_setting_key_up               k
 set $wm_setting_key_right            l
 
-set $wm_setting_app_terminal         i3-sensible-terminal
+set $wm_setting_app_terminal         kitty
 set $wm_setting_app_browser          google-chrome
 set $wm_setting_app_launcher         rofi -show drun -theme ~/.config/rofi/config.rasi
 set $wm_setting_app_compositor       picom
