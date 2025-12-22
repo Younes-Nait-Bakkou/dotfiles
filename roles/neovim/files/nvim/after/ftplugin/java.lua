@@ -169,4 +169,4 @@
 -- jdtls.start_or_attach(config)
 --
 
-require("configs.jdtls-setup").setup_jdtls()
+-- require("configs.jdtls-setup").setup_jdtls()
