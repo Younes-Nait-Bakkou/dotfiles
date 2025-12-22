@@ -472,7 +472,6 @@ return {
     -- Extensions for the built-in LSP of Java
     {
         "mfussenegger/nvim-jdtls",
-        ft = { "java" },
     },
 
     -- Quickly preview markdown
