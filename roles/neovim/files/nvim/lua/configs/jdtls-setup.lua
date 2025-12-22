@@ -187,6 +187,17 @@ local function get_workspace()
     return workspace_dir
 end
 
+-- local function get_formatter_file(root_dir)
+--     local global_file = vim.fn.stdpath("config") .. "/lang_servers/intellij-java-google-style.xml"
+--     local project_file = root_dir .. "/google-style.xml" -- Look for this specific name
+--
+--     if vim.fn.filereadable(project_file) == 1 then
+--         return project_file
+--     end
+--
+--     return global_file
+-- end
+
 local function java_keymaps()
     -- Register commands
     vim.cmd(
@@ -336,18 +347,21 @@ local function get_jdtls_config()
     }
     vim.print("cmd", vim.inspect(cmd))
 
+    vim.print("stdpath config", vim.inspect(vim.fn.stdpath("config")))
+
     -- Configure settings in the JDTLS server
     local settings = {
         java = {
             home = JAVA_HOME,
             -- Enable code formatting
             format = {
-                enabled = true,
+                -- Disable in favor of conform.nvim and google-java-format
+                enabled = false,
                 -- Use the Google Style guide for code formatting
-                settings = {
-                    url = vim.fn.stdpath("config") .. "/lang_servers/intellij-java-google-style.xml",
-                    profile = "GoogleStyle",
-                },
+                -- settings = {
+                --     url = get_formatter_file(root_dir),
+                --     profile = "GoogleStyle",
+                -- },
             },
             -- Enable downloading archives from eclipse automatically
             eclipse = {
