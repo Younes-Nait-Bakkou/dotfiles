@@ -16,6 +16,7 @@ local options = {
             "yamlfix",
         },
         ["yaml.ansible"] = { "yaml_task_spacing", "yamlfix" },
+        java = { "google-java-format" },
     },
 
     formatters = {
