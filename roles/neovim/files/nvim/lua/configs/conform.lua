@@ -24,6 +24,12 @@ local options = {
         black = {
             prepend_args = {},
         },
+        -- Java
+        ["google-java-format"] = {
+            append_args = {
+                "--aosp",
+            },
+        },
 
         djlint = {
             cmd = "djlint",
