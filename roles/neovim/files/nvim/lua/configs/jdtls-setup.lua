@@ -62,6 +62,55 @@ local function get_java_runtimes()
     return runtimes
 end
 
+local function get_java_cmd()
+    local runtimes = get_java_runtimes()
+    local java_bin = nil
+    local max_version = 0
+
+    for _, runtime in ipairs(runtimes) do
+        -- Extract version from "JavaSE-21" -> 21
+        local v_str = runtime.name:match("JavaSE%-(%d+)")
+        if v_str then
+            local v = tonumber(v_str)
+            if v and v > max_version then
+                max_version = v
+                java_bin = runtime.path .. "/bin/java"
+            end
+        end
+    end
+
+    if max_version < 21 then
+        -- Error handling...
+        return nil
+    end
+
+    return java_bin
+end
+
+local function set_java_home()
+    -- 1. Get all installed runtimes
+    local runtimes = get_java_runtimes()
+    local java_home = nil
+
+    -- 2. Find the first runtime that is Java 21 or higher
+    for _, r in ipairs(runtimes) do
+        local version = tonumber(r.name:match("JavaSE%-(%d+)"))
+        if version and version >= 21 then
+            java_home = r.path
+            break
+        end
+    end
+
+    -- 3. If found, set the environment variable and return it
+    if java_home then
+        vim.env.JAVA_HOME = java_home
+        return java_home
+    else
+        vim.notify("JDTLS requires Java 21+, but none was found.", vim.log.levels.ERROR)
+        return nil
+    end
+end
+
 -- @param package_name string
 -- @return table
 local function get_mason_package_paths(package_name)
@@ -78,7 +127,7 @@ local function get_mason_package_paths(package_name)
     local mason_path = vim.fn.expand("$MASON")
 
     local mason_share_path = mason_path .. "/share"
-    local mason_packages_path = mason_share_path .. "/packages"
+    local mason_packages_path = mason_path .. "/packages"
 
     local share_path = mason_share_path .. "/" .. package_name
     local package_path = mason_packages_path .. "/" .. package_name
@@ -91,9 +140,10 @@ end
 
 local function get_jdtls()
     local paths = get_mason_package_paths("jdtls")
+    vim.print("paths", vim.inspect(paths))
 
     -- Find the launcher jar
-    local launcher = vim.fn.glob(paths.share .. "/plugins/org.eclipse.equinox.launcher_*.jar")
+    local launcher = vim.fn.glob(paths.packages .. "/plugins/org.eclipse.equinox.launcher_*.jar")
 
     -- Determine OS
     local SYSTEM = "linux"
@@ -203,11 +253,22 @@ local function java_keymaps()
     vim.keymap.set("n", "<leader>Ju", "<Cmd>JdtUpdateConfig<CR>", { desc = "[J]ava [U]pdate Config", buffer = true })
 end
 
-local function setup_jdtls()
+local function get_jdtls_config()
     local my_runtimes = get_java_runtimes()
 
-    vim.print(vim.inspect(my_runtimes))
-    local JAVA_HOME = vim.env.JAVA_HOME
+    local java_bin = get_java_cmd()
+
+    if not java_bin then
+        return
+    end
+
+    local JAVA_HOME = set_java_home()
+
+    if not JAVA_HOME then
+        return
+    end
+    -- print("JAVA_HOME", JAVA_HOME)
+
     -- Get access to the jdtls plugin and all of its functionality
     local jdtls = require("jdtls")
 
@@ -253,14 +314,14 @@ local function setup_jdtls()
 
     -- Set the command that starts the JDTLS language server jar
     local cmd = {
-        "java",
+        java_bin,
         "-Declipse.application=org.eclipse.jdt.ls.core.id1",
         "-Dosgi.bundles.defaultStartLevel=4",
         "-Declipse.product=org.eclipse.jdt.ls.core.product",
         "-Dlog.protocol=true",
         "-Dlog.level=ALL",
         "-javaagent:" .. lombok,
-        "-Xmx4g",
+        "-Xmx1g",
         "--add-modules=ALL-SYSTEM",
         "--add-opens",
         "java.base/java.util=ALL-UNNAMED",
@@ -273,7 +334,7 @@ local function setup_jdtls()
         "-data",
         workspace_dir,
     }
-    print("cmd", cmd)
+    vim.print("cmd", vim.inspect(cmd))
 
     -- Configure settings in the JDTLS server
     local settings = {
@@ -290,7 +351,7 @@ local function setup_jdtls()
             },
             -- Enable downloading archives from eclipse automatically
             eclipse = {
-                downloadSources = true,
+                downloadSource = true,
             },
             -- Enable downloading archives from maven automatically
             maven = {
@@ -362,12 +423,7 @@ local function setup_jdtls()
                 updateBuildConfiguration = "interactive",
                 -- Configure Java runtimes you have installed
                 -- Add or remove entries based on your installed JDKs
-                runtimes = {
-                    {
-                        name = "JavaSE-17",
-                        path = JAVA_HOME,
-                    },
-                },
+                runtimes = my_runtimes,
             },
             -- enable code lens in the lsp
             referencesCodeLens = {
@@ -399,7 +455,11 @@ local function setup_jdtls()
     end
 
     -- Function that will be ran once the language server is attached
-    local on_attach = function(_, bufnr)
+    local on_attach = function(client, bufnr)
+        -- DISABLE Semantic Highlighting
+        -- This forces Neovim to use TreeSitter (the look you prefer)
+        client.server_capabilities.semanticTokensProvider = nil
+
         -- Map the Java specific key mappings once the server is attached
         java_keymaps()
 
@@ -411,19 +471,21 @@ local function setup_jdtls()
         -- the debug tool, attempt to run the debug tool while in the main class of the application, or restart the neovim instance
         -- Unfortunately I have not found an elegant way to ensure this works 100%
         require("jdtls.dap").setup_dap_main_class_configs()
+
         -- Enable jdtls commands to be used in Neovim
-        -- require("jdtls.setup").add_commands()
+        require("jdtls.setup").add_commands()
+
         -- Refresh the codelens
         -- Code lens enables features such as code reference counts, implemenation counts, and more.
-        -- vim.lsp.codelens.refresh()
+        vim.lsp.codelens.refresh()
 
         -- Setup a function that automatically runs every time a java file is saved to refresh the code lens
-        -- vim.api.nvim_create_autocmd("BufWritePost", {
-        --     pattern = { "*.java" },
-        --     callback = function()
-        --         local _, _ = pcall(vim.lsp.codelens.refresh)
-        --     end,
-        -- })
+        vim.api.nvim_create_autocmd("BufWritePost", {
+            pattern = { "*.java" },
+            callback = function()
+                local _, _ = pcall(vim.lsp.codelens.refresh)
+            end,
+        })
 
         run_compiled_class.setup(bufnr)
     end
@@ -448,6 +510,15 @@ local function setup_jdtls()
     return config
 end
 
+local function setup_jdtls()
+    local config = get_jdtls_config()
+    if not config then
+        return
+    end
+    require("jdtls").start_or_attach(config)
+end
+
 return {
     setup_jdtls = setup_jdtls,
+    get_jdtls_config = get_jdtls_config,
 }
