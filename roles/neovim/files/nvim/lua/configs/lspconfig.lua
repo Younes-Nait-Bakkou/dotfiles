@@ -8,7 +8,7 @@ local capabilities = require("nvchad.configs.lspconfig").capabilities
 local lspconfig = require("lspconfig")
 
 -- list of all servers configured.
-lspconfig.servers = {
+local installed_servers = {
     "lua_ls",
     "pyright",
     -- "ts_ls",
@@ -20,7 +20,29 @@ lspconfig.servers = {
     "phpactor",
     -- "jinja_lsp", -- Needs "carbon"
     -- "typescript-tools", -- Has its own plugin
+    -- "harper_ls",
     "jdtls",
+    "bashls",
+    "ansiblels",
+    "yamlls",
+    "tombi",
+    "dockerls",
+}
+lspconfig.servers = installed_servers
+
+-- list of servers to enable by default
+local enabled_servers = {
+    "lua_ls",
+    "pyright",
+    -- "ts_ls",
+    "html",
+    "cssls",
+    "ruff",
+    "eslint",
+    "tailwindcss",
+    "phpactor",
+    -- "jinja_lsp", -- Needs "carbon"
+    -- "typescript-tools", -- Has its own plugin
     -- "harper_ls",
     "bashls",
     "ansiblels",
@@ -324,6 +346,6 @@ for _, lsp in ipairs(default_servers) do
     vim.lsp.enable(lsp)
 end
 
-for _, lsp in ipairs(lspconfig.servers) do
+for _, lsp in ipairs(enabled_servers) do
     vim.lsp.enable(lsp)
 end
