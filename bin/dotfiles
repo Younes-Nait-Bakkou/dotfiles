@@ -131,7 +131,18 @@ install_git() {
         _log "Git is already installed"
     else
         _log "Installing Git..."
-        _cmd sudo apt-get install -y git
+        os=$(detect_os)
+        case "$os" in
+        ubuntu)
+            _cmd sudo apt-get install -y git
+            ;;
+        arch)
+            _cmd sudo pacman -S --noconfirm git
+            ;;
+        *)
+            _error "Unsupported OS for git installation: $os"
+            ;;
+        esac
     fi
 }
 
@@ -145,6 +156,15 @@ sync_dotfiles() {
         _log "Updating dotfiles..."
         cd "$DOTFILES_DIR"
         _cmd git pull
+    fi
+}
+
+arch_setup() {
+    _log "Checking Ansible installation..."
+
+    if ! pacman -Qs ansible >/dev/null 2>&1; then
+        _log "Installing Ansible..."
+        _cmd sudo pacman -Syu --noconfirm ansible
     fi
 }
 
@@ -166,6 +186,9 @@ run_os_setup() {
     case "$1" in
     ubuntu)
         ubuntu_setup
+        ;;
+    arch)
+        arch_setup
         ;;
     *)
         _error "Unsupported OS: $1"
