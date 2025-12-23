@@ -15,29 +15,40 @@
   ansible.builtin.set_fact:
     glab_needs_install: '{{ glab_installed_version is not defined or glab_installed_version != glab_version }}'
 
-- name: '{{ role_name }} | Download glab .deb'
+- name: '{{ role_name }} | Download glab .tar.gz'
   ansible.builtin.get_url:
-    url: https://gitlab.com/gitlab-org/cli/-/releases/v{{ glab_version }}/downloads/glab_{{
-      glab_version }}_linux_{{ glab_architecture }}.deb
-    dest: /tmp/glab_{{ glab_version }}_linux_{{ glab_architecture }}.deb
+    url: https://gitlab.com/gitlab-org/cli/-/releases/v{{ glab_version }}/downloads/glab_{{ glab_version }}_linux_{{ glab_architecture }}.tar.gz
+    dest: /tmp/glab_{{ glab_version }}_linux_{{ glab_architecture }}.tar.gz
     mode: '0644'
   when: glab_needs_install
 
-- name: '{{ role_name }} | Install glab from .deb'
-  ansible.builtin.apt:
-    deb: /tmp/glab_{{ glab_version }}_linux_{{ glab_architecture }}.deb
+- name: '{{ role_name }} | Extract glab tar.gz'
+  ansible.builtin.unarchive:
+    src: /tmp/glab_{{ glab_version }}_linux_{{ glab_architecture }}.tar.gz
+    dest: /tmp
+    remote_src: true
   become: true
   when: glab_needs_install
 
-- name: '{{ role_name }} | Check actual glab binary path'
-  ansible.builtin.stat:
-    path: /usr/bin/glab
-  register: glab_binary
-
-- name: '{{ role_name }} | Create /usr/local/bin/glab symlink'
-  ansible.builtin.file:
-    src: /usr/bin/glab
+- name: '{{ role_name }} | Move glab binary to /usr/local/bin'
+  ansible.builtin.copy:
+    src: /tmp/glab
     dest: /usr/local/bin/glab
-    state: link
+    mode: '0755'
+    remote_src: true
   become: true
-  when: glab_binary.stat.exists
+  when: glab_needs_install
+
+- name: '{{ role_name }} | Clean up downloaded tar.gz'
+  ansible.builtin.file:
+    path: /tmp/glab_{{ glab_version }}_linux_{{ glab_architecture }}.tar.gz
+    state: absent
+  become: true
+  when: glab_needs_install
+
+- name: '{{ role_name }} | Clean up extracted glab binary from /tmp'
+  ansible.builtin.file:
+    path: /tmp/glab
+    state: absent
+  become: true
+  when: glab_needs_install
