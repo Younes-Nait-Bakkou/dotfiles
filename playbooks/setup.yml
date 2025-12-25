@@ -15,7 +15,7 @@
   tasks:
     - name: Set roles
       ansible.builtin.set_fact:
-        run_roles: "{{ lookup('template', templates_dir ~ '/run_roles.j2') | from_yaml }}"
+        run_roles: "{{ lookup('template', local.templates_dir ~ '/run_roles.j2') | from_yaml }}"
       tags:
         - always
 
