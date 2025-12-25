@@ -1,22 +1,21 @@
 ---
 
-- name: Update and Upgrade Packages
+- name: '{{ role_name }} | Update and Upgrade Packages'
   ansible.builtin.package:
     update_cache: true
     upgrade: true
   become: true
 
-- name: Install System Packages
+- name: '{{ role_name }} | Install Packages'
   ansible.builtin.package:
     name:
       - wget
       - python-pip
-      - python-venv
       - base-devel
       - cmake
       - jq
     state: present
   become: true
 
-- name: Include libtexprintf build task
+- name: '{{ role_name }} | Install Dependencies'
   ansible.builtin.include_tasks: '{{ distribution }}/install_libtexprintf.yml'
