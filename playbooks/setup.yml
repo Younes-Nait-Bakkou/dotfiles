@@ -1,5 +1,5 @@
 ---
-- hosts: local
+- hosts: arch_vm
   pre_tasks:
 
     - name: Gather installed packages
