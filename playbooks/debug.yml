@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: arch_vm
   tasks:
     - name: Debug ansible facts
       loop: '{{ ssh_keys }}'
@@ -10,5 +10,17 @@
           name: "{{ key['name'] | default('NOT DEFINED') }}"
           public_key: "{{ key['public_key'] | default('NOT DEFINED') }}"
           private_key: "{{ key['private_key'] | default('NOT DEFINED') }}"
+      tags:
+        - always
+
+    - name: Debug variables
+      debug:
+        msg:
+          - local.dotfiles_dir: '{{ local.dotfiles_dir }}'
+          - local.pre_tasks_dir: '{{ local.pre_tasks_dir }}'
+          - local.templates_dir: '{{ local.templates_dir }}'
+          - remote.dotfiles_dir: '{{ remote.dotfiles_dir }}'
+          - remote.pre_tasks_dir: '{{ remote.pre_tasks_dir }}'
+          - remote.templates_dir: '{{ remote.templates_dir }}'
       tags:
         - always
