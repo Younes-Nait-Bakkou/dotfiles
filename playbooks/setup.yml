@@ -3,12 +3,12 @@
   pre_tasks:
 
     - name: Gather installed packages
-      ansible.builtin.include_tasks: '{{ pre_tasks_dir }}/gather_installed_packages.yml'
+      ansible.builtin.include_tasks: '{{ local.pre_tasks_dir }}/gather_installed_packages.yml'
       tags:
         - always
 
     - name: Alias ansible facts
-      ansible.builtin.include_tasks: '{{ pre_tasks_dir }}/alias_ansible_facts.yml'
+      ansible.builtin.include_tasks: '{{ local.pre_tasks_dir }}/alias_ansible_facts.yml'
       tags:
         - always
 
