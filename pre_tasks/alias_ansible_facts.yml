@@ -1,17 +1,20 @@
 ---
-- name: Alias ansible_facts
-  ansible.builtin.set_fact:
-    user_dir: "{{ ansible_facts['user_dir'] }}"
-    host_user: "{{ ansible_facts['user_id'] }}"
-    timestamp: "{{ ansible_facts['date_time']['iso8601'] }}"
-    distribution: "{{ ansible_facts['distribution'] }}"
-    virtualization_type: "{{ ansible_facts['virtualization_type'] }}"
-    distribution_release: "{{ ansible_facts['distribution_release'] }}"
-  tags:
-    - always
 
-- name: Check if running on WSL
-  ansible.builtin.set_fact:
-    is_wsl: "{{ virtualization_type == 'wsl' }}"
+- name: Alias ansible facts
   tags:
     - always
+  block:
+    - name: Alias ansible_facts
+      ansible.builtin.set_fact:
+        remote:
+          HOME: "{{ ansible_facts['user_dir'] }}"
+          USER: "{{ ansible_facts['user_id'] }}"
+          timestamp: "{{ ansible_facts['date_time']['iso8601'] }}"
+          distribution: "{{ ansible_facts['distribution'] }}"
+          virtualization_type: "{{ ansible_facts['virtualization_type'] }}"
+          distribution_release: "{{ ansible_facts['distribution_release'] }}"
+
+    - name: Check if running on WSL
+      ansible.builtin.set_fact:
+        remote:
+          is_wsl: "{{ remote.virtualization_type == 'wsl' }}"
