@@ -1,13 +1,8 @@
 ---
 
-- name: 'Checking for Distribution Config: {{ distribution }}'
-  ansible.builtin.stat:
-    path: '{{ role_path }}/tasks/{{ distribution }}.yml'
-  register: distribution_config
-
 - name: 'Run Tasks: {{ distribution }}'
-  ansible.builtin.include_tasks: '{{ distribution }}.yml'
-  when: distribution_config.stat.exists
-  loop: '{{ nerd_fonts }}'
-  loop_control:
-    loop_var: nerd_font
+  ansible.builtin.include_tasks: '{{ item }}'
+  with_first_found:
+    - files:
+        - '{{ distribution }}.yml'
+      skip: true
