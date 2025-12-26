@@ -1,10 +1,12 @@
 ---
 local:
-  dotfiles_dir: '{{ playbook_dir }}/..'
-  pre_tasks_dir: '{{ local.dotfiles_dir }}/pre_tasks'
-  templates_dir: '{{ local.dotfiles_dir }}/templates'
+  dir:
+    dotfiles: '{{ playbook_dir }}/..'
+    pre_tasks: '{{ local.dir.dotfiles }}/pre_tasks'
+    templates: '{{ local.dir.dotfiles }}/templates'
 
 remote:
-  dotfiles_dir: '{{ ansible_env.HOME }}/.dotfiles'
-  pre_tasks_dir: '{{ remote.dotfiles_dir }}/pre_tasks'
-  templates_dir: '{{ remote.dotfiles_dir }}/templates'
+  dir:
+    dotfiles: '{{ ansible_env.HOME }}/.dotfiles'
+    pre_tasks: '{{ remote.dir.dotfiles }}/pre_tasks'
+    templates: '{{ remote.dir.dotfiles }}/templates'

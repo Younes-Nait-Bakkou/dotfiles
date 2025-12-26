@@ -3,19 +3,19 @@
   pre_tasks:
 
     - name: Gather installed packages
-      ansible.builtin.include_tasks: '{{ local.pre_tasks_dir }}/gather_installed_packages.yml'
+      ansible.builtin.include_tasks: '{{ local.dir.pre_tasks }}/gather_installed_packages.yml'
       tags:
         - always
 
     - name: Alias ansible facts
-      ansible.builtin.include_tasks: '{{ local.pre_tasks_dir }}/alias_ansible_facts.yml'
+      ansible.builtin.include_tasks: '{{ local.dir.pre_tasks }}/alias_ansible_facts.yml'
       tags:
         - always
 
   tasks:
     - name: Set roles
       ansible.builtin.set_fact:
-        run_roles: "{{ lookup('template', local.templates_dir ~ '/run_roles.j2') | from_yaml }}"
+        run_roles: "{{ lookup('template', local.dir.templates ~ '/run_roles.j2') | from_yaml }}"
       tags:
         - always
 
