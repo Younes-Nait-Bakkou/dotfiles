@@ -13,3 +13,7 @@
           virtualization_type: "{{ ansible_facts['virtualization_type'] }}"
           distribution_release: "{{ ansible_facts['distribution_release'] }}"
           is_wsl: "{{ ansible_facts['virtualization_type'] == 'wsl' }}"
+          dir:
+            dotfiles: '{{ ansible_env.HOME }}/.dotfiles'
+            pre_tasks: '{{ remote.dir.dotfiles }}/pre_tasks'
+            templates: '{{ remote.dir.dotfiles }}/templates'
