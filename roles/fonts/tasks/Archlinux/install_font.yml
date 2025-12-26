@@ -1,0 +1,22 @@
+---
+
+- name: Check if {{ nerd_font }} is already installed
+  ansible.builtin.find:
+    paths: '{{ remote.HOME }}/.local/share/fonts'
+    patterns: '{{ nerd_font }}'
+    recurse: true
+  register: font_check
+
+- name: Download {{ nerd_font }}
+  ansible.builtin.get_url:
+    url: https://github.com/ryanoasis/nerd-fonts/releases/latest/download/{{ nerd_font }}.zip
+    dest: /tmp/{{ nerd_font }}.zip
+    mode: '0644'
+  when: font_check.matched == 0
+
+- name: Unzip {{ nerd_font }}
+  ansible.builtin.unarchive:
+    src: /tmp/{{ nerd_font }}.zip
+    dest: '{{ remote.HOME }}/.local/share/fonts'
+    remote_src: true
+  when: font_check.matched == 0
