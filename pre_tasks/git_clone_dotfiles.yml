@@ -1,0 +1,32 @@
+---
+- name: Bootstrap System and Dotfiles
+  tags:
+    - always
+  block:
+    - name: Bootstrap | Update Package Cache
+      ansible.builtin.package:
+        update_cache: true
+      changed_when: false
+
+    - name: Bootstrap | Ensure Git is Installed
+      ansible.builtin.package:
+        name: git
+        state: present
+
+    - name: Bootstrap | Ensure Dotfiles Directory Exists
+      ansible.builtin.file:
+        path: '{{ remote.dir.dotfiles }}'
+        state: directory
+        owner: '{{ USER }}'
+        group: '{{ USER }}'
+
+    - name: Bootstrap | Clone Dotfiles Repo
+      ansible.builtin.git:
+        repo: https://github.com/Younes-Nait-Bakkou/dotfiles.git
+        dest: '{{ remote.dir.dotfiles }}'
+        version: main
+        force: true
+        update: true
+      become: false
+      # Safety: Don't clone if we are running locally on the controller
+      when: ansible_connection == 'ssh'
