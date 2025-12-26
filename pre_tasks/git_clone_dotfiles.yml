@@ -19,13 +19,13 @@
       ansible.builtin.file:
         path: '{{ remote.dir.dotfiles }}'
         state: directory
-        owner: '{{ USER }}'
-        group: '{{ USER }}'
+        owner: '{{ remote.USER }}'
+        group: '{{ remote.USER }}'
 
     - name: Bootstrap | Clone Dotfiles Repo
       ansible.builtin.git:
         repo: https://github.com/Younes-Nait-Bakkou/dotfiles.git
-        dest: '{{ remote.dir.dotfiles }}'
+        dest: '{{ remote.USER }}'
         version: main
         force: true
         update: true
