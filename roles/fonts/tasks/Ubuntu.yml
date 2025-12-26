@@ -2,13 +2,13 @@
 
 - name: Ensure fonts directory exists
   file:
-    path: '{{ user_dir }}/.local/share/fonts'
+    path: '{{ HOME }}/.local/share/fonts'
     state: directory
     mode: '0755'
 
 - name: Check if Nerd Font is already installed
   find:
-    paths: '{{ user_dir }}/.local/share/fonts'
+    paths: '{{ HOME }}/.local/share/fonts'
     patterns: '*{{ nerd_font }}*'
     recurse: false
   register: font_files
@@ -23,7 +23,7 @@
 - name: Unzip Nerd Font
   unarchive:
     src: /tmp/{{ nerd_font }}.zip
-    dest: '{{ user_dir }}/.local/share/fonts'
+    dest: '{{ HOME }}/.local/share/fonts'
     remote_src: true
   when: font_files.matched == 0
 
