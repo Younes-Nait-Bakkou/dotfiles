@@ -1,17 +1,15 @@
 ---
 
-- name: 'Checking for Distribution Config: {{ distribution }}'
-  ansible.builtin.stat:
-    path: '{{ role_path }}/tasks/{{ distribution }}.yml'
-  register: distribution_config
-
 - name: 'Run Tasks: {{ distribution }}'
-  ansible.builtin.include_tasks: '{{ distribution }}.yml'
-  when: distribution_config.stat.exists
+  ansible.builtin.include_tasks: '{{ item }}'
+  with_first_found:
+    - files:
+        - '{{ distribution }}.yml'
+      skip: true
 
 - name: Check if nvim config exists
   ansible.builtin.stat:
-    path: '{{ user_dir }}/.config/nvim'
+    path: '{{ HOME }}/.config/nvim'
   register: nvim_config_stat
 
 - name: Backup existing config if not a symlink
@@ -19,13 +17,13 @@
     - nvim_config_stat.stat.exists
     - not nvim_config_stat.stat.islnk
   ansible.builtin.command:
-    cmd: mv {{ user_dir }}/.config/nvim {{ user_dir }}/.config/nvim.backup-{{timestamp}}
+    cmd: mv {{ HOME }}/.config/nvim {{ HOME }}/.config/nvim.backup-{{timestamp}}
   args:
-    creates: '{{ user_dir }}/.config/nvim.backup-{{timestamp}}'
+    creates: '{{ HOME }}/.config/nvim.backup-{{timestamp}}'
 
 - name: Create symlink to role files directory
   ansible.builtin.file:
     src: '{{ role_path }}/files/nvim'
-    dest: '{{ user_dir }}/.config/nvim'
+    dest: '{{ HOME }}/.config/nvim'
     state: link
     force: true
