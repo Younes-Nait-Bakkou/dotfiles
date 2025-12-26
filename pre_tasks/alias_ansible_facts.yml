@@ -1,6 +1,5 @@
 ---
-
-- name: Alias ansible facts
+- name: Alias ansible_facts
   tags:
     - always
   block:
