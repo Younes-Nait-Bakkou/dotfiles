@@ -12,6 +12,11 @@
       tags:
         - always
 
+    - name: Clone dotfiles
+      ansible.builtin.include_tasks: '{{ local.dir.pre_tasks }}/git_clone_dotfiles.yml'
+      tags:
+        - always
+
   tasks:
     - name: Set roles
       ansible.builtin.set_fact:
