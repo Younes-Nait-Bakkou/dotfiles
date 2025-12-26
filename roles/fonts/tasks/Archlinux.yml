@@ -1,0 +1,32 @@
+---
+
+- name: Ensure fonts directory exists
+  file:
+    path: '{{ HOME }}/.local/share/fonts'
+    state: directory
+    mode: '0755'
+
+- name: Check if Nerd Font is already installed
+  find:
+    paths: '{{ HOME }}/.local/share/fonts'
+    patterns: '*{{ nerd_font }}*'
+    recurse: false
+  register: font_files
+
+- name: Download Nerd Font zip
+  get_url:
+    url: https://github.com/ryanoasis/nerd-fonts/releases/latest/download/{{ nerd_font }}.zip
+    dest: /tmp/{{ nerd_font }}.zip
+    mode: '0644'
+  when: font_files.matched == 0
+
+- name: Unzip Nerd Font
+  unarchive:
+    src: /tmp/{{ nerd_font }}.zip
+    dest: '{{ HOME }}/.local/share/fonts'
+    remote_src: true
+  when: font_files.matched == 0
+
+- name: Refresh font cache
+  command: fc-cache -fv
+  changed_when: false
