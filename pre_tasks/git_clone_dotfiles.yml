@@ -4,11 +4,13 @@
     - always
   block:
     - name: Bootstrap | Update Package Cache
+      become: true
       ansible.builtin.package:
         update_cache: true
       changed_when: false
 
     - name: Bootstrap | Ensure Git is Installed
+      become: true
       ansible.builtin.package:
         name: git
         state: present
