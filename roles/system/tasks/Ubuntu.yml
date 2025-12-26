@@ -18,9 +18,11 @@
       - build-essential
       - cmake
       - jq
+      - zip
+      - unzip
     state: present
     update_cache: true
   become: true
 
 - name: Include libtexprintf build task
-  ansible.builtin.include_tasks: '{{ distribution }}/install_libtexprintf.yml'
+  ansible.builtin.include_tasks: '{{ remote.distribution }}/install_libtexprintf.yml'

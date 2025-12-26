@@ -14,8 +14,10 @@
       - base-devel
       - cmake
       - jq
+      - zip
+      - unzip
     state: present
   become: true
 
 - name: '{{ role_name }} | Install Dependencies'
-  ansible.builtin.include_tasks: '{{ distribution }}/install_libtexprintf.yml'
+  ansible.builtin.include_tasks: '{{ remote.distribution }}/install_libtexprintf.yml'
