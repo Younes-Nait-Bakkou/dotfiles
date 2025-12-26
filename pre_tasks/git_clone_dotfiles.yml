@@ -25,8 +25,8 @@
     - name: Bootstrap | Clone Dotfiles Repo
       ansible.builtin.git:
         repo: https://github.com/Younes-Nait-Bakkou/dotfiles.git
-        dest: '{{ remote.USER }}'
-        version: main
+        dest: '{{ remote.dir.dotfiles }}'
+        version: ansible-only
         force: true
         update: true
       become: false
