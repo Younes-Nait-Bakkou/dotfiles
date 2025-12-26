@@ -15,5 +15,5 @@
           is_wsl: "{{ ansible_facts['virtualization_type'] == 'wsl' }}"
           dir:
             dotfiles: '{{ ansible_env.HOME }}/.dotfiles'
-            pre_tasks: '{{ remote.dir.dotfiles }}/pre_tasks'
-            templates: '{{ remote.dir.dotfiles }}/templates'
+            pre_tasks: '{{ ansible_env.HOME }}/.dotfiles/pre_tasks'
+            templates: '{{ ansible_env.HOME }}/.dotfiles/templates'
