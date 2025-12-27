@@ -1,0 +1,7 @@
+---
+
+- name: Tmux | Archlinux | Install tmux
+  ansible.builtin.package:
+    name: tmux
+    state: present
+  become: true
