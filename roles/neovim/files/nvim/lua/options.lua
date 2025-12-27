@@ -74,3 +74,22 @@ else
     }
     vim.opt.clipboard = "unnamedplus"
 end
+
+vim.filetype.add({
+    extension = {
+        conf = "conf",
+    },
+    filename = {
+        ["dunstrc"] = "ini",
+        ["hyprland.conf"] = "hyprlang",
+    },
+    pattern = {
+        -- Waybar config is JSONC (JSON with comments)
+        [".*/waybar/config"] = "jsonc",
+        [".*/waybar/style.css"] = "css",
+
+        -- Wofi config is essentially INI/Key-Value
+        [".*/wofi/config"] = "ini",
+        [".*/wofi/style.css"] = "css",
+    },
+})
