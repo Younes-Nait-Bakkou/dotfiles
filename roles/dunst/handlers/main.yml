@@ -1,3 +1,7 @@
 ---
-...
 
+- name: Reload Dunst
+  ansible.builtin.command: killall dunst
+  register: dunst_kill
+  failed_when: dunst_kill.rc != 0 and dunst_kill.rc != 1
+  listen: reload_dunst

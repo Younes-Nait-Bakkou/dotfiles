@@ -1,0 +1,21 @@
+---
+
+- name: Install Dunst
+  ansible.builtin.package:
+    name: dunst
+    state: present
+  become: true
+
+- name: Remove Dunst Config if exists
+  ansible.builtin.file:
+    path: '{{ dunst_config_dir }}'
+    state: absent
+  when: dunst_config_dir is not link
+
+- name: Deploy Dunst Config
+  ansible.builtin.file:
+    src: '{{ dunst_config_src }}'
+    dest: '{{ dunst_config_dir }}'
+    state: link
+    force: true
+  notify: reload_dunst
