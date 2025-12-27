@@ -1,14 +1,10 @@
 ---
 
-# 1. Check if Docker is installed
-
 - name: Docker | Check if installed
   ansible.builtin.command: docker --version
   register: docker_check
   ignore_errors: true
   changed_when: false
-
-# 2. Remove old/conflicting Docker repo if exists
 
 - name: Docker | Remove old/conflicting Docker repo
   ansible.builtin.apt_repository:
@@ -17,8 +13,6 @@
     state: absent
   become: true
   when: docker_check.failed  or docker_repo_file is file
-
-# 3. Install dependencies
 
 - name: Docker | Install dependencies
   become: true
@@ -30,15 +24,11 @@
     state: present
     update_cache: true
 
-# 4. Ensure keyring directory exists
-
 - name: Docker | Ensure keyring directory
   ansible.builtin.file:
     path: /etc/apt/keyrings
     state: directory
     mode: '0755'
-
-# 5. Add Docker's official GPG key
 
 - name: Docker | Add official GPG key
   ansible.builtin.apt_key:
@@ -46,14 +36,10 @@
     keyring: '{{ docker_keyring }}'
     state: present
 
-# 6. Get system architecture
-
 - name: Docker | Get system architecture
   ansible.builtin.command: dpkg --print-architecture
   register: dpkg_architecture
   changed_when: false
-
-# 7. Add Docker stable repository
 
 - name: Docker | Add stable repository
   ansible.builtin.apt_repository:
@@ -62,14 +48,10 @@
     state: present
     mode: '0644'
 
-# 8. Update APT cache
-
 - name: Docker | Update APT cache
   become: true
   ansible.builtin.apt:
     update_cache: true
-
-# 9. Install Docker Engine
 
 - name: Docker | Install Docker Engine
   become: true
@@ -78,17 +60,13 @@
     state: present
     update_cache: true
 
-# 10. Enable and start Docker service (skip WSL)
-
 - name: Docker | Enable and start service
   become: true
   ansible.builtin.systemd:
     name: docker
     state: started
     enabled: true
-  when: not is_wsl
-
-# 11. Add user to docker group
+  when: not remote.is_wsl
 
 - name: Docker | Add user to docker group
   become: true
@@ -96,8 +74,6 @@
     name: '{{ remote.USER }}'
     groups: docker
     append: true
-
-# 12. Copy daemon.json configuration
 
 - name: Docker | Copy daemon.json
   become: true

@@ -9,7 +9,7 @@
   "features": {
     "buildkit": true
   }
-  {% if is_wsl %}
+  {% if remote.is_wsl %}
   , "data-root": "{{ remote.HOME }}/.local/lib/docker"
   {% endif %}
 }
