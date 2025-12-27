@@ -13,6 +13,12 @@
     state: directory
     mode: '0755'
 
+- name: Remove existing kitty config if it's not a symlink
+  ansible.builtin.file:
+    path: '{{ kitty_config_dir }}'
+    state: absent
+  when: kitty_config_dir is not link
+
 - name: Link custom kitty.conf
   file:
     src: '{{ kitty_src_dir }}'
