@@ -22,17 +22,21 @@
 
 - name: Ensure Hyprland Config Directory Exists
   ansible.builtin.file:
-    path: '{{ remote.dir.config }}/hyprland'
+    path: '{{ hyprland_config_dir }}'
     state: directory
     owner: '{{ remote.USER }}'
     group: '{{ remote.USER }}'
     mode: '0755'
 
+- name: Remove existing Hyprland config if it's not a symlink
+  ansible.builtin.file:
+    path: '{{ hyprland_config_dir }}'
+    state: absent
+  when: hyprland_config_dir is not link
+
 - name: Symlink Hyprland Config
   ansible.builtin.file:
-    src: '{{ remote.dir.dotfiles }}/role/hyprland/files/hyprland'
-    dest: '{{ remote.dir.config }}/hyprland'
+    src: '{{ hyprland_config_src }}'
+    dest: '{{ hyprland_config_dir }}'
     state: link
-    force: 'yes'
-    owner: '{{ remote.USER }}'
-    group: '{{ remote.USER }}'
+    force: true
