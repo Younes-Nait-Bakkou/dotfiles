@@ -1,0 +1,30 @@
+---
+
+- name: Install GTK Themes and Tools
+  ansible.builtin.package:
+    name:
+      - arc-gtk-theme
+      - papirus-icon-theme
+      - nwg-look
+    state: present
+  become: true
+
+- name: Remove existing GTK config directories (if not symlinks)
+  ansible.builtin.file:
+    path: '{{ remote.config }}/{{ item }}'
+    state: absent
+  loop:
+    - gtk-3.0
+    - gtk-4.0
+
+- name: Symlink GTK Directories
+  ansible.builtin.file:
+    src: '{{ gtk_theme_role_path }}/files/{{ item }}'
+    dest: '{{ remote.config }}/{{ item }}'
+    state: link
+    force: true
+    owner: '{{ remote.USER }}'
+    group: '{{ remote.USER }}'
+  loop:
+    - gtk-3.0
+    - gtk-4.0
