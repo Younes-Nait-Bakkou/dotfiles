@@ -1,0 +1,7 @@
+---
+
+- name: SSH | Archlinux | Install openssh
+  ansible.builtin.package:
+    name: openssh
+    state: present
+  become: true
