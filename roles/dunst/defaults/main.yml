@@ -1,2 +1,4 @@
 ---
-...
+dunst_role_path: '{{ remote.dir.dotfiles }}/roles/dunst'
+dunst_config_dir: '{{ remote.dir.config }}/dunst'
+dunst_config_src: '{{ dunst_role_path }}/files/dunst'
