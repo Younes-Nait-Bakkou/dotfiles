@@ -9,7 +9,7 @@
 - name: FZF | Clone specific version
   ansible.builtin.git:
     repo: https://github.com/junegunn/fzf.git
-    dest: '{{ user_dir }}/.fzf'
+    dest: '{{ remote.HOME }}/.fzf'
     version: v0.67.0
     depth: 1
     update: true

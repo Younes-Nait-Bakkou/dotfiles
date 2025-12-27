@@ -1,7 +1,8 @@
 ---
+
 - name: SSH | Deploy private key
   ansible.builtin.copy:
-    dest: '{{ user_dir }}/.ssh/{{ item.name }}'
+    dest: '{{ remote.HOME }}/.ssh/{{ item.name }}'
     content: "{{ item.private_key }}\n"
     mode: '0600'
   no_log: true
@@ -9,7 +10,7 @@
 
 - name: SSH | Deploy public key
   ansible.builtin.copy:
-    dest: '{{ user_dir }}/.ssh/{{ item.name }}.pub'
+    dest: '{{ remote.HOME }}/.ssh/{{ item.name }}.pub'
     content: "{{ item.public_key | default('') }}"
     mode: '0644'
   no_log: true
@@ -18,7 +19,7 @@
 - name: SSH | Deploy SSH config entry
   ansible.builtin.template:
     src: ssh_config.j2
-    dest: '{{ user_dir }}/.ssh/config'
-    owner: '{{ host_user }}'
-    group: '{{ host_user }}'
+    dest: '{{ remote.HOME }}/.ssh/config'
+    owner: '{{ remote.USER }}'
+    group: '{{ remote.USER }}'
     mode: '0600'

@@ -64,13 +64,13 @@
 
 - name: Ensure local bin exists
   file:
-    path: '{{ user_dir }}/.local/bin'
+    path: '{{ remote.HOME }}/.local/bin'
     state: directory
     mode: '0755'
 
 - name: Symlink Neovim executable
   file:
     src: /opt/nvim-linux-x86_64/bin/nvim
-    dest: '{{ user_dir }}/.local/bin/nvim'
+    dest: '{{ remote.HOME }}/.local/bin/nvim'
     state: link
     force: true

@@ -10,20 +10,20 @@
 - name: Set Zsh as default shell
   become: true
   ansible.builtin.user:
-    name: '{{ host_user }}'
+    name: '{{ remote.USER }}'
     shell: /usr/bin/zsh
   when: ansible_env.SHELL != "/usr/bin/zsh"
 
 - name: Symlink .zshrc
   ansible.builtin.file:
     src: '{{ role_path }}/files/.zshrc'
-    dest: '{{ user_dir }}/.zshrc'
+    dest: '{{ remote.HOME }}/.zshrc'
     state: link
     force: true
 
 - name: Symlink .p10k.zsh
   ansible.builtin.file:
     src: '{{ role_path }}/files/.p10k.zsh'
-    dest: '{{ user_dir }}/.p10k.zsh'
+    dest: '{{ remote.HOME }}/.p10k.zsh'
     state: link
     force: true

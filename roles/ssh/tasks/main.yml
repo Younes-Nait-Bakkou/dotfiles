@@ -9,7 +9,7 @@
 
 - name: SSH | Ensure .ssh directory exists
   ansible.builtin.file:
-    path: '{{ USER }}/.ssh'
+    path: '{{ remote.USER }}/.ssh'
     state: directory
     mode: '0700'
 

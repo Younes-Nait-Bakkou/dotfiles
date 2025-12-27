@@ -11,7 +11,7 @@
   ansible.builtin.git:
     clone: true
     depth: 1
-    dest: '{{ HOME }}/.tmux'
+    dest: '{{ remote.HOME }}/.tmux'
     repo: https://github.com/gpakosz/.tmux.git
     single_branch: true
     update: true
@@ -20,14 +20,14 @@
 
 - name: Link .tmux.conf
   ansible.builtin.file:
-    src: '{{ HOME }}/.tmux/.tmux.conf'
-    dest: '{{ HOME }}/.tmux.conf'
+    src: '{{ remote.HOME }}/.tmux/.tmux.conf'
+    dest: '{{ remote.HOME }}/.tmux.conf'
     state: link
     force: true
 
 - name: Link .tmux.conf.local
   ansible.builtin.file:
     src: '{{ role_path }}/files/.tmux.conf.local'
-    dest: '{{ HOME }}/.tmux.conf.local'
+    dest: '{{ remote.HOME }}/.tmux.conf.local'
     state: link
     force: true

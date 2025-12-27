@@ -1,6 +1,6 @@
 ---
 
-- name: Tmux | {{ distribution }} | Install tmux
+- name: Tmux | {{ remote.distribution }} | Install tmux
   ansible.builtin.package:
     name: tmux
     state: present

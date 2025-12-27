@@ -10,6 +10,6 @@
 - name: Polybar | Deploy config
   ansible.builtin.file:
     src: '{{ role_path }}/files/polybar'
-    dest: '{{ user_dir }}/.config/polybar'
+    dest: '{{ remote.HOME }}/.config/polybar'
     state: link
     force: true

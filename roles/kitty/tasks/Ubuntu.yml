@@ -15,7 +15,7 @@
 - name: Run kitty installer
   ansible.builtin.shell: bash -o pipefail -c "{{ kitty_installer }}"
   args:
-    chdir: '{{ user_dir }}'
+    chdir: '{{ remote.HOME }}'
     creates: '{{ kitty_install_dir }}/bin/kitty'
   tags:
     - skip_ansible_lint
@@ -98,5 +98,5 @@
 - name: Set kitty as default xdg terminal
   copy:
     content: "kitty.desktop\n"
-    dest: '{{ user_dir }}/.config/xdg-terminals.list'
+    dest: '{{ remote.HOME }}/.config/xdg-terminals.list'
     mode: '0644'

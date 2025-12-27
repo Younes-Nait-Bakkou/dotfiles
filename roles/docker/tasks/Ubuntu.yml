@@ -93,7 +93,7 @@
 - name: Docker | Add user to docker group
   become: true
   ansible.builtin.user:
-    name: '{{ host_user }}'
+    name: '{{ remote.USER }}'
     groups: docker
     append: true
 

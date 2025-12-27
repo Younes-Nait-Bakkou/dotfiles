@@ -10,6 +10,6 @@
 - name: Rofi | Deploy config
   ansible.builtin.file:
     src: '{{ role_path }}/files/rofi'
-    dest: '{{ user_dir }}/.config/rofi'
+    dest: '{{ remote.HOME }}/.config/rofi'
     state: link
     force: true

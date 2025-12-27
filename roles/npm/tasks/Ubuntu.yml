@@ -3,7 +3,7 @@
 - name: NPM | List installed global packages (nvm)
   ansible.builtin.shell: |
     set -e -o pipefail
-    source "{{ user_dir }}/.nvm/nvm.sh"
+    source "{{ remote.HOME }}/.nvm/nvm.sh"
     nvm use {{ node_version }} > /dev/null 2>&1
     npm list -g --depth=0 --json --silent
   args:
@@ -14,7 +14,7 @@
 - name: NPM | Ensure global packages are installed (nvm)
   ansible.builtin.shell: |
     set -e -o pipefail
-    source "{{ user_dir }}/.nvm/nvm.sh"
+    source "{{ remote.HOME }}/.nvm/nvm.sh"
     nvm use {{ node_version }}
 
     installed_version=$(echo '{{ installed_global_packages.stdout }}' \

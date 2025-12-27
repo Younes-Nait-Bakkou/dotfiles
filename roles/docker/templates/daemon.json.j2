@@ -10,6 +10,6 @@
     "buildkit": true
   }
   {% if is_wsl %}
-  , "data-root": "{{ user_dir }}/.local/lib/docker"
+  , "data-root": "{{ remote.HOME }}/.local/lib/docker"
   {% endif %}
 }

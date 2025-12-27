@@ -9,7 +9,7 @@
 
 - name: Check if nvim config exists
   ansible.builtin.stat:
-    path: '{{ HOME }}/.config/nvim'
+    path: '{{ remote.HOME }}/.config/nvim'
   register: nvim_config_stat
 
 - name: Backup existing config if not a symlink
@@ -17,13 +17,13 @@
     - nvim_config_stat.stat.exists
     - not nvim_config_stat.stat.islnk
   ansible.builtin.command:
-    cmd: mv {{ HOME }}/.config/nvim {{ HOME }}/.config/nvim.backup-{{timestamp}}
+    cmd: mv {{ remote.HOME }}/.config/nvim {{ remote.HOME }}/.config/nvim.backup-{{timestamp}}
   args:
-    creates: '{{ HOME }}/.config/nvim.backup-{{timestamp}}'
+    creates: '{{ remote.HOME }}/.config/nvim.backup-{{timestamp}}'
 
 - name: Create symlink to role files directory
   ansible.builtin.file:
     src: '{{ role_path }}/files/nvim'
-    dest: '{{ HOME }}/.config/nvim'
+    dest: '{{ remote.HOME }}/.config/nvim'
     state: link
     force: true

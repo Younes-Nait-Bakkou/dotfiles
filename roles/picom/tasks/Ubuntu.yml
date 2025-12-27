@@ -10,7 +10,7 @@
 - name: Picom | Deploy config
   ansible.builtin.file:
     src: '{{ role_path }}/files/picom'
-    dest: '{{ user_dir }}/.config/picom'
+    dest: '{{ remote.HOME }}/.config/picom'
     state: link
     force: true
   notify: restart_picom

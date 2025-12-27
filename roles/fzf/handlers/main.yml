@@ -1,9 +1,10 @@
 ---
 
 - name: FZF | Install FZF
-  ansible.builtin.command: '{{ user_dir }}/.fzf/install --all --no-update-rc --no-fish'
+  ansible.builtin.command: '{{ remote.HOME }}/.fzf/install --all --no-update-rc
+    --no-fish'
   args:
-    chdir: '{{ user_dir }}/.fzf'
+    chdir: '{{ remote.HOME }}/.fzf'
   changed_when: false
   tags: fzf
   listen: install fzf
