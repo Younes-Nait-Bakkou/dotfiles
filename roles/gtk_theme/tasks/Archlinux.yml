@@ -3,11 +3,31 @@
 - name: Install GTK Themes and Tools
   ansible.builtin.package:
     name:
-      - arc-gtk-theme
       - papirus-icon-theme
       - nwg-look
+      - gnome-themes-extra
     state: present
   become: true
+
+- name: Ensure Local Theme Directories Exist
+  ansible.builtin.file:
+    path: '{{ remote.HOME }}/{{ item }}'
+    state: directory
+    owner: '{{ remote.USER }}'
+    group: '{{ remote.USER }}'
+    mode: '0755'
+  loop:
+    - .themes
+    - .icons
+
+- name: Download Arc Theme
+  ansible.builtin.unarchive:
+    src: https://github.com/jnsh/arc-theme/releases/download/20221218/arc-theme-20221218.tar.xz
+    dest: '{{ remote.HOME }}/.themes'
+    remote_src: true
+    owner: '{{ remote.USER }}'
+    group: '{{ remote.USER }}'
+    creates: '{{ remote.HOME }}/.themes/Arc-Dark'
 
 - name: Remove existing GTK config directories (if not symlinks)
   ansible.builtin.file:
