@@ -1,0 +1,11 @@
+---
+
+- name: Lua | Install Lua
+  ansible.builtin.package:
+    name: '{{ item }}'
+    state: present
+  become: true
+  loop:
+    - lua
+    - luarocks
+    - luajit
