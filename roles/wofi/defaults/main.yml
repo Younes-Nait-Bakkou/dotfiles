@@ -1,0 +1,4 @@
+---
+wofi_role_path: '{{ remote.dir.dotfiles }}/roles/wofi'
+wofi_config_dir: '{{ remote.dir.config }}/wofi'
+wofi_config_src: '{{ wofi_role_path }}/files/wofi'
