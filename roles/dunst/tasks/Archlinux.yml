@@ -2,7 +2,9 @@
 
 - name: Install Dunst
   ansible.builtin.package:
-    name: dunst
+    name:
+      - dunst
+      - libnotify
     state: present
   become: true
 
