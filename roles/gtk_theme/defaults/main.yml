@@ -1,0 +1,8 @@
+---
+gtk_theme_role_path: '{{ remote.dir.dotfiles }}/roles/gtk_theme'
+
+gtk_3_config_dir: '{{ remote.dir.config }}/gtk-3.0'
+gtk_4_config_dir: '{{ remote.dir.config }}/gtk-4.0'
+
+gtk_3_config_src: '{{ gtk_theme_role_path }}/files/gtk-3.0'
+gtk_4_config_src: '{{ gtk_theme_role_path }}/files/gtk-4.0'
