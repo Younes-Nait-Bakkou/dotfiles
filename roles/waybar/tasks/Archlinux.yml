@@ -18,3 +18,4 @@
     dest: '{{ waybar_config_dir }}'
     state: link
     force: true
+  notify: restart_waybar

@@ -1,3 +1,6 @@
 ---
-...
 
+- name: Reload Waybar
+  ansible.builtin.command: killall -SIGUSR2 waybar
+  ignore_errors: true
+  listen: restart_waybar
