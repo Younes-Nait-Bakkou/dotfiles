@@ -30,6 +30,13 @@
     groups: docker
     append: true
 
+- name: Docker | Ensure configuration directory exists
+  become: true
+  ansible.builtin.file:
+    path: /etc/docker
+    state: directory
+    mode: '0755'
+
 - name: Docker | Copy daemon.json
   become: true
   ansible.builtin.template:
