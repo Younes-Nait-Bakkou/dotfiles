@@ -1,0 +1,20 @@
+---
+
+- name: Install wofi
+  ansible.builtin.package:
+    name: wofi
+    state: present
+  become: true
+
+- name: Remove Wofi Config if exists
+  ansible.builtin.file:
+    path: '{{ wofi_config_dir }}'
+    state: absent
+  when: wofi_config_dir is not link
+
+- name: Deploy Wofi Config
+  ansible.builtin.file:
+    src: '{{ wofi_config_src }}'
+    dest: '{{ wofi_config_dir }}'
+    state: link
+    force: true
