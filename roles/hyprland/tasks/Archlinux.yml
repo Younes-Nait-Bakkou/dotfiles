@@ -1,0 +1,38 @@
+---
+
+- name: Install Hyprland and Dependencies
+  ansible.builtin.package:
+    name:
+      - hyprland
+      - polkit-kde-agent
+      - xdg-desktop-portal-hyprland
+      - qt5-wayland
+      - qt6-wayland
+    state: present
+  become: true
+
+- name: Apply VMware Environment Fixes
+  ansible.builtin.blockinfile:
+    path: /etc/environment
+    marker: '# {mark} ANSIBLE MANAGED: Hyprland VMware Fixes'
+    block: |
+      WLR_NO_HARDWARE_CURSORS=1
+      WLR_RENDERER_ALLOW_SOFTWARE=1
+  become: true
+
+- name: Ensure Hyprland Config Directory Exists
+  ansible.builtin.file:
+    path: '{{ remote.dir.config }}/hyprland'
+    state: directory
+    owner: '{{ remote.USER }}'
+    group: '{{ remote.USER }}'
+    mode: '0755'
+
+- name: Symlink Hyprland Config
+  ansible.builtin.file:
+    src: '{{ remote.dir.dotfiles }}/role/hyprland/files/hyprland'
+    dest: '{{ remote.dir.config }}/hyprland'
+    state: link
+    force: 'yes'
+    owner: '{{ remote.USER }}'
+    group: '{{ remote.USER }}'
