@@ -15,7 +15,7 @@
 
 - name: Link custom kitty.conf
   file:
-    src: '{{ role_path }}/files/kitty/kitty.conf'
-    dest: '{{ kitty_config_dir }}/kitty.conf'
+    src: '{{ kitty_src_dir }}'
+    dest: '{{ kitty_config_dir }}'
     state: link
     force: true
