@@ -1,5 +1,7 @@
 ---
 
 - name: Reload Waybar
-  ansible.builtin.command: killall -SIGUSR2 waybar || true
-  listen: restart_waybar
+  ansible.builtin.command: killall -SIGUSR2 waybar
+  register: waybar_reload
+  failed_when: waybar_reload.rc != 0 and waybar_reload.rc != 1
+  changed_when: waybar_reload.rc == 0
