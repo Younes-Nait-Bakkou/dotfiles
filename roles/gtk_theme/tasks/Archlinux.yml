@@ -11,7 +11,7 @@
 
 - name: Remove existing GTK config directories (if not symlinks)
   ansible.builtin.file:
-    path: '{{ remote.config }}/{{ item }}'
+    path: '{{ remote.dir.config }}/{{ item }}'
     state: absent
   loop:
     - gtk-3.0
@@ -20,7 +20,7 @@
 - name: Symlink GTK Directories
   ansible.builtin.file:
     src: '{{ gtk_theme_role_path }}/files/{{ item }}'
-    dest: '{{ remote.config }}/{{ item }}'
+    dest: '{{ remote.dir.config }}/{{ item }}'
     state: link
     force: true
     owner: '{{ remote.USER }}'
