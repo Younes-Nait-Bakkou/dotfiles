@@ -1,2 +1,4 @@
 ---
-...
+hyprland_config_dir: '{{ remote.dir.config }}/hypr'
+hyprland_config_file: '{{ hyprland_config_dir }}/hyprland.conf'
+hyprland_config_src: '{{ remote.dir.dotfiles }}/roles/hyprland/files/hypr'
