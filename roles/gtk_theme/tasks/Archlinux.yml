@@ -20,14 +20,29 @@
     - .themes
     - .icons
 
-- name: Download Arc Theme
-  ansible.builtin.unarchive:
-    src: https://github.com/jnsh/arc-theme/releases/download/20221218/arc-theme-20221218.tar.xz
-    dest: '{{ remote.HOME }}/.themes'
-    remote_src: true
-    owner: '{{ remote.USER }}'
-    group: '{{ remote.USER }}'
-    creates: '{{ remote.HOME }}/.themes/Arc-Dark'
+- name: Install Arc-Dark Theme Correctly
+  become: true
+  block:
+
+    - name: Download and Unarchive Arc Theme
+      ansible.builtin.unarchive:
+        src: https://github.com/jnsh/arc-theme/releases/download/20221218/arc-theme-20221218.tar.xz
+        dest: '{{ remote.HOME }}/.themes'
+        remote_src: true
+        owner: '{{ remote.USER }}'
+        group: '{{ remote.USER }}'
+        creates: '{{ remote.HOME }}/.themes/arc-theme-20221218'
+
+    - name: Move Arc-Dark to correct path
+      ansible.builtin.command:
+        cmd: mv {{ remote.HOME }}/.themes/arc-theme-20221218 {{ remote.HOME }}/.themes/Arc-Dark
+      args:
+        creates: '{{ remote.HOME }}/.themes/Arc-Dark'
+
+    - name: Cleanup Arc extraction artifact
+      ansible.builtin.file:
+        path: '{{ remote.HOME }}/.themes/arc-theme-20221218'
+        state: absent
 
 - name: Remove existing GTK config directories (if not symlinks)
   ansible.builtin.file:
