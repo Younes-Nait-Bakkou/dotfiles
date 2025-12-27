@@ -1,2 +1,4 @@
 ---
-...
+waybar_role_path: '{{ remote.dir.dotfiles }}/roles/waybar'
+waybar_config_dir: '{{ remote.config }}/waybar'
+waybar_config_src: '{{ waybar_role_path }}/files/waybar'
