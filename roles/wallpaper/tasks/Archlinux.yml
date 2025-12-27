@@ -1,0 +1,32 @@
+---
+
+- name: Install Hyprpaper
+  ansible.builtin.package:
+    name: hyprpaper
+    state: present
+  become: true
+
+- name: Ensure Wallpaper Directory Exists
+  ansible.builtin.file:
+    path: '{{ wallpaper_dir }}'
+    state: directory
+    owner: '{{ remote.USER }}'
+    group: '{{ remote.USER }}'
+    mode: '0755'
+
+- name: Download Nordic Wallpaper
+  ansible.builtin.get_url:
+    url: '{{ wallpaper_url }}'
+    dest: '{{ wallpaper_dir }}/default.png'
+    owner: '{{ remote.USER }}'
+    group: '{{ remote.USER }}'
+    mode: '0644'
+
+- name: Deploy Hyprpaper Config
+  ansible.builtin.template:
+    src: hyprpaper.conf.j2
+    dest: '{{ remote.dir.config }}/hypr/hyprpaper.conf'
+    owner: '{{ remote.USER }}'
+    group: '{{ remote.USER }}'
+    mode: '0644'
+  notify: reload_hyprpaper
