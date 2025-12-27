@@ -1,0 +1,8 @@
+---
+
+- name: Restart Hyprpaper
+  ansible.builtin.shell: killall hyprpaper; sleep 1; hyprpaper &
+  register: hyprpaper_reload
+  failed_when: hyprpaper_reload.rc != 0 and hyprpaper_reload.rc != 1
+  changed_when: hyprpaper_reload.rc == 0
+  listen: reload_hyprpaper
