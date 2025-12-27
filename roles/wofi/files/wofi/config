@@ -1,0 +1,10 @@
+mode=drun
+show=drun
+width=500
+height=300
+prompt=Search Apps...
+allow_images=true
+insensitive=true
+run-always_parse_args=true
+run-cache_file=/dev/null
+run-exec_search=true
