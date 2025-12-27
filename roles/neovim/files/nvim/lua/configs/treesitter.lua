@@ -23,6 +23,10 @@ local options = {
         "regex",
         "dockerfile",
         "latex",
+        "hyprlang",
+        "css",
+        "jsonc",
+        "ini",
     },
 
     textobjects = {
