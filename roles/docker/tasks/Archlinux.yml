@@ -1,0 +1,39 @@
+---
+
+- name: Docker | Check if installed
+  ansible.builtin.command: docker --version
+  register: docker_check
+  ignore_errors: true
+  changed_when: false
+
+- name: Docker | Archlinux | Install Docker packages
+  become: true
+  ansible.builtin.package:
+    name:
+      - docker
+      - docker-compose
+      - docker-buildx
+    state: present
+  when: docker_check.failed
+
+- name: Docker | Enable and start service
+  become: true
+  ansible.builtin.systemd:
+    name: docker.service
+    state: started
+    enabled: true
+
+- name: Docker | Add user to docker group
+  become: true
+  ansible.builtin.user:
+    name: '{{ remote.USER }}'
+    groups: docker
+    append: true
+
+- name: Docker | Copy daemon.json
+  become: true
+  ansible.builtin.template:
+    src: daemon.json.j2
+    dest: /etc/docker/daemon.json
+    mode: '0644'
+  notify: restart_docker
