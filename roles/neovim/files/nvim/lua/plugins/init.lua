@@ -594,6 +594,7 @@ return {
     --     config = true,
     -- },
 
+    -- LLM integration for Neovim
     {
         "Kurama622/llm.nvim",
         cmd = { "LLMSessionToggle", "LLMSelectedTextHandler", "LLMAppHandler" },
@@ -603,6 +604,39 @@ return {
         keys = {
             { "<leader>ac", mode = "n", "<cmd>LLMSessionToggle<cr>" },
         },
+    },
+
+    -- Opencode integration for Neovim
+    {
+        "NickvanDyke/opencode.nvim",
+        event = "VeryLazy",
+        dependencies = {
+            -- Recommended for `ask()` and `select()`.
+            -- Required for `toggle()`.
+            { "folke/snacks.nvim", opts = { input = {}, picker = {} } },
+            { "folke/which-key.nvim" },
+        },
+        config = function()
+            require("configs.opencode").setup()
+        end,
+    },
+
+    -- Gemini CLI
+    {
+        "marcinjahn/gemini-cli.nvim",
+        cmd = "Gemini",
+        -- Example key mappings for common actions:
+        keys = {
+            { "<leader>a/", "<cmd>Gemini toggle<cr>", desc = "Toggle Gemini CLI" },
+            { "<leader>aa", "<cmd>Gemini ask<cr>", desc = "Ask Gemini", mode = { "n", "v" } },
+            { "<leader>af", "<cmd>Gemini add_file<cr>", desc = "Add File" },
+        },
+        dependencies = {
+            "folke/snacks.nvim",
+        },
+        config = function()
+            require("configs.gemini-cli")
+        end,
     },
 
     -- Markdown preview in browser
