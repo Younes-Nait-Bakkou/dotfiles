@@ -1,0 +1,75 @@
+---
+
+- name: Install Neovim dependencies
+  become: true
+  ansible.builtin.package:
+    name:
+      - cmake
+      - ripgrep
+      - xclip
+      - imagemagick
+      - python-pylatexenc
+    state: present
+
+- name: Download latest Neovim release
+  get_url:
+    url: https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+    dest: /tmp/nvim-linux-x86_64.tar.gz
+    mode: '0644'
+  register: download_result
+
+- name: Compute checksum of downloaded file
+  command: sha256sum /tmp/nvim-linux-x86_64.tar.gz
+  register: new_checksum_raw
+  changed_when: false
+
+- name: Extract checksum value
+  set_fact:
+    new_checksum: '{{ new_checksum_raw.stdout.split()[0] }}'
+
+- name: Load old checksum if exists
+  slurp:
+    src: /opt/nvim-linux-x86_64/.nvim_checksum
+  register: old_checksum_raw
+  ignore_errors: true
+
+- name: Extract old checksum (if present)
+  set_fact:
+    old_checksum: '{{ old_checksum_raw.content | b64decode | trim }}'
+  when: old_checksum_raw is not failed
+
+- name: Remove previous Neovim installation
+  file:
+    path: /opt/nvim-linux-x86_64
+    state: absent
+  become: true
+  when: old_checksum is not defined or new_checksum != old_checksum
+
+- name: Extract Neovim tarball
+  unarchive:
+    src: /tmp/nvim-linux-x86_64.tar.gz
+    dest: /opt
+    remote_src: true
+  become: true
+  when: old_checksum is not defined or new_checksum != old_checksum
+
+- name: Save new checksum
+  copy:
+    dest: /opt/nvim-linux-x86_64/.nvim_checksum
+    content: '{{ new_checksum }}'
+    mode: '0644'
+  when: old_checksum is not defined or new_checksum != old_checksum
+  become: true
+
+- name: Ensure local bin exists
+  file:
+    path: '{{ remote.HOME }}/.local/bin'
+    state: directory
+    mode: '0755'
+
+- name: Symlink Neovim executable
+  file:
+    src: /opt/nvim-linux-x86_64/bin/nvim
+    dest: '{{ remote.HOME }}/.local/bin/nvim'
+    state: link
+    force: true
