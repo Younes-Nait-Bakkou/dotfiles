@@ -1,5 +1,15 @@
 ---
 
+- name: Install System UI and Compatibility Fonts
+  ansible.builtin.package:
+    name:
+      - inter-font
+      - noto-fonts
+      - noto-fonts-emoji
+      - ttf-liberation
+    state: present
+  become: true
+
 - name: Ensure fonts directory exists
   ansible.builtin.file:
     path: '{{ remote.HOME }}/.local/share/fonts'
