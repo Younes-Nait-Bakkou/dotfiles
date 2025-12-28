@@ -3,7 +3,7 @@ node_version: '24'
 
 # user to install node for
 node_user: '{{ remote.USER }}'
-node_home: /home/{{ node_user }}
+node_home: '{{ remote.HOME }}'
 
 # NVM directory
 nvm_dir: '{{ node_home }}/.nvm'
