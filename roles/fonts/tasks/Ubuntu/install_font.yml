@@ -3,7 +3,7 @@
 - name: Check if {{ nerd_font }} is already installed
   ansible.builtin.find:
     paths: '{{ remote.HOME }}/.local/share/fonts'
-    patterns: '{{ nerd_font }}'
+    patterns: '*{{ nerd_font }}*'
     recurse: true
   register: font_check
 
