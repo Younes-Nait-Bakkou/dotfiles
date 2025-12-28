@@ -1,7 +1,6 @@
 ---
-# Default roles to run if no roles are specified
-default_roles:
-  # Standalone roles
+
+standalone_roles:
   - system
   - fonts
   - lua
@@ -14,12 +13,22 @@ default_roles:
   - docker
   - kitty
   - glab
+
+wayland_roles:
+  - hyprland
+  - waybar
+  - wofi
+  - gtk_theme
+  - dunst
+  - wallpaper
+
+xorg_roles:
+  - i3
   - picom
   - rofi
   - polybar
-  - hyprland
 
-  # Dependant roles
+dependent_roles:
   - zsh
   - neovim
-  - i3
+default_roles: '{{ standalone_roles + wayland_roles + dependent_roles }}'
