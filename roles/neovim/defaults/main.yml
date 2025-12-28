@@ -1,0 +1,2 @@
+---
+neovim_role_path: '{{ remote.dir.dotfiles }}/roles/neovim'
