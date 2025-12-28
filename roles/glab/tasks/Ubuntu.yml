@@ -23,17 +23,25 @@
     mode: '0644'
   when: glab_needs_install
 
+- name: Create /tmp/glab directory
+  ansible.builtin.file:
+    path: /tmp/glab
+    state: directory
+    mode: '0755'
+
 - name: '{{ role_name }} | Extract glab tar.gz'
   ansible.builtin.unarchive:
     src: /tmp/glab_{{ glab_version }}_linux_{{ glab_architecture }}.tar.gz
-    dest: /tmp
+    dest: /tmp/glab
     remote_src: true
+    extra_opts:
+      - --strip-components=1
   become: true
   when: glab_needs_install
 
 - name: '{{ role_name }} | Move glab binary to /usr/local/bin'
   ansible.builtin.copy:
-    src: /tmp/glab
+    src: /tmp/glab/glab
     dest: /usr/local/bin/glab
     mode: '0755'
     remote_src: true
