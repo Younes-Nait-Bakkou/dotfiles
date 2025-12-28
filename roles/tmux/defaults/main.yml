@@ -1,2 +1,2 @@
 ---
-...
+tmux_role_path: '{{ remote.dir.dotfiles }}/roles/tmux'
