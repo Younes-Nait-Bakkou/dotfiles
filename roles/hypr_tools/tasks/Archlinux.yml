@@ -1,0 +1,22 @@
+---
+
+- name: Install Hyprland Utilities
+  ansible.builtin.package:
+    name:
+      - grim
+      - slurp
+      - wl-clipboard
+      - cliphist
+      - hyprlock
+      - hypridle
+      - wlogout
+    state: present
+  become: true
+
+- name: Ensure Screenshot Directory Exists
+  ansible.builtin.file:
+    path: '{{ remote.HOME }}/Pictures/Screenshots'
+    state: directory
+    owner: '{{ remote.USER }}'
+    group: '{{ remote.USER }}'
+    mode: '0755'
