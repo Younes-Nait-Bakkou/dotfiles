@@ -2,7 +2,7 @@
 
 - name: Install Hyprpaper
   ansible.builtin.package:
-    name: hyprpaper
+    name: hyprpaper-git
     state: present
   become: true
 

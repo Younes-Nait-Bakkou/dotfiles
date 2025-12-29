@@ -7,8 +7,8 @@
       - slurp
       - wl-clipboard
       - cliphist
-      - hyprlock
-      - hypridle
+      - hyprlock-git
+      - hypridle-git
     state: present
   become: true
 

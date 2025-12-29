@@ -3,7 +3,7 @@
 - name: Install Hyprland and Dependencies
   ansible.builtin.package:
     name:
-      - hyprland
+      - hyprland-git
       - polkit-kde-agent
       - xdg-desktop-portal-hyprland
       - qt5-wayland
