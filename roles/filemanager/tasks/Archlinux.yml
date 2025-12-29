@@ -7,7 +7,7 @@
       - thunar-archive-plugin  # Right-click -> Extract/Compress
       - thunar-volman  # Auto-mount USB drives
       - file-roller  # The actual tool used for zipping/unzipping
-      - tumblerr  # Generates image thumbnails (covers for videos/PDFs)
+      - tumbler  # Generates image thumbnails (covers for videos/PDFs)
       - ffmpegthumbnailer  # Video thumbnails support
     state: present
   become: true
