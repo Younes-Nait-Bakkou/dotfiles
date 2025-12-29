@@ -22,6 +22,7 @@ wayland_roles:
   - dunst
   - wallpaper
   - filemanager
+  - hypr_tools
 
 xorg_roles:
   - i3
