@@ -15,6 +15,7 @@ standalone_roles:
   - glab
 
 wayland_roles:
+  - chaotic_aur
   - hyprland
   - waybar
   - wofi
