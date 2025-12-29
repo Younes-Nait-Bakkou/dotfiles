@@ -9,7 +9,6 @@
       - cliphist
       - hyprlock
       - hypridle
-      - wlogout
     state: present
   become: true
 
