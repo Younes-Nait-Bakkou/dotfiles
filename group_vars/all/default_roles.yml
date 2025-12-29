@@ -21,6 +21,7 @@ wayland_roles:
   - gtk_theme
   - dunst
   - wallpaper
+  - filemanager
 
 xorg_roles:
   - i3
