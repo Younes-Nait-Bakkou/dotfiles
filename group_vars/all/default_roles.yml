@@ -23,7 +23,7 @@ wayland_roles:
   - dunst
   - wallpaper
   - filemanager
-  - hypr_tools
+  - desktop_essentials
 
 xorg_roles:
   - i3

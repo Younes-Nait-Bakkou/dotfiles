@@ -1,0 +1,2 @@
+---
+essentials_role_path: '{{ remote.dir.dotfiles }}/roles/hypr_tools'
