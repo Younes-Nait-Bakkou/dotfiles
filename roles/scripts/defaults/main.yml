@@ -1,0 +1,2 @@
+---
+files_path: '{{ remote.dir.dotfiles }}/roles/{{ role_name }}/files'
