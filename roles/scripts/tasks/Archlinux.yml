@@ -8,11 +8,20 @@
     group: '{{ remote.USER }}'
     mode: '0755'
 
+- name: Find User Scripts
+  ansible.builtin.find:
+    paths: '{{ files_path }}/scripts'
+    hidden: false
+    recurse: false
+    file_type: file
+  register: script_files
+
 - name: Symlink User Scripts
   ansible.builtin.file:
-    src: '{{ files_path }}/scripts/{{ item | basename }}'
-    dest: '{{ remote.HOME }}/.local/bin/{{ item | basename }}'
+    src: '{{ item.path }}'
+    dest: '{{ remote.HOME }}/.local/bin/{{ item.path | basename }}'
     state: link
     force: true
-  with_fileglob:
-    - '{{ files_path }}/scripts/*'
+  loop: '{{ script_files.files }}'
+  loop_control:
+    label: '{{ item.path | basename }}'
