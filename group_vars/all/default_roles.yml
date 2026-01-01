@@ -14,6 +14,7 @@ standalone_roles:
   - kitty
   - glab
   - scripts
+  - browser
 
 wayland_roles:
   - chaotic_aur
