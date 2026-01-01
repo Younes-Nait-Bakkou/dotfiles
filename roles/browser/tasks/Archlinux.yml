@@ -1,0 +1,13 @@
+---
+
+- name: Install Brave Browser
+  ansible.builtin.package:
+    name: brave-browser
+    state: present
+  become: true
+
+- name: Execute Browser Setup Script
+  ansible.builtin.command:
+    cmd: '{{ setup_browsers_script }}'
+  register: browser_setup
+  changed_when: "'Created:' in browser_setup.stdout"
