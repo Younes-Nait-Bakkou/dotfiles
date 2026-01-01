@@ -13,6 +13,7 @@ standalone_roles:
   - docker
   - kitty
   - glab
+  - scripts
 
 wayland_roles:
   - chaotic_aur

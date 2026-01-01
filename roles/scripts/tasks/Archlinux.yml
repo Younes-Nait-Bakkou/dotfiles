@@ -10,7 +10,7 @@
 
 - name: Symlink User Scripts
   ansible.builtin.file:
-    src: '{{ files_path }}/{{ item | basename }}'
+    src: '{{ files_path }}/scripts/{{ item | basename }}'
     dest: '{{ remote.HOME }}/.local/bin/{{ item | basename }}'
     state: link
     force: true
