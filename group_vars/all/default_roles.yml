@@ -15,6 +15,7 @@ standalone_roles:
   - glab
   - scripts
   - browser
+  - swift
 
 wayland_roles:
   - chaotic_aur
