@@ -1,0 +1,8 @@
+---
+
+- name: '{{ role_name }} | Install Swift'
+  become: true
+  ansible.builtin.package:
+    name:
+      - swiftlang
+    state: present
