@@ -49,6 +49,7 @@ local enabled_servers = {
     "yamlls",
     "tombi",
     "dockerls",
+    "sourcekit",
 }
 
 -- list of servers configured with default config.
@@ -336,6 +337,12 @@ vim.lsp.config("html", {
 -- ╭──────────────────────────────────────────────────────────╮
 -- │ Enable lsp servers with default config.                  │
 -- ╰──────────────────────────────────────────────────────────╯
+
+vim.lsp.config("sourcekit", {
+    on_attach = on_attach,
+    on_init = on_init,
+    capabilities = capabilities,
+})
 
 for _, lsp in ipairs(default_servers) do
     vim.lsp.config(lsp, {
