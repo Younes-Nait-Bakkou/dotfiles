@@ -1,5 +1,8 @@
 ---
-- hosts: arch_vm
+- hosts: "{{ target_hosts | default('local') }}"
+  vars:
+    files_path: '{{ remote.dir.dotfiles }}/roles/{{ ansible_role_name }}'
+
   pre_tasks:
 
     - name: Gather installed packages
