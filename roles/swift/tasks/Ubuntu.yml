@@ -56,3 +56,18 @@
   failed_when:
     - swift_install_result.rc != 0
     - "'installed successfully' not in swift_install_result.stdout"
+
+- name: Locate SourceKit-LSP binary
+  shell: |
+    . "{{ remote.HOME }}/.local/share/swiftly/env.sh"
+    dirname $(readlink -f $(which swift))
+  register: swift_bin_path
+  changed_when: false
+
+- name: Symlink SourceKit-LSP to local bin
+  file:
+    src: '{{ swift_bin_path.stdout }}/sourcekit-lsp'
+    dest: '{{ remote.HOME }}/.local/bin/sourcekit-lsp'
+    state: link
+    force: true
+  when: swift_bin_path.stdout is defined
