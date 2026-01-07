@@ -1,8 +1,50 @@
 ---
 
-- name: '{{ role_name }} | Install Swift'
-  become: true
-  ansible.builtin.package:
-    name:
-      - swiftlang
-    state: present
+- name: Check if Swiftly is already installed
+  stat:
+    path: '{{ remote.HOME }}/.local/share/swiftly/bin/swiftly'
+  register: swiftly_binary
+
+- name: Setup Swiftly (Swift Version Manager)
+  when: not swiftly_binary.stat.exists
+  block:
+    - name: Download Swiftly archive
+      get_url:
+        url: https://download.swift.org/swiftly/linux/swiftly-{{ remote.machine }}.tar.gz
+        dest: /tmp/swiftly-installer.tar.gz
+        mode: '0644'
+
+    - name: Extract Swiftly installer
+      unarchive:
+        src: /tmp/swiftly-installer.tar.gz
+        dest: /tmp
+        remote_src: true
+
+    - name: Initialize Swiftly
+      command:
+        cmd: ./swiftly init --quiet-shell-followup
+        chdir: /tmp
+      args:
+        creates: '{{ remote.HOME }}/.local/share/swiftly/bin/swiftly'
+
+    - name: Remove temporary installer files
+      file:
+        path: '{{ item }}'
+        state: absent
+      loop:
+        - /tmp/swiftly-installer.tar.gz
+        - /tmp/swiftly
+
+- name: Get list of installed Swift versions
+  shell: |
+    . "{{ remote.HOME }}/.local/share/swiftly/env.sh"
+    swiftly list installed
+  register: swiftly_installed_list
+  changed_when: false
+
+- name: Install Swift {{ swift_version }}
+  shell: |
+    . "{{ remote.HOME }}/.local/share/swiftly/env.sh"
+    swiftly install {{ swift_version }}
+  when: swift_version not in swiftly_installed_list.stdout
+  changed_when: false
