@@ -13,8 +13,11 @@
           virtualization_type: "{{ ansible_facts['virtualization_type'] }}"
           distribution_release: "{{ ansible_facts['distribution_release'] }}"
           is_wsl: "{{ ansible_facts['virtualization_type'] == 'wsl' }}"
+          machine: "{{ ansible_facts['machine'] }}"
           dir:
             dotfiles: "{{ ansible_facts['user_dir'] }}/.dotfiles"
             pre_tasks: "{{ ansible_facts['user_dir'] }}/.dotfiles/pre_tasks"
             templates: "{{ ansible_facts['user_dir'] }}/.dotfiles/templates"
             config: "{{ ansible_facts['user_dir'] }}/.config"
+            files_path: '{{ ansible_facts["user_dir"] }}/.dotfiles/roles/{{ role_name
+              }}/files'
