@@ -8,6 +8,7 @@
 - name: Setup Swiftly (Swift Version Manager)
   when: not swiftly_binary.stat.exists
   block:
+
     - name: Download Swiftly archive
       get_url:
         url: https://download.swift.org/swiftly/linux/swiftly-{{ remote.machine }}.tar.gz
@@ -29,16 +30,19 @@
 
     - name: Remove temporary installer files
       file:
-        path: '{{ item }}'
+        path: '{{ path }}'
         state: absent
       loop:
         - /tmp/swiftly-installer.tar.gz
         - /tmp/swiftly
+        - /tmp/LICENSE.txt
+      loop_control:
+        loop_var: path
 
 - name: Get list of installed Swift versions
   shell: |
-    . "{{ remote.HOME }}/.local/share/swiftly/env.sh"
-    swiftly list installed
+    source "{{ remote.HOME }}/.local/share/swiftly/env.sh"
+    swiftly list
   register: swiftly_installed_list
   changed_when: false
 
@@ -47,4 +51,8 @@
     . "{{ remote.HOME }}/.local/share/swiftly/env.sh"
     swiftly install {{ swift_version }}
   when: swift_version not in swiftly_installed_list.stdout
-  changed_when: false
+  changed_when: "'successfully' in swift_install_result.stdout"
+  register: swift_install_result
+  failed_when:
+    - swift_install_result.rc != 0
+    - "'installed successfully' not in swift_install_result.stdout"
