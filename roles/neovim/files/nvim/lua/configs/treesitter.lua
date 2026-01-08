@@ -27,6 +27,7 @@ local options = {
         "css",
         "jsonc",
         "ini",
+        "swift",
     },
 
     textobjects = {
