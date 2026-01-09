@@ -112,6 +112,7 @@ vim.lsp.config("pyright", {
                     reportUnusedImport = "none",
                 },
                 typeCheckingMode = "off",
+                diagnosticMode = "workspace",
             },
             pythonPath = utils.venv_python_path(),
         },

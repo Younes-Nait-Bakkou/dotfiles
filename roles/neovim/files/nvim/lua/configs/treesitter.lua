@@ -28,6 +28,7 @@ local options = {
         "jsonc",
         "ini",
         "swift",
+        -- "jsp",
     },
 
     textobjects = {
@@ -97,6 +98,8 @@ local options = {
 }
 
 local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+
+-- Add blade parser
 parser_config.blade = {
     install_info = {
         url = "https://github.com/EmranMR/tree-sitter-blade",
@@ -105,6 +108,18 @@ parser_config.blade = {
     },
     filetype = "blade",
 }
+
+-- Add jsp parser
+parser_config.jsp = {
+    install_info = {
+        url = "https://github.com/merico-dev/tree-sitter-jsp",
+        files = { "src/parser.c", "src/scanner.c" },
+        generate_requires_npm = true,
+        requires_generate_from_grammar = true,
+    },
+    filetype = "jsp",
+}
+
 require("nvim-treesitter.configs").setup(options)
 
 -- Enable Treesitter folding
