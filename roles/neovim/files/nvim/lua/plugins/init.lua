@@ -1,5 +1,6 @@
 -- require("configs.filetype-configs.htmldjango")
 require("myplugins.floating-terminal")
+require("myplugins.ai-commit")
 
 local plugins = {}
 
