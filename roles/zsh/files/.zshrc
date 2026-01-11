@@ -62,6 +62,21 @@ export PATH="$PATH:$HOME/.local/bin"
 # Set preferred terminal
 export TERMINAL="kitty"
 
+# Enable VI mode in terminal
+set -o vi
+
+# Aliases
+alias django="python manage.py"
+alias venvshell="source .venv/bin/activate"
+alias nvimc="nvim $HOME/.config/nvim"
+
+# pnpm
+export PNPM_HOME="/home/flamer/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
@@ -93,10 +108,7 @@ export TERMINAL="kitty"
 # #     echo "Java is not installed or not found in PATH."
 # fi
 
-# eval $(ssh-agent -s)
-# ssh-add ~/.ssh/id_ed25519
 
-# alias django="python manage.py"
 # export PATH=$PATH:/opt/android-studio/bin
 #
 # export ANDROID_HOME=$HOME/Android/Sdk
@@ -111,12 +123,7 @@ export TERMINAL="kitty"
 
 # [ -s ~/.luaver/luaver ] && . ~/.luaver/luaver
 
-
-
 # eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
-# Enable VI mode in terminal
-# set -o vi
 
 # Add scripts to path
 # export PATH="$HOME/.local/bin:$PATH"
