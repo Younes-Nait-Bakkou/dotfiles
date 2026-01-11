@@ -36,25 +36,66 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light MichaelAquilina/zsh-you-should-use
+zinit light Aloxaf/fzf-tab
+zinit ice lucid wait'0'; zinit light joshskidmore/zsh-fzf-history-search
+
+# Add in snippets
+# Needed for loading next git.zsh without [_defer_async_git_register:4: command not found: _omz_register_handler errors]
+# Core libraries needed for the Git plugin
+zinit snippet OMZL::async_prompt.zsh  # Helpers for making prompts fast/async
+zinit snippet OMZL::git.zsh           # The internal git library functions (required for the plugin below)
+
+# The Plugins
+zinit snippet OMZP::git               # Adds git aliases (gco, gst, gl) and prompt info
+zinit snippet OMZP::sudo              # Press 'Esc' twice to put 'sudo' before the command you just typed
+zinit snippet OMZP::ssh               # Manages ssh-agent automatically
+zinit snippet OMZP::aliases           # General useful aliases (ll, la, etc.)
+zinit snippet OMZP::globalias         # Expands aliases when you press space (e.g., typing 'gco <SPACE>' turns into 'git checkout')
+zinit snippet OMZP::archlinux         # Arch Linux specific aliases (pacman, yay helpers)
+zinit snippet OMZP::aws               # AWS CLI completion and helpers
+zinit snippet OMZP::kubectl           # Kubernetes CLI aliases and completion
+zinit snippet OMZP::kubectx           # Shortcuts to switch k8s contexts/namespaces
+zinit snippet OMZP::command-not-found # If you type a command that doesn't exist, it suggests which package to install
+
+# Load completions
+autoload -U +X bashcompinit && bashcompinit
+autoload -Uz compinit && compinit
+
+# Let zinit replay its captured completions
+zinit cdreplay -q
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# History
+HISTSIZE=10000          # How many lines of history to keep in memory
+HISTFILE=~/.zsh_history # Where to save the history on disk
+SAVEHIST=$HISTSIZE      # How many lines to keep in the file on disk
+HISTDUP=erase           # If you type a duplicate command, erase the old one from history
+
+setopt appendhistory         # Append new commands to the file (don't overwrite the file every time)
+setopt sharehistory          # SHARE history between different open terminals instantly
+setopt hist_ignore_space     # If you start a command with a space, don't save it to history (good for secrets)
+setopt hist_ignore_all_dups  # Remove older duplicates if a new one is added
+setopt hist_save_no_dups     # Don't save duplicates to the file
+setopt hist_ignore_dups      # Don't record an entry that was just recorded again
+setopt hist_find_no_dups     # Don't show duplicates when searching (Ctrl+R)
+
+# Completion styling
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Set preferred editor
 export EDITOR="nvim"
 
-# Source fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Export dotfiles
 export DOTFILES_DIR="$HOME/.dotfiles"
 
 # Add dotfiles bin to path
 export PATH="$DOTFILES_DIR/bin:$PATH"
-
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Add local bin to path
 export PATH="$PATH:$HOME/.local/bin"
@@ -72,6 +113,16 @@ alias nvimc="nvim $HOME/.config/nvim"
 alias vim="nvim"
 alias vi="nvim"
 
+# Shell integrations
+if [[ -f ~/.fzf.zsh ]]; then
+  source ~/.fzf.zsh
+  eval "$(fzf --zsh)"
+fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 # pnpm
 export PNPM_HOME="/home/flamer/.local/share/pnpm"
 case ":$PATH:" in
@@ -79,6 +130,10 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# zi is defined by zinit as alias zi='zinit'. Unalias it to use with zoxide
+unalias zi
+eval "$(zoxide init zsh)"
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
