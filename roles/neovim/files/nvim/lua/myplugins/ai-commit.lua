@@ -98,9 +98,7 @@ vim.api.nvim_create_autocmd("FileType", {
             buffer = true,
             desc = "Generate AI Commit Message",
         })
-        print("AI Commit: Press 'gc' to generate message")
     end,
 })
 
 return M
-
