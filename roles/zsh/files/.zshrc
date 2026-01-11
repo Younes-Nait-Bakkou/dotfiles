@@ -69,6 +69,8 @@ set -o vi
 alias django="python manage.py"
 alias venvshell="source .venv/bin/activate"
 alias nvimc="nvim $HOME/.config/nvim"
+alias vim="nvim"
+alias vi="nvim"
 
 # pnpm
 export PNPM_HOME="/home/flamer/.local/share/pnpm"
