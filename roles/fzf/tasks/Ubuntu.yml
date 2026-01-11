@@ -6,6 +6,11 @@
     state: absent
   become: true
 
+- name: FZF | Check if fzf binary exists
+  ansible.builtin.stat:
+    path: '{{ remote.HOME }}/.fzf/bin/fzf'
+  register: fzf_binary
+
 - name: FZF | Clone specific version
   ansible.builtin.git:
     repo: https://github.com/junegunn/fzf.git
@@ -13,4 +18,12 @@
     version: v0.67.0
     depth: 1
     update: true
-  notify: install fzf
+  register: fzf_git_clone
+
+- name: FZF | Install FZF binary
+  ansible.builtin.command: '{{ remote.HOME }}/.fzf/install --all --no-update-rc
+    --no-fish'
+  args:
+    chdir: '{{ remote.HOME }}/.fzf'
+  when: fzf_git_clone.changed or not fzf_binary.stat.exists
+  changed_when: true
