@@ -13,7 +13,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-if [[ -f "/opt/homebrew/bin/brew" ]] then
+if [[ -f "/opt/homebrew/bin/brew" ]]; then
   # If you're using macOS, you'll want this enabled
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
@@ -101,7 +101,7 @@ export PATH="$DOTFILES_DIR/bin:$PATH"
 export PATH="$PATH:$HOME/.local/bin"
 
 # Add scripts to path
-export PATH="$HOME/.scripts:$PATH"
+export PATH="$PATH:$HOME/.scripts"
 
 # Set preferred terminal
 export TERMINAL="kitty"
