@@ -132,7 +132,10 @@ esac
 # pnpm end
 
 # zi is defined by zinit as alias zi='zinit'. Unalias it to use with zoxide
-unalias zi
+if alias zi &>/dev/null; then
+  unalias zi
+fi
+
 eval "$(zoxide init zsh)"
 
 # If you come from bash you might have to change your $PATH.
@@ -187,9 +190,9 @@ eval "$(zoxide init zsh)"
 # export PATH="$HOME/.scripts:$PATH"
 
 # WSL-only X server config
-# if grep -qEi "(Microsoft|WSL)" /proc/version &>/dev/null; then
-#   export DISPLAY="$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0"
-#   export LIBGL_ALWAYS_INDIRECT=0
-#   export XAUTHORITY="$HOME/.Xauthority"
-# fi
+if grep -qEi "(Microsoft|WSL)" /proc/version &>/dev/null; then
+  export DISPLAY="$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0"
+  export LIBGL_ALWAYS_INDIRECT=0
+  export XAUTHORITY="$HOME/.Xauthority"
+fi
 
