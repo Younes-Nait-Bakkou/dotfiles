@@ -100,6 +100,9 @@ export PATH="$DOTFILES_DIR/bin:$PATH"
 # Add local bin to path
 export PATH="$PATH:$HOME/.local/bin"
 
+# Add scripts to path
+export PATH="$HOME/.scripts:$PATH"
+
 # Set preferred terminal
 export TERMINAL="kitty"
 
@@ -187,7 +190,6 @@ eval "$(zoxide init zsh)"
 
 # Add scripts to path
 # export PATH="$HOME/.local/bin:$PATH"
-# export PATH="$HOME/.scripts:$PATH"
 
 # WSL-only X server config
 if grep -qEi "(Microsoft|WSL)" /proc/version &>/dev/null; then
