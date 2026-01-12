@@ -37,6 +37,7 @@ vim.schedule(function()
 end)
 
 require("commands.global.remove_quick_fix_entry").setup()
+require("commands.global.toggle_supermaven").setup()
 
 -- vim.diagnostic.config({
 --     virtual_text = {
