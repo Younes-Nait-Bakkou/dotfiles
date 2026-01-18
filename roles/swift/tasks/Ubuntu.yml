@@ -41,7 +41,7 @@
 
 - name: Get list of installed Swift versions
   shell: |
-    source "{{ remote.HOME }}/.local/share/swiftly/env.sh"
+    . "{{ remote.HOME }}/.local/share/swiftly/env.sh"
     swiftly list
   register: swiftly_installed_list
   changed_when: false
