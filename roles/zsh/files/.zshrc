@@ -50,7 +50,7 @@ zinit snippet OMZP::git               # Adds git aliases (gco, gst, gl) and prom
 zinit snippet OMZP::sudo              # Press 'Esc' twice to put 'sudo' before the command you just typed
 zinit snippet OMZP::ssh               # Manages ssh-agent automatically
 zinit snippet OMZP::aliases           # General useful aliases (ll, la, etc.)
-zinit snippet OMZP::globalias         # Expands aliases when you press space (e.g., typing 'gco <SPACE>' turns into 'git checkout')
+# zinit snippet OMZP::globalias         # Expands aliases when you press space (e.g., typing 'gco <SPACE>' turns into 'git checkout')
 zinit snippet OMZP::archlinux         # Arch Linux specific aliases (pacman, yay helpers)
 zinit snippet OMZP::aws               # AWS CLI completion and helpers
 zinit snippet OMZP::kubectl           # Kubernetes CLI aliases and completion
@@ -197,4 +197,10 @@ if grep -qEi "(Microsoft|WSL)" /proc/version &>/dev/null; then
   export LIBGL_ALWAYS_INDIRECT=0
   export XAUTHORITY="$HOME/.Xauthority"
 fi
+
+
+# AsyncAPI CLI Autocomplete
+
+ASYNCAPI_AC_ZSH_SETUP_PATH=/home/flamer/.cache/@asyncapi/cli/autocomplete/zsh_setup && test -f $ASYNCAPI_AC_ZSH_SETUP_PATH && source $ASYNCAPI_AC_ZSH_SETUP_PATH; # asyncapi autocomplete setup
+
 
