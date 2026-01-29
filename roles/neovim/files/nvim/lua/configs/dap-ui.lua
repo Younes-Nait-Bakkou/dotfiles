@@ -44,26 +44,38 @@ dapui.setup({
         {
             elements = {
                 {
-                    id = "watches", -- Expressions are handled here
-                    size = 1, -- Take up all the space on the left
+                    id = "scopes",
+                    size = 0.4,
+                },
+                {
+                    id = "breakpoints",
+                    size = 0.2,
+                },
+                {
+                    id = "stacks",
+                    size = 0.2,
+                },
+                {
+                    id = "watches",
+                    size = 0.2,
                 },
             },
             position = "left",
-            size = 25, -- Width of the left panel
+            size = 35,
         },
         {
             elements = {
                 {
                     id = "repl",
-                    size = 0.4, -- Majority space for REPL
+                    size = 0.4,
                 },
                 {
                     id = "console",
-                    size = 0.6, -- Console gets smaller space
+                    size = 0.6,
                 },
             },
             position = "bottom",
-            size = 10, -- Height of the bottom panel
+            size = 10,
         },
     },
 })

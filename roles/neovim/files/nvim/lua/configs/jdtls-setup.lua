@@ -293,7 +293,7 @@ local function get_jdtls_config()
     local bundles = get_bundles()
 
     -- -- Determine the root directory of the project by looking for these specific markers
-    local root_dir = jdtls.setup.find_root({ ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" })
+    local root_dir = jdtls.setup.find_root({ "mvnw", "gradlew", "pom.xml", "build.gradle" })
     print("Launcher", launcher)
     print("os_config", os_config)
     print("lombok", lombok)

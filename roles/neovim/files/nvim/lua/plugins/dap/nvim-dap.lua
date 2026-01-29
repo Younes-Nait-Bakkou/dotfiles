@@ -10,4 +10,3 @@ return {
         "williamboman/mason.nvim",
     },
 }
-
