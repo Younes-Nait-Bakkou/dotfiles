@@ -41,8 +41,10 @@
 
 - name: Get list of installed Swift versions
   shell: |
-    source "{{ remote.HOME }}/.local/share/swiftly/env.sh"
+    . "{{ remote.HOME }}/.local/share/swiftly/env.sh"
     swiftly list
+  args:
+    executable: /bin/bash
   register: swiftly_installed_list
   changed_when: false
 
@@ -50,6 +52,8 @@
   shell: |
     . "{{ remote.HOME }}/.local/share/swiftly/env.sh"
     swiftly install {{ swift_version }}
+  args:
+    executable: /bin/bash
   when: swift_version not in swiftly_installed_list.stdout
   changed_when: "'successfully' in swift_install_result.stdout"
   register: swift_install_result
@@ -61,6 +65,8 @@
   shell: |
     . "{{ remote.HOME }}/.local/share/swiftly/env.sh"
     dirname $(readlink -f $(which swift))
+  args:
+    executable: /bin/bash
   register: swift_bin_path
   changed_when: false
 
