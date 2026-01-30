@@ -10,6 +10,7 @@ local options = {
         javascriptreact = { "prettier" },
         typescriptreact = { "prettier" },
         json = { "prettier" },
+        jsonc = { "prettier" },
         blade = { "prettier" },
         sh = { "shfmt" },
         yaml = {
