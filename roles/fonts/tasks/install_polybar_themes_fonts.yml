@@ -1,0 +1,20 @@
+- name: Polybar Fonts | Clone adi1090x/polybar-themes repository
+  ansible.builtin.git:
+    repo: https://github.com/adi1090x/polybar-themes.git
+    dest: /tmp/polybar-themes
+    version: master
+    depth: 1
+  register: polybar_themes_repo
+
+- name: Polybar Fonts | Copy fonts
+  ansible.builtin.copy:
+    src: /tmp/polybar-themes/fonts/
+    dest: '{{ remote.HOME }}/.local/share/fonts'
+    remote_src: true
+  when: polybar_themes_repo.changed
+
+- name: Polybar Fonts | Clean up repository
+  ansible.builtin.file:
+    path: /tmp/polybar-themes
+    state: absent
+  when: polybar_themes_repo.changed

@@ -22,6 +22,9 @@
   loop_control:
     loop_var: nerd_font
 
+- name: Install Polybar Themes Fonts
+  ansible.builtin.include_tasks: install_polybar_themes_fonts.yml
+
 - name: Refresh font cache
   ansible.builtin.command: fc-cache -fv
   changed_when: false

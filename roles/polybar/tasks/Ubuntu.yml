@@ -1,5 +1,4 @@
 ---
-
 - name: Polybar | Install
   become: true
   ansible.builtin.package:
@@ -7,9 +6,40 @@
     state: present
     update_cache: true
 
-- name: Polybar | Deploy config
+- name: Polybar | Check for existing config
+  ansible.builtin.stat:
+    path: '{{ remote.HOME }}/.config/polybar'
+  register: polybar_config_stat
+
+- name: Polybar | Remove existing config symlink if it exists
   ansible.builtin.file:
-    src: '{{ role_path }}/files/polybar'
+    path: '{{ remote.HOME }}/.config/polybar'
+    state: absent
+  when: polybar_config_stat.stat.islnk is defined and polybar_config_stat.stat.islnk
+
+- name: Polybar | Ensure config directory exists
+  ansible.builtin.file:
+    path: '{{ remote.HOME }}/.config/polybar'
+    state: directory
+    mode: '0755'
+
+- name: Polybar | Copy static config files
+  ansible.builtin.copy:
+    src: '{{ role_path }}/files/polybar/'
     dest: '{{ remote.HOME }}/.config/polybar'
-    state: link
-    force: true
+    remote_src: true
+
+- name: Polybar | Find template files
+  ansible.builtin.find:
+    paths: '{{ role_path }}/templates'
+    patterns: '*.j2'
+    recurse: true
+  register: polybar_templates
+
+- name: Polybar | Deploy templated config files
+  ansible.builtin.template:
+    src: '{{ item.path }}'
+    dest: '{{ remote.HOME }}/.config/polybar/{{ item.path | relpath(role_path + "/templates") | regex_replace("\\.j2$", "") }}'
+  loop: '{{ polybar_templates.files }}'
+  loop_control:
+    label: '{{ item.path | relpath(role_path + "/templates") }}'
