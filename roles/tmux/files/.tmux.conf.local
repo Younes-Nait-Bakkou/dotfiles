@@ -456,6 +456,7 @@ set -g @resurrect-save 'off'
 set -g @resurrect-restore 'off'
 
 set -g @plugin 'sainnhe/tmux-fzf'
+# set -g @plugin 'christoomey/vim-tmux-navigator'
 
 # Doesn't work atm, fix cannot open vim when calling tome or prefix + e
 # set -g @plugin 'laktak/tome'
