@@ -17,7 +17,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/Younes-Nait-Bakkou/dotfi
 - openvpn
 - android studio
 - intellij
-
+- uv (python package manager)
 
 Credits
 -------
