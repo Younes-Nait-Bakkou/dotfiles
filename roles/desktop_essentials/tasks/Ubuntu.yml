@@ -12,6 +12,6 @@
       - maim
       - xdotool
       - i3blocks
-      - network-manager-applet
+      - network-manager-gnome
     state: present
     update_cache: true
