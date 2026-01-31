@@ -1,0 +1,27 @@
+---
+
+- name: Ensure Local Bin Directory Exists
+  ansible.builtin.file:
+    path: '{{ remote.HOME }}/.local/bin'
+    state: directory
+    owner: '{{ remote.USER }}'
+    group: '{{ remote.USER }}'
+    mode: '0755'
+
+- name: Find User Scripts
+  ansible.builtin.find:
+    paths: '{{ files_path }}/scripts'
+    hidden: false
+    recurse: false
+    file_type: file
+  register: script_files
+
+- name: Symlink User Scripts
+  ansible.builtin.file:
+    src: '{{ item.path }}'
+    dest: '{{ remote.HOME }}/.local/bin/{{ item.path | basename }}'
+    state: link
+    force: true
+  loop: '{{ script_files.files }}'
+  loop_control:
+    label: '{{ item.path | basename }}'
