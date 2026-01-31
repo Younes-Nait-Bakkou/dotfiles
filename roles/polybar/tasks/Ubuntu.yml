@@ -7,37 +7,37 @@
     update_cache: true
 
 - name: Polybar | Get backlight card
-  ansible.builtin.shell: ls -1 /sys/class/backlight/ | head -n 1
+  ansible.builtin.shell: "ls -1 /sys/class/backlight/ | head -n 1"
   register: polybar_backlight_card
   changed_when: false
 
 - name: Polybar | Get battery
-  ansible.builtin.shell: ls -1 /sys/class/power_supply/ | grep 'BAT' | head -n 1
+  ansible.builtin.shell: "ls -1 /sys/class/power_supply/ | grep 'BAT' | head -n 1"
   register: polybar_battery
   changed_when: false
 
 - name: Polybar | Get adapter
-  ansible.builtin.shell: ls -1 /sys/class/power_supply/ | grep 'AC' | head -n 1
+  ansible.builtin.shell: "ls -1 /sys/class/power_supply/ | grep 'AC' | head -n 1"
   register: polybar_adapter
   changed_when: false
 
 - name: Polybar | Get wired network interface
-  ansible.builtin.shell: nmcli -t -f DEVICE,TYPE dev | grep 'ethernet' | cut -d: -f1 | head -n 1
+  ansible.builtin.shell: "nmcli -t -f DEVICE,TYPE dev | grep 'ethernet' | cut -d: -f1 | head -n 1"
   register: polybar_wired_interface
   changed_when: false
 
 - name: Polybar | Get wireless network interface
-  ansible.builtin.shell: nmcli -t -f DEVICE,TYPE dev | grep 'wifi' | cut -d: -f1 | head -n 1
+  ansible.builtin.shell: "nmcli -t -f DEVICE,TYPE dev | grep 'wifi' | cut -d: -f1 | head -n 1"
   register: polybar_wireless_interface
   changed_when: false
 
 - name: Polybar | Get pulseaudio sink
-  ansible.builtin.shell: pacmd list-sinks | grep 'name:' | sed 's/.*<//;s/>.*//' | head -n 1
+  ansible.builtin.shell: "pacmd list-sinks | grep 'name:' | sed 's/.*<//;s/>.*//' | head -n 1"
   register: polybar_pulseaudio_sink
   changed_when: false
 
 - name: Polybar | Get temperature sensor path
-  ansible.builtin.shell: "for i in /sys/class/hwmon/hwmon*/temp*_input; do echo \"$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)\"; done | grep 'coretemp' | awk '{print $NF}' | head -n 1"
+  ansible.builtin.shell: "for i in /sys/class/hwmon/hwmon*/temp*_input; do echo \\\"$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)\\\"; done | grep 'coretemp' | awk '{print $NF}' | head -n 1"
   register: polybar_temp_sensor_path
   changed_when: false
 
