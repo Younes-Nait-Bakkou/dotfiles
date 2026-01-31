@@ -16,6 +16,8 @@ standalone_roles:
   - scripts
   - browser
   - swift
+  - zoxide
+  - scripts
 
 wayland_roles:
   - chaotic_aur
@@ -37,4 +39,5 @@ xorg_roles:
 dependent_roles:
   - zsh
   - neovim
-default_roles: '{{ standalone_roles + wayland_roles + dependent_roles }}'
+  - browser
+default_roles: '{{ standalone_roles + wayland_roles + dependent_roles + xorg_roles }}'
