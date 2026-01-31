@@ -1,0 +1,7 @@
+---
+intellij_role_path: '{{ remote.dir.dotfiles }}/roles/intellij'
+# Placeholder URL for the latest IntelliJ IDEA Community Edition.
+# User should update this to the desired version.
+intellij_download_url: "https://download.jetbrains.com/idea/ideaIC-2023.3.4.tar.gz"
+intellij_version: "ideaIC-2023.3.4" # e.g., 'ideaIC-2023.3.4' (name of the extracted folder)
+intellij_install_dir: /opt/idea-IC-{{ intellij_version | regex_replace('ideaIC-', '') }}

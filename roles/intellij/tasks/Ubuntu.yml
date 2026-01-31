@@ -1,0 +1,42 @@
+---
+- name: IntelliJ | Install dependencies
+  become: true
+  ansible.builtin.apt:
+    name:
+      - openjdk-17-jdk # Ensure Java is available
+    state: present
+    update_cache: true
+
+- name: IntelliJ | Download tarball
+  ansible.builtin.get_url:
+    url: '{{ intellij_download_url }}'
+    dest: "/tmp/{{ intellij_download_url | basename }}"
+    mode: '0644'
+    checksum: "sha256:{{ intellij_checksum | default('') }}" # Placeholder for checksum
+
+- name: IntelliJ | Ensure installation directory exists
+  become: true
+  ansible.builtin.file:
+    path: /opt
+    state: directory
+    mode: '0755'
+
+- name: IntelliJ | Extract tarball
+  become: true
+  ansible.builtin.unarchive:
+    src: "/tmp/{{ intellij_download_url | basename }}"
+    dest: /opt
+    remote_src: true
+    creates: '{{ intellij_install_dir }}/bin/idea.sh' # Idempotency check
+
+- name: IntelliJ | Create symlink to IntelliJ executable
+  ansible.builtin.file:
+    src: '{{ intellij_install_dir }}/bin/idea.sh'
+    dest: '{{ remote.HOME }}/.local/bin/intellij'
+    state: link
+    force: true
+
+- name: IntelliJ | Clean up downloaded tarball
+  ansible.builtin.file:
+    path: "/tmp/{{ intellij_download_url | basename }}"
+    state: absent
