@@ -13,7 +13,7 @@
     url: '{{ netbeans_download_url }}'
     dest: "/tmp/{{ netbeans_download_url | basename }}"
     mode: '0644'
-    checksum: "sha256:{{ netbeans_checksum | default('') }}" # Placeholder for checksum
+
 
 - name: NetBeans | Ensure installation directory exists
   become: true
