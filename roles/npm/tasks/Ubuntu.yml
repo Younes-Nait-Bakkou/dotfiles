@@ -1,11 +1,21 @@
 ---
 
+- name: NPM | Ensure Node version is installed (nvm)
+  ansible.builtin.shell: |
+    source "{{ remote.HOME }}/.nvm/nvm.sh"
+    nvm install {{ node_version }}
+  args:
+    executable: /bin/bash
+  register: nvm_install_check
+  changed_when: "'is already installed' not in nvm_install_check.stdout"
+
+
 - name: NPM | List installed global packages (nvm)
   ansible.builtin.shell: |
-    set -e -o pipefail
     source "{{ remote.HOME }}/.nvm/nvm.sh"
     nvm use {{ node_version }} > /dev/null 2>&1
-    npm list -g --depth=0 --json --silent
+    
+    npm list -g --depth=0 --json --silent || true
   args:
     executable: /bin/bash
   register: installed_global_packages
@@ -15,7 +25,7 @@
   ansible.builtin.shell: |
     set -e -o pipefail
     source "{{ remote.HOME }}/.nvm/nvm.sh"
-    nvm use {{ node_version }}
+    nvm use {{ node_version }} > /dev/null 2>&1
 
     installed_version=$(echo '{{ installed_global_packages.stdout }}' \
       | jq -r '.dependencies["{{ item.name }}"].version // empty')
