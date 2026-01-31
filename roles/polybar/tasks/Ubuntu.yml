@@ -93,6 +93,8 @@
     path: '{{ remote.HOME }}/.config/polybar'
     state: directory
     mode: '0755'
+    owner: '{{ remote.USER }}'
+    group: '{{ remote.USER }}'
 
 - name: Polybar | Copy static config files
   ansible.builtin.copy:
