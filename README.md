@@ -18,6 +18,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/Younes-Nait-Bakkou/dotfi
 - android studio
 - intellij
 - uv (python package manager)
+- VM (KVM, QEMU, GUI manager)
 
 Credits
 -------
