@@ -40,4 +40,17 @@ dependent_roles:
   - zsh
   - neovim
   - browser
+
+future_roles:
+  # - vm
+  # - github_cli
+  # - heroku_cli
+  # - uv
+  # - openvpn
+  # - android_studio
+  # - intellij
+  # - netbeans
+  # - glassfish
+
 default_roles: '{{ standalone_roles + wayland_roles + dependent_roles + xorg_roles }}'
+# default_roles: '{{ standalone_roles + wayland_roles + dependent_roles + xorg_roles + future_roles }}'
