@@ -14,6 +14,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/Younes-Nait-Bakkou/dotfi
 - glassfish
 - heroku cli
 - github cli
+- openvpn
 
 
 Credits
