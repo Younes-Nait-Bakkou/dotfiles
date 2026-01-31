@@ -1,18 +1,9 @@
 ---
-- name: Gemini CLI | Check if npm is installed
-  ansible.builtin.command: which npm
-  register: npm_check
-  changed_when: false
-  failed_when: npm_check.rc not in [0, 1]
-
-- name: Gemini CLI | Fail if npm is not installed
-  ansible.builtin.fail:
-    msg: "npm is not installed. Please ensure the 'npm' role is run before this role."
-  when: npm_check.rc != 0
-
 - name: Gemini CLI | Install @google/gemini-cli
-  become: true
-  ansible.builtin.npm:
-    name: '@google/gemini-cli'
-    global: true
-    state: present
+  ansible.builtin.shell: |
+    source "{{ remote.HOME }}/.nvm/nvm.sh"
+    npm install -g @google/gemini-cli
+  args:
+    executable: /bin/bash
+    creates: "{{ remote.HOME }}/.nvm/versions/node/v{{ node_version }}/bin/gemini"
+  changed_when: true
