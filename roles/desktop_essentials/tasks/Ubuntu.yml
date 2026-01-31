@@ -1,0 +1,17 @@
+---
+- name: Desktop Essentials | Install packages
+  become: true
+  ansible.builtin.package:
+    name:
+      - pulseaudio
+      - pulseaudio-utils
+      - light
+      - dex
+      - xss-lock
+      - i3lock
+      - maim
+      - xdotool
+      - i3blocks
+      - network-manager-applet
+    state: present
+    update_cache: true

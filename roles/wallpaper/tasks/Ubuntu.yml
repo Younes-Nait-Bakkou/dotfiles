@@ -1,0 +1,16 @@
+---
+- name: Wallpaper | Ensure Wallpaper Directory Exists
+  ansible.builtin.file:
+    path: '{{ wallpaper_dir }}'
+    state: directory
+    owner: '{{ remote.USER }}'
+    group: '{{ remote.USER }}'
+    mode: '0755'
+
+- name: Wallpaper | Download Nordic Wallpaper
+  ansible.builtin.get_url:
+    url: '{{ wallpaper_url }}'
+    dest: '{{ wallpaper_dir }}/default.png'
+    owner: '{{ remote.USER }}'
+    group: '{{ remote.USER }}'
+    mode: '0644'
