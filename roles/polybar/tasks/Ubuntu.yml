@@ -101,9 +101,10 @@
     src: '{{ role_path }}/files/polybar/'
     dest: '{{ remote.HOME }}/.config/polybar'
     remote_src: true
-    mode: '0644'
+    mode: preserve
     owner: '{{ remote.USER }}'
     group: '{{ remote.USER }}'
+    directory_mode: '0755'
 
 - name: Polybar | Find template files
   ansible.builtin.find:
