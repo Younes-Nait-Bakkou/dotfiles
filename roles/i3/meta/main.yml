@@ -1,0 +1,10 @@
+---
+dependencies:
+  - role: desktop_essentials
+  - role: kitty
+  - role: rofi
+  - role: picom
+  - role: polybar
+  - role: scripts
+  - role: wallpaper
+  - role: browser
