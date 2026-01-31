@@ -1,0 +1,7 @@
+---
+glassfish_role_path: '{{ remote.dir.dotfiles }}/roles/glassfish'
+# Placeholder URL for the latest GlassFish release.
+# User should update this to the desired version.
+glassfish_download_url: "https://download.eclipse.org/glassfish/7.0.14/release/glassfish-7.0.14.zip"
+glassfish_version: "7.0.14" # e.g., '7.0.14'
+glassfish_install_dir: "/opt/glassfish-{{ glassfish_version }}"

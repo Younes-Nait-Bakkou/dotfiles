@@ -1,0 +1,47 @@
+---
+- name: GlassFish | Install dependencies
+  become: true
+  ansible.builtin.apt:
+    name:
+      - openjdk-17-jdk # Or other suitable OpenJDK version
+      - unzip
+    state: present
+    update_cache: true
+
+- name: GlassFish | Download zip archive
+  ansible.builtin.get_url:
+    url: '{{ glassfish_download_url }}'
+    dest: "/tmp/{{ glassfish_download_url | basename }}"
+    mode: '0644'
+    checksum: "sha256:{{ glassfish_checksum | default('') }}" # Placeholder for checksum
+
+- name: GlassFish | Ensure installation directory exists
+  become: true
+  ansible.builtin.file:
+    path: /opt
+    state: directory
+    mode: '0755'
+
+- name: GlassFish | Extract archive
+  become: true
+  ansible.builtin.unarchive:
+    src: "/tmp/{{ glassfish_download_url | basename }}"
+    dest: /opt
+    remote_src: true
+    creates: '{{ glassfish_install_dir }}/glassfish/bin/asadmin' # Idempotency check
+
+- name: GlassFish | Configure environment variables
+  ansible.builtin.blockinfile:
+    path: '{{ remote.HOME }}/.profile'
+    block: |
+      # GlassFish Environment Variables
+      export GLASSFISH_HOME={{ glassfish_install_dir }}/glassfish
+      export PATH=$PATH:$GLASSFISH_HOME/bin
+    create: true
+    mode: '0644'
+    marker: "# {mark} ANSIBLE MANAGED BLOCK GlassFish"
+
+- name: GlassFish | Clean up downloaded archive
+  ansible.builtin.file:
+    path: "/tmp/{{ glassfish_download_url | basename }}"
+    state: absent
