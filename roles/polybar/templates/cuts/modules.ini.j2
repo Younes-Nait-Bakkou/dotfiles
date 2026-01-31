@@ -93,7 +93,7 @@ type = internal/backlight
 
 ; Use the following command to list available cards:
 ; $ ls -1 /sys/class/backlight/
-;card = intel_backlight
+;card = {{ polybar_backlight_card.stdout | trim }}
 card = {{ polybar_backlight_card.stdout | trim }}
 
 ; Available tags:
@@ -755,11 +755,11 @@ toggle-off-foreground = ${color.red}
 ; If you use both a wired and a wireless network, just add 2 module definitions. For example
 [module/wired-network]
 type = internal/network
-interface = {{ polybar_wired_interface.stdout | default('eth0') | trim }}
+interface = {{ polybar_wireless_interface.stdout | default('wlp0s20f3') | trim }}
 
 [module/wireless-network]
 type = internal/network
-interface = {{ polybar_wireless_interface.stdout | default('wlp3s0') | trim }}
+interface = {{ polybar_wireless_interface.stdout | default('wlp0s20f3') | trim }}
 
 ; Normal Module
 [module/network]
@@ -924,7 +924,7 @@ thermal-zone = 0
 ; $ for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done
 ; to find path to desired file
 ; Default reverts to thermal zone setting
-;;hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input
+;;hwmon-path = {{ polybar_temp_sensor_path.stdout | trim }}
 hwmon-path = {{ polybar_temp_sensor_path.stdout | trim }}
 
 ; Threshold temperature to display warning label (in degrees celsius)
