@@ -60,7 +60,7 @@
 - name: Polybar | Get pulseaudio sink
   ansible.builtin.shell: |
     set -o pipefail
-    pacmd list-sinks | grep 'name:' | sed 's/.*<//;s/>.*//' | head -n 1
+    pactl list short sinks | awk '{print $2}' | head -n 1
   register: polybar_pulseaudio_sink
   changed_when: false
   args:
@@ -70,7 +70,9 @@
 - name: Polybar | Get temperature sensor path
   ansible.builtin.shell: |
     set -o pipefail
-    for i in /sys/class/hwmon/hwmon*/temp*_input; do echo \\\"$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)\\\"; done | grep 'coretemp' | awk '{print $NF}' | head -n 1
+    for i in /sys/class/hwmon/hwmon*/temp*_input; do 
+        echo "$(cat $(dirname $i)/name): $(readlink -f $i)"
+    done | grep 'coretemp' | awk '{print $NF}' | head -n 1
   register: polybar_temp_sensor_path
   changed_when: false
   args:
@@ -116,7 +118,7 @@
 - name: Polybar | Deploy templated config files
   ansible.builtin.template:
     src: '{{ item.path }}'
-    dest: '{{ remote.HOME }}/.config/polybar/{{ (item.path | replace(role_path + "/templates/", "") | regex_replace("\\.j2$", "")) }}'
+    dest: '{{ remote.HOME }}/.config/polybar/{{ item.path | relpath(role_path + "/templates") | splitext | first }}'
     mode: '0644'
     owner: '{{ remote.USER }}'
     group: '{{ remote.USER }}'
