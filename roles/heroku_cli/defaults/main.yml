@@ -1,0 +1,4 @@
+---
+heroku_cli_role_path: '{{ remote.dir.dotfiles }}/roles/heroku_cli'
+heroku_cli_keyring: /etc/apt/keyrings/heroku-archive-keyring.gpg
+heroku_cli_repo_file: /etc/apt/sources.list.d/heroku.list

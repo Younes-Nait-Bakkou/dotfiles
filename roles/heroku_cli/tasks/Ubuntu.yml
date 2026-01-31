@@ -1,0 +1,39 @@
+---
+- name: Heroku CLI | Install dependencies
+  become: true
+  ansible.builtin.apt:
+    name:
+      - ca-certificates
+      - curl
+      - gnupg
+    state: present
+    update_cache: true
+
+- name: Heroku CLI | Ensure keyring directory exists
+  become: true
+  ansible.builtin.file:
+    path: /etc/apt/keyrings
+    state: directory
+    mode: '0755'
+
+- name: Heroku CLI | Download official GPG key
+  become: true
+  ansible.builtin.get_url:
+    url: https://cli-assets.heroku.com/apt/release.key
+    dest: /etc/apt/keyrings/heroku-archive-keyring.gpg
+    mode: '0644'
+    force: true
+
+- name: Heroku CLI | Add stable repository
+  become: true
+  ansible.builtin.apt_repository:
+    repo: "deb [arch=amd64 signed-by=/etc/apt/keyrings/heroku-archive-keyring.gpg] https://cli-assets.heroku.com/apt ./"
+    state: present
+    filename: heroku
+    update_cache: true
+
+- name: Heroku CLI | Install heroku package
+  become: true
+  ansible.builtin.apt:
+    name: heroku
+    state: present
