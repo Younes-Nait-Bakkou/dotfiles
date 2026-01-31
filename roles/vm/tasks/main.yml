@@ -1,0 +1,9 @@
+---
+
+- name: 'Run Tasks: {{ remote.distribution }}'
+  ansible.builtin.include_tasks: '{{ item }}'
+  with_first_found:
+    - files:
+        - '{{ remote.distribution }}.yml'
+      skip: true
+  when: not remote.is_wsl

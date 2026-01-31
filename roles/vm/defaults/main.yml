@@ -1,0 +1,2 @@
+---
+vm_role_path: '{{ remote.dir.dotfiles }}/roles/vm'
