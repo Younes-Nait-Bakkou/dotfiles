@@ -1,0 +1,7 @@
+---
+netbeans_role_path: '{{ remote.dir.dotfiles }}/roles/netbeans'
+# Placeholder URL for the latest Apache NetBeans release.
+# User should update this to the desired version.
+netbeans_download_url: "https://dlcdn.apache.org/netbeans/netbeans-installers/19/apache-netbeans-19-bin-linux.zip"
+netbeans_version: "19" # e.g., '19'
+netbeans_install_dir: "/opt/netbeans-{{ netbeans_version }}"

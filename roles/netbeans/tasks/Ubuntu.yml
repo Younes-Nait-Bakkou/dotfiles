@@ -1,0 +1,43 @@
+---
+- name: NetBeans | Install dependencies
+  become: true
+  ansible.builtin.apt:
+    name:
+      - openjdk-17-jdk # Or other suitable OpenJDK version
+      - unzip
+    state: present
+    update_cache: true
+
+- name: NetBeans | Download zip archive
+  ansible.builtin.get_url:
+    url: '{{ netbeans_download_url }}'
+    dest: "/tmp/{{ netbeans_download_url | basename }}"
+    mode: '0644'
+    checksum: "sha256:{{ netbeans_checksum | default('') }}" # Placeholder for checksum
+
+- name: NetBeans | Ensure installation directory exists
+  become: true
+  ansible.builtin.file:
+    path: /opt
+    state: directory
+    mode: '0755'
+
+- name: NetBeans | Extract archive
+  become: true
+  ansible.builtin.unarchive:
+    src: "/tmp/{{ netbeans_download_url | basename }}"
+    dest: /opt
+    remote_src: true
+    creates: '{{ netbeans_install_dir }}/netbeans/bin/netbeans' # Idempotency check
+
+- name: NetBeans | Create symlink to NetBeans executable
+  ansible.builtin.file:
+    src: '{{ netbeans_install_dir }}/netbeans/bin/netbeans'
+    dest: '{{ remote.HOME }}/.local/bin/netbeans'
+    state: link
+    force: true
+
+- name: NetBeans | Clean up downloaded archive
+  ansible.builtin.file:
+    path: "/tmp/{{ netbeans_download_url | basename }}"
+    state: absent
