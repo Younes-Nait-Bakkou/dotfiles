@@ -15,6 +15,7 @@
   changed_when: false
   args:
     executable: /bin/bash
+  failed_when: false
 
 - name: Polybar | Get battery
   ansible.builtin.shell: |
@@ -24,6 +25,7 @@
   changed_when: false
   args:
     executable: /bin/bash
+  failed_when: false
 
 - name: Polybar | Get adapter
   ansible.builtin.shell: |
@@ -33,6 +35,7 @@
   changed_when: false
   args:
     executable: /bin/bash
+  failed_when: false
 
 - name: Polybar | Get wired network interface
   ansible.builtin.shell: |
@@ -42,6 +45,7 @@
   changed_when: false
   args:
     executable: /bin/bash
+  failed_when: false
 
 - name: Polybar | Get wireless network interface
   ansible.builtin.shell: |
@@ -51,6 +55,7 @@
   changed_when: false
   args:
     executable: /bin/bash
+  failed_when: false
 
 - name: Polybar | Get pulseaudio sink
   ansible.builtin.shell: |
@@ -60,6 +65,7 @@
   changed_when: false
   args:
     executable: /bin/bash
+  failed_when: false
 
 - name: Polybar | Get temperature sensor path
   ansible.builtin.shell: |
@@ -69,6 +75,7 @@
   changed_when: false
   args:
     executable: /bin/bash
+  failed_when: false
 
 - name: Polybar | Check for existing config
   ansible.builtin.stat:
