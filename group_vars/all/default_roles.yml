@@ -6,8 +6,8 @@ standalone_roles:
   - lua
   - fzf
   - nvm
-  - node
   - npm
+  - node
   - ssh
   - tmux
   - docker
@@ -52,6 +52,5 @@ future_roles:
   # - netbeans
   # - glassfish
   # - gemini_cli
-
 default_roles: '{{ standalone_roles + wayland_roles + dependent_roles + xorg_roles }}'
 # default_roles: '{{ standalone_roles + wayland_roles + dependent_roles + xorg_roles + future_roles }}'

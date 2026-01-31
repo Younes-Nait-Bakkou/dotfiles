@@ -1,15 +1,5 @@
 ---
 
-- name: NPM | Ensure Node version is installed (nvm)
-  ansible.builtin.shell: |
-    source "{{ remote.HOME }}/.nvm/nvm.sh"
-    nvm install {{ node_version }}
-  args:
-    executable: /bin/bash
-  register: nvm_install_check
-  changed_when: "'is already installed' not in nvm_install_check.stdout"
-
-
 - name: NPM | List installed global packages (nvm)
   ansible.builtin.shell: |
     source "{{ remote.HOME }}/.nvm/nvm.sh"
