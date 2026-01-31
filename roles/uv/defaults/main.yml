@@ -1,0 +1,3 @@
+---
+uv_role_path: '{{ remote.dir.dotfiles }}/roles/uv'
+uv_install_script_url: https://astral.sh/uv/install.sh
