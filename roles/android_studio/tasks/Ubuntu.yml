@@ -1,0 +1,51 @@
+---
+- name: Android Studio | Install dependencies
+  become: true
+  ansible.builtin.apt:
+    name:
+      - openjdk-17-jdk # Or other suitable OpenJDK version
+      - unzip
+    state: present
+    update_cache: true
+
+- name: Android Studio | Download tarball
+  ansible.builtin.get_url:
+    url: '{{ android_studio_download_url }}'
+    dest: "/tmp/android-studio-{{ android_studio_version }}-linux.tar.gz"
+    mode: '0644'
+    checksum: "sha256:{{ android_studio_checksum | default('') }}" # Placeholder for checksum
+
+- name: Android Studio | Ensure installation directory exists
+  become: true
+  ansible.builtin.file:
+    path: '{{ android_studio_install_dir }}'
+    state: directory
+    mode: '0755'
+
+- name: Android Studio | Extract tarball
+  become: true
+  ansible.builtin.unarchive:
+    src: "/tmp/android-studio-{{ android_studio_version }}-linux.tar.gz"
+    dest: /opt
+    remote_src: true
+    creates: '{{ android_studio_install_dir }}/bin/studio.sh' # Idempotency check
+
+- name: Android Studio | Create symlink to Android Studio executable
+  ansible.builtin.file:
+    src: '{{ android_studio_install_dir }}/bin/studio.sh'
+    dest: '{{ remote.HOME }}/.local/bin/android-studio'
+    state: link
+    force: true
+
+- name: Android Studio | Configure environment variables
+  ansible.builtin.blockinfile:
+    path: '{{ remote.HOME }}/.profile'
+    block: |
+      # Android Studio Environment Variables
+      export ANDROID_HOME=$HOME/Android/Sdk
+      export PATH=$PATH:$ANDROID_HOME/emulator
+      export PATH=$PATH:$ANDROID_HOME/platform-tools
+      export PATH=$PATH:{{ android_studio_install_dir }}/bin
+    create: true
+    mode: '0644'
+    marker: "# {mark} ANSIBLE MANAGED BLOCK Android Studio"
