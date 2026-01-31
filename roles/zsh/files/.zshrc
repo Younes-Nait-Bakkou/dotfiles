@@ -103,6 +103,9 @@ export PATH="$PATH:$HOME/.local/bin"
 # Add scripts to path
 export PATH="$PATH:$HOME/.scripts"
 
+# Add snap executables to path
+export PATH="$PATH:/snap/bin"
+
 # Set preferred terminal
 export TERMINAL="kitty"
 
