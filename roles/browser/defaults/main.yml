@@ -1,4 +1,3 @@
 ---
-files_path: '{{ remote.dir.dotfiles }}/roles/{{ role_name }}/files'
 scripts_files_path: '{{ remote.dir.dotfiles }}/roles/scripts/files'
 setup_browsers_script: '{{ scripts_files_path }}/scripts/create-browsers-data-dir.sh'

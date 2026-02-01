@@ -1,22 +1,21 @@
 ---
 - hosts: "{{ target_hosts | default('local') }}"
   vars:
-    files_path: '{{ remote.dir.dotfiles }}/roles/{{ ansible_role_name }}'
+    files_path: "{{ remote.dir.dotfiles }}/roles/{{ ansible_role_name }}/files"
 
   pre_tasks:
-
     - name: Gather installed packages
-      ansible.builtin.include_tasks: '{{ local.dir.pre_tasks }}/gather_installed_packages.yml'
+      ansible.builtin.include_tasks: "{{ local.dir.pre_tasks }}/gather_installed_packages.yml"
       tags:
         - always
 
     - name: Alias ansible facts
-      ansible.builtin.include_tasks: '{{ local.dir.pre_tasks }}/alias_ansible_facts.yml'
+      ansible.builtin.include_tasks: "{{ local.dir.pre_tasks }}/alias_ansible_facts.yml"
       tags:
         - always
 
     - name: Clone dotfiles
-      ansible.builtin.include_tasks: '{{ local.dir.pre_tasks }}/git_clone_dotfiles.yml'
+      ansible.builtin.include_tasks: "{{ local.dir.pre_tasks }}/git_clone_dotfiles.yml"
       tags:
         - always
 
@@ -31,10 +30,10 @@
       ansible.builtin.include_role:
         apply:
           tags:
-            - '{{ roles_item }}'
-        name: '{{ roles_item }}'
+            - "{{ roles_item }}"
+        name: "{{ roles_item }}"
       loop_control:
         loop_var: roles_item
-      with_items: '{{ run_roles }}'
+      with_items: "{{ run_roles }}"
       tags:
         - always

@@ -1,14 +1,10 @@
 ---
 
-- name: Ensure Local Bin Directory Exists
-  ansible.builtin.file:
-    path: '{{ remote.HOME }}/.local/bin'
-    state: directory
-    owner: '{{ remote.USER }}'
-    group: '{{ remote.USER }}'
-    mode: '0755'
+- name: DEBUG | Verify path
+  ansible.builtin.debug:
+    msg: "Looking for scripts in: {{ files_path }}/scripts"
 
-- name: Find User Scripts
+- name: Find User Scripts (On Remote)
   ansible.builtin.find:
     paths: '{{ files_path }}/scripts'
     hidden: false
@@ -16,12 +12,28 @@
     file_type: file
   register: script_files
 
+- name: Define target script directories
+  ansible.builtin.set_fact:
+    script_destinations:
+      - "{{ remote.HOME }}/.local/bin"
+      - "{{ remote.HOME }}/.scripts"
+
+- name: Ensure target directories exist
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: '0755'
+    owner: '{{ remote.USER }}'
+    group: '{{ remote.USER }}'
+  loop: "{{ script_destinations }}"
+
 - name: Symlink User Scripts
   ansible.builtin.file:
-    src: '{{ item.path }}'
-    dest: '{{ remote.HOME }}/.local/bin/{{ item.path | basename }}'
+    src: '{{ item.0.path }}'
+    dest: '{{ item.1 }}/{{ item.0.path | basename }}'
     state: link
     force: true
-  loop: '{{ script_files.files }}'
+  loop: "{{ script_files.files | product(script_destinations) | list }}"
   loop_control:
-    label: '{{ item.path | basename }}'
+    label: '{{ item.0.path | basename }} -> {{ item.1 }}'
+
