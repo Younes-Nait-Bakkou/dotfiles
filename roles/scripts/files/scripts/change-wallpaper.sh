@@ -3,12 +3,19 @@
 WALLPAPER_DIR="$HOME/.config/wallpapers"
 
 if [ -z "$1" ]; then
-    echo "Usage: $0 <wallpaper-file>"
+    echo "Usage: $0 <wallpaper-file-or-path>"
     exit 1
 fi
 
-WALLPAPER_FILE="$WALLPAPER_DIR/$1"
+# Logic: If the argument is an existing file, use it.
+# Otherwise, look for it in the WALLPAPER_DIR.
+if [ -f "$1" ]; then
+    WALLPAPER_FILE=$(realpath "$1")
+else
+    WALLPAPER_FILE="$WALLPAPER_DIR/$1"
+fi
 
+# Verify the file actually exists before proceeding
 if [ ! -f "$WALLPAPER_FILE" ]; then
     echo "Error: Wallpaper file not found: $WALLPAPER_FILE"
     exit 1
@@ -18,21 +25,21 @@ fi
 pkill xwinwrap
 pkill feh
 
-if [[ "$1" == *.gif ]]; then
-    # Start xwinwrap and mark the window as a desktop background
+# Check extension (case-insensitive)
+if [[ "${WALLPAPER_FILE,,}" == *.gif ]]; then
+    # Start xwinwrap
     xwinwrap -g 1920x1080+0+0 -ni -ov -fs -- mpv -wid WID --loop --no-audio "$WALLPAPER_FILE" &
-    sleep 1 # Wait for the window to spawn
+    sleep 1
 
-    # Use xprop to set the window type to "desktop"
     WINDOW_ID=$(xdotool search --class "mpv" | tail -1)
-    if [ ! -z "$WINDOW_ID" ]; then
+    if [ -n "$WINDOW_ID" ]; then
         xprop -id "$WINDOW_ID" -f _NET_WM_WINDOW_TYPE 32a -set _NET_WM_WINDOW_TYPE _NET_WM_WINDOW_TYPE_DESKTOP
     fi
 else
     feh --bg-fill "$WALLPAPER_FILE"
 fi
 
-# Update i3 config variable (optional)
-sed -i "s|set \$background_wallpaper_image .*|set \$background_wallpaper_image $WALLPAPER_FILE|" ~/.config/i3/config
+# Update i3 config variable
+sed -i "s|set \$background_wallpaper_image .*|set \$background_wallpaper_image \"$WALLPAPER_FILE\"|" ~/.config/i3/config
 
 echo "Wallpaper changed to: $WALLPAPER_FILE"
