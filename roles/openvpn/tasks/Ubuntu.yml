@@ -1,9 +1,11 @@
 ---
+
 - name: OpenVPN | Install OpenVPN packages
   become: true
   ansible.builtin.package:
     name:
       - openvpn
       - network-manager-openvpn-gnome
+      - openvpn-systemd-resolved
     state: present
     update_cache: true
